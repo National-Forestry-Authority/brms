@@ -1,0 +1,4 @@
+views_striping.views_striping_type:
+  label: 'Views Striping Type'
+  plugin_manager_service_id: plugin.manager.views_striping_type
+  plugin_definition_decorator_class: Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator

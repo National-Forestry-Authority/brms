@@ -1,0 +1,4 @@
+services:
+  plugin.manager.views_striping_type:
+    class: Drupal\views_striping\ViewsStripingTypeManager
+    parent: default_plugin_manager

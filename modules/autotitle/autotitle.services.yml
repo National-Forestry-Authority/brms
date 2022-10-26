@@ -1,0 +1,4 @@
+services:
+  autotitle.entity_form_manager:
+    class: Drupal\autotitle\AutotitleEntityFormManager
+    arguments: ['@entity_type.manager']

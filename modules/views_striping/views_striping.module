@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the Views striping module.
+ */
+
+/**
+ * Implements template_preprocess_views_view_table().
+ */
+function views_striping_preprocess_views_view_table(&$variables) {
+  $extenders = $variables['view']->display_handler->getExtenders();
+  if (isset($extenders['views_striping'])) {
+    $extender = $extenders['views_striping'];
+
+    if (!empty($extender->options['striping_type'])) {
+      // Hand over to the extender to add the striping classes to the rendered
+      // rows.
+      $extender->preprocessViewStyle($variables);
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_views_aggregator_results_table().
+ */
+function views_striping_preprocess_views_aggregator_results_table(&$variables) {
+  $extenders = $variables['view']->display_handler->getExtenders();
+  if (isset($extenders['views_striping'])) {
+    $extender = $extenders['views_striping'];
+
+    if (!empty($extender->options['striping_type'])) {
+      // Hand over to the extender to add the striping classes to the rendered
+      // rows.
+      $extender->preprocessViewStyle($variables);
+    }
+  }
+}

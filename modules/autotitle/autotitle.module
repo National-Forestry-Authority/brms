@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * @file
+ * Contains autotitle.module functions.
+ */
+
+use Drupal\Core\Url;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\NodeType;
+
+
+/**
+ * Implements hook_help().
+ */
+function autotitle_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.autotitle':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allows to automatically set node title from the heading tags (H1-H6).') . '</p>';
+      $output .= '<h3>' . t('Configuring autotitle') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Activating') . '</dt>';
+      $output .= '<dd>' . t('You need to activate Autotitle on the <em>Edit</em> page for the content type you want to use it on: <a href=":content-types">/admin/structure/types/manage/</a>[node_type].', [':content-types' => Url::fromRoute('entity.node_type.collection')->toString()]) . '</dd>';
+      $output .= '<dd>' . t('Under the tab "Autotitle" there is an option to enable automatic titles. Remember that after enabling it, the title field will be hidden on your node form, but you can revert it at any time by visiting /admin/structure/types/manage/[node_type]/form-display') . '</dd>';
+      $output .= '<dt>' . t('Source field') . '</dt>';
+      $output .= '<dd>' . t('Choose source field where Autotitle shall look for headings. The default is the body field. Available fields are only of type: string, string_* and text, text_*') . '</dd>';
+      $output .= '<dt>' . t('Fallback title') . '</dt>';
+      $output .= '<dd>' . t('You can set the fallback title for cases in which there was no heading found in the source field. This supports tokens so by setting <em>Untitled article by [node:author]</em> as the fallback title, will add the username of the author to the end of the title. <a href=":tokens" target="_BLANK">See List of tokens</a> as a guide.', [':tokens' => 'https://www.drupal.org/node/390482']) . '</dd>';
+      $output .= '</dl>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function autotitle_form_node_type_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  autotitle_node_type_form($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function autotitle_form_node_type_add_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  autotitle_node_type_form($form, $form_state, $form_id);
+}
+
+/**
+ * Alter node add/edit form.
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function autotitle_node_type_form(&$form, FormStateInterface $form_state, $form_id) {
+  $node_type = $form_state->getFormObject()->getEntity();
+
+  $entityFieldManager = \Drupal::service('entity_field.manager');
+  $fields = $entityFieldManager->getFieldDefinitions('node', $node_type->id());
+
+  $contentFields = [];
+  foreach ($fields as $field) {
+    if ($field instanceof BaseFieldDefinition) {
+      continue;
+    }
+    if (strpos($field->getType(), 'text') === 0 || strpos($field->getType(), 'string') === 0) {
+      $contentFields[$field->getName()] = $field->getLabel();
+    }
+  }
+
+  $form['autotitle'] = [
+    '#type' => 'details',
+    '#title' => t('Autotitle'),
+    '#group' => 'additional_settings',
+    '#open' => TRUE,
+  ];
+
+  $form['autotitle']['autotitle'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable automatic title'),
+    '#description' => t('Allows to set node title automatically from content heading'),
+    '#default_value' => $node_type->getThirdPartySetting('autotitle', 'enabled', FALSE),
+  ];
+
+  $form['autotitle']['autotitle_source'] = [
+    '#type' => 'select',
+    '#title' => t('Source field'),
+    '#description' => t('Choose field which should be used for auto retrieving the title'),
+    '#options' => $contentFields,
+    '#default_value' => $node_type->getThirdPartySetting('autotitle', 'field', 'body'),
+    '#states' => [
+      'visible' => [
+        'input[name="autotitle"]' => ['checked' => TRUE],
+      ]
+    ]
+  ];
+
+  $form['autotitle']['autotitle_heading'] = [
+    '#type' => 'checkboxes',
+    '#title' => t('Heading tags'),
+    '#description' => t('This headings tags will be taken into account when parsing the content'),
+    '#options' => [
+      'h1' => 'H1',
+      'h2' => 'H2',
+      'h3' => 'H3',
+      'h4' => 'H4',
+      'h5' => 'H5',
+      'h6' => 'H6'
+    ],
+    '#default_value' => $node_type->getThirdPartySetting('autotitle', 'headings', []),
+    '#states' => [
+      'visible' => [
+        'input[name="autotitle"]' => ['checked' => TRUE],
+      ]
+    ],
+  ];
+
+  $fallback_title =  'Untitled [' . $node_type->id() . ']';
+
+  $form['autotitle']['autotitle_fallback'] = [
+    '#type' => 'textfield',
+    '#title' => t('Fallback title'),
+    '#description' => t('This value will be used as a title if no heading could be found in the HTML structure. You can use tokens.'),
+    '#default_value' => $node_type->getThirdPartySetting('autotitle', 'fallback_title', $fallback_title),
+    '#states' => [
+      'visible' => [
+        'input[name="autotitle"]' => ['checked' => TRUE],
+      ]
+    ],
+    '#token_types' => ['node'],
+  ];
+
+  if (\Drupal::moduleHandler()->moduleExists('token')) {
+    $form['autotitle']['token_help'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['node'],
+    ];
+  }
+
+  $form['actions']['submit']['#submit'][] = 'autotitle_node_type_form_submit';
+}
+
+/**
+ * Autotitle form submission on node add/edit form.
+ *
+ * @param $form
+ *   Form structure.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The state of the object
+ */
+function autotitle_node_type_form_submit(&$form, FormStateInterface $form_state) {
+  $enable_autotitle = (bool) $form_state->getValue('autotitle');
+
+  $node_type = $form_state->getFormObject()->getEntity();
+  $node_type->setThirdPartySetting('autotitle', 'enabled', $enable_autotitle);
+  $node_type->setThirdPartySetting('autotitle', 'field', $form_state->getValue('autotitle_source'));
+  $node_type->setThirdPartySetting('autotitle', 'fallback_title', $form_state->getValue('autotitle_fallback'));
+  $node_type->setThirdPartySetting('autotitle', 'headings', array_filter($form_state->getValue('autotitle_heading')));
+  $node_type->save();
+
+  if ($enable_autotitle) {
+    $entityFormManager = \Drupal::service('autotitle.entity_form_manager');
+    $entityForm = $entityFormManager->getEntityFormConfiguration('node', $node_type->id());
+    $entityFormManager->hideField($entityForm, 'title');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function autotitle_node_presave(EntityInterface $entity) {
+  $node_type = NodeType::load($entity->bundle());
+  $autotitle_is_enabled = $node_type->getThirdPartySetting('autotitle', 'enabled', FALSE);
+  $autotitle_source_field = $node_type->getThirdPartySetting('autotitle', 'field', 'body');
+
+  if (!$autotitle_is_enabled || !$entity->hasField($autotitle_source_field)) {
+    return;
+  }
+
+  $content = $entity->get($autotitle_source_field);
+
+  $dom = Html::load($content->value);
+  $xpath = new \DOMXPath($dom);
+
+  $heading = NULL;
+  $heading_tags = $node_type->getThirdPartySetting('autotitle', 'headings', []);
+
+  if (empty($heading_tags)) {
+    for ($level = 1; $level <= 6; $level++) {
+      $heading_tags[] = 'h' . $level;
+    }
+  }
+
+  foreach ($heading_tags as $tag) {
+    $elements = $xpath->query('//' . $tag);
+    if ($elements->length > 0) {
+      $heading = $elements[0];
+      break;
+    }
+  }
+
+  if (!empty($heading)) {
+    $title = strip_tags($dom->saveHTML($heading));
+  }
+  else {
+    $title = $node_type->getThirdPartySetting('autotitle', 'fallback_title');
+    $title =  \Drupal::token()->replace($title, ['node' => $entity]);
+  }
+
+  $entity->setTitle($title);
+}
