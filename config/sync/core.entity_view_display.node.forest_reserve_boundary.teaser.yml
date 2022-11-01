@@ -1,0 +1,100 @@
+uuid: 9ee2f74d-bf4f-4d0e-8399-ee87037fccfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.forest_reserve_boundary.body
+    - field.field.node.forest_reserve_boundary.feeds_item
+    - field.field.node.forest_reserve_boundary.field_aerial_photo_number
+    - field.field.node.forest_reserve_boundary.field_area_covered
+    - field.field.node.forest_reserve_boundary.field_bp_number
+    - field.field.node.forest_reserve_boundary.field_category
+    - field.field.node.forest_reserve_boundary.field_checked_by
+    - field.field.node.forest_reserve_boundary.field_checking_year
+    - field.field.node.forest_reserve_boundary.field_cl_number
+    - field.field.node.forest_reserve_boundary.field_condition
+    - field.field.node.forest_reserve_boundary.field_copied_by
+    - field.field.node.forest_reserve_boundary.field_counties
+    - field.field.node.forest_reserve_boundary.field_district
+    - field.field.node.forest_reserve_boundary.field_drawn_by
+    - field.field.node.forest_reserve_boundary.field_enlarged_by
+    - field.field.node.forest_reserve_boundary.field_enlargement_year
+    - field.field.node.forest_reserve_boundary.field_field_book_number
+    - field.field.node.forest_reserve_boundary.field_folder_number
+    - field.field.node.forest_reserve_boundary.field_gazetted_area
+    - field.field.node.forest_reserve_boundary.field_magnetic_declination
+    - field.field.node.forest_reserve_boundary.field_map_ref_1
+    - field.field.node.forest_reserve_boundary.field_map_ref_2
+    - field.field.node.forest_reserve_boundary.field_meta_data
+    - field.field.node.forest_reserve_boundary.field_name
+    - field.field.node.forest_reserve_boundary.field_plain_file_number
+    - field.field.node.forest_reserve_boundary.field_plotted_by
+    - field.field.node.forest_reserve_boundary.field_pocket_number
+    - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_reserve_serial_number
+    - field.field.node.forest_reserve_boundary.field_retraced_by
+    - field.field.node.forest_reserve_boundary.field_scale
+    - field.field.node.forest_reserve_boundary.field_sheet_number
+    - field.field.node.forest_reserve_boundary.field_surveyed_by
+    - field.field.node.forest_reserve_boundary.field_traced_by
+    - field.field.node.forest_reserve_boundary.field_type_of_map
+    - field.field.node.forest_reserve_boundary.field_year_of_drawing
+    - field.field.node.forest_reserve_boundary.field_year_of_plotting
+    - field.field.node.forest_reserve_boundary.field_year_of_retracing
+    - field.field.node.forest_reserve_boundary.field_year_of_survey
+    - field.field.node.forest_reserve_boundary.field_year_of_tracing
+    - node.type.forest_reserve_boundary
+  module:
+    - user
+id: node.forest_reserve_boundary.teaser
+targetEntityType: node
+bundle: forest_reserve_boundary
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  feeds_item: true
+  field_aerial_photo_number: true
+  field_area_covered: true
+  field_bp_number: true
+  field_category: true
+  field_checked_by: true
+  field_checking_year: true
+  field_cl_number: true
+  field_condition: true
+  field_copied_by: true
+  field_counties: true
+  field_district: true
+  field_drawn_by: true
+  field_enlarged_by: true
+  field_enlargement_year: true
+  field_field_book_number: true
+  field_folder_number: true
+  field_gazetted_area: true
+  field_magnetic_declination: true
+  field_map_ref_1: true
+  field_map_ref_2: true
+  field_meta_data: true
+  field_name: true
+  field_plain_file_number: true
+  field_plotted_by: true
+  field_pocket_number: true
+  field_record_id: true
+  field_reserve_serial_number: true
+  field_retraced_by: true
+  field_scale: true
+  field_sheet_number: true
+  field_surveyed_by: true
+  field_traced_by: true
+  field_type_of_map: true
+  field_year_of_drawing: true
+  field_year_of_plotting: true
+  field_year_of_retracing: true
+  field_year_of_survey: true
+  field_year_of_tracing: true

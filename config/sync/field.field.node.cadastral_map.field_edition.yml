@@ -1,0 +1,19 @@
+uuid: 434d8d8a-a123-447d-aaf5-e170090fc23e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_edition
+    - node.type.cadastral_map
+id: node.cadastral_map.field_edition
+field_name: field_edition
+entity_type: node
+bundle: cadastral_map
+label: Edition
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 5688e45f-e4a3-409a-829c-9fe1d2b868fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area_covered
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_area_covered
+field_name: field_area_covered
+entity_type: node
+bundle: forest_reserve_boundary
+label: Area
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

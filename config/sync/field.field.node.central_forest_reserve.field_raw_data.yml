@@ -1,0 +1,19 @@
+uuid: 640b95ce-dd74-470e-a490-f28e9c4d78ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_raw_data
+    - node.type.central_forest_reserve
+id: node.central_forest_reserve.field_raw_data
+field_name: field_raw_data
+entity_type: node
+bundle: central_forest_reserve
+label: 'Raw Data'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

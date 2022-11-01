@@ -1,0 +1,18 @@
+uuid: b6ec5d58-aca3-444f-9b74-c1b9cb03515e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.title
+field_name: title
+entity_type: node
+bundle: forest_reserve_boundary
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

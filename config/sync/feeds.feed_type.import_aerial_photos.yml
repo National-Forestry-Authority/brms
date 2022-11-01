@@ -1,0 +1,202 @@
+uuid: f3239df4-04db-488c-9439-9b8216251083
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.aerial_photos.title
+    - field.field.node.aerial_photos.field_altitude
+    - field.field.node.aerial_photos.field_area
+    - field.field.node.aerial_photos.field_copies
+    - field.field.node.aerial_photos.field_date
+    - field.field.node.aerial_photos.field_film_number
+    - field.field.node.aerial_photos.field_meta_data
+    - field.field.node.aerial_photos.field_notes
+    - field.field.node.aerial_photos.field_photo_number
+    - field.field.node.aerial_photos.field_record_id
+    - field.field.node.aerial_photos.field_run_number
+    - field.field.node.aerial_photos.field_scale
+    - field.field.node.aerial_photos.field_type
+    - node.type.aerial_photos
+  module:
+    - node
+label: 'Import Aerial Photos'
+id: import_aerial_photos
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: aerial_photos
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  record_id:
+    value: record_id
+    label: record_id
+    machine_name: record_id
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  area:
+    value: area
+    label: area
+    machine_name: area
+    type: csv
+  scale:
+    value: scale
+    label: scale
+    machine_name: scale
+    type: csv
+  film_number:
+    value: film_number
+    label: film_number
+    machine_name: film_number
+    type: csv
+  run_number:
+    value: run_number
+    label: run_number
+    machine_name: run_number
+    type: csv
+  photo_number:
+    value: photo_number
+    label: photo_number
+    machine_name: photo_number
+    type: csv
+  type:
+    value: type
+    label: type
+    machine_name: type
+    type: csv
+  copies:
+    value: copies
+    label: copies
+    machine_name: copies
+    type: csv
+  altitude:
+    value: altitude
+    label: altitude
+    machine_name: altitude
+    type: csv
+  notes:
+    value: notes
+    label: notes
+    machine_name: notes
+    type: csv
+  meta_data:
+    value: meta_data
+    label: meta_data
+    machine_name: meta_data
+    type: csv
+mappings:
+  -
+    target: field_record_id
+    map:
+      value: record_id
+    settings:
+      language: null
+  -
+    target: title
+    map:
+      value: record_id
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_area
+    map:
+      target_id: area
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_scale
+    map:
+      value: scale
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_film_number
+    map:
+      value: film_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_run_number
+    map:
+      value: run_number
+    settings:
+      language: null
+  -
+    target: field_photo_number
+    map:
+      value: photo_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_type
+    map:
+      target_id: type
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_copies
+    map:
+      value: copies
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_altitude
+    map:
+      value: altitude
+    settings:
+      language: null
+  -
+    target: field_notes
+    map:
+      value: notes
+    settings:
+      language: null
+  -
+    target: field_meta_data
+    map:
+      target_id: meta_data
+    settings:
+      language: ''
+      reference_by: nid
+      feeds_item: guid
+      autocreate: 0

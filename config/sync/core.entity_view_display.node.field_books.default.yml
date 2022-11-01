@@ -1,0 +1,28 @@
+uuid: 0bb6ffb3-6d19-4d04-b0e7-115563126119
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.field_books.body
+    - node.type.field_books
+  module:
+    - text
+    - user
+id: node.field_books.default
+targetEntityType: node
+bundle: field_books
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

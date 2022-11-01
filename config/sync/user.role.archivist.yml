@@ -1,0 +1,18 @@
+uuid: d9c80e9d-1547-4aff-b8d2-cfbed50589fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+  module:
+    - filter
+    - toolbar
+id: archivist
+label: Archivist
+weight: -5
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'select account cancellation method'
+  - 'use text format some_html'

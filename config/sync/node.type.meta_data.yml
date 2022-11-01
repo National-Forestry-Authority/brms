@@ -1,0 +1,23 @@
+uuid: a596e226-3912-4ee1-8fd1-9c567c06e0c3
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  autotitle:
+    enabled: false
+    field: body
+    fallback_title: 'Untitled []'
+    headings: {  }
+name: 'Meta Data'
+type: meta_data
+description: 'Summary of a given dataset'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

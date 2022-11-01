@@ -1,0 +1,23 @@
+uuid: 892393c0-e419-416c-8daa-714dda332163
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  autotitle:
+    enabled: false
+    field: body
+    fallback_title: 'Untitled []'
+    headings: {  }
+name: 'District Map'
+type: district_map
+description: 'Entries for district map data'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

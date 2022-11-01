@@ -1,0 +1,19 @@
+uuid: 8b963a48-0db1-45a1-bd20-458c9977da65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area_covered
+    - node.type.cadastral_map
+id: node.cadastral_map.field_area_covered
+field_name: field_area_covered
+entity_type: node
+bundle: cadastral_map
+label: Area
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

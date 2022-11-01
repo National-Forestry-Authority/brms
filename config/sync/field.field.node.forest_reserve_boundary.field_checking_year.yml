@@ -1,0 +1,24 @@
+uuid: b38f981d-6ddc-4986-a05e-aec88f378383
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_checking_year
+    - node.type.forest_reserve_boundary
+  module:
+    - datetime
+id: node.forest_reserve_boundary.field_checking_year
+field_name: field_checking_year
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Checking Year'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

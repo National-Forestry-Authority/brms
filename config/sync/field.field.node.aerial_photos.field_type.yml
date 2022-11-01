@@ -1,0 +1,33 @@
+uuid: af3cdcfe-c1c4-4925-b2cb-8e81e641dfcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type
+    - node.type.aerial_photos
+    - taxonomy.vocabulary.aerial_photo_type
+  content:
+    - 'taxonomy_term:aerial_photo_type:9e3ee5ad-7eaa-4619-a006-8fe416227a3a'
+id: node.aerial_photos.field_type
+field_name: field_type
+entity_type: node
+bundle: aerial_photos
+label: Type
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 9e3ee5ad-7eaa-4619-a006-8fe416227a3a
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      aerial_photo_type: aerial_photo_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

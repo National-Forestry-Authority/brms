@@ -1,0 +1,69 @@
+_core:
+  default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
+definitions:
+  system__admin_content:
+    menu_name: admin
+    parent: system.admin
+    weight: -55
+    expanded: false
+    enabled: true
+  system__admin_structure:
+    menu_name: admin
+    parent: system.admin
+    weight: -54
+    expanded: false
+    enabled: true
+  system__themes_page:
+    menu_name: admin
+    parent: system.admin
+    weight: -53
+    expanded: false
+    enabled: true
+  system__modules_list:
+    menu_name: admin
+    parent: system.admin
+    weight: -52
+    expanded: false
+    enabled: true
+  system__admin_config:
+    menu_name: admin
+    parent: system.admin
+    weight: -51
+    expanded: false
+    enabled: true
+  entity__user__collection:
+    menu_name: admin
+    parent: system.admin
+    weight: -50
+    expanded: false
+    enabled: true
+  system__admin_reports:
+    menu_name: admin
+    parent: system.admin
+    weight: -49
+    expanded: false
+    enabled: true
+  entity__feeds_feed_type__mappingimport_activities:
+    menu_name: admin
+    parent: ''
+    weight: -55
+    expanded: false
+    enabled: true
+  system__admin:
+    menu_name: admin
+    parent: ''
+    weight: -54
+    expanded: false
+    enabled: true
+  entity__feeds_feed_type__mappingimport_aerial_photos:
+    menu_name: admin
+    parent: ''
+    weight: -52
+    expanded: false
+    enabled: true
+  entity__feeds_feed_type__mappingimport_forest_boundaries:
+    menu_name: admin
+    parent: ''
+    weight: -51
+    expanded: false
+    enabled: true

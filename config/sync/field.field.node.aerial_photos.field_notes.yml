@@ -1,0 +1,19 @@
+uuid: 09a5a561-2ebd-4079-8494-af9bd74e8f1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes
+    - node.type.aerial_photos
+id: node.aerial_photos.field_notes
+field_name: field_notes
+entity_type: node
+bundle: aerial_photos
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,18 @@
+uuid: 058db095-b410-4b43-ac44-b1c160595637
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+  module:
+    - filter
+    - toolbar
+id: intern_surveyor
+label: 'Intern Surveyor'
+weight: -4
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'select account cancellation method'
+  - 'use text format some_html'

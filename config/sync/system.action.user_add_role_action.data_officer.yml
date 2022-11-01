@@ -1,0 +1,14 @@
+uuid: a2f2a76d-0e76-4cbe-8dcb-80e38ed2701b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.data_officer
+  module:
+    - user
+id: user_add_role_action.data_officer
+label: 'Add the Data Officer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: data_officer

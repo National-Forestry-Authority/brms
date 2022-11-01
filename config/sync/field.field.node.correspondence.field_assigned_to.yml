@@ -1,0 +1,37 @@
+uuid: 4c6a1d63-662c-42d5-817b-3f1a7a359773
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assigned_to
+    - node.type.correspondence
+id: node.correspondence.field_assigned_to
+field_name: field_assigned_to
+entity_type: node
+bundle: correspondence
+label: 'Assigned To'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: field_full_name
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        cis: cis
+        systems_administrator: '0'
+        data_officer: '0'
+        data_clerk: '0'
+        archivist: '0'
+        intern_surveyor: '0'
+        cartographer: '0'
+    include_anonymous: true
+field_type: entity_reference

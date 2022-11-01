@@ -1,0 +1,19 @@
+uuid: 21c7d0cb-1702-4971-9736-d2d49fa57729
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scale
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_scale
+field_name: field_scale
+entity_type: node
+bundle: forest_reserve_boundary
+label: Scale
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

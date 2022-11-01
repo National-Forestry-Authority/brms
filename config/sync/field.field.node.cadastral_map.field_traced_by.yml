@@ -1,0 +1,29 @@
+uuid: 9e361e66-b0f9-4fea-99ad-c81aa628d213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_traced_by
+    - node.type.cadastral_map
+    - taxonomy.vocabulary.surveyors
+id: node.cadastral_map.field_traced_by
+field_name: field_traced_by
+entity_type: node
+bundle: cadastral_map
+label: 'Traced By'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      surveyors: surveyors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

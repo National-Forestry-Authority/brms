@@ -1,0 +1,23 @@
+uuid: 5d0ab6a7-da46-45f8-8c7c-48bdc707b1a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_copies
+    - node.type.aerial_photos
+id: node.aerial_photos.field_copies
+field_name: field_copies
+entity_type: node
+bundle: aerial_photos
+label: Copies
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

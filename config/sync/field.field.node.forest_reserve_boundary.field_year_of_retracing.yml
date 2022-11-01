@@ -1,0 +1,24 @@
+uuid: 2f87d03c-ceef-4ff1-b707-116d3f71aed9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_of_retracing
+    - node.type.forest_reserve_boundary
+  module:
+    - datetime
+id: node.forest_reserve_boundary.field_year_of_retracing
+field_name: field_year_of_retracing
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Year of Retracing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

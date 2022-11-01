@@ -1,0 +1,30 @@
+uuid: b7ed2c64-324b-4fea-9964-b56fb725ce3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.cadastral_maps
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: views_block__cadastral_maps_block_1
+theme: gin
+region: header
+weight: -5
+provider: null
+plugin: 'views_block:cadastral_maps-block_1'
+settings:
+  id: 'views_block:cadastral_maps-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /cadastral-maps

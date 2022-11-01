@@ -1,0 +1,87 @@
+uuid: 8131c2d8-85d7-44b0-a2de-4b925144957e
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+    - taxonomy.vocabulary.aerial_photo_type
+    - taxonomy.vocabulary.area
+    - taxonomy.vocabulary.company
+    - taxonomy.vocabulary.condition
+    - taxonomy.vocabulary.contact
+    - taxonomy.vocabulary.contact_type
+    - taxonomy.vocabulary.correspondence_type
+    - taxonomy.vocabulary.counties
+    - taxonomy.vocabulary.forest_reserve_boundary_category
+    - taxonomy.vocabulary.organization_
+    - taxonomy.vocabulary.prepared_by
+    - taxonomy.vocabulary.prepared_for
+    - taxonomy.vocabulary.surveyors
+    - taxonomy.vocabulary.type_of_map
+  module:
+    - file
+    - filter
+    - node
+    - system
+    - taxonomy
+    - toolbar
+id: cis
+label: CIS
+weight: -2
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access files overview'
+  - 'access site reports'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer nodes'
+  - 'administer taxonomy'
+  - 'administer users'
+  - 'bypass node access'
+  - 'cancel account'
+  - 'change own username'
+  - 'create terms in aerial_photo_type'
+  - 'create terms in area'
+  - 'create terms in company'
+  - 'create terms in condition'
+  - 'create terms in contact'
+  - 'create terms in contact_type'
+  - 'create terms in correspondence_type'
+  - 'create terms in counties'
+  - 'create terms in forest_reserve_boundary_category'
+  - 'create terms in organization_'
+  - 'create terms in prepared_by'
+  - 'create terms in prepared_for'
+  - 'create terms in surveyors'
+  - 'create terms in type_of_map'
+  - 'delete terms in aerial_photo_type'
+  - 'delete terms in area'
+  - 'delete terms in company'
+  - 'delete terms in condition'
+  - 'delete terms in contact'
+  - 'delete terms in contact_type'
+  - 'delete terms in correspondence_type'
+  - 'delete terms in counties'
+  - 'delete terms in forest_reserve_boundary_category'
+  - 'delete terms in organization_'
+  - 'delete terms in prepared_by'
+  - 'delete terms in prepared_for'
+  - 'delete terms in surveyors'
+  - 'delete terms in type_of_map'
+  - 'edit terms in aerial_photo_type'
+  - 'edit terms in area'
+  - 'edit terms in company'
+  - 'edit terms in condition'
+  - 'edit terms in contact'
+  - 'edit terms in contact_type'
+  - 'edit terms in correspondence_type'
+  - 'edit terms in counties'
+  - 'edit terms in forest_reserve_boundary_category'
+  - 'edit terms in organization_'
+  - 'edit terms in prepared_by'
+  - 'edit terms in prepared_for'
+  - 'edit terms in surveyors'
+  - 'edit terms in type_of_map'
+  - 'use text format some_html'

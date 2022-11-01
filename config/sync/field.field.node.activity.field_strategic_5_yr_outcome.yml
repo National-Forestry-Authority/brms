@@ -1,0 +1,19 @@
+uuid: 2930a8da-0662-4284-a1af-99142c45a691
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_strategic_5_yr_outcome
+    - node.type.activity
+id: node.activity.field_strategic_5_yr_outcome
+field_name: field_strategic_5_yr_outcome
+entity_type: node
+bundle: activity
+label: 'Strategic 5-yr annual outcome indicator targets'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

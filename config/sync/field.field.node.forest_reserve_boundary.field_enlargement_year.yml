@@ -1,0 +1,24 @@
+uuid: 7c544439-3ae1-4562-a597-ca750ceab236
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enlargement_year
+    - node.type.forest_reserve_boundary
+  module:
+    - datetime
+id: node.forest_reserve_boundary.field_enlargement_year
+field_name: field_enlargement_year
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Enlargement Year'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

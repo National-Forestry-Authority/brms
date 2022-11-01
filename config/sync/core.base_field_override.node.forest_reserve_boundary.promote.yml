@@ -1,0 +1,22 @@
+uuid: df5f3a39-4c9b-4e46-b537-f66a99257b74
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.promote
+field_name: promote
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

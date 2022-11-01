@@ -1,0 +1,19 @@
+uuid: 7ac763ce-fa8c-4fb1-b3fc-953f54522ee3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_coordinate_system
+    - node.type.district_map
+id: node.district_map.field_coordinate_system
+field_name: field_coordinate_system
+entity_type: node
+bundle: district_map
+label: 'Coordinate System'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: ced7017e-4382-4b5e-992c-6f65ee4cb2fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.satellite_image
+id: node.satellite_image.promote
+field_name: promote
+entity_type: node
+bundle: satellite_image
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

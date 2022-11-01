@@ -1,0 +1,23 @@
+uuid: 5db4e1d0-a08c-46c2-ad2a-3e1c410ef0c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_run_number
+    - node.type.aerial_photos
+id: node.aerial_photos.field_run_number
+field_name: field_run_number
+entity_type: node
+bundle: aerial_photos
+label: 'Run Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

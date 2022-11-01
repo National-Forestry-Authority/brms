@@ -1,0 +1,19 @@
+uuid: da08223a-6b29-46ee-b526-b11581493845
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bp_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_bp_number
+field_name: field_bp_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'BP Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

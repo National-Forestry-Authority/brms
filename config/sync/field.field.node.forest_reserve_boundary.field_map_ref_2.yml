@@ -1,0 +1,19 @@
+uuid: ef18446c-3133-434b-821d-19a634b576ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_ref_2
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_map_ref_2
+field_name: field_map_ref_2
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Map ref 2'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

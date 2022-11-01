@@ -1,0 +1,8 @@
+uuid: db859504-f6bc-4eca-82d0-07cc2d5acf42
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of Map'
+vid: type_of_map
+description: ''
+weight: 0

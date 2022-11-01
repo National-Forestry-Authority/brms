@@ -1,0 +1,24 @@
+uuid: 4993a7bc-22a8-431d-a1fe-3988cf42318d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.correspondence
+  module:
+    - datetime
+id: node.correspondence.field_date
+field_name: field_date
+entity_type: node
+bundle: correspondence
+label: Date
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

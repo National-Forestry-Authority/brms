@@ -1,0 +1,8 @@
+uuid: 107f0826-d125-4dd1-bffd-81f20afc608d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Contact Type'
+vid: contact_type
+description: ''
+weight: 0

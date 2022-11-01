@@ -1,0 +1,23 @@
+uuid: 38ef68d9-2e6c-4a72-bc8c-b6f8b36551ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.transparency_maps
+  module:
+    - text
+id: node.transparency_maps.body
+field_name: body
+entity_type: node
+bundle: transparency_maps
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

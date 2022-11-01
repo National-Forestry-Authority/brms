@@ -1,0 +1,128 @@
+uuid: 2138e8e5-5b66-4f72-9bcd-a9938d973e1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.correspondence.title
+    - field.field.node.correspondence.field_correspondencetype
+    - field.field.node.correspondence.field_date
+    - field.field.node.correspondence.field_from
+    - field.field.node.correspondence.field_reference_no
+    - field.field.node.correspondence.field_to
+    - node.type.correspondence
+  module:
+    - node
+label: 'Import Correspondences'
+id: import_correspondences
+description: ''
+help: ''
+import_period: 3600
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: correspondence
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  subject:
+    value: subject
+    label: subject
+    machine_name: subject
+    type: csv
+  for:
+    value: for
+    label: for
+    machine_name: for
+    type: csv
+  to:
+    value: to
+    label: to
+    machine_name: to
+    type: csv
+  refno:
+    value: refno
+    label: refno
+    machine_name: refno
+    type: csv
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  'no':
+    value: 'no'
+    label: 'no'
+    machine_name: 'no'
+    type: csv
+  date:
+    value: date
+    label: date
+    machine_name: date
+    type: csv
+  from:
+    value: from
+    label: from
+    machine_name: from
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: subject
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_reference_no
+    map:
+      value: refno
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_correspondencetype
+    map:
+      target_id: category
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_date
+    map:
+      value: date
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_to
+    map:
+      target_id: to
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_from
+    map:
+      target_id: from
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'

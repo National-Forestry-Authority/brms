@@ -1,0 +1,50 @@
+uuid: aa169bd4-ce5b-4dc5-8486-665c6309fedc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.correspondence.body
+    - field.field.node.correspondence.feeds_item
+    - field.field.node.correspondence.field_assigned_to
+    - field.field.node.correspondence.field_attachment
+    - field.field.node.correspondence.field_central_forest_reserve
+    - field.field.node.correspondence.field_correspondencetype
+    - field.field.node.correspondence.field_date
+    - field.field.node.correspondence.field_from
+    - field.field.node.correspondence.field_reference_no
+    - field.field.node.correspondence.field_scanned_copy
+    - field.field.node.correspondence.field_to
+    - node.type.correspondence
+  module:
+    - text
+    - user
+id: node.correspondence.teaser
+targetEntityType: node
+bundle: correspondence
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_assigned_to: true
+  field_attachment: true
+  field_central_forest_reserve: true
+  field_correspondencetype: true
+  field_date: true
+  field_from: true
+  field_reference_no: true
+  field_scanned_copy: true
+  field_to: true

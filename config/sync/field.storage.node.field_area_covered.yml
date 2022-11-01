@@ -1,0 +1,21 @@
+uuid: fda16917-0916-424b-a47e-3e4830607467
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_area_covered
+field_name: field_area_covered
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

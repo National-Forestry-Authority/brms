@@ -1,0 +1,21 @@
+uuid: d47eb22b-788e-439d-899e-964fa30077b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_geo_data
+    - node.type.cadastral_map
+  module:
+    - geofield
+id: node.cadastral_map.field_geo_data
+field_name: field_geo_data
+entity_type: node
+bundle: cadastral_map
+label: 'Spatial Data'
+description: 'POINTS, POLYGONS, KML'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

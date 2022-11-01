@@ -1,0 +1,29 @@
+uuid: 409402de-6f45-45ec-99fc-89bb19bec354
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area
+    - node.type.aerial_photos
+    - taxonomy.vocabulary.area
+id: node.aerial_photos.field_area
+field_name: field_area
+entity_type: node
+bundle: aerial_photos
+label: 'District / Area'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      area: area
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

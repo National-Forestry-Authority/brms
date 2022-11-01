@@ -1,0 +1,23 @@
+uuid: ba062eb0-ad66-4fe5-83bb-5da2d08aa749
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_altitude
+    - node.type.aerial_photos
+id: node.aerial_photos.field_altitude
+field_name: field_altitude
+entity_type: node
+bundle: aerial_photos
+label: Altitude
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

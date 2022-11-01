@@ -1,0 +1,21 @@
+uuid: 23834ebc-41e4-40d6-bca1-1e9947b3c63f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cl_number
+field_name: field_cl_number
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

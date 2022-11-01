@@ -1,0 +1,18 @@
+uuid: ee2189ca-597b-44fa-a463-dbd846da820a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.cadastral_map
+id: node.cadastral_map.title
+field_name: title
+entity_type: node
+bundle: cadastral_map
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

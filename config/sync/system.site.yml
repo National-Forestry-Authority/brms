@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+langcode: en
+uuid: 957d985a-82f8-4e32-a69d-09d1ab1533a5
+name: 'NFA Data Entry'
+mail: bjclicker@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/3824
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

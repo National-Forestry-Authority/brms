@@ -1,0 +1,14 @@
+uuid: 90415cd5-e4e6-4940-ac0f-9167a126d5ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.data_officer
+  module:
+    - user
+id: user_remove_role_action.data_officer
+label: 'Remove the Data Officer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: data_officer

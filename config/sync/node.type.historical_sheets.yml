@@ -1,0 +1,24 @@
+uuid: 67701aae-599b-42d5-ad71-cbd6e0329127
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  autotitle:
+    enabled: false
+    field: body
+    fallback_title: 'Untitled []'
+    headings: {  }
+name: 'Historical Sheets'
+type: historical_sheets
+description: 'Data from the books in rack 1'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

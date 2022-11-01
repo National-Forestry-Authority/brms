@@ -1,0 +1,22 @@
+uuid: 1a6d6479-bca4-40db-b896-eb22c60c7f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.transparency_maps
+id: node.transparency_maps.promote
+field_name: promote
+entity_type: node
+bundle: transparency_maps
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

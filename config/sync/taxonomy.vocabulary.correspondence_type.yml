@@ -1,0 +1,8 @@
+uuid: 1f105ed9-664c-4877-aa0d-d4180682d9e5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Correspondence Type'
+vid: correspondence_type
+description: ''
+weight: 0

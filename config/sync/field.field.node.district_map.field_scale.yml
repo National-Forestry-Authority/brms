@@ -1,0 +1,19 @@
+uuid: e5db14cc-2de9-4e57-a1d1-1086ed2245e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scale
+    - node.type.district_map
+id: node.district_map.field_scale
+field_name: field_scale
+entity_type: node
+bundle: district_map
+label: Scale
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

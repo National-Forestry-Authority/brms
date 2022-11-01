@@ -1,0 +1,19 @@
+uuid: 769787ce-c06a-4731-a90e-187190c7206d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_folder_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_folder_number
+field_name: field_folder_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Folder Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,188 @@
+uuid: 03fccce3-15cd-497f-8049-340d92b4061d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: dashboard
+label: Dashboard
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Dashboard
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div id=\"block-gin-content\" class=\"block block-system block-system-main-block\">\r\n  \r\n    \r\n      <form class=\"system-theme-settings\" data-drupal-selector=\"system-theme-settings\" enctype=\"multipart/form-data\" action=\"/data/admin/appearance/settings/gin\" method=\"post\" id=\"system-theme-settings\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-enable-darkmode,edit-preset-accent-color-blue,edit-preset-accent-color-light-blue,edit-preset-accent-color-dark-purple,edit-preset-accent-color-purple,edit-preset-accent-color-teal,edit-preset-accent-color-green,edit-preset-accent-color-pink,edit-preset-accent-color-red,edit-preset-accent-color-orange,edit-preset-accent-color-yellow,edit-preset-accent-color-custom,edit-accent-color,edit-preset-focus-color,edit-focus-color,edit-high-contrast-mode,edit-show-user-theme-settings,edit-classic-toolbar-vertical,edit-classic-toolbar-horizontal,edit-classic-toolbar-classic,edit-icon-default,edit-icon-path,edit-icon-upload,edit-default-favicon,edit-favicon-path,edit-favicon-upload,edit-toggle-node-user-picture,edit-toggle-comment-user-picture,edit-toggle-comment-user-verification,edit-toggle-favicon,edit-submit\">\r\n  <input data-drupal-selector=\"edit-var\" type=\"hidden\" name=\"var\" value=\"theme_gin_settings\"><input data-drupal-selector=\"edit-config-key\" type=\"hidden\" name=\"config_key\" value=\"gin.settings\"><details data-drupal-selector=\"edit-custom-settings\" id=\"edit-custom-settings\" class=\"js-form-wrapper form-wrapper claro-details\" open=\"open\">    <summary role=\"button\" aria-controls=\"edit-custom-settings\" aria-expanded=\"true\" aria-pressed=\"true\" class=\"claro-details__summary\">Settings<span class=\"required-mark\"></span>\r\n    </summary><div class=\"claro-details__wrapper details-wrapper\">\r\n    \r\n      <div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-enable-darkmode form-item--enable-darkmode\">\r\n          <input data-drupal-selector=\"edit-enable-darkmode\" aria-describedby=\"edit-enable-darkmode--description\" type=\"checkbox\" id=\"edit-enable-darkmode\" name=\"enable_darkmode\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-enable-darkmode\" class=\"form-item__label option\">Enable Darkmode (BETA)</label>\r\n          <div id=\"edit-enable-darkmode--description\" class=\"form-item__description\">\r\n      Enables Darkmode for the admin interface.\r\n    </div>\r\n  </div>\r\n\r\n<fieldset data-drupal-selector=\"edit-preset-accent-color\" id=\"edit-preset-accent-color--wrapper\" class=\"fieldgroup form-composite fieldset fieldset--group js-form-item form-item js-form-wrapper form-wrapper\">\r\n      <legend class=\"fieldset__legend fieldset__legend--composite fieldset__legend--visible\">\r\n    <span class=\"fieldset__label fieldset__label--group\">Accent color</span>\r\n  </legend>\r\n  \r\n  <div class=\"fieldset__wrapper fieldset__wrapper--group\">\r\n    \r\n        <div id=\"edit-preset-accent-color\" class=\"form-radios\"><div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-blue\" data-gin-accent=\"blue\" type=\"radio\" id=\"edit-preset-accent-color-blue\" name=\"preset_accent_color\" value=\"blue\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-blue\" class=\"form-item__label option\">Gin Blue (Default)</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-light-blue\" data-gin-accent=\"light_blue\" type=\"radio\" id=\"edit-preset-accent-color-light-blue\" name=\"preset_accent_color\" value=\"light_blue\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-light-blue\" class=\"form-item__label option\">Light Blue</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-dark-purple\" data-gin-accent=\"dark_purple\" type=\"radio\" id=\"edit-preset-accent-color-dark-purple\" name=\"preset_accent_color\" value=\"dark_purple\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-dark-purple\" class=\"form-item__label option\">Dark Purple</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-purple\" data-gin-accent=\"purple\" type=\"radio\" id=\"edit-preset-accent-color-purple\" name=\"preset_accent_color\" value=\"purple\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-purple\" class=\"form-item__label option\">Purple</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-teal\" data-gin-accent=\"teal\" type=\"radio\" id=\"edit-preset-accent-color-teal\" name=\"preset_accent_color\" value=\"teal\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-teal\" class=\"form-item__label option\">Teal</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-green\" data-gin-accent=\"green\" type=\"radio\" id=\"edit-preset-accent-color-green\" name=\"preset_accent_color\" value=\"green\" checked=\"checked\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-green\" class=\"form-item__label option\">Green</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-pink\" data-gin-accent=\"pink\" type=\"radio\" id=\"edit-preset-accent-color-pink\" name=\"preset_accent_color\" value=\"pink\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-pink\" class=\"form-item__label option\">Pink</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-red\" data-gin-accent=\"red\" type=\"radio\" id=\"edit-preset-accent-color-red\" name=\"preset_accent_color\" value=\"red\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-red\" class=\"form-item__label option\">Red</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-orange\" data-gin-accent=\"orange\" type=\"radio\" id=\"edit-preset-accent-color-orange\" name=\"preset_accent_color\" value=\"orange\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-orange\" class=\"form-item__label option\">Orange</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-yellow\" data-gin-accent=\"yellow\" type=\"radio\" id=\"edit-preset-accent-color-yellow\" name=\"preset_accent_color\" value=\"yellow\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-yellow\" class=\"form-item__label option\">Yellow</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-preset-accent-color form-item--preset-accent-color\">\r\n        <input data-drupal-selector=\"edit-preset-accent-color-custom\" data-gin-accent=\"custom\" type=\"radio\" id=\"edit-preset-accent-color-custom\" name=\"preset_accent_color\" value=\"custom\" class=\"form-radio form-boolean form-boolean--type-radio\">\r\n        <label for=\"edit-preset-accent-color-custom\" class=\"form-item__label option\">Custom</label>\r\n      </div>\r\n</div>\r\n\r\n            \r\n      </div>\r\n</fieldset>\r\n<div class=\"js-form-item form-item js-form-type-textfield form-type--textfield js-form-item-accent-color form-item--accent-color\" style=\"display: none;\">\r\n      <label for=\"edit-accent-color\" class=\"form-item__label\">Custom Accent color</label>\r\n        <input data-drupal-selector=\"edit-accent-color\" aria-describedby=\"edit-accent-color--description\" type=\"text\" id=\"edit-accent-color\" name=\"accent_color\" value=\"\" size=\"7\" maxlength=\"128\" placeholder=\"#77777\" class=\"form-text form-element form-element--type-text form-element--api-textfield\" data-drupal-states=\"{&quot;visible&quot;:{&quot;:input[name=\\u0022preset_accent_color\\u0022]&quot;:{&quot;value&quot;:&quot;custom&quot;}}}\">\r\n            <div id=\"edit-accent-color--description\" class=\"form-item__description\">\r\n      Use with caution, values should meet a11y criteria.\r\n    </div>\r\n  </div>\r\n<div class=\"js-form-item form-item js-form-type-select form-type--select js-form-item-preset-focus-color form-item--preset-focus-color\">\r\n      <label for=\"edit-preset-focus-color\" class=\"form-item__label\">Focus color (BETA)</label>\r\n        <select data-drupal-selector=\"edit-preset-focus-color\" id=\"edit-preset-focus-color\" name=\"preset_focus_color\" class=\"form-select form-element form-element--type-select\"><option value=\"gin\" selected=\"selected\">Gin Focus color (Default)</option><option value=\"green\">Green</option><option value=\"claro\">Claro Green</option><option value=\"orange\">Orange</option><option value=\"dark\">Dark</option><option value=\"accent\">Same as Accent color</option><option value=\"custom\">Custom</option></select>\r\n        </div>\r\n<div class=\"js-form-item form-item js-form-type-textfield form-type--textfield js-form-item-focus-color form-item--focus-color\" style=\"display: none;\">\r\n      <label for=\"edit-focus-color\" class=\"form-item__label\">Custom Focus color (BETA)</label>\r\n        <input data-drupal-selector=\"edit-focus-color\" aria-describedby=\"edit-focus-color--description\" type=\"text\" id=\"edit-focus-color\" name=\"focus_color\" value=\"\" size=\"7\" maxlength=\"128\" placeholder=\"#777777\" class=\"form-text form-element form-element--type-text form-element--api-textfield\" data-drupal-states=\"{&quot;visible&quot;:{&quot;:input[name=\\u0022preset_focus_color\\u0022]&quot;:{&quot;value&quot;:&quot;custom&quot;}}}\">\r\n            <div id=\"edit-focus-color--description\" class=\"form-item__description\">\r\n      Use with caution, values should meet a11y criteria.\r\n    </div>\r\n  </div>\r\n<div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-high-contrast-mode form-item--high-contrast-mode\">\r\n          <input data-drupal-selector=\"edit-high-contrast-mode\" aria-describedby=\"edit-high-contrast-mode--description\" type=\"checkbox\" id=\"edit-high-contrast-mode\" name=\"high_contrast_mode\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-high-contrast-mode\" class=\"form-item__label option\">Increase contrast (EXPERIMENTAL)</label>\r\n          <div id=\"edit-high-contrast-mode--description\" class=\"form-item__description\">\r\n      Enables high contrast mode.\r\n    </div>\r\n  </div>\r\n<div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-show-user-theme-settings form-item--show-user-theme-settings\">\r\n          <input data-drupal-selector=\"edit-show-user-theme-settings\" aria-describedby=\"edit-show-user-theme-settings--description\" type=\"checkbox\" id=\"edit-show-user-theme-settings\" name=\"show_user_theme_settings\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-show-user-theme-settings\" class=\"form-item__label option\">Users can override Gin settings</label>\r\n          <div id=\"edit-show-user-theme-settings--description\" class=\"form-item__description\">\r\n      Expose the admin theme settings to users.\r\n    </div>\r\n  </div>\r\n  </div>\r\n</details>\r\n<details data-drupal-selector=\"edit-toolbar-wrapper\" id=\"edit-toolbar-wrapper\" class=\"js-form-wrapper form-wrapper claro-details\" open=\"open\">    <summary role=\"button\" aria-controls=\"edit-toolbar-wrapper\" aria-expanded=\"true\" aria-pressed=\"true\" class=\"claro-details__summary\">Toolbar<span class=\"required-mark\"></span>\r\n    </summary><div class=\"claro-details__wrapper details-wrapper\">\r\n    \r\n      \r\n<fieldset data-drupal-selector=\"edit-classic-toolbar\" aria-describedby=\"edit-classic-toolbar--wrapper--description\" class=\"toolbar-option fieldgroup form-composite fieldset fieldset--group js-form-item form-item js-form-wrapper form-wrapper\" id=\"edit-classic-toolbar--wrapper\">\r\n      <legend class=\"fieldset__legend fieldset__legend--composite fieldset__legend--visible\">\r\n    <span class=\"fieldset__label fieldset__label--group\">Drupal Toolbar</span>\r\n  </legend>\r\n  \r\n  <div class=\"fieldset__wrapper fieldset__wrapper--group\">\r\n    \r\n        <div id=\"edit-classic-toolbar\" class=\"form-radios\"><div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-classic-toolbar form-item--classic-toolbar\">\r\n        <input data-drupal-selector=\"edit-classic-toolbar-vertical\" aria-describedby=\"edit-classic-toolbar--description\" class=\"toolbar-option__vertical form-radio form-boolean form-boolean--type-radio\" data-gin-toolbar=\"vertical\" type=\"radio\" id=\"edit-classic-toolbar-vertical\" name=\"classic_toolbar\" value=\"vertical\">\r\n        <label for=\"edit-classic-toolbar-vertical\" class=\"form-item__label option\">Sidebar, Vertical Toolbar (Default)</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-classic-toolbar form-item--classic-toolbar\">\r\n        <input data-drupal-selector=\"edit-classic-toolbar-horizontal\" aria-describedby=\"edit-classic-toolbar--description\" class=\"toolbar-option__horizontal form-radio form-boolean form-boolean--type-radio\" data-gin-toolbar=\"horizontal\" type=\"radio\" id=\"edit-classic-toolbar-horizontal\" name=\"classic_toolbar\" value=\"horizontal\" checked=\"checked\">\r\n        <label for=\"edit-classic-toolbar-horizontal\" class=\"form-item__label option\">Horizontal, Modern Toolbar</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-radio form-type--radio form-type--boolean js-form-item-classic-toolbar form-item--classic-toolbar\">\r\n        <input data-drupal-selector=\"edit-classic-toolbar-classic\" aria-describedby=\"edit-classic-toolbar--description\" class=\"toolbar-option__classic form-radio form-boolean form-boolean--type-radio\" data-gin-toolbar=\"classic\" type=\"radio\" id=\"edit-classic-toolbar-classic\" name=\"classic_toolbar\" value=\"classic\">\r\n        <label for=\"edit-classic-toolbar-classic\" class=\"form-item__label option\">Legacy, Classic Drupal Toolbar</label>\r\n      </div>\r\n</div>\r\n\r\n                  <div id=\"edit-classic-toolbar--wrapper--description\" class=\"fieldset__description\">Choose Drupal Toolbar.</div>\r\n    \r\n      </div>\r\n</fieldset>\r\n  </div>\r\n</details>\r\n<details data-drupal-selector=\"edit-icon\" id=\"edit-icon\" class=\"js-form-wrapper form-wrapper claro-details\" open=\"\">    <summary role=\"button\" aria-controls=\"edit-icon\" aria-expanded=\"true\" aria-pressed=\"true\" class=\"claro-details__summary\">Logo<span class=\"required-mark\"></span>\r\n    </summary><div class=\"claro-details__wrapper details-wrapper\">\r\n    \r\n      <div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-icon-default form-item--icon-default\">\r\n          <input data-drupal-selector=\"edit-icon-default\" type=\"checkbox\" id=\"edit-icon-default\" name=\"icon_default\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-icon-default\" class=\"form-item__label option\">Use the default logo supplied by the theme</label>\r\n      </div>\r\n<div data-drupal-selector=\"edit-settings\" data-drupal-states=\"{&quot;invisible&quot;:{&quot;:input[name=\\u0022icon_default\\u0022]&quot;:{&quot;checked&quot;:true}}}\" id=\"edit-settings--2\" class=\"js-form-wrapper form-wrapper\"><div class=\"js-form-item form-item js-form-type-textfield form-type--textfield js-form-item-icon-path form-item--icon-path\">\r\n      <label for=\"edit-icon-path\" class=\"form-item__label\">Path to custom logo</label>\r\n        <input data-drupal-selector=\"edit-icon-path\" type=\"text\" id=\"edit-icon-path\" name=\"icon_path\" value=\"public://logo-_0.png\" size=\"60\" maxlength=\"128\" class=\"form-text form-element form-element--type-text form-element--api-textfield\">\r\n        </div>\r\n<div class=\"js-form-item form-item js-form-type-file form-type--file js-form-item-files-icon-upload form-item--files-icon-upload\">\r\n      <label for=\"edit-icon-upload\" class=\"form-item__label\">Upload logo image</label>\r\n        <input data-drupal-selector=\"edit-icon-upload\" aria-describedby=\"edit-icon-upload--description\" type=\"file\" id=\"edit-icon-upload\" name=\"files[icon_upload]\" size=\"60\" class=\"js-form-file form-file form-element form-element--type-file form-element--api-file\">\r\n            <div id=\"edit-icon-upload--description\" class=\"form-item__description\">\r\n      If you don't have direct file access to the server, use this field to upload your logo.\r\n    </div>\r\n  </div>\r\n</div>\r\n  </div>\r\n</details>\r\n<input autocomplete=\"off\" data-drupal-selector=\"form-shpugr68exticzmm7i7nvere-3f80utig-6u1mcf0iw\" type=\"hidden\" name=\"form_build_id\" value=\"form-ShpUgR68eXTIcZmM7i7Nvere_3F80UTIg_6U1mCF0iw\"><input data-drupal-selector=\"edit-system-theme-settings-form-token\" type=\"hidden\" name=\"form_token\" value=\"--9QsNzHxPjCZ4E5YVOZDCHgt0BSi7YCRz-iWB1Ev00\"><input data-drupal-selector=\"edit-system-theme-settings\" type=\"hidden\" name=\"form_id\" value=\"system_theme_settings\"><details data-drupal-selector=\"edit-favicon\" aria-describedby=\"edit-favicon--description\" id=\"edit-favicon\" class=\"js-form-wrapper form-wrapper claro-details\" data-drupal-states=\"{&quot;invisible&quot;:{&quot;input[name=\\u0022toggle_favicon\\u0022]&quot;:{&quot;checked&quot;:false}}}\">    <summary role=\"button\" aria-controls=\"edit-favicon\" aria-expanded=\"false\" aria-pressed=\"false\" class=\"claro-details__summary\">Favicon<span class=\"required-mark\"></span>\r\n    </summary><div class=\"claro-details__wrapper details-wrapper\">\r\n    \r\n      <div class=\"claro-details__description\">Your shortcut icon, or favicon, is displayed in the address bar and bookmarks of most browsers.</div><div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-default-favicon form-item--default-favicon\">\r\n          <input data-drupal-selector=\"edit-default-favicon\" type=\"checkbox\" id=\"edit-default-favicon\" name=\"default_favicon\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-default-favicon\" class=\"form-item__label option\">Use the favicon supplied by the theme</label>\r\n      </div>\r\n<div data-drupal-selector=\"edit-settings\" data-drupal-states=\"{&quot;invisible&quot;:{&quot;input[name=\\u0022default_favicon\\u0022]&quot;:{&quot;checked&quot;:true}}}\" id=\"edit-settings\" class=\"js-form-wrapper form-wrapper\"><div class=\"js-form-item form-item js-form-type-textfield form-type--textfield js-form-item-favicon-path form-item--favicon-path\">\r\n      <label for=\"edit-favicon-path\" class=\"form-item__label\">Path to custom icon</label>\r\n        <input data-drupal-selector=\"edit-favicon-path\" aria-describedby=\"edit-favicon-path--description\" type=\"text\" id=\"edit-favicon-path\" name=\"favicon_path\" value=\"GX0yb6g6_400x400_1.jpg\" size=\"60\" maxlength=\"128\" class=\"form-text form-element form-element--type-text form-element--api-textfield\">\r\n            <div id=\"edit-favicon-path--description\" class=\"form-item__description\">\r\n      Examples: <code>GX0yb6g6_400x400_1.jpg</code> (for a file in the public filesystem), <code>public://GX0yb6g6_400x400_1.jpg</code>, or <code>sites/default/files/GX0yb6g6_400x400_1.jpg</code>.\r\n    </div>\r\n  </div>\r\n<div class=\"js-form-item form-item js-form-type-file form-type--file js-form-item-files-favicon-upload form-item--files-favicon-upload\">\r\n      <label for=\"edit-favicon-upload\" class=\"form-item__label\">Upload favicon image</label>\r\n        <input data-drupal-selector=\"edit-favicon-upload\" aria-describedby=\"edit-favicon-upload--description\" type=\"file\" id=\"edit-favicon-upload\" name=\"files[favicon_upload]\" size=\"60\" class=\"js-form-file form-file form-element form-element--type-file form-element--api-file\">\r\n            <div id=\"edit-favicon-upload--description\" class=\"form-item__description\">\r\n      If you don't have direct file access to the server, use this field to upload your shortcut icon.\r\n    </div>\r\n  </div>\r\n</div>\r\n  </div>\r\n</details>\r\n<details data-drupal-selector=\"edit-theme-settings\" id=\"edit-theme-settings\" class=\"js-form-wrapper form-wrapper claro-details\">    <summary role=\"button\" aria-controls=\"edit-theme-settings\" aria-expanded=\"false\" aria-pressed=\"false\" class=\"claro-details__summary\">Page element display<span class=\"required-mark\"></span>\r\n    </summary><div class=\"claro-details__wrapper details-wrapper\">\r\n    \r\n      <div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-toggle-node-user-picture form-item--toggle-node-user-picture form-item--disabled\">\r\n          <input data-drupal-selector=\"edit-toggle-node-user-picture\" disabled=\"disabled\" type=\"checkbox\" id=\"edit-toggle-node-user-picture\" name=\"toggle_node_user_picture\" value=\"1\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label class=\"is-disabled form-item__label option\" for=\"edit-toggle-node-user-picture\">User pictures in posts</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-toggle-comment-user-picture form-item--toggle-comment-user-picture form-item--disabled\">\r\n          <input data-drupal-selector=\"edit-toggle-comment-user-picture\" disabled=\"disabled\" type=\"checkbox\" id=\"edit-toggle-comment-user-picture\" name=\"toggle_comment_user_picture\" value=\"1\" checked=\"checked\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label class=\"is-disabled form-item__label option\" for=\"edit-toggle-comment-user-picture\">User pictures in comments</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-toggle-comment-user-verification form-item--toggle-comment-user-verification form-item--disabled\">\r\n          <input data-drupal-selector=\"edit-toggle-comment-user-verification\" disabled=\"disabled\" type=\"checkbox\" id=\"edit-toggle-comment-user-verification\" name=\"toggle_comment_user_verification\" value=\"1\" checked=\"checked\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label class=\"is-disabled form-item__label option\" for=\"edit-toggle-comment-user-verification\">User verification status in comments</label>\r\n      </div>\r\n<div class=\"js-form-item form-item js-form-type-checkbox form-type--checkbox form-type--boolean js-form-item-toggle-favicon form-item--toggle-favicon\">\r\n          <input data-drupal-selector=\"edit-toggle-favicon\" type=\"checkbox\" id=\"edit-toggle-favicon\" name=\"toggle_favicon\" value=\"1\" checked=\"checked\" class=\"form-checkbox form-boolean form-boolean--type-checkbox\">\r\n  <span class=\"checkbox-toggle\">\r\n    <span class=\"checkbox-toggle__inner\"></span>\r\n  </span>\r\n\r\n        <label for=\"edit-toggle-favicon\" class=\"form-item__label option\">Shortcut icon</label>\r\n      </div>\r\n  </div>\r\n</details>\r\n<div data-drupal-selector=\"edit-actions\" class=\"form-actions js-form-wrapper form-wrapper\" id=\"edit-actions\"><input data-drupal-selector=\"edit-submit\" type=\"submit\" id=\"edit-submit\" name=\"op\" value=\"Save configuration\" class=\"button button--primary js-form-submit form-submit\"></div>\r\n\r\n\r\n</form>\r\n\r\n  </div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 1
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+      style:
+        type: default
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: dashboard
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

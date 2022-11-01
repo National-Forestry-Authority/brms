@@ -1,0 +1,19 @@
+uuid: 6f4f87ea-a751-4301-bb67-a189bc551949
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_strategic_plan_5_yr
+    - node.type.activity
+id: node.activity.field_strategic_plan_5_yr
+field_name: field_strategic_plan_5_yr
+entity_type: node
+bundle: activity
+label: 'Strategic Plan 5-yr Performance Targets'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

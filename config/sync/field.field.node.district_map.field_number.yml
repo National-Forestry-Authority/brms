@@ -1,0 +1,19 @@
+uuid: 5a91e63e-f74b-48a4-98fe-d565142e5070
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number
+    - node.type.district_map
+id: node.district_map.field_number
+field_name: field_number
+entity_type: node
+bundle: district_map
+label: Number
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

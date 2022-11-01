@@ -1,0 +1,19 @@
+uuid: 54dfdb38-25a5-4b17-bbd2-c24266a01291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_project_line_item
+    - node.type.activity
+id: node.activity.field_project_line_item
+field_name: field_project_line_item
+entity_type: node
+bundle: activity
+label: 'Project line item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

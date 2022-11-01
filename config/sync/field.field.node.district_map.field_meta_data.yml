@@ -1,0 +1,28 @@
+uuid: 26d28441-9821-4e6a-a39c-4f0983e8037c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_data
+    - node.type.district_map
+    - node.type.meta_data
+id: node.district_map.field_meta_data
+field_name: field_meta_data
+entity_type: node
+bundle: district_map
+label: 'Meta Data'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      meta_data: meta_data
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

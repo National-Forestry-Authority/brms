@@ -1,0 +1,107 @@
+uuid: abf52054-08b4-41ff-a4f3-f60b1489fba7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.central_forest_reserve.body
+    - field.field.node.central_forest_reserve.feeds_item
+    - field.field.node.central_forest_reserve.field_nfa_id
+    - field.field.node.central_forest_reserve.field_raw_data
+    - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - node.type.central_forest_reserve
+  module:
+    - leaflet
+    - user
+id: node.central_forest_reserve.default
+targetEntityType: node
+bundle: central_forest_reserve
+mode: default
+content:
+  field_nfa_id:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_spatial_data_cfr:
+    type: leaflet_formatter_default
+    label: hidden
+    settings:
+      multiple_map: false
+      leaflet_map: '~Mapbox Satellite'
+      height: 500
+      height_unit: px
+      hide_empty_map: false
+      disable_wheel: false
+      gesture_handling: false
+      reset_map:
+        control: true
+        position: topright
+      popup: false
+      popup_content: ''
+      map_position:
+        force: false
+        center:
+          lat: 0.3208934
+          lon: 32.6140941
+        zoom: 15
+        minZoom: 1
+        maxZoom: 20
+        zoomFiner: 0
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds":false}'
+        include_path: false
+      fullscreen:
+        control: true
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 25
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+      weight: null
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  body: true
+  feeds_item: true
+  field_raw_data: true

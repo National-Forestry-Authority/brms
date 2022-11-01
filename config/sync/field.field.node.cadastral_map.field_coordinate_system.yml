@@ -1,0 +1,19 @@
+uuid: c03225ce-3972-40f1-9caa-e9a7ffa7dade
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_coordinate_system
+    - node.type.cadastral_map
+id: node.cadastral_map.field_coordinate_system
+field_name: field_coordinate_system
+entity_type: node
+bundle: cadastral_map
+label: 'Coordinate System'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

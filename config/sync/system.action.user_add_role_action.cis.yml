@@ -1,0 +1,14 @@
+uuid: ff32a506-423f-4ab5-a1b7-d885fd995862
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cis
+  module:
+    - user
+id: user_add_role_action.cis
+label: 'Add the CIS role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cis

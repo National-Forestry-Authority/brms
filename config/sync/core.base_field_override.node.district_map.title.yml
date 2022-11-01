@@ -1,0 +1,18 @@
+uuid: 9181a775-a9ff-4c5f-98ad-312bdd5a4e5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.district_map
+id: node.district_map.title
+field_name: title
+entity_type: node
+bundle: district_map
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

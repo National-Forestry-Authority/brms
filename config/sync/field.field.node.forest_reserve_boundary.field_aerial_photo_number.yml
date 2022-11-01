@@ -1,0 +1,19 @@
+uuid: b5001cf1-9fc3-451e-aed2-637d3feaf3cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aerial_photo_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_aerial_photo_number
+field_name: field_aerial_photo_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Aerial Photo Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

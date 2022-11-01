@@ -1,0 +1,27 @@
+uuid: ec5e56d8-d811-4fb2-ae00-12a160e1b63a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scanned_copy
+    - node.type.cadastral_map
+  module:
+    - file
+id: node.cadastral_map.field_scanned_copy
+field_name: field_scanned_copy
+entity_type: node
+bundle: cadastral_map
+label: 'Scanned Copy'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

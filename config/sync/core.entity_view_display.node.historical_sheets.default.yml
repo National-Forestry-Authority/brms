@@ -1,0 +1,28 @@
+uuid: cc812628-0315-4bb9-942b-07db2e56a397
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.historical_sheets.body
+    - node.type.historical_sheets
+  module:
+    - text
+    - user
+id: node.historical_sheets.default
+targetEntityType: node
+bundle: historical_sheets
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

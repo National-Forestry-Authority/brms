@@ -1,0 +1,21 @@
+uuid: fdccb80e-6656-4bd1-83b3-56fa03c3588f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_spatial_data_cfr
+    - node.type.central_forest_reserve
+  module:
+    - geofield
+id: node.central_forest_reserve.field_spatial_data_cfr
+field_name: field_spatial_data_cfr
+entity_type: node
+bundle: central_forest_reserve
+label: 'Spatial Data CFR'
+description: 'POINTS, POLYGONS, KML'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geofield

@@ -1,0 +1,19 @@
+uuid: 62ef2e69-d5de-408e-b995-eb11a25ca99a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_gazetted_area
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_gazetted_area
+field_name: field_gazetted_area
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Gazetted Area'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

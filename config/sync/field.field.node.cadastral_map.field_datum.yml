@@ -1,0 +1,19 @@
+uuid: 23c71673-f3c9-4eec-ae16-e3993c0ea770
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_datum
+    - node.type.cadastral_map
+id: node.cadastral_map.field_datum
+field_name: field_datum
+entity_type: node
+bundle: cadastral_map
+label: Datum
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

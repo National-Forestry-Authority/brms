@@ -1,0 +1,24 @@
+uuid: edc11c91-b7af-45a0-a462-7bd74dd81a88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.district_map
+  module:
+    - datetime
+id: node.district_map.field_year
+field_name: field_year
+entity_type: node
+bundle: district_map
+label: Year
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

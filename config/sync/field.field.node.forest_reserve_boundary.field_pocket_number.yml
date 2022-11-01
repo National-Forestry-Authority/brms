@@ -1,0 +1,19 @@
+uuid: 25c6454d-3d80-40fb-aeae-5e5a6fca9c4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pocket_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_pocket_number
+field_name: field_pocket_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Pocket Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

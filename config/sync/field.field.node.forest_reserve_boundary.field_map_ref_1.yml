@@ -1,0 +1,19 @@
+uuid: a3139221-c4d6-4308-8a05-9f0e7ecb6b12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_ref_1
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_map_ref_1
+field_name: field_map_ref_1
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Map ref 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

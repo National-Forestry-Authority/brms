@@ -1,0 +1,18 @@
+uuid: 8485b18d-8971-425e-b60d-e5d579487e51
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_run_number
+field_name: field_run_number
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

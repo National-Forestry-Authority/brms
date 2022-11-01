@@ -1,0 +1,19 @@
+uuid: fe913fc9-41bd-4b84-bd4a-7cf576567d83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_strategic_forecast_budget
+    - node.type.activity
+id: node.activity.field_strategic_forecast_budget
+field_name: field_strategic_forecast_budget
+entity_type: node
+bundle: activity
+label: 'Strategic Plan Forecast Budget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,8 @@
+uuid: d73e1edd-d111-4130-81b0-07678a8aa211
+langcode: en
+status: true
+dependencies: {  }
+name: 'Aerial Photo Type'
+vid: aerial_photo_type
+description: ''
+weight: 0

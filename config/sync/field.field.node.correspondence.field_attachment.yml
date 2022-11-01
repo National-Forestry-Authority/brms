@@ -1,0 +1,27 @@
+uuid: 97608d05-2032-4689-8877-e3d5bbd0db28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachment
+    - node.type.correspondence
+  module:
+    - file
+id: node.correspondence.field_attachment
+field_name: field_attachment
+entity_type: node
+bundle: correspondence
+label: 'Other Attachments'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf img png jpeg'
+  max_filesize: '12 MB'
+  description_field: false
+field_type: file

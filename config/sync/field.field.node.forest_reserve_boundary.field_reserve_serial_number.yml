@@ -1,0 +1,19 @@
+uuid: 081c1e8c-c5eb-4706-ae5e-2e7878fa98b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reserve_serial_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_reserve_serial_number
+field_name: field_reserve_serial_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Reserve Serial Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

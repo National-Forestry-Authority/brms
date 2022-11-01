@@ -1,0 +1,29 @@
+uuid: 6ed95880-a3fd-44a8-88fe-6141a81fd48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_from
+    - node.type.correspondence
+    - taxonomy.vocabulary.contact
+id: node.correspondence.field_from
+field_name: field_from
+entity_type: node
+bundle: correspondence
+label: From
+description: 'Written by/Prepared by'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      contact: contact
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

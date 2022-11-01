@@ -1,0 +1,14 @@
+uuid: 7369cf10-fca5-4c37-abd5-fd60e0e83626
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cartographer
+  module:
+    - user
+id: user_remove_role_action.cartographer
+label: 'Remove the Cartographer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cartographer

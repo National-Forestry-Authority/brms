@@ -1,0 +1,29 @@
+uuid: 844157fc-bfb2-4a5b-8a1b-93a3748b782c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area
+    - node.type.district_map
+    - taxonomy.vocabulary.area
+id: node.district_map.field_area
+field_name: field_area
+entity_type: node
+bundle: district_map
+label: 'District / Area'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      area: area
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

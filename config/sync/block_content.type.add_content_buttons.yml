@@ -1,0 +1,8 @@
+uuid: 3b2572de-dfc0-4f7e-8a29-e8506c019269
+langcode: en
+status: true
+dependencies: {  }
+id: add_content_buttons
+label: 'Add Content Buttons'
+revision: 0
+description: ''

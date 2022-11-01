@@ -1,0 +1,332 @@
+uuid: 04e033e1-b567-4b86-a124-63bb9b9abcb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.district_map.title
+    - field.field.node.district_map.body
+    - field.field.node.district_map.field_code
+    - field.field.node.district_map.field_compiled_by
+    - field.field.node.district_map.field_condition
+    - field.field.node.district_map.field_coordinate_system
+    - field.field.node.district_map.field_edition
+    - field.field.node.district_map.field_examined_by
+    - field.field.node.district_map.field_magnetic_declination
+    - field.field.node.district_map.field_meta_data
+    - field.field.node.district_map.field_number
+    - field.field.node.district_map.field_phases
+    - field.field.node.district_map.field_printed_by
+    - field.field.node.district_map.field_produced_by
+    - field.field.node.district_map.field_published_by
+    - field.field.node.district_map.field_record_id
+    - field.field.node.district_map.field_ref_number
+    - field.field.node.district_map.field_scale
+    - field.field.node.district_map.field_series
+    - field.field.node.district_map.field_sheet_number
+    - field.field.node.district_map.field_surveyed_by
+    - field.field.node.district_map.field_year
+    - node.type.district_map
+  module:
+    - node
+label: 'Import District Maps'
+id: import_district_maps
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: district_map
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 19
+custom_sources:
+  record_id:
+    value: record_id
+    label: record_id
+    machine_name: record_id
+    type: csv
+  name:
+    value: name
+    label: name
+    machine_name: name
+    type: csv
+  phases:
+    value: phases
+    label: phases
+    machine_name: phases
+    type: csv
+  code:
+    value: code
+    label: code
+    machine_name: code
+    type: csv
+  coordinate_systems:
+    value: coordinate_systems
+    label: coordinate_systems
+    machine_name: coordinate_systems
+    type: csv
+  ref_number:
+    value: ref_number
+    label: ref_number
+    machine_name: ref_number
+    type: csv
+  scale:
+    value: scale
+    label: scale
+    machine_name: scale
+    type: csv
+  condition:
+    value: condition
+    label: condition
+    machine_name: condition
+    type: csv
+  magnetic:
+    value: magnetic
+    label: magnetic
+    machine_name: magnetic
+    type: csv
+  examined_by:
+    value: examined_by
+    label: examined_by
+    machine_name: examined_by
+    type: csv
+  edition:
+    value: edition
+    label: edition
+    machine_name: edition
+    type: csv
+  series:
+    value: series
+    label: series
+    machine_name: series
+    type: csv
+  produced_by:
+    value: produced_by
+    label: produced_by
+    machine_name: produced_by
+    type: csv
+  year:
+    value: year
+    label: year
+    machine_name: year
+    type: csv
+  number:
+    value: number
+    label: number
+    machine_name: number
+    type: csv
+  published_by:
+    value: published_by
+    label: published_by
+    machine_name: published_by
+    type: csv
+  printed_by:
+    value: printed_by
+    label: printed_by
+    machine_name: printed_by
+    type: csv
+  surveyed_by:
+    value: surveyed_by
+    label: surveyed_by
+    machine_name: surveyed_by
+    type: csv
+  sheet_number:
+    value: sheet_number
+    label: sheet_number
+    machine_name: sheet_number
+    type: csv
+  compiled_by:
+    value: compiled_by
+    label: compiled_by
+    machine_name: compiled_by
+    type: csv
+  notes:
+    value: notes
+    label: notes
+    machine_name: notes
+    type: csv
+  meta:
+    value: meta
+    label: meta
+    machine_name: meta
+    type: csv
+mappings:
+  -
+    target: field_record_id
+    map:
+      value: record_id
+    settings:
+      language: null
+  -
+    target: title
+    map:
+      value: name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_phases
+    map:
+      value: phases
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_code
+    map:
+      value: code
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_coordinate_system
+    map:
+      value: coordinate_systems
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_ref_number
+    map:
+      value: ref_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_scale
+    map:
+      value: scale
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_condition
+    map:
+      target_id: condition
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_magnetic_declination
+    map:
+      value: magnetic
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_examined_by
+    map:
+      target_id: examined_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_edition
+    map:
+      value: edition
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_series
+    map:
+      value: series
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_produced_by
+    map:
+      target_id: produced_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_year
+    map:
+      value: year
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_number
+    map:
+      value: number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_published_by
+    map:
+      target_id: published_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_printed_by
+    map:
+      target_id: printed_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_surveyed_by
+    map:
+      target_id: surveyed_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_sheet_number
+    map:
+      value: sheet_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_compiled_by
+    map:
+      target_id: compiled_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: body
+    map:
+      value: notes
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_meta_data
+    map:
+      target_id: meta
+    settings:
+      language: ''
+      reference_by: nid
+      feeds_item: guid
+      autocreate: 0

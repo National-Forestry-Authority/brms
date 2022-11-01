@@ -1,0 +1,20 @@
+uuid: 05a6b6f1-2445-4985-9e5f-a91c3c4a3d55
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_year_of_tracing
+field_name: field_year_of_tracing
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 7d4838a5-d49f-439b-b307-c7f487769bfb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.historical_sheets
+  module:
+    - text
+id: node.historical_sheets.body
+field_name: body
+entity_type: node
+bundle: historical_sheets
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

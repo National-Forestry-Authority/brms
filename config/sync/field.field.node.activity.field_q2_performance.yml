@@ -1,0 +1,19 @@
+uuid: 2a3c7d49-5c6a-46e0-96ef-b4b309a8ab2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_q2_performance
+    - node.type.activity
+id: node.activity.field_q2_performance
+field_name: field_q2_performance
+entity_type: node
+bundle: activity
+label: 'Q2 Performance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

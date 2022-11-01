@@ -1,0 +1,8 @@
+uuid: a545a0a3-c8ff-4a61-92a7-aa176de2f4a8
+langcode: en
+status: true
+dependencies: {  }
+name: 'Forest Reserve Boundary Category'
+vid: forest_reserve_boundary_category
+description: ''
+weight: 0

@@ -1,0 +1,18 @@
+uuid: bbcc91b0-260f-4272-8e59-c1f3f9986fcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.aerial_photos
+id: node.aerial_photos.title
+field_name: title
+entity_type: node
+bundle: aerial_photos
+label: 'Record ID'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

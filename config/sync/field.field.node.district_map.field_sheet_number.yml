@@ -1,0 +1,19 @@
+uuid: a3a85749-60a2-48d1-b1d8-60a513d50d5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sheet_number
+    - node.type.district_map
+id: node.district_map.field_sheet_number
+field_name: field_sheet_number
+entity_type: node
+bundle: district_map
+label: 'Sheet Number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

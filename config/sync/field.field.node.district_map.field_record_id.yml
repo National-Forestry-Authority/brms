@@ -1,0 +1,23 @@
+uuid: 778bac14-7089-4252-be66-a3b9939ec803
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_record_id
+    - node.type.district_map
+id: node.district_map.field_record_id
+field_name: field_record_id
+entity_type: node
+bundle: district_map
+label: 'Record ID'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -1,0 +1,19 @@
+uuid: 58468ee3-756c-47dc-ba55-5bec8b8e4e75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_film_number
+    - node.type.aerial_photos
+id: node.aerial_photos.field_film_number
+field_name: field_film_number
+entity_type: node
+bundle: aerial_photos
+label: 'Film Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 947150cd-d304-4848-9ada-3868fdcf5c5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.field_books
+  module:
+    - text
+id: node.field_books.body
+field_name: body
+entity_type: node
+bundle: field_books
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

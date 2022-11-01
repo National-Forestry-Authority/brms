@@ -1,0 +1,14 @@
+uuid: 47729202-9f89-4b60-bafa-6c2d06d6c9c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.archivist
+  module:
+    - user
+id: user_remove_role_action.archivist
+label: 'Remove the Archivist role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: archivist

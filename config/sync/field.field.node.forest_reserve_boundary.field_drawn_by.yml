@@ -1,0 +1,29 @@
+uuid: 287a98d8-fb84-4a54-99b2-441ce3b75b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_drawn_by
+    - node.type.forest_reserve_boundary
+    - taxonomy.vocabulary.surveyors
+id: node.forest_reserve_boundary.field_drawn_by
+field_name: field_drawn_by
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Drawn By'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      surveyors: surveyors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

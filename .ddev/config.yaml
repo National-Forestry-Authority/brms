@@ -1,6 +1,6 @@
 name: brms
-type: drupal8
-docroot: ""
+type: drupal9
+docroot: web
 php_version: "7.4"
 webserver_type: nginx-fpm
 router_http_port: "80"
@@ -13,8 +13,19 @@ database:
   version: "10.4"
 nfs_mount_enabled: false
 mutagen_enabled: false
+hooks:
+  post-import-db:
+  - exec: drush cache:rebuild
+  post-start:
+  - exec: mkdir -p /var/www/html/${DDEV_DOCROOT}/sites/default/files/private
+  - exec: mkdir -p /var/www/html/${DDEV_DOCROOT}/sites/default/files/tmp
+  pre-start:
+  - exec-host: cp -f ${DDEV_APPROOT}/.ddev/drupal-files/settings.local.php ${DDEV_APPROOT}/${DDEV_DOCROOT}/sites/default/settings.local.php
+  - exec-host: cp -f ${DDEV_APPROOT}/.ddev/drupal-files/settings.ddev.php ${DDEV_APPROOT}/${DDEV_DOCROOT}/sites/default/settings.ddev.php
+  - exec-host: cp -f ${DDEV_APPROOT}/.ddev/drupal-files/development.services.yml ${DDEV_APPROOT}/${DDEV_DOCROOT}/sites/default/development.services.yml
 use_dns_when_possible: true
 composer_version: "2"
+disable_settings_management: true
 web_environment: []
 nodejs_version: "16"
 

@@ -1,0 +1,14 @@
+uuid: f319e482-5a27-464c-8145-25c0293f4938
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+  module:
+    - filter
+id: systems_administrator
+label: 'Systems Administrator'
+weight: -10
+is_admin: null
+permissions:
+  - 'use text format some_html'

@@ -1,0 +1,18 @@
+uuid: df77a527-46b3-460a-b3a4-6f7519d8b876
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+  module:
+    - filter
+    - toolbar
+id: cartographer
+label: Cartographer
+weight: -3
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'select account cancellation method'
+  - 'use text format some_html'

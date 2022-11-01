@@ -1,0 +1,19 @@
+uuid: 945a2bfc-e9ac-4ccc-ac61-e60965247883
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_q4_performance
+    - node.type.activity
+id: node.activity.field_q4_performance
+field_name: field_q4_performance
+entity_type: node
+bundle: activity
+label: 'Q4 Performance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

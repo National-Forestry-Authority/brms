@@ -1,0 +1,18 @@
+uuid: 4b03c4a3-1ee0-4d67-b88e-9640c8a63d7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.meta_data
+id: node.meta_data.title
+field_name: title
+entity_type: node
+bundle: meta_data
+label: Title/Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

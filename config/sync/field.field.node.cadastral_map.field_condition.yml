@@ -1,0 +1,29 @@
+uuid: 5903ab42-fb0e-4467-aac8-a4283558511a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_condition
+    - node.type.cadastral_map
+    - taxonomy.vocabulary.condition
+id: node.cadastral_map.field_condition
+field_name: field_condition
+entity_type: node
+bundle: cadastral_map
+label: Condition
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      condition: condition
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

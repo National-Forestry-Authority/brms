@@ -1,0 +1,25 @@
+uuid: 50fe0409-44c0-4e6b-a685-10b694017b6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_record_id
+    - node.type.aerial_photos
+id: node.aerial_photos.field_record_id
+field_name: field_record_id
+entity_type: node
+bundle: aerial_photos
+label: 'Record ID'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: !!float 1
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

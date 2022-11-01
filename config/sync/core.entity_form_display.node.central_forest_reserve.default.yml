@@ -1,0 +1,89 @@
+uuid: 6c63f6cb-d81a-4f94-ae97-f0949cc8fe30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.central_forest_reserve.body
+    - field.field.node.central_forest_reserve.feeds_item
+    - field.field.node.central_forest_reserve.field_nfa_id
+    - field.field.node.central_forest_reserve.field_raw_data
+    - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - node.type.central_forest_reserve
+  module:
+    - geofield
+id: node.central_forest_reserve.default
+targetEntityType: node
+bundle: central_forest_reserve
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_nfa_id:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_raw_data:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_spatial_data_cfr:
+    type: geofield_default
+    weight: 1
+    region: content
+    settings:
+      geometry_validation: false
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  body: true
+  feeds_item: true

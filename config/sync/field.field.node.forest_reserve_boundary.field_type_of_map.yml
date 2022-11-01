@@ -1,0 +1,29 @@
+uuid: f562671c-3927-4116-941c-2c4b9b3781ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_of_map
+    - node.type.forest_reserve_boundary
+    - taxonomy.vocabulary.type_of_map
+id: node.forest_reserve_boundary.field_type_of_map
+field_name: field_type_of_map
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Type of Map'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      type_of_map: type_of_map
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,8 @@
+uuid: 1528bec9-2be0-4259-b405-c831f684f78a
+langcode: en
+status: true
+dependencies: {  }
+name: Condition
+vid: condition
+description: ''
+weight: 0

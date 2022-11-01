@@ -1,0 +1,30 @@
+uuid: 127659c7-268c-4667-9e9b-c032ed053e94
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.district_maps
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: views_block__district_maps_block_1
+theme: gin
+region: header
+weight: -4
+provider: null
+plugin: 'views_block:district_maps-block_1'
+settings:
+  id: 'views_block:district_maps-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /district-maps

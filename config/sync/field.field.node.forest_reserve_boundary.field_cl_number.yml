@@ -1,0 +1,19 @@
+uuid: 5abc53e7-504c-4c49-aa29-7c18e11cb8bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cl_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_cl_number
+field_name: field_cl_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'CL Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

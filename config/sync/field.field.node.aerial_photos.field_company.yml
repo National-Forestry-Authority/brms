@@ -1,0 +1,29 @@
+uuid: 2283c6b0-b8bd-4d15-92dc-1ddbd1e94d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_company
+    - node.type.aerial_photos
+    - taxonomy.vocabulary.company
+id: node.aerial_photos.field_company
+field_name: field_company
+entity_type: node
+bundle: aerial_photos
+label: Company
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      company: company
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

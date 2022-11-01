@@ -1,0 +1,23 @@
+uuid: faaa14e3-7f14-4455-9d86-6d1bb22c7970
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_copies
+    - node.type.cadastral_map
+id: node.cadastral_map.field_copies
+field_name: field_copies
+entity_type: node
+bundle: cadastral_map
+label: Copies
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

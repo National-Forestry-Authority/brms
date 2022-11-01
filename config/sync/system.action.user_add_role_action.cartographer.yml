@@ -1,0 +1,14 @@
+uuid: 392dcebb-3bf9-4f87-a97a-9abb6f400f8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cartographer
+  module:
+    - user
+id: user_add_role_action.cartographer
+label: 'Add the Cartographer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cartographer

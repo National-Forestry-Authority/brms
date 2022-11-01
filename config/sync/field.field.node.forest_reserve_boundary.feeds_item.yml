@@ -1,0 +1,23 @@
+uuid: cef0464e-b0db-4536-b411-1103b57db9fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.feeds_item
+    - node.type.forest_reserve_boundary
+  module:
+    - feeds
+id: node.forest_reserve_boundary.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings: {  }
+field_type: feeds_item

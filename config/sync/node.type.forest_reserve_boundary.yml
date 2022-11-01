@@ -1,0 +1,24 @@
+uuid: f6702eac-58ac-45fc-b976-d01b11bd5dc5
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  autotitle:
+    enabled: true
+    field: field_name
+    fallback_title: '#'
+    headings: {  }
+name: 'Forest Reserve Boundary'
+type: forest_reserve_boundary
+description: Boundaries
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

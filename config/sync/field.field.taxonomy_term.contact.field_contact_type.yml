@@ -1,0 +1,33 @@
+uuid: d34afde4-d68d-4bb0-b548-a91004506c02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_contact_type
+    - taxonomy.vocabulary.contact
+    - taxonomy.vocabulary.contact_type
+  content:
+    - 'taxonomy_term:contact_type:6e0fe71c-8df9-4549-a2dc-352033d3b3c4'
+id: taxonomy_term.contact.field_contact_type
+field_name: field_contact_type
+entity_type: taxonomy_term
+bundle: contact
+label: 'Contact Type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 6e0fe71c-8df9-4549-a2dc-352033d3b3c4
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      contact_type: contact_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

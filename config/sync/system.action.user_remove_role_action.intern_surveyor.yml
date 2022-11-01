@@ -1,0 +1,14 @@
+uuid: e12e8c0c-b9ff-4033-8cef-7430ff34f3b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.intern_surveyor
+  module:
+    - user
+id: user_remove_role_action.intern_surveyor
+label: 'Remove the Intern Surveyor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: intern_surveyor

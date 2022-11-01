@@ -1,0 +1,23 @@
+uuid: 18e47b7a-a6a5-48c6-becd-5a2851d2e42c
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  autotitle:
+    enabled: false
+    field: body
+    fallback_title: 'Untitled []'
+    headings: {  }
+name: 'Cadastral Map'
+type: cadastral_map
+description: 'Add new Cadastral Map data set'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

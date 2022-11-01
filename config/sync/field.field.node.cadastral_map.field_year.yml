@@ -1,0 +1,24 @@
+uuid: 8c27dda7-fa65-4e8a-a1cb-99d8e18d9f2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year
+    - node.type.cadastral_map
+  module:
+    - datetime
+id: node.cadastral_map.field_year
+field_name: field_year
+entity_type: node
+bundle: cadastral_map
+label: Year
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,19 @@
+uuid: 19fdb714-2c40-4fbb-837c-3722a6b1e143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_magnetic_declination
+    - node.type.district_map
+id: node.district_map.field_magnetic_declination
+field_name: field_magnetic_declination
+entity_type: node
+bundle: district_map
+label: 'Magnetic Declination'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

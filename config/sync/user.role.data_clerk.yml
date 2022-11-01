@@ -1,0 +1,17 @@
+uuid: 84190333-e401-492b-b7a6-a596930435e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+    - node.type.central_forest_reserve
+  module:
+    - filter
+    - node
+id: data_clerk
+label: 'Data Clerk'
+weight: -8
+is_admin: null
+permissions:
+  - 'revert central_forest_reserve revisions'
+  - 'use text format some_html'

@@ -1,0 +1,14 @@
+uuid: 1293e567-6e70-4f20-b7a1-b03e60e634a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+  module:
+    - filter
+id: data_officer
+label: 'Data Officer'
+weight: -9
+is_admin: null
+permissions:
+  - 'use text format some_html'

@@ -1,0 +1,14 @@
+uuid: 84c75b68-b7f9-46dc-bf91-d8982437150b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.intern_surveyor
+  module:
+    - user
+id: user_add_role_action.intern_surveyor
+label: 'Add the Intern Surveyor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: intern_surveyor

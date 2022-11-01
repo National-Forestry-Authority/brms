@@ -1,0 +1,30 @@
+uuid: 5bde8eeb-5f1a-419d-9c86-2318c123a6f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_counters
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: views_block__content_counters_block_1
+theme: gin
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:content_counters-block_1'
+settings:
+  id: 'views_block:content_counters-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: "/\r\n/dashboard"

@@ -1,0 +1,14 @@
+uuid: eddb62f2-a4b0-4eaa-b205-ecf97803a072
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.data_clerk
+  module:
+    - user
+id: user_remove_role_action.data_clerk
+label: 'Remove the Data Clerk role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: data_clerk

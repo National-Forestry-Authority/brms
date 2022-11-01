@@ -1,0 +1,24 @@
+uuid: 7b21041e-1995-4d8d-a0db-f814ed52e522
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_of_drawing
+    - node.type.forest_reserve_boundary
+  module:
+    - datetime
+id: node.forest_reserve_boundary.field_year_of_drawing
+field_name: field_year_of_drawing
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Year of Drawing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,569 @@
+uuid: 0c4ff240-0fc4-481a-8cb4-81983d21c55b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.node.forest_reserve_boundary.title
+    - field.field.node.forest_reserve_boundary.body
+    - field.field.node.forest_reserve_boundary.field_aerial_photo_number
+    - field.field.node.forest_reserve_boundary.field_area_covered
+    - field.field.node.forest_reserve_boundary.field_bp_number
+    - field.field.node.forest_reserve_boundary.field_category
+    - field.field.node.forest_reserve_boundary.field_checked_by
+    - field.field.node.forest_reserve_boundary.field_checking_year
+    - field.field.node.forest_reserve_boundary.field_cl_number
+    - field.field.node.forest_reserve_boundary.field_condition
+    - field.field.node.forest_reserve_boundary.field_copied_by
+    - field.field.node.forest_reserve_boundary.field_counties
+    - field.field.node.forest_reserve_boundary.field_district
+    - field.field.node.forest_reserve_boundary.field_drawn_by
+    - field.field.node.forest_reserve_boundary.field_enlarged_by
+    - field.field.node.forest_reserve_boundary.field_enlargement_year
+    - field.field.node.forest_reserve_boundary.field_field_book_number
+    - field.field.node.forest_reserve_boundary.field_folder_number
+    - field.field.node.forest_reserve_boundary.field_gazetted_area
+    - field.field.node.forest_reserve_boundary.field_magnetic_declination
+    - field.field.node.forest_reserve_boundary.field_map_ref_1
+    - field.field.node.forest_reserve_boundary.field_map_ref_2
+    - field.field.node.forest_reserve_boundary.field_meta_data
+    - field.field.node.forest_reserve_boundary.field_name
+    - field.field.node.forest_reserve_boundary.field_plain_file_number
+    - field.field.node.forest_reserve_boundary.field_plotted_by
+    - field.field.node.forest_reserve_boundary.field_pocket_number
+    - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_reserve_serial_number
+    - field.field.node.forest_reserve_boundary.field_retraced_by
+    - field.field.node.forest_reserve_boundary.field_scale
+    - field.field.node.forest_reserve_boundary.field_sheet_number
+    - field.field.node.forest_reserve_boundary.field_surveyed_by
+    - field.field.node.forest_reserve_boundary.field_type_of_map
+    - field.field.node.forest_reserve_boundary.field_year_of_drawing
+    - field.field.node.forest_reserve_boundary.field_year_of_plotting
+    - field.field.node.forest_reserve_boundary.field_year_of_retracing
+    - field.field.node.forest_reserve_boundary.field_year_of_survey
+    - field.field.node.forest_reserve_boundary.field_year_of_tracing
+    - node.type.forest_reserve_boundary
+  module:
+    - node
+label: 'Import Forest boundaries'
+id: import_forest_boundaries
+description: ''
+help: ''
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: forest_reserve_boundary
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: true
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  id:
+    value: id
+    label: id
+    machine_name: id
+    type: csv
+  name:
+    value: name
+    label: name
+    machine_name: name
+    type: csv
+  map_ref1:
+    value: map_ref1
+    label: map_ref1
+    machine_name: map_ref1
+    type: csv
+  map_ref2:
+    value: map_ref2
+    label: map_ref2
+    machine_name: map_ref2
+    type: csv
+  category:
+    value: category
+    label: category
+    machine_name: category
+    type: csv
+  scale:
+    value: scale
+    label: scale
+    machine_name: scale
+    type: csv
+  sheet_no:
+    value: sheet_no
+    label: sheet_no
+    machine_name: sheet_no
+    type: csv
+  bp_no:
+    value: bp_no
+    label: bp_no
+    machine_name: bp_no
+    type: csv
+  aerial_photo_no:
+    value: aerial_photo_no
+    label: aerial_photo_no
+    machine_name: aerial_photo_no
+    type: csv
+  cl_number:
+    value: cl_number
+    label: cl_number
+    machine_name: cl_number
+    type: csv
+  surveyed_by:
+    value: surveyed_by
+    label: surveyed_by
+    machine_name: surveyed_by
+    type: csv
+  yr_survey:
+    value: yr_survey
+    label: yr_survey
+    machine_name: yr_survey
+    type: csv
+  yr_tracing:
+    value: yr_tracing
+    label: yr_tracing
+    machine_name: yr_tracing
+    type: csv
+  retraced_by:
+    value: retraced_by
+    label: retraced_by
+    machine_name: retraced_by
+    type: csv
+  yr_retracing:
+    value: yr_retracing
+    label: yr_retracing
+    machine_name: yr_retracing
+    type: csv
+  field_book_no:
+    value: field_book_no
+    label: field_book_no
+    machine_name: field_book_no
+    type: csv
+  checked_by:
+    value: checked_by
+    label: checked_by
+    machine_name: checked_by
+    type: csv
+  checking_yr:
+    value: checking_yr
+    label: checking_yr
+    machine_name: checking_yr
+    type: csv
+  yr_plotting:
+    value: yr_plotting
+    label: yr_plotting
+    machine_name: yr_plotting
+    type: csv
+  plotted_by:
+    value: plotted_by
+    label: plotted_by
+    machine_name: plotted_by
+    type: csv
+  enlarged_by:
+    value: enlarged_by
+    label: enlarged_by
+    machine_name: enlarged_by
+    type: csv
+  enlarge_yr:
+    value: enlarge_yr
+    label: enlarge_yr
+    machine_name: enlarge_yr
+    type: csv
+  area:
+    value: area
+    label: area
+    machine_name: area
+    type: csv
+  counties:
+    value: counties
+    label: counties
+    machine_name: counties
+    type: csv
+  reserve_sn:
+    value: reserve_sn
+    label: reserve_sn
+    machine_name: reserve_sn
+    type: csv
+  condition:
+    value: condition
+    label: condition
+    machine_name: condition
+    type: csv
+  yr_drawing:
+    value: yr_drawing
+    label: yr_drawing
+    machine_name: yr_drawing
+    type: csv
+  drawn_by:
+    value: drawn_by
+    label: drawn_by
+    machine_name: drawn_by
+    type: csv
+  magnetic:
+    value: magnetic
+    label: magnetic
+    machine_name: magnetic
+    type: csv
+  district:
+    value: District
+    label: District
+    machine_name: district
+    type: csv
+  copied_by:
+    value: copied_by
+    label: copied_by
+    machine_name: copied_by
+    type: csv
+  gazetted_by:
+    value: gazetted_by
+    label: gazetted_by
+    machine_name: gazetted_by
+    type: csv
+  pocket_no:
+    value: pocket_no
+    label: pocket_no
+    machine_name: pocket_no
+    type: csv
+  folder_no:
+    value: folder_no
+    label: folder_no
+    machine_name: folder_no
+    type: csv
+  plain_file:
+    value: plain_file
+    label: plain_file
+    machine_name: plain_file
+    type: csv
+  type_map:
+    value: type_map
+    label: type_map
+    machine_name: type_map
+    type: csv
+  notes:
+    value: notes
+    label: notes
+    machine_name: notes
+    type: csv
+  meta_data:
+    value: meta_data
+    label: meta_data
+    machine_name: meta_data
+    type: csv
+  record_id:
+    value: id
+    label: id
+    machine_name: record_id
+    type: csv
+  record_no:
+    value: record_id
+    label: record_id
+    machine_name: record_no
+    type: csv
+  record_number:
+    value: record_no
+    label: record_no
+    machine_name: record_number
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: record_number
+    settings:
+      language: null
+    unique:
+      value: '1'
+  -
+    target: field_name
+    map:
+      value: name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_map_ref_1
+    map:
+      value: map_ref1
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_map_ref_2
+    map:
+      value: map_ref2
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_category
+    map:
+      target_id: category
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_scale
+    map:
+      value: scale
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_sheet_number
+    map:
+      value: sheet_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_bp_number
+    map:
+      value: bp_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_aerial_photo_number
+    map:
+      value: aerial_photo_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cl_number
+    map:
+      value: cl_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_surveyed_by
+    map:
+      target_id: surveyed_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_year_of_survey
+    map:
+      value: yr_survey
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_year_of_tracing
+    map:
+      value: yr_tracing
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_retraced_by
+    map:
+      target_id: retraced_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_year_of_retracing
+    map:
+      value: yr_retracing
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_field_book_number
+    map:
+      value: field_book_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_checked_by
+    map:
+      target_id: checked_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_checking_year
+    map:
+      value: checking_yr
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_year_of_plotting
+    map:
+      value: yr_plotting
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_plotted_by
+    map:
+      target_id: plotted_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_enlarged_by
+    map:
+      target_id: enlarged_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_enlargement_year
+    map:
+      value: enlarge_yr
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_area_covered
+    map:
+      value: area
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_counties
+    map:
+      target_id: counties
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_reserve_serial_number
+    map:
+      value: reserve_sn
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_condition
+    map:
+      target_id: condition
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_year_of_drawing
+    map:
+      value: yr_drawing
+    settings:
+      language: null
+      timezone: UTC
+  -
+    target: field_drawn_by
+    map:
+      target_id: drawn_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_magnetic_declination
+    map:
+      value: magnetic
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_district
+    map:
+      target_id: district
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_copied_by
+    map:
+      target_id: copied_by
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_gazetted_area
+    map:
+      value: gazetted_by
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pocket_number
+    map:
+      value: pocket_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_folder_number
+    map:
+      value: folder_no
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_plain_file_number
+    map:
+      value: plain_file
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_type_of_map
+    map:
+      target_id: type_map
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: body
+    map:
+      value: notes
+      summary: ''
+    settings:
+      language: null
+      format: plain_text
+  -
+    target: field_meta_data
+    map:
+      target_id: meta_data
+    settings:
+      language: ''
+      reference_by: nid
+      feeds_item: guid
+      autocreate: 0
+  -
+    target: field_record_id
+    map:
+      value: record_number
+    settings:
+      language: null

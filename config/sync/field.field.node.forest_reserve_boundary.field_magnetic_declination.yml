@@ -1,0 +1,19 @@
+uuid: c1936282-a0a9-49d6-944d-17b3d444ec55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_magnetic_declination
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_magnetic_declination
+field_name: field_magnetic_declination
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Magnetic Declination'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

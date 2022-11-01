@@ -1,0 +1,149 @@
+uuid: 7e3c99af-a921-4db9-9e8c-0bf731f7498d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.aerial_photos.feeds_item
+    - field.field.node.aerial_photos.field_altitude
+    - field.field.node.aerial_photos.field_area
+    - field.field.node.aerial_photos.field_company
+    - field.field.node.aerial_photos.field_copies
+    - field.field.node.aerial_photos.field_date
+    - field.field.node.aerial_photos.field_film_number
+    - field.field.node.aerial_photos.field_meta_data
+    - field.field.node.aerial_photos.field_notes
+    - field.field.node.aerial_photos.field_photo_number
+    - field.field.node.aerial_photos.field_record_id
+    - field.field.node.aerial_photos.field_run_number
+    - field.field.node.aerial_photos.field_scale
+    - field.field.node.aerial_photos.field_type
+    - node.type.aerial_photos
+  module:
+    - datetime
+    - user
+id: node.aerial_photos.default
+targetEntityType: node
+bundle: aerial_photos
+mode: default
+content:
+  field_altitude:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_area:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_company:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_copies:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_film_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_meta_data:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_photo_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_record_id:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_run_number:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_scale:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true

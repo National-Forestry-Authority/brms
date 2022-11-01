@@ -1,0 +1,19 @@
+uuid: 04f0bf15-29ee-4578-875b-6602b1b5258e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sheet_number
+    - node.type.cadastral_map
+id: node.cadastral_map.field_sheet_number
+field_name: field_sheet_number
+entity_type: node
+bundle: cadastral_map
+label: 'Sheet Number'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 824e07d6-8abb-4642-8ce4-8a91cfe0ad4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.aerial_photos
+id: node.aerial_photos.promote
+field_name: promote
+entity_type: node
+bundle: aerial_photos
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

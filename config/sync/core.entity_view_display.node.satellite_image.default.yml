@@ -1,0 +1,28 @@
+uuid: dd1eeddc-3414-4b04-a587-3a8f281bea72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.satellite_image.body
+    - node.type.satellite_image
+  module:
+    - text
+    - user
+id: node.satellite_image.default
+targetEntityType: node
+bundle: satellite_image
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

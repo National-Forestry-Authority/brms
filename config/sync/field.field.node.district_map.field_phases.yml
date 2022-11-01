@@ -1,0 +1,19 @@
+uuid: c4351077-d56b-46ed-b349-ef9ab7afee4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phases
+    - node.type.district_map
+id: node.district_map.field_phases
+field_name: field_phases
+entity_type: node
+bundle: district_map
+label: Phases
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

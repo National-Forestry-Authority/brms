@@ -1,0 +1,271 @@
+uuid: 2a9bcba4-8dc5-4cf8-a9de-15537f6f96a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.activity.field_project_line_item
+    - field.field.node.activity.field_q1_performance
+    - field.field.node.activity.field_q2_performance
+    - field.field.node.activity.field_q3_performance
+    - field.field.node.activity.field_q4_performance
+    - field.field.node.activity.field_strategic_5_yr_outcome
+    - field.field.node.activity.field_strategic_forecast_budget
+    - field.field.node.activity.field_strategic_plan_5_yr
+    - field.field.node.activity.field_strategic_plan_target
+    - field.field.node.activity.field_unit
+    - node.type.activity
+  module:
+    - node
+label: 'Import Activities'
+id: import_activities
+description: ''
+help: 'More information will be provided'
+import_period: -1
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: activity
+  langcode: en
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
+  expire: -1
+  owner_feed_author: true
+  owner_id: 0
+custom_sources:
+  activity:
+    value: activity
+    label: activity
+    machine_name: activity
+    type: csv
+  main_activity:
+    value: activity
+    label: activity
+    machine_name: main_activity
+    type: csv
+  program:
+    value: program
+    label: program
+    machine_name: program
+    type: csv
+  objective:
+    value: objective
+    label: objective
+    machine_name: objective
+    type: csv
+  activity_type:
+    value: 'activity type'
+    label: 'activity type'
+    machine_name: activity_type
+    type: csv
+  lead:
+    value: lead
+    label: lead
+    machine_name: lead
+    type: csv
+  project_line_item:
+    value: 'project line item'
+    label: 'project line item'
+    machine_name: project_line_item
+    type: csv
+  project:
+    value: project
+    label: project
+    machine_name: project
+    type: csv
+  item:
+    value: item
+    label: item
+    machine_name: item
+    type: csv
+  budget_source:
+    value: 'budget source'
+    label: 'budget source'
+    machine_name: budget_source
+    type: csv
+  baseline:
+    value: baseline
+    label: baseline
+    machine_name: baseline
+    type: csv
+  strategic_plan_5yr_performance_targets:
+    value: 'strategic plan 5yr performance targets'
+    label: 'strategic plan 5yr performance targets'
+    machine_name: strategic_plan_5yr_performance_targets
+    type: csv
+  strategic_plan_target:
+    value: 'strategic plan target'
+    label: 'strategic plan target'
+    machine_name: strategic_plan_target
+    type: csv
+  unit:
+    value: unit
+    label: unit
+    machine_name: unit
+    type: csv
+  approved_annual_work_plan_target:
+    value: 'approved annual work plan target'
+    label: 'approved annual work plan target'
+    machine_name: approved_annual_work_plan_target
+    type: csv
+  adjusted_annual_work_plan_target:
+    value: 'adjusted annual work plan target'
+    label: 'adjusted annual work plan target'
+    machine_name: adjusted_annual_work_plan_target
+    type: csv
+  approved_annual_work_plan_budget:
+    value: 'approved annual work plan budget'
+    label: 'approved annual work plan budget'
+    machine_name: approved_annual_work_plan_budget
+    type: csv
+  adjusted_annual_work_plan_budget:
+    value: 'adjusted annual work plan budget'
+    label: 'adjusted annual work plan budget'
+    machine_name: adjusted_annual_work_plan_budget
+    type: csv
+  strategic_plan_forecast_budget:
+    value: 'strategic plan forecast budget'
+    label: 'strategic plan forecast budget'
+    machine_name: strategic_plan_forecast_budget
+    type: csv
+  budget_increment:
+    value: 'budget increment'
+    label: 'budget increment'
+    machine_name: budget_increment
+    type: csv
+  totals:
+    value: totals
+    label: totals
+    machine_name: totals
+    type: csv
+  q1_performance:
+    value: 'q1 performance'
+    label: 'q1 performance'
+    machine_name: q1_performance
+    type: csv
+  q2_performance:
+    value: 'q2 performance'
+    label: 'q2 performance'
+    machine_name: q2_performance
+    type: csv
+  q3_performance:
+    value: 'q3 performance'
+    label: 'q3 performance'
+    machine_name: q3_performance
+    type: csv
+  q4_performance:
+    value: 'q4 performance'
+    label: 'q4 performance'
+    machine_name: q4_performance
+    type: csv
+  strategic_5yr_annual_outcome_indicator_targets:
+    value: 'strategic 5yr annual outcome indicator targets'
+    label: 'strategic 5yr annual outcome indicator targets'
+    machine_name: strategic_5yr_annual_outcome_indicator_targets
+    type: csv
+  initiatives:
+    value: initiatives
+    label: initiatives
+    machine_name: initiatives
+    type: csv
+  weight:
+    value: weight
+    label: weight
+    machine_name: weight
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: main_activity
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_project_line_item
+    map:
+      value: project_line_item
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_strategic_plan_5_yr
+    map:
+      value: strategic_plan_5yr_performance_targets
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_strategic_plan_target
+    map:
+      value: strategic_plan_target
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_unit
+    map:
+      value: unit
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_strategic_forecast_budget
+    map:
+      value: strategic_plan_forecast_budget
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_q1_performance
+    map:
+      value: q1_performance
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_q2_performance
+    map:
+      value: q2_performance
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_q3_performance
+    map:
+      value: q3_performance
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_q4_performance
+    map:
+      value: q4_performance
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_strategic_5_yr_outcome
+    map:
+      value: strategic_5yr_annual_outcome_indicator_targets
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_initiatives
+    map:
+      value: initiatives
+    settings:
+      language: null
+    unique: {  }

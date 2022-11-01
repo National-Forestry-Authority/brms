@@ -1,0 +1,24 @@
+uuid: 42d32d34-68f5-410e-846b-99a39743874b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_of_tracing
+    - node.type.forest_reserve_boundary
+  module:
+    - datetime
+id: node.forest_reserve_boundary.field_year_of_tracing
+field_name: field_year_of_tracing
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Year of Tracing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

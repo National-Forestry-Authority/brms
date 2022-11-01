@@ -1,0 +1,14 @@
+uuid: a3c759be-d5c0-4a98-8acd-e76d2a73f17c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cis
+  module:
+    - user
+id: user_remove_role_action.cis
+label: 'Remove the CIS role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cis

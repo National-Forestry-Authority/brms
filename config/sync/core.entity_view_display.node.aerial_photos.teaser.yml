@@ -1,0 +1,48 @@
+uuid: 1f3eb01f-b28f-4b14-8e46-4e3b125672a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.aerial_photos.feeds_item
+    - field.field.node.aerial_photos.field_altitude
+    - field.field.node.aerial_photos.field_area
+    - field.field.node.aerial_photos.field_company
+    - field.field.node.aerial_photos.field_copies
+    - field.field.node.aerial_photos.field_date
+    - field.field.node.aerial_photos.field_film_number
+    - field.field.node.aerial_photos.field_meta_data
+    - field.field.node.aerial_photos.field_notes
+    - field.field.node.aerial_photos.field_photo_number
+    - field.field.node.aerial_photos.field_record_id
+    - field.field.node.aerial_photos.field_run_number
+    - field.field.node.aerial_photos.field_scale
+    - field.field.node.aerial_photos.field_type
+    - node.type.aerial_photos
+  module:
+    - user
+id: node.aerial_photos.teaser
+targetEntityType: node
+bundle: aerial_photos
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_altitude: true
+  field_area: true
+  field_company: true
+  field_copies: true
+  field_date: true
+  field_film_number: true
+  field_meta_data: true
+  field_notes: true
+  field_photo_number: true
+  field_record_id: true
+  field_run_number: true
+  field_scale: true
+  field_type: true

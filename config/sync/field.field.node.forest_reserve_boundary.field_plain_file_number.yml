@@ -1,0 +1,19 @@
+uuid: 49bfc385-b799-4112-9257-943482e9aa30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_plain_file_number
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_plain_file_number
+field_name: field_plain_file_number
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Plain File Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

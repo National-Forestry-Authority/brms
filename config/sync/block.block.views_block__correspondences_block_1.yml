@@ -1,0 +1,30 @@
+uuid: 7366a805-74f5-4ec2-8bde-32b95caf87f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.correspondences
+  module:
+    - system
+    - views
+  theme:
+    - gin
+id: views_block__correspondences_block_1
+theme: gin
+region: header
+weight: -2
+provider: null
+plugin: 'views_block:correspondences-block_1'
+settings:
+  id: 'views_block:correspondences-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /correspondences

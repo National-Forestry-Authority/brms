@@ -1,0 +1,19 @@
+uuid: 03ef5a6a-74d1-47ea-8282-028b031caa49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_q3_performance
+    - node.type.activity
+id: node.activity.field_q3_performance
+field_name: field_q3_performance
+entity_type: node
+bundle: activity
+label: 'Q3 Performance'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

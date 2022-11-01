@@ -1,0 +1,22 @@
+uuid: f4f02fc5-40ec-4274-8880-32e84ae9ab07
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.central_forest_reserve
+id: node.central_forest_reserve.promote
+field_name: promote
+entity_type: node
+bundle: central_forest_reserve
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

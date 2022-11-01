@@ -1,0 +1,23 @@
+uuid: 9a715ff8-ab74-4c5e-b41f-4061b92897cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.district_map
+  module:
+    - text
+id: node.district_map.body
+field_name: body
+entity_type: node
+bundle: district_map
+label: Notes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

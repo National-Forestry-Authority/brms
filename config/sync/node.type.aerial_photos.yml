@@ -1,0 +1,23 @@
+uuid: d59ccc62-81b7-4715-8a94-45c17bd36624
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  autotitle:
+    enabled: true
+    field: title
+    fallback_title: '#'
+    headings: {  }
+name: 'Aerial Photos'
+type: aerial_photos
+description: 'Dataset created from aerial photos'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

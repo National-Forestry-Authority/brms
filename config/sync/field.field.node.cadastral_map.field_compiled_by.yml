@@ -1,0 +1,29 @@
+uuid: 33c66ace-74e1-4aaa-b50a-8d9171a17eba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_compiled_by
+    - node.type.cadastral_map
+    - taxonomy.vocabulary.surveyors
+id: node.cadastral_map.field_compiled_by
+field_name: field_compiled_by
+entity_type: node
+bundle: cadastral_map
+label: 'Compiled By'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      surveyors: surveyors
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

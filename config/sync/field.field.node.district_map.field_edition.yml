@@ -1,0 +1,19 @@
+uuid: 6e72f07a-9ff2-4fdf-a5b5-374daa6305b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_edition
+    - node.type.district_map
+id: node.district_map.field_edition
+field_name: field_edition
+entity_type: node
+bundle: district_map
+label: Edition
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

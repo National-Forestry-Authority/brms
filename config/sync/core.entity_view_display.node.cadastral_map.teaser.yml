@@ -1,0 +1,82 @@
+uuid: 04b3dcba-157e-46e6-876f-ce2307fff181
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cadastral_map.body
+    - field.field.node.cadastral_map.feeds_item
+    - field.field.node.cadastral_map.field_area_covered
+    - field.field.node.cadastral_map.field_code
+    - field.field.node.cadastral_map.field_compiled_by
+    - field.field.node.cadastral_map.field_condition
+    - field.field.node.cadastral_map.field_coordinate_system
+    - field.field.node.cadastral_map.field_copies
+    - field.field.node.cadastral_map.field_datum
+    - field.field.node.cadastral_map.field_edition
+    - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_geo_data
+    - field.field.node.cadastral_map.field_magnetic_declination
+    - field.field.node.cadastral_map.field_map_ref_1
+    - field.field.node.cadastral_map.field_printed_by
+    - field.field.node.cadastral_map.field_produced_by
+    - field.field.node.cadastral_map.field_published_by
+    - field.field.node.cadastral_map.field_record_id
+    - field.field.node.cadastral_map.field_reference_no
+    - field.field.node.cadastral_map.field_retraced_by
+    - field.field.node.cadastral_map.field_scale
+    - field.field.node.cadastral_map.field_scanned_copy
+    - field.field.node.cadastral_map.field_series
+    - field.field.node.cadastral_map.field_sheet_number
+    - field.field.node.cadastral_map.field_surveyed_by
+    - field.field.node.cadastral_map.field_traced_by
+    - field.field.node.cadastral_map.field_year
+    - node.type.cadastral_map
+  module:
+    - text
+    - user
+id: node.cadastral_map.teaser
+targetEntityType: node
+bundle: cadastral_map
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_area_covered: true
+  field_code: true
+  field_compiled_by: true
+  field_condition: true
+  field_coordinate_system: true
+  field_copies: true
+  field_datum: true
+  field_edition: true
+  field_examined_by: true
+  field_geo_data: true
+  field_magnetic_declination: true
+  field_map_ref_1: true
+  field_printed_by: true
+  field_produced_by: true
+  field_published_by: true
+  field_record_id: true
+  field_reference_no: true
+  field_retraced_by: true
+  field_scale: true
+  field_scanned_copy: true
+  field_series: true
+  field_sheet_number: true
+  field_surveyed_by: true
+  field_traced_by: true
+  field_year: true

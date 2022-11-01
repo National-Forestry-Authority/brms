@@ -1,0 +1,81 @@
+uuid: 01b8f050-e31e-495c-9e12-814110047584
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.some_html
+    - node.type.activity
+    - node.type.aerial_photos
+    - node.type.basic_page
+    - node.type.central_forest_reserve
+    - node.type.correspondence
+    - node.type.district_map
+    - node.type.field_books
+    - node.type.forest_reserve_boundary
+    - node.type.historical_sheets
+    - node.type.meta_data
+    - node.type.satellite_image
+    - node.type.transparency_maps
+    - taxonomy.vocabulary.correspondence_type
+    - taxonomy.vocabulary.prepared_by
+    - taxonomy.vocabulary.prepared_for
+  module:
+    - admin_toolbar_search
+    - filter
+    - node
+    - system
+    - taxonomy
+    - toolbar
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -7
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create central_forest_reserve content'
+  - 'create correspondence content'
+  - 'create district_map content'
+  - 'create field_books content'
+  - 'create forest_reserve_boundary content'
+  - 'create historical_sheets content'
+  - 'create meta_data content'
+  - 'create satellite_image content'
+  - 'create terms in correspondence_type'
+  - 'create terms in prepared_by'
+  - 'create terms in prepared_for'
+  - 'create transparency_maps content'
+  - 'delete any activity content'
+  - 'delete own correspondence content'
+  - 'edit any central_forest_reserve content'
+  - 'edit own activity content'
+  - 'edit own aerial_photos content'
+  - 'edit own central_forest_reserve content'
+  - 'edit own correspondence content'
+  - 'edit own district_map content'
+  - 'edit own field_books content'
+  - 'edit own forest_reserve_boundary content'
+  - 'edit own historical_sheets content'
+  - 'edit own meta_data content'
+  - 'edit own satellite_image content'
+  - 'edit own transparency_maps content'
+  - 'edit terms in correspondence_type'
+  - 'use admin toolbar search'
+  - 'use text format some_html'
+  - 'view activity revisions'
+  - 'view aerial_photos revisions'
+  - 'view basic_page revisions'
+  - 'view central_forest_reserve revisions'
+  - 'view correspondence revisions'
+  - 'view district_map revisions'
+  - 'view field_books revisions'
+  - 'view forest_reserve_boundary revisions'
+  - 'view historical_sheets revisions'
+  - 'view meta_data revisions'
+  - 'view own unpublished content'
+  - 'view satellite_image revisions'
+  - 'view transparency_maps revisions'

@@ -1,0 +1,29 @@
+uuid: b679a207-3da1-4aff-8866-7e6112ea642e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district
+    - node.type.forest_reserve_boundary
+    - taxonomy.vocabulary.area
+id: node.forest_reserve_boundary.field_district
+field_name: field_district
+entity_type: node
+bundle: forest_reserve_boundary
+label: District
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      area: area
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

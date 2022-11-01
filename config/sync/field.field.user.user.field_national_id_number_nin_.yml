@@ -1,0 +1,20 @@
+uuid: aa4f85f5-375f-4974-8250-247cef6e45bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_national_id_number_nin_
+  module:
+    - user
+id: user.user.field_national_id_number_nin_
+field_name: field_national_id_number_nin_
+entity_type: user
+bundle: user
+label: 'National ID Number (NIN)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
