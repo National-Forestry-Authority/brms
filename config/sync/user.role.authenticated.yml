@@ -8,7 +8,6 @@ dependencies:
     - node.type.aerial_photos
     - node.type.basic_page
     - node.type.central_forest_reserve
-    - node.type.correspondence
     - node.type.district_map
     - node.type.field_books
     - node.type.forest_reserve_boundary
@@ -38,7 +37,6 @@ permissions:
   - 'access content overview'
   - 'access toolbar'
   - 'create central_forest_reserve content'
-  - 'create correspondence content'
   - 'create district_map content'
   - 'create field_books content'
   - 'create forest_reserve_boundary content'
@@ -50,12 +48,10 @@ permissions:
   - 'create terms in prepared_for'
   - 'create transparency_maps content'
   - 'delete any activity content'
-  - 'delete own correspondence content'
   - 'edit any central_forest_reserve content'
   - 'edit own activity content'
   - 'edit own aerial_photos content'
   - 'edit own central_forest_reserve content'
-  - 'edit own correspondence content'
   - 'edit own district_map content'
   - 'edit own field_books content'
   - 'edit own forest_reserve_boundary content'
@@ -70,7 +66,6 @@ permissions:
   - 'view aerial_photos revisions'
   - 'view basic_page revisions'
   - 'view central_forest_reserve revisions'
-  - 'view correspondence revisions'
   - 'view district_map revisions'
   - 'view field_books revisions'
   - 'view forest_reserve_boundary revisions'
