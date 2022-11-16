@@ -14,7 +14,7 @@ third_party_settings:
     field: body
     fallback_title: 'Untitled []'
     headings: {  }
-name: 'District Map'
+name: 'District Maps Archive'
 type: district_map
 description: 'Entries for district map data'
 help: ''
