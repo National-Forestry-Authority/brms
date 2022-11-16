@@ -14,7 +14,7 @@ third_party_settings:
     field: body
     fallback_title: 'Untitled []'
     headings: {  }
-name: 'Central Forest Reserve'
+name: 'CFR Master Maps'
 type: central_forest_reserve
 description: 'Adding forest reserves'
 help: ''
