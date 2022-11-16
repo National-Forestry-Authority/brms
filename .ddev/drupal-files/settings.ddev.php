@@ -41,16 +41,7 @@ $settings['trusted_host_patterns'] = ['.*'];
 // better performance.
 $settings['class_loader_auto_detect'] = FALSE;
 
-// This specifies the default configuration sync directory.
-// For D8 before 8.8.0, we set $config_directories[CONFIG_SYNC_DIRECTORY] if not set
-if (version_compare(Drupal::VERSION, "8.8.0", '<') &&
-  empty($config_directories[CONFIG_SYNC_DIRECTORY])) {
-  $config_directories[CONFIG_SYNC_DIRECTORY] = 'sites/default/files/sync';
-}
-// For D8.8/D8.9, set $settings['config_sync_directory'] if neither
-// $config_directories nor $settings['config_sync_directory is set
-if (version_compare(DRUPAL::VERSION, "8.8.0", '>=') &&
-  empty($config_directories[CONFIG_SYNC_DIRECTORY]) &&
-  empty($settings['config_sync_directory'])) {
+// Set $settings['config_sync_directory'] if not set in settings.php.
+if (empty($settings['config_sync_directory'])) {
   $settings['config_sync_directory'] = 'sites/default/files/sync';
 }
