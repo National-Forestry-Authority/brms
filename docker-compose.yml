@@ -1,0 +1,56 @@
+---
+version: "3.7"
+
+services:
+
+  db:
+    image: mariadb:latest
+    restart: unless-stopped
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-M4r14DB}"
+      MYSQL_DATABASE: "${DB_NAME:-drupal}"
+      MYSQL_USER: "${DB_USER:-drupal}"
+      MYSQL_PASSWORD: "${DB_PASS:-drupal}"
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - internal
+
+  drupal:
+    #image: ghcr.io/requarks/wiki:2
+    build:
+      context: .
+    depends_on:
+      - db
+    environment:
+      DB_DRIVER: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: ${DB_USER:-drupal}
+      DB_PASS: ${DB_PASS:-drupal}
+      DB_NAME: ${DB_NAME:-drupal}
+      PROJECT_BASE_URL: ${HOST_NAME:-}
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-80}:80"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik
+      - traefik.http.routers.${TRAEFIK_ROUTER_NAME:-wikijs}.rule=Host("${HOST_NAME}")
+    volumes:
+      - drupal-files:/var/www/web/sites/default/files
+    networks:
+      - internal
+      - traefik
+
+volumes:
+  db-data:
+  drupal-files:
+
+
+networks:
+  traefik:
+    external: true
+  internal:
+    external: false
