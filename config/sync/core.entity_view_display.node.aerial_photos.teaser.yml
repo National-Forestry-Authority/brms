@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
     - field.field.node.aerial_photos.field_type
+    - field.field.node.aerial_photos.meta_data_explanation
     - node.type.aerial_photos
   module:
     - user
@@ -46,3 +47,4 @@ hidden:
   field_run_number: true
   field_scale: true
   field_type: true
+  meta_data_explanation: true

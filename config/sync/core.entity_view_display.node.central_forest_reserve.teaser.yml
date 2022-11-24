@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.central_forest_reserve.field_nfa_id
     - field.field.node.central_forest_reserve.field_raw_data
     - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
   module:
     - text
@@ -36,3 +37,4 @@ hidden:
   field_nfa_id: true
   field_raw_data: true
   field_spatial_data_cfr: true
+  meta_data_explanation: true

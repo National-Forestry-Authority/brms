@@ -1,0 +1,19 @@
+uuid: 0c30459a-dbd4-47c8-b74f-02ae9767747a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.meta_data_explanation
+    - node.type.cadastral_map
+id: node.cadastral_map.meta_data_explanation
+field_name: meta_data_explanation
+entity_type: node
+bundle: cadastral_map
+label: 'Meta Data Explanation'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

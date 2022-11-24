@@ -44,6 +44,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_year_of_retracing
     - field.field.node.forest_reserve_boundary.field_year_of_survey
     - field.field.node.forest_reserve_boundary.field_year_of_tracing
+    - field.field.node.forest_reserve_boundary.meta_data_explanation
     - node.type.forest_reserve_boundary
   module:
     - user
@@ -98,3 +99,4 @@ hidden:
   field_year_of_retracing: true
   field_year_of_survey: true
   field_year_of_tracing: true
+  meta_data_explanation: true

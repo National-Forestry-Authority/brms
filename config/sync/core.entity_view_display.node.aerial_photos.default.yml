@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
     - field.field.node.aerial_photos.field_type
+    - field.field.node.aerial_photos.meta_data_explanation
     - node.type.aerial_photos
   module:
     - datetime
@@ -144,6 +145,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  meta_data_explanation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 115
     region: content
 hidden:
   feeds_item: true

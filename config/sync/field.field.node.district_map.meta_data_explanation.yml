@@ -1,0 +1,19 @@
+uuid: 341bd03f-d698-41dd-936e-efd026d09c07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.meta_data_explanation
+    - node.type.district_map
+id: node.district_map.meta_data_explanation
+field_name: meta_data_explanation
+entity_type: node
+bundle: district_map
+label: 'Meta Data Explanation'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

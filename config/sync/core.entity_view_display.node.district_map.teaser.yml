@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.district_map.field_sheet_number
     - field.field.node.district_map.field_surveyed_by
     - field.field.node.district_map.field_year
+    - field.field.node.district_map.meta_data_explanation
     - node.type.district_map
   module:
     - user
@@ -64,3 +65,4 @@ hidden:
   field_sheet_number: true
   field_surveyed_by: true
   field_year: true
+  meta_data_explanation: true

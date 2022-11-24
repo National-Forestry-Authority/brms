@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.satellite_image.body
+    - field.field.node.satellite_image.meta_data_explanation
     - node.type.satellite_image
   module:
     - text
@@ -24,5 +25,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  meta_data_explanation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
     region: content
 hidden: {  }
