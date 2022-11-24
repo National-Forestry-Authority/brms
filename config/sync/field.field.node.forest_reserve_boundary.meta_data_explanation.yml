@@ -1,0 +1,19 @@
+uuid: 6ab2b8b8-55a1-41e6-8906-d55a2cc2b1db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.meta_data_explanation
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.meta_data_explanation
+field_name: meta_data_explanation
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Meta Data Explanation'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

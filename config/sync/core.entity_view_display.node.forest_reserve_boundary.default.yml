@@ -43,6 +43,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_year_of_retracing
     - field.field.node.forest_reserve_boundary.field_year_of_survey
     - field.field.node.forest_reserve_boundary.field_year_of_tracing
+    - field.field.node.forest_reserve_boundary.meta_data_explanation
     - node.type.forest_reserve_boundary
   module:
     - datetime
@@ -378,6 +379,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  meta_data_explanation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 140
     region: content
 hidden:
   feeds_item: true

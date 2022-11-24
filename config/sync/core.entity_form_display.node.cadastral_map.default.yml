@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
+    - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
     - datetime
@@ -268,6 +269,14 @@ content:
     weight: 135
     region: content
     settings: {  }
+    third_party_settings: {  }
+  meta_data_explanation:
+    type: string_textarea
+    weight: 147
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   promote:
     type: boolean_checkbox

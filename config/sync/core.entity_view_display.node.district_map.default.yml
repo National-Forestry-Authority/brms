@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.district_map.field_sheet_number
     - field.field.node.district_map.field_surveyed_by
     - field.field.node.district_map.field_year
+    - field.field.node.district_map.meta_data_explanation
     - node.type.district_map
   module:
     - datetime
@@ -219,6 +220,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
+    region: content
+  meta_data_explanation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 123
     region: content
 hidden:
   feeds_item: true

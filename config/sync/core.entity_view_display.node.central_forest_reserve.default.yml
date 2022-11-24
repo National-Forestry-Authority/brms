@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.central_forest_reserve.field_nfa_id
     - field.field.node.central_forest_reserve.field_raw_data
     - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
   module:
     - leaflet
@@ -100,6 +101,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  meta_data_explanation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
     region: content
 hidden:
   body: true

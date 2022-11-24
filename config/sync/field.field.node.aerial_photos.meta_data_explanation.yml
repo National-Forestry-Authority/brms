@@ -1,0 +1,19 @@
+uuid: 525207d6-52ea-414d-b5f3-3c2be7b04d6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.meta_data_explanation
+    - node.type.aerial_photos
+id: node.aerial_photos.meta_data_explanation
+field_name: meta_data_explanation
+entity_type: node
+bundle: aerial_photos
+label: 'Meta Data Explanation'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
