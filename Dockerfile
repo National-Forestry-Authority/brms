@@ -82,6 +82,8 @@ RUN set -eux; \
     mv docker/apache/environment.conf /etc/apache2/conf-enabled/environment.conf; \
     # Load php.ini overrides
     mv docker/php/overrides.ini /usr/local/etc/php/conf.d/zz-overrides.ini; \
+    # Remove settings.local.php if present
+    rm -rf web/sites/default/settings.local.php; \
     # Load drupal settings fron env vars (also warks for drush)
     mv docker/drupal/settings.overrides.php web/sites/default/settings.overrides.php; \
     # Create working directories
