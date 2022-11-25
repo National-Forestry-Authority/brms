@@ -115,3 +115,14 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+
+
+  portainer_webhook:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Invoke portainer webhook
+      uses: distributhor/workflow-webhook@v3
+      env:
+        webhook_url: ${{ secrets.PORTAINER_WEBHOOK }}
+        verbose: true
