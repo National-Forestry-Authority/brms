@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
+    - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
     - text
@@ -80,3 +81,4 @@ hidden:
   field_surveyed_by: true
   field_traced_by: true
   field_year: true
+  meta_data_explanation: true

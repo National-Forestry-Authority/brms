@@ -15,7 +15,7 @@ third_party_settings:
     field: field_name
     fallback_title: '#'
     headings: {  }
-name: 'Forest Reserve Boundary'
+name: 'Forest Inventory Maps'
 type: forest_reserve_boundary
 description: Boundaries
 help: ''

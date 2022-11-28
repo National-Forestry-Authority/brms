@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/diff": "^1.1",
         "drupal/feeds": "^3.0@beta",
         "drupal/geofield": "^1.46",
         "drupal/gin": "^3",
@@ -31,6 +32,7 @@
         "drupal/pdf": "^1.1",
         "drupal/realname": "^2.0@beta",
         "drupal/require_login": "^3.0",
+        "drupal/require_revision_log_message": "^2.0",
         "drupal/views_striping": "^1.0",
         "drush/drush": "^11.3"
     },
