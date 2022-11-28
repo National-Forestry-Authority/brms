@@ -153,47 +153,6 @@ $config['smtp.settings']['smtp_host'] = '';
 $config['mailsystem.settings']['defaults']['sender'] = 'php_mail';
 $config['mailsystem.settings']['defaults']['formatter'] = 'php_mail';
 
-// Use local solr.
-$config['search_api.server.gped8']['backend_config']['connector_config']['host'] = 'solr';
-$config['search_api.server.gped8']['backend_config']['connector_config']['core'] = 'dev';
-
-// Stage file proxy
-$config['stage_file_proxy.settings']['origin'] = 'https://assets.globalpartnership.org';
-$config['stage_file_proxy.settings']['verify'] = FALSE;
-$config['stage_file_proxy.settings']['origin_dir'] = 's3fs-public';
-
-// S3 configuration for disabling S3
-$settings['s3fs.use_s3_for_public'] = FALSE;
-$settings['s3fs.use_s3_for_private'] = FALSE;
-// S3 configuration for S3 enabled against dev
-// $config['s3fs.settings']['bucket'] = 'dev-483749317325-content';
-// $config['s3fs.settings']['supplemental_bucket'] = 'dev-483749317325-supplementalcontent';
-// $config['s3fs.settings']['use_cname'] = TRUE;
-// $config['s3fs.settings']['domain'] = 'dev-static.gpe.rhythmic.net';
-// $config['s3fs.settings']['domain_root'] = 'none';
-// $config['s3fs.settings']['keymodule.access_key_name'] = 's3_access_key_id';
-// $config['s3fs.settings']['keymodule.secret_key_name'] = 's3_secret';
-// $settings['s3fs.use_s3_for_public'] = TRUE;
-// $settings['s3fs.use_s3_for_private'] = TRUE;
-// $settings['s3fs.upload_as_private'] = TRUE;
-$settings['php_storage']['twig']['directory'] = '../storage/php';
-
-// QA exchange settings.
-// $config['gpe_exchange.settings']['reports_url'] = 'https://apigwqaext.worldbank.org/fifs/v1.0/external/api/GPEReports/Get';
-// $config['gpe_exchange.settings']['reports_map_url'] = 'https://apigwqaext.worldbank.org/fifs/v1.0/external/api/GPEReports/PortfolioOverviewMap';
-// $config['gpe_exchange.settings']['reports_apikey'] = 'gpe_exchange_api_test';
-// $config['gpe_exchange.settings']['countries_url'] = 'https://apigwqaext.worldbank.org/fifs/v1.0/external/api/GetGPEProjectDetails';
-// $config['gpe_exchange.settings']['countries_apikey'] = 'gpe_exchange_api_test';
-
-// Text to speech.
-$config['gpe_text_to_speech.settings']['amazon_polly']['amazon_polly_s3_bucket'] = 'dev-483749317325-supplementalcontent';
-
-// Use testing MailChimp list.
-$config['gpe_mailchimp.settings']['default_mailchimp_list'] = '46f36c6e86';
-
-// Local settings.
-$config['raven.settings']['environment'] = 'local-' . get_current_user();
-
 // Automatically generated include for settings managed by ddev.
 if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php')) {
   include $app_root . '/' . $site_path . '/settings.ddev.php';
