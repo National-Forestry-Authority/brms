@@ -22,7 +22,6 @@ dependencies:
     - file
     - filter
     - node
-    - system
     - taxonomy
     - toolbar
 id: cis
@@ -32,16 +31,9 @@ is_admin: null
 permissions:
   - 'access content overview'
   - 'access files overview'
-  - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
-  - 'access user profiles'
-  - 'administer nodes'
   - 'administer taxonomy'
-  - 'administer users'
-  - 'bypass node access'
-  - 'cancel account'
-  - 'change own username'
   - 'create terms in aerial_photo_type'
   - 'create terms in area'
   - 'create terms in company'
