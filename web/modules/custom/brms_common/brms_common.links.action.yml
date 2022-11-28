@@ -1,0 +1,72 @@
+brms_common.central_forest_reserve.add_task:
+  title: 'Add CFR'
+  route_name: node.add
+  route_parameters:
+    node_type: central_forest_reserve
+  options:
+    query:
+      destination: '/cfr'
+  appears_on:
+    - view.central_forest_reserves.listing
+  cache_tags:
+    - node_list
+brms_common.aerial_photos.add_task:
+  title: 'Add Aerial Photo'
+  route_name: node.add
+  route_parameters:
+    node_type: aerial_photos
+  options:
+    query:
+      destination: '/aerial-photos'
+  appears_on:
+    - view.aerial_photos.listing
+  cache_tags:
+    - node_list
+brms_common.forest_reserve_boundary.add_task:
+  title: 'Add Forest Inventory Map'
+  route_name: node.add
+  route_parameters:
+    node_type: forest_reserve_boundary
+  options:
+    query:
+      destination: '/aerial-photos'
+  appears_on:
+    - view.forest_reserve_boundary.listing
+  cache_tags:
+    - node_list
+brms_common.district_map.add_task:
+  title: 'Add District Map'
+  route_name: node.add
+  route_parameters:
+    node_type: district_map
+  options:
+    query:
+      destination: '/district-maps'
+  appears_on:
+    - view.district_maps.listing
+  cache_tags:
+    - node_list
+brms_common.cadastral_map.add_task:
+  title: 'Add Cadastral Map'
+  route_name: node.add
+  route_parameters:
+    node_type: cadastral_map
+  options:
+    query:
+      destination: '/cadastral-maps'
+  appears_on:
+    - view.cadastral_maps.listing
+  cache_tags:
+    - node_list
+brms_common.satellite_image.add_task:
+  title: 'Add Satellite Image'
+  route_name: node.add
+  route_parameters:
+    node_type: satellite_image
+  options:
+    query:
+      destination: '/satellite-images'
+  appears_on:
+    - view.satellite_images.listing
+  cache_tags:
+    - node_list

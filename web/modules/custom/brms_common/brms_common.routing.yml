@@ -1,0 +1,14 @@
+brms_common.add_task:
+  path: '/brms-content/{content_type}/add-task'
+  defaults:
+    _title: 'Add Task'
+    _form: 'Drupal\brms_common\Form\ContentForm'
+  requirements:
+    _entity_bundles: 'node:central_forest_reserve'
+    _entity_access: 'node.update'
+    plan: \d+
+  options:
+    parameters:
+      plan:
+        type: entity:node
+      task_route: brms_common.cfr.add_task

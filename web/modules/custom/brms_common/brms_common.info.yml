@@ -1,0 +1,5 @@
+name: BRMS Common
+description: Common features for BRMS.
+package: BRMS
+type: module
+core_version_requirement: ^9 || ^10

@@ -11,6 +11,7 @@ module:
   block_content: 0
   breakpoint: 0
   brms_cleanup: 0
+  brms_common: 0
   contextual: 0
   datetime: 0
   dblog: 0
