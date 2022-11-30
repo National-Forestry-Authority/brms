@@ -1,0 +1,33 @@
+uuid: 9ae011ba-434c-402b-ba3a-4ac7be5e6dcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.revisions_table
+  module:
+    - node
+    - views
+  theme:
+    - gin
+id: views_block__revisions_table_block_1
+theme: gin
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:revisions_table-block_1'
+settings:
+  id: 'views_block:revisions_table-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      central_forest_reserve: central_forest_reserve
