@@ -6,6 +6,7 @@ dependencies:
     - views.view.revisions_table
   module:
     - node
+    - system
     - views
   theme:
     - gin
@@ -31,3 +32,7 @@ visibility:
       node: '@node.node_route_context:node'
     bundles:
       central_forest_reserve: central_forest_reserve
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/node/*/edit\r\n/node/*/revisions\r\n/node/*/delete"
