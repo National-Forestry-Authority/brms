@@ -77,6 +77,8 @@ RUN set -eux; \
 ENV PATH=${PATH}:/var/www/vendor/bin
 
 RUN set -eux; \
+    # Add entrypoint wrapper to ease drupal deployments
+    mv docker/bin/custom-entrypoint /usr/local/bin/; \
     # Make apache pass env vars to PHP
     # See https://stackoverflow.com/a/63139773/1680927
     mv docker/apache/environment.conf /etc/apache2/conf-enabled/environment.conf; \
@@ -112,4 +114,9 @@ ENV DB_HOST='mysql' \
     DB_PREFIX='' \
     DB_DRIVER='mysql' \
     PROJECT_BASE_URL='drupal' \
-    TRUSTED_HOSTS=''
+    TRUSTED_HOSTS='' \
+    DEPLOY='1' \
+    DEPLOY_CMD='sleep 10; drush deploy'
+
+ENTRYPOINT ["custom-entrypoint"]
+CMD ["apache2-foreground"]
