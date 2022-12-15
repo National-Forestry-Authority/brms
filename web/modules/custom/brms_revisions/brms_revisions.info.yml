@@ -1,0 +1,5 @@
+name: 'BRMS Require Revision Log Message'
+type: module
+description: 'On nodes that allow revisions, requires that the revision log be filled in.'
+core_version_requirement: ^8.8 || ^9
+package: 'Content Authoring'

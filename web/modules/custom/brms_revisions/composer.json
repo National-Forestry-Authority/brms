@@ -1,0 +1,5 @@
+{
+    "name": "brms_revisions",
+    "type": "drupal-module",
+    "description": "On nodes that allow revisions, requires that the revision log be filled in."
+}

@@ -12,6 +12,7 @@ module:
   breakpoint: 0
   brms_cleanup: 0
   brms_common: 0
+  brms_revisions: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -42,7 +43,6 @@ module:
   path_alias: 0
   pdf: 0
   realname: 0
-  require_revision_log_message: 0
   rest: 0
   serialization: 0
   system: 0
