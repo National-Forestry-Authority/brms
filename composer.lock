@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8433ccc3d9da106c9f7f33ba775eeb5d",
+    "content-hash": "96a9197f4f0d06df37d50a062e07a7d6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2600,55 +2600,6 @@
             "homepage": "https://www.drupal.org/project/require_login",
             "support": {
                 "source": "https://git.drupalcode.org/project/require_login"
-            }
-        },
-        {
-            "name": "drupal/require_revision_log_message",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/require_revision_log_message.git",
-                "reference": "2.0.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/require_revision_log_message-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "91b62d21c0473f810b3e7bf1c9b3d0aff887ac67"
-            },
-            "require": {
-                "drupal/core": "^8.8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1655480724",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bluegeek9",
-                    "homepage": "https://www.drupal.org/user/1286304"
-                },
-                {
-                    "name": "kwfinken",
-                    "homepage": "https://www.drupal.org/user/2514950"
-                }
-            ],
-            "description": "On nodes that allow revisions, requires that the revision log be filled in.",
-            "homepage": "https://www.drupal.org/project/require_revision_log_message",
-            "support": {
-                "source": "http://cgit.drupalcode.org/require_revision_log_message",
-                "issues": "https://www.drupal.org/project/issues/require_revision_log_message"
             }
         },
         {
