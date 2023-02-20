@@ -15,25 +15,25 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.9",
-        "drupal/admin_toolbar": "^3.3",
-        "drupal/autotitle": "^1.2",
+        "composer/installers": "^1",
+        "drupal/admin_toolbar": "^3",
+        "drupal/autotitle": "^1",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
-        "drupal/diff": "^1.1",
+        "drupal/diff": "^1",
         "drupal/feeds": "^3.0@beta",
-        "drupal/geofield": "^1.52",
+        "drupal/geofield": "^1",
         "drupal/gin": "^3",
-        "drupal/gin_login": "^1.4",
-        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/gin_login": "^1",
+        "drupal/inline_entity_form": "^1",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
-        "drupal/pdf": "^1.1",
-        "drupal/realname": "^2.0@beta",
-        "drupal/require_login": "^3.0",
-        "drupal/views_striping": "^1.0",
-        "drush/drush": "^11.3"
+        "drupal/pdf": "^1",
+        "drupal/realname": "^2",
+        "drupal/require_login": "^3",
+        "drupal/views_striping": "^1",
+        "drush/drush": "^11"
     },
     "conflict": {
         "drupal/drupal": "*"
