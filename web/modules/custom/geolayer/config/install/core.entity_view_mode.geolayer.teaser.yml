@@ -1,0 +1,9 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - geolayer
+id: geolayer.teaser
+label: 'Teaser'
+targetEntityType: geolayer
+cache: true

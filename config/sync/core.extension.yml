@@ -24,6 +24,7 @@ module:
   file: 0
   filter: 0
   geofield: 0
+  geolayer: 0
   gin_login: 0
   image: 0
   inline_entity_form: 0

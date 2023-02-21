@@ -1,0 +1,26 @@
+entity.geolayer.view:
+  title: 'View'
+  route_name: entity.geolayer.canonical
+  base_route: entity.geolayer.canonical
+entity.geolayer.edit_form:
+  title: 'Edit'
+  route_name: entity.geolayer.edit_form
+  base_route: entity.geolayer.canonical
+entity.geolayer.delete_form:
+  title: 'Delete'
+  route_name: entity.geolayer.delete_form
+  base_route: entity.geolayer.canonical
+  weight: 10
+entity.geolayer.collection:
+  title: 'Geolayers'
+  route_name: entity.geolayer.collection
+  base_route: system.admin_content
+  weight: 10
+entity.geolayer_type.edit_form:
+  title: 'Edit'
+  route_name: entity.geolayer_type.edit_form
+  base_route: entity.geolayer_type.edit_form
+entity.geolayer_type.collection:
+  title: 'List'
+  route_name: entity.geolayer_type.collection
+  base_route: entity.geolayer_type.collection
