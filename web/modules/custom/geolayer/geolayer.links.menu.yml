@@ -1,0 +1,5 @@
+entity.geolayer_type.collection:
+  title: 'Geolayer types'
+  description: 'Manage and CRUD actions on Geolayer type.'
+  parent: system.admin_structure
+  route_name: entity.geolayer_type.collection

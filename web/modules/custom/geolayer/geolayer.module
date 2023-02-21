@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Provides a geolayer entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\geolayer\Entity\Geolayer;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function geolayer_theme() {
+  return [
+    'geolayer' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for geolayer templates.
+ *
+ * Default template: geolayer.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the geolayer information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_geolayer(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function geolayer_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Unpublish geolayers.
+      $storage = \Drupal::entityTypeManager()->getStorage('geolayer');
+      $geolayer_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->condition('status', 1)
+        ->execute();
+      foreach ($storage->loadMultiple($geolayer_ids) as $geolayer) {
+        $geolayer->set('status', FALSE);
+        $geolayer->save();
+      }
+      break;
+
+    case 'user_cancel_reassign':
+      // Anonymize geolayers.
+      $storage = \Drupal::entityTypeManager()->getStorage('geolayer');
+      $geolayer_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($geolayer_ids) as $geolayer) {
+        $geolayer->setOwnerId(0);
+        $geolayer->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function geolayer_user_predelete(UserInterface $account) {
+  // Delete geolayers.
+  $storage = \Drupal::entityTypeManager()->getStorage('geolayer');
+  $geolayer_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $geolayers = $storage->loadMultiple($geolayer_ids);
+  $storage->delete($geolayers);
+  // Delete old revisions.
+  $geolayer_ids = $storage->getQuery()
+    ->allRevisions()
+    ->condition('uid', $account->id())
+    ->execute();
+  foreach (array_keys($geolayer_ids) as $revision_id) {
+    $storage->deleteRevision($revision_id);
+  }
+}
