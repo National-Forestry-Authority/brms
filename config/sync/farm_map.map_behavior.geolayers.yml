@@ -1,0 +1,14 @@
+uuid: 8adc74da-9075-4b44-8829-508104be11f8
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - farm_map
+_core:
+  default_config_hash: ZeVVq4E2V7h08WpofWRxCUx6ttmbNWmvl_d059_b6ZE
+id: geolayers
+label: Geolayers
+description: 'Displays geolayers as a map layer.'
+library: farm_map/behavior_geolayers
+settings: {  }

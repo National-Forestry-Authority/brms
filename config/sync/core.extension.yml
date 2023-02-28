@@ -18,6 +18,8 @@ module:
   dblog: 0
   diff: 0
   dynamic_page_cache: 0
+  farm_map: 0
+  farm_map_mapbox: 0
   feeds: 0
   field: 0
   field_ui: 0
@@ -30,11 +32,6 @@ module:
   inline_entity_form: 0
   layout_builder: 0
   layout_discovery: 0
-  leaflet: 0
-  leaflet_demo: 0
-  leaflet_markercluster: 0
-  leaflet_more_maps: 0
-  leaflet_views: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -53,6 +50,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_geojson: 0
   views_ui: 0
   views: 10
   minimal: 1000

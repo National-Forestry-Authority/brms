@@ -8,10 +8,9 @@ dependencies:
     - field.field.node.central_forest_reserve.field_nfa_id
     - field.field.node.central_forest_reserve.field_raw_data
     - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - field.field.node.central_forest_reserve.geolayers
     - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
-  module:
-    - geofield
 id: node.central_forest_reserve.default
 targetEntityType: node
 bundle: central_forest_reserve
@@ -19,13 +18,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_nfa_id:
     type: string_textfield
-    weight: 8
+    weight: 7
     region: content
     settings:
       size: 60
@@ -33,22 +32,25 @@ content:
     third_party_settings: {  }
   field_raw_data:
     type: string_textarea
-    weight: 2
+    weight: 1
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_spatial_data_cfr:
-    type: geofield_default
-    weight: 1
+  geolayers:
+    type: entity_reference_autocomplete
+    weight: 9
     region: content
     settings:
-      geometry_validation: false
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
-    weight: 26
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -56,21 +58,21 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 5
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 6
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -85,7 +87,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -96,3 +98,4 @@ content:
 hidden:
   body: true
   feeds_item: true
+  field_spatial_data_cfr: true
