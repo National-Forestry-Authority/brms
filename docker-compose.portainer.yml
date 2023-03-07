@@ -2,55 +2,29 @@
 version: "3.7"
 
 services:
-
   db:
-    image: mariadb:10.10
-    restart: unless-stopped
-    stop_grace_period: 30s
-    environment:
-      MYSQL_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-M4r14DB}"
-      MYSQL_DATABASE: "${DB_NAME:-drupal}"
-      MYSQL_USER: "${DB_USER:-drupal}"
-      MYSQL_PASSWORD: "${DB_PASS:-drupal}"
     labels:
       - traefik.enable=false
       - com.centurylinklabs.watchtower.enable=true
-      - docker-volume-backup.stop-during-backup=${BACKUP_STOP_CONTAINER_LABEL:-brms}
-    volumes:
-      - db-data:/var/lib/mysql
+      - docker-volume-backup.stop-during-backup=${COMPOSE_PROJECT_NAME?err}
     networks:
       - internal
-
   drupal:
-    image: ${DOCKER_REGISTRY:-docker.tr.utils.nfa.go.ug}/national-forestry-authority/brms:${DRUPAL_IMAGE_TAG:-main}
-    #build:
-    #  context: .
-    depends_on:
-      - db
-    environment:
-      # Overrides Dockerfile defaults
-      DB_HOST: db
-      PROJECT_BASE_URL: ${HOST_NAME:-}
-    restart: unless-stopped
-    #ports:
-    #  - "${HOST_PORT:-80}:80"
     labels:
       - traefik.enable=true
-      - traefik.docker.network=traefik
-      - traefik.http.routers.${TRAEFIK_ROUTER_NAME:-brms}.rule=Host("${HOST_NAME}")
+      - traefik.docker.network=${EXTERNAL_NETWORK?err}
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME?err}.rule=Host("${APP_DOMAIN:-${COMPOSE_PROJECT_NAME?err}}")
       - com.centurylinklabs.watchtower.monitor-only=true
-    volumes:
-      - drupal-files:/var/www/web/sites/default/files
-      - drupal-private:/var/www/web/private
     networks:
       - internal
-      - traefik
-
+      - external
   backup:
+    profiles:
+      - prod
     image: offen/docker-volume-backup:v2
     restart: always
     environment:
-      BACKUP_STOP_CONTAINER_LABEL: ${BACKUP_STOP_CONTAINER_LABEL:-brms}
+      BACKUP_STOP_CONTAINER_LABEL: ${COMPOSE_PROJECT_NAME?err}
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
       NOTIFICATION_LEVEL:
@@ -76,9 +50,9 @@ volumes:
   drupal-files:
   drupal-private:
 
-
 networks:
-  traefik:
+  external:
+    name: ${EXTERNAL_NETWORK?err}
     external: true
   internal:
     external: false

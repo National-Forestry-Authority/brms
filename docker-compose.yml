@@ -1,0 +1,41 @@
+---
+version: "3.7"
+
+services:
+  db:
+    image: ${DB_IMAGE?err}:${DB_IMAGE_TAG?err}
+    restart: unless-stopped
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ADMIN_PASS?err}
+      MYSQL_DATABASE: ${DB_NAME?err}
+      MYSQL_USER: ${DB_USER?err}
+      MYSQL_PASSWORD: ${DB_PASS?err}
+    volumes:
+      - db-data:${DB_DATADIR:-/var/lib/mysql}
+  drupal:
+    image: ${DRUPAL_IMAGE?err}:${DRUPAL_IMAGE_TAG?err}
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      # Overrides Dockerfile defaults
+      DB_USER: ${DB_USER?err}
+      DB_PASS: ${DB_PASS?err}
+      DB_NAME: ${DB_NAME?err}
+      DB_HOST: ${DB_HOST:-db}
+      DB_DRIVER: ${DB_DRIVER:-mysql}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_PREFIX: ${DB_PREFIX:-}
+      APP_DOMAIN: ${APP_DOMAIN:-${COMPOSE_PROJECT_NAME?err}}
+      TRUSTED_HOSTS: ${TRUSTED_HOSTS:-}
+      DEPLOY: ${DEPLOY:-1}
+      DEPLOY_CMD: ${DEPLOY_CMD:-sleep 10; drush deploy}
+    volumes:
+      - drupal-files:/var/www/web/sites/default/files
+      - drupal-private:/var/www/web/private
+
+volumes:
+  db-data:
+  drupal-files:
+  drupal-private:
