@@ -113,3 +113,8 @@ Thumbs.db
 
 # ignore twig files outside docroot.
 /storage/php
+
+# Sbit.io
+!.env
+!.github
+!docker/drupal/*
