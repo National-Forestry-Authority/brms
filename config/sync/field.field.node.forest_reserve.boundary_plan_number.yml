@@ -1,0 +1,29 @@
+uuid: 1d1c94e3-a5c8-4c82-8e7b-51e0bf6709b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.boundary_plan_number
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.boundary_plan_number
+id: node.forest_reserve.boundary_plan_number
+field_name: boundary_plan_number
+entity_type: node
+bundle: forest_reserve
+label: 'Boundary plan number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      boundary_plan_number: boundary_plan_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

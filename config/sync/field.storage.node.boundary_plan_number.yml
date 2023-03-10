@@ -1,0 +1,20 @@
+uuid: 848a5148-4f77-4f90-824a-e2026db4d620
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.boundary_plan_number
+field_name: boundary_plan_number
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

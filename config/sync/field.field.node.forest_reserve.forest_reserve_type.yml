@@ -1,0 +1,29 @@
+uuid: 2f6010d9-cc01-458a-a8c5-af2fb6717d6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.forest_reserve_type
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.forest_reserve_type
+id: node.forest_reserve.forest_reserve_type
+field_name: forest_reserve_type
+entity_type: node
+bundle: forest_reserve
+label: 'Forest reserve type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      forest_reserve_type: forest_reserve_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

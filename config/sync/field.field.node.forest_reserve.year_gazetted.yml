@@ -1,0 +1,23 @@
+uuid: 711179a8-f8c3-47c2-ae48-3f24d0fc4bc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.year_gazetted
+    - node.type.forest_reserve
+  module:
+    - yearonly
+id: node.forest_reserve.year_gazetted
+field_name: year_gazetted
+entity_type: node
+bundle: forest_reserve
+label: 'Year gazetted'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1900'
+  yearonly_to: now
+field_type: yearonly

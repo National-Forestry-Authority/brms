@@ -1,0 +1,25 @@
+uuid: d90ac712-a6cb-4c0a-a701-7488c1e175b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.surveyor
+    - paragraphs.paragraphs_type.survey
+id: paragraph.survey.surveyor
+field_name: surveyor
+entity_type: paragraph
+bundle: survey
+label: Surveyor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: user_lists
+      display_name: surveyors
+      arguments: {  }
+field_type: entity_reference

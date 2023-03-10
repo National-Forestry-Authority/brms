@@ -1,0 +1,8 @@
+uuid: ccc58e8c-32db-4b4e-ab57-bc04588ffa92
+langcode: en
+status: true
+dependencies: {  }
+name: 'Forest reserve serial number'
+vid: forest_reserve_serial_number
+description: ''
+weight: 0

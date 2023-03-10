@@ -1,0 +1,8 @@
+uuid: fe593bd2-26f6-406c-9177-396f33f7e6f5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Land registration number'
+vid: land_registration_number
+description: ''
+weight: 0

@@ -1,0 +1,18 @@
+uuid: 6f30148c-2ba4-4f0f-b23a-8a4acb2d0c3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.forest_reserve
+id: node.forest_reserve.title
+field_name: title
+entity_type: node
+bundle: forest_reserve
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
