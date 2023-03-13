@@ -12,6 +12,7 @@ module:
   breakpoint: 0
   brms_cleanup: 0
   brms_common: 0
+  brms_migrate: 0
   brms_revisions: 0
   config: 0
   contextual: 0
@@ -41,7 +42,9 @@ module:
   menu_link_content: 0
   menu_ui: 0
   migrate: 0
-  migrate_drupal: 0
+  migrate_conditions: 0
+  migrate_plus: 0
+  migrate_tools: 0
   mysql: 0
   node: 0
   page_cache: 0

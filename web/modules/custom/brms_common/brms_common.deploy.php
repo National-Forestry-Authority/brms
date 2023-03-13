@@ -5,6 +5,9 @@
  * Deploy functions run after drush config:import
  */
 
+use Drupal\migrate\MigrateExecutable;
+use Drupal\migrate\MigrateMessage;
+
 /**
  * Initialise taxonomy terms.
  */
