@@ -16,6 +16,18 @@ $databases['default']['default'] = [
   'collation' => 'utf8mb4_general_ci',
 ];
 
+/**
+ * Temporary migration source DB.
+ */
+$databases['migrate']['default'] = [
+  'database' => 'forest_bck',
+  'username' => 'forest_bck',
+  'password' => 'forest_bck',
+  'host' => 'forest_bck',
+  'driver' => 'pgsql',
+  'port' => 5432,
+  'prefix' => '',
+];
 
 /**
  * Trusted hosts

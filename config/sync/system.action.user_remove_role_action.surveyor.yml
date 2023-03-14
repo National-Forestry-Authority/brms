@@ -1,0 +1,14 @@
+uuid: a1ed12dc-bd09-495a-b6c2-9f021f90d4f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.surveyor
+  module:
+    - user
+id: user_remove_role_action.surveyor
+label: 'Remove the Surveyor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: surveyor

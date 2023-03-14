@@ -1,0 +1,29 @@
+uuid: 777dfcf6-f9c7-4a6a-9d80-8529456285ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.boundary_description_status
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.boundary_description_status
+id: node.forest_reserve.boundary_description_status
+field_name: boundary_description_status
+entity_type: node
+bundle: forest_reserve
+label: 'Boundary description status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      boundary_description_status: boundary_description_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

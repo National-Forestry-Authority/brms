@@ -1,0 +1,8 @@
+uuid: 452863fc-90d9-425f-a535-e1f69e97aaaa
+langcode: en
+status: true
+dependencies: {  }
+name: 'Boundary records status'
+vid: boundary_records_status
+description: ''
+weight: 0

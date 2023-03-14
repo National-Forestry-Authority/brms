@@ -1,0 +1,40 @@
+uuid: a9c11578-d1af-4cb5-ba77-b517d80e0171
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.survey.description
+    - field.field.paragraph.survey.surveyor
+    - field.field.paragraph.survey.year_surveyed
+    - paragraphs.paragraphs_type.survey
+  module:
+    - text
+    - yearonly
+id: paragraph.survey.default
+targetEntityType: paragraph
+bundle: survey
+mode: default
+content:
+  description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  surveyor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  year_surveyed:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

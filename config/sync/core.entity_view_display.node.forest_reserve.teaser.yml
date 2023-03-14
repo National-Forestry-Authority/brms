@@ -1,0 +1,72 @@
+uuid: ac224a9d-fac1-4917-abe2-44673af08991
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.forest_reserve.body
+    - field.field.node.forest_reserve.boundary_description_status
+    - field.field.node.forest_reserve.boundary_plan_number
+    - field.field.node.forest_reserve.boundary_records_status
+    - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
+    - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
+    - field.field.node.forest_reserve.county
+    - field.field.node.forest_reserve.district
+    - field.field.node.forest_reserve.forest_reserve_serial_number
+    - field.field.node.forest_reserve.forest_reserve_type
+    - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.map_sheet_reference
+    - field.field.node.forest_reserve.mapped_area
+    - field.field.node.forest_reserve.other_gazette_years
+    - field.field.node.forest_reserve.priority_for_action
+    - field.field.node.forest_reserve.protected_area_length
+    - field.field.node.forest_reserve.riverline_length
+    - field.field.node.forest_reserve.shoreline_length
+    - field.field.node.forest_reserve.surveys
+    - field.field.node.forest_reserve.total_cutline_length
+    - field.field.node.forest_reserve.year_gazetted
+    - node.type.forest_reserve
+  module:
+    - text
+    - user
+id: node.forest_reserve.teaser
+targetEntityType: node
+bundle: forest_reserve
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  boundary_description_status: true
+  boundary_plan_number: true
+  boundary_records_status: true
+  cadastral_sheet_number_1_10000: true
+  cadastral_sheet_number_1_50000: true
+  county: true
+  district: true
+  forest_reserve_serial_number: true
+  forest_reserve_type: true
+  gazetted_area: true
+  land_registration_number: true
+  map_sheet_reference: true
+  mapped_area: true
+  other_gazette_years: true
+  priority_for_action: true
+  protected_area_length: true
+  riverline_length: true
+  shoreline_length: true
+  surveys: true
+  total_cutline_length: true
+  year_gazetted: true

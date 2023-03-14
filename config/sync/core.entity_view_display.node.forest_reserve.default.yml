@@ -1,0 +1,236 @@
+uuid: bfdd370b-fba3-41c5-a793-d77ac29cd50d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.forest_reserve.body
+    - field.field.node.forest_reserve.boundary_description_status
+    - field.field.node.forest_reserve.boundary_plan_number
+    - field.field.node.forest_reserve.boundary_records_status
+    - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
+    - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
+    - field.field.node.forest_reserve.county
+    - field.field.node.forest_reserve.district
+    - field.field.node.forest_reserve.forest_reserve_serial_number
+    - field.field.node.forest_reserve.forest_reserve_type
+    - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.map_sheet_reference
+    - field.field.node.forest_reserve.mapped_area
+    - field.field.node.forest_reserve.other_gazette_years
+    - field.field.node.forest_reserve.priority_for_action
+    - field.field.node.forest_reserve.protected_area_length
+    - field.field.node.forest_reserve.riverline_length
+    - field.field.node.forest_reserve.shoreline_length
+    - field.field.node.forest_reserve.surveys
+    - field.field.node.forest_reserve.total_cutline_length
+    - field.field.node.forest_reserve.year_gazetted
+    - node.type.forest_reserve
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+    - yearonly
+id: node.forest_reserve.default
+targetEntityType: node
+bundle: forest_reserve
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  boundary_description_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  boundary_plan_number:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  boundary_records_status:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  cadastral_sheet_number_1_10000:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  cadastral_sheet_number_1_50000:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  county:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  district:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  forest_reserve_serial_number:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  forest_reserve_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  gazetted_area:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  land_registration_number:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  map_sheet_reference:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  mapped_area:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  other_gazette_years:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  priority_for_action:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  protected_area_length:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  riverline_length:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  shoreline_length:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  surveys:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  total_cutline_length:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  year_gazetted:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 120
+    region: content
+hidden: {  }

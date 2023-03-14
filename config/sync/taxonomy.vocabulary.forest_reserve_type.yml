@@ -1,0 +1,8 @@
+uuid: 5d9ba39b-73e8-4555-9d24-9eae1019f595
+langcode: en
+status: true
+dependencies: {  }
+name: 'Forest reserve type'
+vid: forest_reserve_type
+description: ''
+weight: 0

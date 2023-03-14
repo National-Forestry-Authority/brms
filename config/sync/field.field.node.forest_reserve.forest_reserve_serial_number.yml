@@ -1,0 +1,29 @@
+uuid: a3545466-6532-4e26-8510-0d19390309a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.forest_reserve_serial_number
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.forest_reserve_serial_number
+id: node.forest_reserve.forest_reserve_serial_number
+field_name: forest_reserve_serial_number
+entity_type: node
+bundle: forest_reserve
+label: 'Forest reserve serial number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      forest_reserve_serial_number: forest_reserve_serial_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

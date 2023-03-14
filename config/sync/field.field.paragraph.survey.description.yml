@@ -1,0 +1,21 @@
+uuid: 17bae47f-b2d0-4436-89b0-86c51845e6f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.description
+    - paragraphs.paragraphs_type.survey
+  module:
+    - text
+id: paragraph.survey.description
+field_name: description
+entity_type: paragraph
+bundle: survey
+label: 'Description of survey work'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

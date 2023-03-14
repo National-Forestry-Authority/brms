@@ -1,0 +1,44 @@
+uuid: 390a7ff5-c148-425e-84f1-bd413b773c9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.survey.description
+    - field.field.paragraph.survey.surveyor
+    - field.field.paragraph.survey.year_surveyed
+    - paragraphs.paragraphs_type.survey
+  module:
+    - text
+    - yearonly
+id: paragraph.survey.default
+targetEntityType: paragraph
+bundle: survey
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  surveyor:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  year_surveyed:
+    type: yearonly_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

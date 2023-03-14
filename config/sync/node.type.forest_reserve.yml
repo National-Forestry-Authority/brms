@@ -1,0 +1,23 @@
+uuid: d6f26a8e-b901-4ab1-ac76-086edbe1ce43
+langcode: en
+status: true
+dependencies:
+  module:
+    - autotitle
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  autotitle:
+    enabled: false
+    field: body
+    fallback_title: 'Untitled []'
+    headings: {  }
+name: 'Forest reserve'
+type: forest_reserve
+description: 'A forest reserve'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

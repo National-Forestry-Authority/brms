@@ -1,0 +1,23 @@
+uuid: 811e866d-babb-4e1c-8040-c08d897798eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.year_surveyed
+    - paragraphs.paragraphs_type.survey
+  module:
+    - yearonly
+id: paragraph.survey.year_surveyed
+field_name: year_surveyed
+entity_type: paragraph
+bundle: survey
+label: 'Year surveyed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1930'
+  yearonly_to: now
+field_type: yearonly

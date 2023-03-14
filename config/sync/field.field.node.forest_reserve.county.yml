@@ -1,0 +1,29 @@
+uuid: 0e01f4fd-0e2b-4261-9a99-eae81bf3c049
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.county
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.counties
+id: node.forest_reserve.county
+field_name: county
+entity_type: node
+bundle: forest_reserve
+label: County
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      counties: counties
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
