@@ -20,13 +20,16 @@ $databases['default']['default'] = [
  * Temporary migration source DB.
  */
 $databases['migrate']['default'] = [
-  'database' => 'forest_bck',
-  'username' => 'forest_bck',
-  'password' => 'forest_bck',
-  'host' => 'forest_bck',
-  'driver' => 'pgsql',
-  'port' => 5432,
-  'prefix' => '',
+  'host' => $_SERVER['DB_HOST'],
+  'port' => $_SERVER['DB_PORT'],
+  'database' => $_SERVER['DB_NAME'],
+  'username' => $_SERVER['DB_USER'],
+  'password' => $_SERVER['DB_PASS'],
+  'prefix' => $_SERVER['DB_PREFIX'] ?? '',
+  'driver' => $_SERVER['DB_DRIVER'],
+  'namespace' => sprintf('Drupal\Core\Database\Driver\%s', $_SERVER['DB_DRIVER']),
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_general_ci',
 ];
 
 /**

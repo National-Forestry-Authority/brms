@@ -32,9 +32,9 @@ $databases['migrate']['default'] = [
   'database' => "db",
   'username' => "db",
   'password' => "db",
-  'host' => 'ddev-forests-db',
-  'driver' => "pgsql",
-  'port' => 5432,
+  'host' => $host,
+  'driver' => $driver,
+  'port' => $port,
   'prefix' => "",
 ];
 

@@ -6,10 +6,11 @@ migration_tags:
   - Content
 label: CFRs
 source:
-  plugin: farmos_asset
-  bundle: cfr
+  plugin: content_entity:node
+  bundle: central_forest_reserve
+  include_translations: false
 process:
-  title: name
+  title: title
   forest_reserve_type:
     - plugin: default_value
       default_value: 'Central Forest Reserve'
@@ -18,7 +19,8 @@ process:
       value_key: name
   skip_duplicates:
     - plugin: get
-      source: name
+      source: title
+    - plugin: flatten
     - plugin: entity_lookup
       entity_type: node
       bundle_key: type
@@ -28,6 +30,12 @@ process:
       condition: not:empty
       method: row
       message: Skipping CFR with same name as existing CFR
+  revision_log:
+    - plugin: default_value
+      default_value: 'Created'
+  uid:
+    - plugin: default_value
+      default_value: 1
 destination:
   plugin: 'entity:node'
   default_bundle: forest_reserve
