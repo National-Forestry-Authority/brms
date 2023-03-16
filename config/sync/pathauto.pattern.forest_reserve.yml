@@ -1,0 +1,22 @@
+uuid: a3eaa9c4-610f-466b-a702-5f6ab6b83a60
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: forest_reserve
+label: 'Forest reserve'
+type: 'canonical_entities:node'
+pattern: '[node:forest_reserve_type:entity]/[node:title]'
+selection_criteria:
+  a25001ca-a499-422b-8429-b6ca892cc34f:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a25001ca-a499-422b-8429-b6ca892cc34f
+    context_mapping:
+      node: node
+    bundles:
+      forest_reserve: forest_reserve
+selection_logic: and
+weight: -5
+relationships: {  }
