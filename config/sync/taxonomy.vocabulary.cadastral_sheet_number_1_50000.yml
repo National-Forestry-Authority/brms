@@ -1,0 +1,8 @@
+uuid: 3605d8db-5865-4994-b912-01b5e0acfd64
+langcode: en
+status: true
+dependencies: {  }
+name: 'Cadastral sheet number (1:50,000)'
+vid: cadastral_sheet_number_1_50000
+description: ''
+weight: 0

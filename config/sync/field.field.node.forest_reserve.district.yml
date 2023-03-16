@@ -1,0 +1,29 @@
+uuid: 4b734b77-b7fc-4850-82e6-5c39df5bb445
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.district
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.district
+id: node.forest_reserve.district
+field_name: district
+entity_type: node
+bundle: forest_reserve
+label: District
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      district: district
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

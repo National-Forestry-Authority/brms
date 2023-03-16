@@ -1,0 +1,19 @@
+uuid: e5de1e24-d0b0-4075-960a-8e5af7e30d5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - yearonly
+id: paragraph.year_surveyed
+field_name: year_surveyed
+entity_type: paragraph
+type: yearonly
+settings: {  }
+module: yearonly
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

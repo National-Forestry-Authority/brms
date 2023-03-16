@@ -1,0 +1,29 @@
+uuid: 359920d6-9e91-443e-ad2d-f94421b40a69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.priority_for_action
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.priority
+id: node.forest_reserve.priority_for_action
+field_name: priority_for_action
+entity_type: node
+bundle: forest_reserve
+label: 'Priority for action'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      priority: priority
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

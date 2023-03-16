@@ -1,0 +1,29 @@
+uuid: dfb8ebdf-f04a-4815-bc07-2f94165a47db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.boundary_records_status
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.boundary_records_status
+id: node.forest_reserve.boundary_records_status
+field_name: boundary_records_status
+entity_type: node
+bundle: forest_reserve
+label: 'Boundary records status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      boundary_records_status: boundary_records_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 133e9867-35be-4913-84d7-2decd2e9175f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.cadastral_sheet_number_1_50000
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.cadastral_sheet_number_1_50000
+id: node.forest_reserve.cadastral_sheet_number_1_50000
+field_name: cadastral_sheet_number_1_50000
+entity_type: node
+bundle: forest_reserve
+label: 'Cadastral sheet number (1:50,000)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cadastral_sheet_number_1_50000: cadastral_sheet_number_1_50000
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

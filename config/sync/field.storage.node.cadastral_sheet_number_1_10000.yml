@@ -1,0 +1,20 @@
+uuid: b180d487-86c6-48d0-892e-fb6347bd97cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.cadastral_sheet_number_1_10000
+field_name: cadastral_sheet_number_1_10000
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

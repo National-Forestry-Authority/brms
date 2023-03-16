@@ -1,0 +1,8 @@
+uuid: 7083a2cd-a2b4-4693-bb9e-d1e27dea0c3b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Boundary plan number'
+vid: boundary_plan_number
+description: ''
+weight: 0

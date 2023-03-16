@@ -28,6 +28,16 @@ $databases['default']['default'] = array(
   'prefix' => "",
 );
 
+$databases['migrate']['default'] = [
+  'database' => "db",
+  'username' => "db",
+  'password' => "db",
+  'host' => $host,
+  'driver' => $driver,
+  'port' => $port,
+  'prefix' => "",
+];
+
 $settings['hash_salt'] = 'vXFudDIBzWWesjcpvtMFpLxBKLQAoVNmppMbKPojEvMWArApPzQsZkqpnnofNdDF';
 
 // This will prevent Drupal from setting read-only permissions on sites/default.

@@ -1,0 +1,8 @@
+uuid: e657be97-ff48-461f-939f-05479837b740
+langcode: en
+status: true
+dependencies: {  }
+name: 'Boundary description status'
+vid: boundary_description_status
+description: ''
+weight: 0

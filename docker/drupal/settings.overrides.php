@@ -16,6 +16,21 @@ $databases['default']['default'] = [
   'collation' => 'utf8mb4_general_ci',
 ];
 
+/**
+ * Temporary migration source DB.
+ */
+$databases['migrate']['default'] = [
+  'host' => $_SERVER['DB_HOST'],
+  'port' => $_SERVER['DB_PORT'],
+  'database' => $_SERVER['DB_NAME'],
+  'username' => $_SERVER['DB_USER'],
+  'password' => $_SERVER['DB_PASS'],
+  'prefix' => $_SERVER['DB_PREFIX'] ?? '',
+  'driver' => $_SERVER['DB_DRIVER'],
+  'namespace' => sprintf('Drupal\Core\Database\Driver\%s', $_SERVER['DB_DRIVER']),
+  'charset' => 'utf8mb4',
+  'collation' => 'utf8mb4_general_ci',
+];
 
 /**
  * Trusted hosts

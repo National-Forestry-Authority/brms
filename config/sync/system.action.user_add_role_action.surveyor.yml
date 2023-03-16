@@ -1,0 +1,14 @@
+uuid: 07f8454d-78bf-47ab-a4cf-173dfc2ad50c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.surveyor
+  module:
+    - user
+id: user_add_role_action.surveyor
+label: 'Add the Surveyor role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: surveyor

@@ -1,0 +1,23 @@
+uuid: 9a3053cd-1015-45bf-a6a4-54a85f7bc7b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.other_gazette_years
+    - node.type.forest_reserve
+  module:
+    - yearonly
+id: node.forest_reserve.other_gazette_years
+field_name: other_gazette_years
+entity_type: node
+bundle: forest_reserve
+label: 'Other gazette mentions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1900'
+  yearonly_to: now
+field_type: yearonly

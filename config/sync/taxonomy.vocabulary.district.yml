@@ -1,0 +1,8 @@
+uuid: 7bd3d269-794f-42a4-802c-69786d826cfe
+langcode: en
+status: true
+dependencies: {  }
+name: District
+vid: district
+description: ''
+weight: 0

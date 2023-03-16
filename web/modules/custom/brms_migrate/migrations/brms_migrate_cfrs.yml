@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_cfrs
+migration_tags:
+  - Content
+label: CFRs
+source:
+  plugin: content_entity:node
+  bundle: central_forest_reserve
+  include_translations: false
+process:
+  title: title
+  forest_reserve_type:
+    - plugin: default_value
+      default_value: 'Central Forest Reserve'
+    - plugin: entity_lookup
+      entity_type: taxonomy_term
+      value_key: name
+  skip_duplicates:
+    - plugin: get
+      source: title
+    - plugin: flatten
+    - plugin: entity_lookup
+      entity_type: node
+      bundle_key: type
+      bundle: forest_reserve
+      value_key: title
+    - plugin: skip_on_condition
+      condition: not:empty
+      method: row
+      message: Skipping CFR with same name as existing CFR
+  revision_log:
+    - plugin: default_value
+      default_value: 'Created'
+  uid:
+    - plugin: default_value
+      default_value: 1
+destination:
+  plugin: 'entity:node'
+  default_bundle: forest_reserve
