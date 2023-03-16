@@ -49,6 +49,7 @@ module:
   mysql: 0
   node: 0
   page_cache: 0
+  path: 0
   path_alias: 0
   pdf: 0
   realname: 0
@@ -63,6 +64,7 @@ module:
   user: 0
   views_ui: 0
   yearonly: 0
+  pathauto: 1
   views: 10
   paragraphs: 11
   minimal: 1000
