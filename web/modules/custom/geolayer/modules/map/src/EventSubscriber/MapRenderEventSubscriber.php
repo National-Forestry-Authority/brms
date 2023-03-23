@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\farm_map\EventSubscriber;
+namespace Drupal\geolayer_map\EventSubscriber;
 
-use Drupal\farm_map\Event\MapRenderEvent;
+use Drupal\geolayer_map\Event\MapRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -24,11 +24,11 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
   /**
    * React to the MapRenderEvent.
    *
-   * @param \Drupal\farm_map\Event\MapRenderEvent $event
+   * @param \Drupal\geolayer_map\Event\MapRenderEvent $event
    *   The MapRenderEvent.
    */
   public function onMapRender(MapRenderEvent $event) {
-
+    
     // Add the map type cache tags.
     $event->addCacheTags($event->getMapType()->getCacheTags());
 
@@ -47,11 +47,11 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
     if (in_array($event->getMapType()->id(), ['geofield_widget'])) {
       $event->addBehavior('wkt');
       $event->addBehavior('geofield');
-      $event->addBehavior('geolayers');
+      $event->addBehavior('geolayer');
     }
 
-    if (!empty($event->element['#map_settings']['geolayers'])) {
-      $event->addBehavior('geolayers');
+    if (!empty($event->element['#map_settings']['geolayer'])) {
+      $event->addBehavior('geolayer');
     }
 
     // Add the popop behavior.

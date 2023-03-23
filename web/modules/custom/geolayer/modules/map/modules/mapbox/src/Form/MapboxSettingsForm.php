@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map_mapbox\Form;
+namespace Drupal\geolayer_map_mapbox\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -15,13 +15,13 @@ class MapboxSettingsForm extends ConfigFormbase {
    *
    * @var string
    */
-  const SETTINGS = 'farm_map_mapbox.settings';
+  const SETTINGS = 'geolayer_map_mapbox.settings';
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'farm_map_mapbox_settings';
+    return 'geolayer_map_mapbox_settings';
   }
 
   /**

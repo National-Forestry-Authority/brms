@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map\Entity;
+namespace Drupal\geolayer_map\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 
@@ -12,7 +12,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   label = @Translation("Layer style"),
  *   label_collection = @Translation("Layer styles"),
  *   handlers = { },
- *   admin_permission = "administer farm map",
+ *   admin_permission = "administer geolayer map",
  *   entity_keys = {
  *     "id" = "id",
  *   },
@@ -23,7 +23,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   },
  * )
  *
- * @ingroup farm
+ * @ingroup geolayer
  */
 class LayerStyle extends ConfigEntityBase implements LayerStyleInterface {
 

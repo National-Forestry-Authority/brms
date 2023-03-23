@@ -1,4 +1,4 @@
-uuid: 34392a52-6540-43d9-b552-4eb7ca564749
+uuid: 83a7ee04-0ce3-4253-9c35-c70cb6cc57a2
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ bundle: cadastral_map
 label: geolayers
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

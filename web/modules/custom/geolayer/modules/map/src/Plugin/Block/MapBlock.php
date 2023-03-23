@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map\Plugin\Block;
+namespace Drupal\geolayer_map\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
@@ -19,7 +19,7 @@ class MapBlock extends BlockBase {
    */
   public function build() {
     return [
-      '#type' => 'farm_map',
+      '#type' => 'geolayer_map',
       '#map_type' => $this->mapType(),
     ];
   }
@@ -31,7 +31,7 @@ class MapBlock extends BlockBase {
    *   The map type.
    */
   public function mapType() {
-
+    echo "LayerStyleLoader::load() called";
     // Use the map_type from the block configuration.
     if (!empty($this->configuration['map_type'])) {
       return $this->configuration['map_type'];

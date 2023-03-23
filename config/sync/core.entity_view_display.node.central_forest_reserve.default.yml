@@ -7,12 +7,10 @@ dependencies:
     - field.field.node.central_forest_reserve.feeds_item
     - field.field.node.central_forest_reserve.field_nfa_id
     - field.field.node.central_forest_reserve.field_raw_data
-    - field.field.node.central_forest_reserve.field_spatial_data_cfr
     - field.field.node.central_forest_reserve.geolayers
     - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
   module:
-    - farm_map
     - user
 id: node.central_forest_reserve.default
 targetEntityType: node
@@ -27,20 +25,14 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_spatial_data_cfr:
-    type: farm_map_geofield
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
   geolayers:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
+      view_mode: default
       link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 7
     region: content
   links:
     settings: {  }

@@ -1,0 +1,14 @@
+uuid: 4cef6960-ec41-43da-bbe7-2c29932c1f2b
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+_core:
+  default_config_hash: 89ZQio-uieQPHi6Rc2tMjx9oubIsZJsP2g2IWBFCuHY
+id: wkt
+label: WKT
+description: 'Displays WKT as a map layer.'
+library: geolayer_map/behavior_wkt
+settings: {  }

@@ -1,7 +1,0 @@
-name: NFA Map
-description: Provides map features for NFA maps.
-type: module
-package: NFA Map
-core_version_requirement: ^8.8.0 || ^9.0
-dependencies:
-  - drupal:block

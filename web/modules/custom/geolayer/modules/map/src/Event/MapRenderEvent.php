@@ -1,40 +1,40 @@
 <?php
 
-namespace Drupal\farm_map\Event;
+namespace Drupal\geolayer_map\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-use Drupal\farm_map\Entity\MapTypeInterface;
+use Drupal\geolayer_map\Entity\MapTypeInterface;
 
 /**
  * An event that is dispatched before rendering a map on the page.
  *
- * @group farm
+ * @group geolayer
  */
 class MapRenderEvent extends Event {
 
   const EVENT_NAME = 'map_render_event';
 
   /**
-   * The farm_map render element.
+   * The geolayer_map render element.
    *
-   * @var \Drupal\farm_map\Element\FarmMap
+   * @var \Drupal\geolayer_map\Element\GeolayerMap
    */
   public $element;
 
   /**
    * The map type config entity.
    *
-   * @var \Drupal\farm_map\Entity\MapTypeInterface
+   * @var \Drupal\geolayer_map\Entity\MapTypeInterface
    */
   private $mapType;
 
   /**
    * MapRenderEvent constructor.
    *
-   * @param \Drupal\farm_map\Entity\MapTypeInterface $map_type
-   *   The farm_map render element.
+   * @param \Drupal\geolayer_map\Entity\MapTypeInterface $map_type
+   *   The geolayer_map render element.
    * @param array $element
-   *   The farm_map render array.
+   *   The geolayer_map render array.
    */
   public function __construct(MapTypeInterface $map_type, array $element) {
     $this->element = $element;
@@ -54,7 +54,7 @@ class MapRenderEvent extends Event {
   /**
    * Getter method to get the map type being rendered.
    *
-   * @return \Drupal\farm_map\Entity\MapTypeInterface
+   * @return \Drupal\geolayer_map\Entity\MapTypeInterface
    *   The map type config entity.
    */
   public function getMapType() {
@@ -68,15 +68,14 @@ class MapRenderEvent extends Event {
    *   The behavior name.
    * @param array $settings
    *   Optional behavior settings that will be added to
-   *   drupalSettings.farm_map.behaviors.behavior_name.
+   *   drupalSettings.geolayer_map.behaviors.behavior_name.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function addBehavior(string $behavior_name, array $settings = []) {
-
     // Load the behavior.
-    /** @var \Drupal\farm_map\Entity\MapBehaviorInterface $behavior */
+    /** @var \Drupal\geolayer_map\Entity\MapBehaviorInterface $behavior */
     $behavior = \Drupal::entityTypeManager()->getStorage('map_behavior')->load($behavior_name);
 
     // Attach the library.
@@ -92,17 +91,17 @@ class MapRenderEvent extends Event {
   /**
    * Add settings to the map.
    *
-   * These settings will be added to drupalSettings.farm_map.
+   * These settings will be added to drupalSettings.geolayer_map.
    *
    * @param array $settings
    *   The settings to be added.
    */
   public function addSettings(array $settings) {
     $existing = [];
-    if (!empty($this->element['#attached']['drupalSettings']['farm_map'])) {
-      $existing = $this->element['#attached']['drupalSettings']['farm_map'];
+    if (!empty($this->element['#attached']['drupalSettings']['geolayer_map'])) {
+      $existing = $this->element['#attached']['drupalSettings']['geolayer_map'];
     }
-    $this->element['#attached']['drupalSettings']['farm_map'] = array_replace_recursive($existing, $settings);
+    $this->element['#attached']['drupalSettings']['geolayer_map'] = array_replace_recursive($existing, $settings);
   }
 
   /**

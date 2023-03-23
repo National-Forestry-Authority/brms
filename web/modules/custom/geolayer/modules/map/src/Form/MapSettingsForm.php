@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\farm_map\Form;
+namespace Drupal\geolayer_map\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 
 /**
- * Provides a farm_map settings form.
+ * Provides a geolayer_map settings form.
  */
 class MapSettingsForm extends ConfigFormbase {
 
@@ -13,7 +13,7 @@ class MapSettingsForm extends ConfigFormbase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'farm_map_settings';
+    return 'geolayer_map_settings';
   }
 
   /**

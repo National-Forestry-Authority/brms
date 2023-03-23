@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map\Entity;
+namespace Drupal\geolayer_map\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\Core\Entity\EntityDescriptionInterface;

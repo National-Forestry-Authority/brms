@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\farm_map;
+namespace Drupal\geolayer_map;
 
-use Drupal\farm_map\Entity\LayerStyle;
-use Drupal\farm_map\Entity\LayerStyleInterface;
+use Drupal\geolayer_map\Entity\LayerStyle;
+use Drupal\geolayer_map\Entity\LayerStyleInterface;
 
 /**
  * Layer style loader.
@@ -14,9 +14,9 @@ class LayerStyleLoader implements LayerStyleLoaderInterface {
    * {@inheritdoc}
    */
   public function load(array $conditions = []): ?LayerStyleInterface {
-
+    echo "LayerStyleLoader::load() called";
     // Load all LayerStyle config entities.
-    /** @var \Drupal\farm_map\Entity\LayerStyleInterface[] $layer_styles */
+    /** @var \Drupal\geolayer_map\Entity\LayerStyleInterface[] $layer_styles */
     $layer_styles = LayerStyle::loadMultiple();
 
     // If there are conditions, filter the styles.

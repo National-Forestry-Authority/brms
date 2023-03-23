@@ -1,11 +1,11 @@
-uuid: d5f66036-51ff-4978-85d7-9247270b87af
+uuid: 981a8cf2-58a9-48c4-aa63-eb013e85d974
 langcode: en
 status: true
 dependencies:
   config:
     - geolayer.geolayer_type.cfr
   module:
-    - farm_map
+    - geolayer_map
     - text
     - user
 id: geolayer.cfr.default
@@ -31,8 +31,8 @@ content:
     weight: 10
     region: content
   geofield:
-    type: farm_map_geofield
-    label: above
+    type: geolayer_map_geofield
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: -4

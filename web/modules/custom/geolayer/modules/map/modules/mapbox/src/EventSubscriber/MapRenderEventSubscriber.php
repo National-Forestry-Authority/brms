@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\farm_map_mapbox\EventSubscriber;
+namespace Drupal\geolayer_map_mapbox\EventSubscriber;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\farm_map\Event\MapRenderEvent;
+use Drupal\geolayer_map\Event\MapRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -42,7 +42,7 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
   /**
    * React to the MapRenderEvent.
    *
-   * @param \Drupal\farm_map\Event\MapRenderEvent $event
+   * @param \Drupal\geolayer_map\Event\MapRenderEvent $event
    *   The MapRenderEvent.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
@@ -51,12 +51,12 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
   public function onMapRender(MapRenderEvent $event) {
 
     // Get the mapbox api_key.
-    $api_key = $this->configFactory->get('farm_map_mapbox.settings')->get('api_key');
+    $api_key = $this->configFactory->get('geolayer_map_mapbox.settings')->get('api_key');
 
     // Set a cache tag on the mapbox settings in case this ever changes.
     // This is added to all maps since the mapbox behavior can be added to all
     // maps.
-    $event->addCacheTags(['config:farm_map_mapbox.settings']);
+    $event->addCacheTags(['config:geolayer_map_mapbox.settings']);
 
     // If the api key exists, add the mapbox behavior.
     if (!empty($api_key)) {

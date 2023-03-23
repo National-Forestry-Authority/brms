@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geofield
+label: Geofield
+description: 'Renders geofield using geolayer-map.'
+behaviors: {  }
+options: {  }

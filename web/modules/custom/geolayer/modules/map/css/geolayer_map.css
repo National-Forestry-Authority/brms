@@ -1,0 +1,8 @@
+.geolayer-map {
+  height: 500px;
+}
+
+/* Inline labels cause the map to cover other fields. */
+.field--label-inline .geolayer-map {
+  clear: both;
+}

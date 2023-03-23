@@ -1,0 +1,7 @@
+name: Geolayer Map
+description: Provides map features for geolayer maps.
+type: module
+package: Geolayer Map
+core_version_requirement: ^8.8.0 || ^9.0
+dependencies:
+  - drupal:block

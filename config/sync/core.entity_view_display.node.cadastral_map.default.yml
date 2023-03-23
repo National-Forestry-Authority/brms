@@ -35,8 +35,8 @@ dependencies:
     - node.type.cadastral_map
   module:
     - datetime
-    - farm_map
     - file
+    - geolayer_map
     - text
     - user
 id: node.cadastral_map.default
@@ -125,11 +125,11 @@ content:
     weight: 12
     region: content
   field_geo_data:
-    type: farm_map_geofield
-    label: inline
+    type: geolayer_map_geofield
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 28
+    weight: 29
     region: content
   field_magnetic_declination:
     type: string
@@ -261,7 +261,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 30
     region: content
   links:
     settings: {  }

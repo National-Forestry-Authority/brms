@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map\Entity;
+namespace Drupal\geolayer_map\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 
@@ -12,7 +12,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   label = @Translation("Map behavior"),
  *   label_collection = @Translation("Map behaviors"),
  *   handlers = { },
- *   admin_permission = "administer farm map",
+ *   admin_permission = "administer geolayer map",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
@@ -26,7 +26,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   },
  * )
  *
- * @ingroup farm
+ * @ingroup geolayer
  */
 class MapBehavior extends ConfigEntityBase implements MapBehaviorInterface {
 

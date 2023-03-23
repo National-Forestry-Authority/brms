@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer
+id: geolayers
+label: GeoLayers
+description: 'Renders geolayers using geolayer-map.'
+behaviors: {  }
+options: {  }

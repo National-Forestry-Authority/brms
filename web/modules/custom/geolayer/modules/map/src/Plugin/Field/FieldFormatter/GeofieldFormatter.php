@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\farm_map\Plugin\Field\FieldFormatter;
+namespace Drupal\geolayer_map\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
@@ -12,8 +12,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  * Plugin implementation of the map 'geofield' formatter.
  *
  * @FieldFormatter(
- *   id = "farm_map_geofield",
- *   label = @Translation("farmOS Map"),
+ *   id = "geolayer_map_geofield",
+ *   label = @Translation("Geolayer Map"),
  *   field_types = {
  *     "geofield"
  *   }
@@ -66,7 +66,6 @@ class GeofieldFormatter extends FormatterBase {
       $configuration['view_mode'],
       $configuration['third_party_settings'],
       $container->get('geofield.geophp'),
-
     );
   }
 
@@ -74,9 +73,9 @@ class GeofieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
+    echo "GeofieldFormatter::viewElements()";
     // Build a render element.
     $element = [];
-
     // First check to see if we have any value and remove any unset deltas.
     foreach ($items as $delta => $item) {
       if (empty($item->get('value')->getValue())) {
@@ -88,7 +87,7 @@ class GeofieldFormatter extends FormatterBase {
     if (empty($items)) {
       return $element;
     }
-
+    
     // Create array of features.
     $features = [];
     foreach ($items as $delta) {
@@ -127,7 +126,7 @@ class GeofieldFormatter extends FormatterBase {
     // Build a map for each item.
     foreach ($features as $delta => $feature) {
       $element[$delta] = [
-        '#type' => 'farm_map',
+        '#type' => 'geolayer_map',
         '#map_type' => 'geofield',
         '#map_settings' => [
           'wkt' => $feature,

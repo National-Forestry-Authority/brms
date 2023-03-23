@@ -1,0 +1,35 @@
+geolayer-map:
+  js:
+    /libraries/custom/geolayer-map/dist/geolayer-map.js:
+      minified: true
+  dependencies:
+    - core/drupalSettings
+geolayer_map:
+  css:
+    theme:
+      css/geolayer_map.css: { }
+  js:
+    js/geolayer_map.js: { }
+  dependencies:
+    - geolayer_map/geolayer-map
+behavior_wkt:
+  js:
+    js/geolayer.map.behaviors.wkt.js: { }
+  dependencies:
+    - core/drupalSettings
+    - geolayer_map/geolayer_map
+behavior_geofield:
+  js:
+    js/geolayer.map.behaviors.geofield.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
+behavior_popup:
+  js:
+    js/geolayer.map.behaviors.popup.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
+behavior_geojson:
+  js:
+    js/geolayer.map.behaviors.geojson.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
