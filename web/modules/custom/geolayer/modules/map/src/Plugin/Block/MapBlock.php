@@ -31,7 +31,6 @@ class MapBlock extends BlockBase {
    *   The map type.
    */
   public function mapType() {
-    echo "LayerStyleLoader::load() called";
     // Use the map_type from the block configuration.
     if (!empty($this->configuration['map_type'])) {
       return $this->configuration['map_type'];

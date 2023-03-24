@@ -14,7 +14,6 @@ class LayerStyleLoader implements LayerStyleLoaderInterface {
    * {@inheritdoc}
    */
   public function load(array $conditions = []): ?LayerStyleInterface {
-    echo "LayerStyleLoader::load() called";
     // Load all LayerStyle config entities.
     /** @var \Drupal\geolayer_map\Entity\LayerStyleInterface[] $layer_styles */
     $layer_styles = LayerStyle::loadMultiple();

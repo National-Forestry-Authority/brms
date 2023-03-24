@@ -5,9 +5,3 @@ geolayer_map.settings:
     _title: 'Map settings'
   requirements:
     _permission: 'administer geolayer map module'
-geolayer_map.map:
-  path: '/node/{node}/map'
-  defaults:
-    _form: 'Drupal\geolayer_map\Form\GeolayerMapForm'
-  requirements:
-    _permission: 'access content'

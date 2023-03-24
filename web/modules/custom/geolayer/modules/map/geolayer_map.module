@@ -19,30 +19,3 @@ function geolayer_map_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-
-/**
- * Implements hook_form_alter().
- */
-function geolayer_map_form_alter(&$form,FormStateInterface $form_state, $form_id) {
-  // echo $form['#id'];
-  // $form['geolayer_map'] = [
-  //   '#type' => 'geolayer_map',
-  //   '#map_type' => 'default',
-  //   '#map_settings' => [
-  //     'wkt' => 'POINT(-122.4194 37.7749)',
-  //     'geolayers' => 'geolayer_map_default',
-  //     'entity_type' => 'node',
-  //     'behaviors' => [
-  //       'wkt' => [
-  //         'zoom' => TRUE,
-  //       ],
-  //     ],
-  //   ],
-  //   '#attached' => [
-  //     'library' => [
-  //       'geolayer_map/geolayer_map'
-  //     ],
-  //   ],
-  // ];
-
-}

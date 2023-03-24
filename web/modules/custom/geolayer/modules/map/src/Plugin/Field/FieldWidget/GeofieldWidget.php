@@ -24,7 +24,6 @@ class GeofieldWidget extends GeofieldBaseWidget {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     // Wrap the map in a collapsible details element.
-    echo "LayerStyleLoader::load() called";
     $element['#type'] = 'details';
     $element['#title'] = $this->t('Geometry');
     $element['#open'] = TRUE;
