@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
-    - field.field.node.cadastral_map.field_geo_data
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -36,7 +35,7 @@ dependencies:
   module:
     - datetime
     - file
-    - geolayer_map
+    - geolayer
     - text
     - user
 id: node.cadastral_map.default
@@ -123,13 +122,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 12
-    region: content
-  field_geo_data:
-    type: geolayer_map_geofield
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 29
     region: content
   field_magnetic_declination:
     type: string
@@ -256,17 +248,16 @@ content:
     weight: 16
     region: content
   geolayers:
-    type: entity_reference_label
+    type: geolayer_map_geolayers
     label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 30
+    weight: 0
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   meta_data_explanation:
     type: basic_string

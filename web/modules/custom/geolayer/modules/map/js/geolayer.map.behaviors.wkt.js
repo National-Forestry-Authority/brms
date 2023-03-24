@@ -2,12 +2,9 @@
   geolayer.map.behaviors.wkt = {
     attach: async function (instance) {
       // If WKT was set, create a layer.
-      console.log("geolayer_map")
-      console.log(drupalSettings.geolayer_map[instance.target].wkt)
-      console.log('geolayer_map')
       const geoLayers = drupalSettings.geolayer_map[instance.target].geolayers;
-      const entityType = drupalSettings.geolayer_map[instance.target].entity_type;
-      if(entityType !== 'Geolayer') {
+      const mapType = drupalSettings.geolayer_map[instance.target].map_type;
+      if(mapType == 'geolayers') {
         for(let i = 0; i < geoLayers.length; i++) {
           await fetch("https://brms.ddev.site/geolayer/geojson/" + geoLayers[i],{
             method: 'GET',

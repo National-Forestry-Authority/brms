@@ -73,7 +73,6 @@ class GeofieldFormatter extends FormatterBase {
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    echo "GeofieldFormatter::viewElements()";
     // Build a render element.
     $element = [];
     // First check to see if we have any value and remove any unset deltas.
@@ -104,24 +103,6 @@ class GeofieldFormatter extends FormatterBase {
     if (empty($features)) {
       return $element;
     }
-    
-    // Get the parent entity of the field item list.
-    $entity = $items->getEntity();
-    $entity_type_manager = \Drupal::service('entity_type.manager');
-
-    // Get the entity type definition.
-    $entity_type_definition = $entity_type_manager->getDefinition('node');
-    $entity_type_label =  $entity->getEntityType()->getLabel();
-
-    // Get the value of the entity reference field. 
-    $geolayers = [];
-    if ($entity_type_label != 'Geolayer') {
-      $referenced_entities = $entity->get('geolayers')->referencedEntities();
-       // Loop through the referenced entities and do something with them.
-      foreach ($referenced_entities as $referenced_entity) {
-        $geolayers[] = $referenced_entity->id();
-      }
-    }
 
     // Build a map for each item.
     foreach ($features as $delta => $feature) {
@@ -130,8 +111,8 @@ class GeofieldFormatter extends FormatterBase {
         '#map_type' => 'geofield',
         '#map_settings' => [
           'wkt' => $feature,
-          'geolayers' => $geolayers,
-          'entity_type' => $entity_type_label,
+          'geolayers' => '',
+          'map_type' => 'geofield',
           'behaviors' => [
             'wkt' => [
               'zoom' => TRUE,

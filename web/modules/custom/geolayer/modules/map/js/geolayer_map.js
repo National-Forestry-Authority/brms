@@ -2,7 +2,6 @@
   Drupal.behaviors.geolayer_map = {
     attach: function (context, settings) {
       // Get the units.
-      console.log("geolayer_map.js")
       let units = 'metric';
       if (!!drupalSettings.geolayer_map.units) {
         units = drupalSettings.geolayer_map.units;

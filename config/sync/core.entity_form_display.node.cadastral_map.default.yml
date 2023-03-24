@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
-    - field.field.node.cadastral_map.field_geo_data
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -322,4 +321,3 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
-  field_geo_data: true

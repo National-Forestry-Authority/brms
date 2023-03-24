@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
   module:
+    - geolayer
     - user
 id: node.central_forest_reserve.default
 targetEntityType: node
@@ -26,11 +27,9 @@ content:
     weight: 2
     region: content
   geolayers:
-    type: entity_reference_entity_view
+    type: geolayer_map_geolayers
     label: above
-    settings:
-      view_mode: default
-      link: true
+    settings: {  }
     third_party_settings: {  }
     weight: 7
     region: content
