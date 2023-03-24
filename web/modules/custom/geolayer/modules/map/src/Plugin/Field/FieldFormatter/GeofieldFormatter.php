@@ -13,7 +13,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  *
  * @FieldFormatter(
  *   id = "geolayer_map_geofield",
- *   label = @Translation("Geolayer Map"),
+ *   label = @Translation("Geofield Map"),
  *   field_types = {
  *     "geofield"
  *   }

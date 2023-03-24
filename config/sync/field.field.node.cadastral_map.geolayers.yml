@@ -10,7 +10,7 @@ id: node.cadastral_map.geolayers
 field_name: geolayers
 entity_type: node
 bundle: cadastral_map
-label: geolayers
+label: Geolayers
 description: ''
 required: false
 translatable: false

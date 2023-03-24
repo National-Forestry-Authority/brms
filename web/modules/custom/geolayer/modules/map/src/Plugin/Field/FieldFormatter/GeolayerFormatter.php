@@ -1,12 +1,10 @@
 <?php
 
-namespace Drupal\geolayer\Plugin\Field\FieldFormatter;
+namespace Drupal\geolayer_map\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
-use Drupal\geofield\GeoPHP\GeoPHPInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 /**
  * Plugin implementation of the map 'geolayers' formatter.
@@ -27,11 +25,7 @@ class GeolayerFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $element = [];
     // Get the parent entity of the field item list.
-    $entity = $items->getEntity();
-    $entity_type_manager = \Drupal::service('entity_type.manager');  
-    // Get the entity type definition.
-    $entity_type_definition = $entity_type_manager->getDefinition('node');
-    $entity_type_label =  $entity->getEntityType()->getLabel();  
+    $entity = $items->getEntity(); 
     // Get the value of the entity reference field. 
     $geolayers = [];
     $referenced_entities = $entity->get('geolayers')->referencedEntities();
@@ -54,7 +48,7 @@ class GeolayerFormatter extends FormatterBase {
       ],
       '#attached' => [
         'library' => [
-          'geolayer_map/behavior_wkt',
+          'geolayer_map/behavior_geojson',
         ],
       ],
     ];

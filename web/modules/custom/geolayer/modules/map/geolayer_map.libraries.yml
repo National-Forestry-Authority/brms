@@ -18,6 +18,11 @@ behavior_wkt:
   dependencies:
     - core/drupalSettings
     - geolayer_map/geolayer_map
+behavior_geojson:
+  js:
+    js/geolayer.map.behaviors.geojson.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
 behavior_geofield:
   js:
     js/geolayer.map.behaviors.geofield.js: { }
@@ -26,10 +31,5 @@ behavior_geofield:
 behavior_popup:
   js:
     js/geolayer.map.behaviors.popup.js: { }
-  dependencies:
-    - geolayer_map/geolayer_map
-behavior_geojson:
-  js:
-    js/geolayer.map.behaviors.geojson.js: { }
   dependencies:
     - geolayer_map/geolayer_map

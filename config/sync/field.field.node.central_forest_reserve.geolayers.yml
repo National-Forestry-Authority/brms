@@ -10,7 +10,7 @@ id: node.central_forest_reserve.geolayers
 field_name: geolayers
 entity_type: node
 bundle: central_forest_reserve
-label: geolayers
+label: Geolayers
 description: ''
 required: false
 translatable: true
