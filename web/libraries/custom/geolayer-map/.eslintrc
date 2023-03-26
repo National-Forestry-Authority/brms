@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "brace-style": off,
+    "padded-blocks": off
+  }
+}
