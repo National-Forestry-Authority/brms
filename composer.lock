@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d02a5cd505a7ce21c869c9bb497bda04",
+    "content-hash": "3eb9fdd8ef0921592939372b529e4426",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3729,6 +3729,18 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.16.0"
             },
             "time": "2022-09-18T07:06:19+00:00"
+        },
+        {
+            "name": "farmos/farmos-map",
+            "version": "2.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/farmOS/farmOS-map/releases/download/v2.1.0/v2.1.0-dist.zip"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "farmOS-map"
+            }
         },
         {
             "name": "grasmash/expander",

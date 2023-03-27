@@ -1,7 +1,9 @@
 geolayer-map:
   js:
-    /libraries/custom/geolayer-map/dist/geolayer-map.js:
-      minified: true
+    /libraries/farmOS-map/farmOS-map.js: { minified: true }
+  css:
+    theme:
+      /libraries/farmOS-map/farmOS-map.css: { }
   dependencies:
     - core/drupalSettings
 geolayer_map:

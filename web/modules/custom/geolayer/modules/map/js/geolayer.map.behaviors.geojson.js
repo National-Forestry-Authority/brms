@@ -1,5 +1,5 @@
 (function () {
-  geolayer.map.behaviors.geojson = {
+  farmOS.map.behaviors.geojson = {
     attach: async function (instance) {
       const geoLayers = drupalSettings.geolayer_map[instance.target].geolayers;
         for (let i = 0; i < geoLayers.length; i++) {

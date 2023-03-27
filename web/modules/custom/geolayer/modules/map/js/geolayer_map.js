@@ -23,7 +23,7 @@
         element.setAttribute('tabIndex', 0);
         const mapId = element.getAttribute('id');
         const mapOptions = { ...defaultOptions, ...drupalSettings.geolayer_map[mapId].instance};
-        const instance = geolayer.map.create(mapId, mapOptions);
+        const instance = farmOS.map.create(mapId, mapOptions);
         context.querySelectorAll('.ol-popup-closer').forEach(function (element) {
           element.onClick = function (element) {
             element.focus();

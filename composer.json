@@ -12,6 +12,21 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "farmos/farmos-map",
+                "version": "2.1.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/farmOS/farmOS-map/releases/download/v2.1.0/v2.1.0-dist.zip",
+                    "type": "zip"
+                },
+                "extra": {
+                    "installer-name": "farmOS-map"
+                }
+            }
         }
     ],
     "require": {
@@ -41,7 +56,8 @@
         "drupal/views_geojson": "^1",
         "drupal/views_striping": "^1",
         "drupal/yearonly": "^9",
-        "drush/drush": "^11"
+        "drush/drush": "^11",
+        "farmos/farmos-map": "^2"
     },
     "conflict": {
         "drupal/drupal": "*"
