@@ -1,0 +1,29 @@
+uuid: f492675f-b3b3-44df-b902-80f3e2502a95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.geolayers
+    - geolayer.geolayer_type.cfr
+    - node.type.central_forest_reserve
+id: node.central_forest_reserve.geolayers
+field_name: geolayers
+entity_type: node
+bundle: central_forest_reserve
+label: Geolayers
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:geolayer'
+  handler_settings:
+    target_bundles:
+      cfr: cfr
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

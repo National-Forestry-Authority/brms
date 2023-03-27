@@ -29,16 +29,13 @@ module:
   filter: 0
   geofield: 0
   geolayer: 0
+  geolayer_map: 0
+  geolayer_map_mapbox: 0
   gin_login: 0
   image: 0
   inline_entity_form: 0
   layout_builder: 0
   layout_discovery: 0
-  leaflet: 0
-  leaflet_demo: 0
-  leaflet_markercluster: 0
-  leaflet_more_maps: 0
-  leaflet_views: 0
   link: 0
   menu_link_content: 0
   menu_ui: 0
@@ -63,6 +60,7 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_geojson: 0
   views_ui: 0
   yearonly: 0
   pathauto: 1

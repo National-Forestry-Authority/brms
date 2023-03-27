@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson
+label: Geojson
+description: 'Renders geojson using geolayer-map.'
+behaviors: {  }
+options: {  }

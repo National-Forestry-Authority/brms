@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
-    - field.field.node.cadastral_map.field_geo_data
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -30,12 +29,12 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
+    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
     - datetime
     - file
-    - geofield
     - text
 id: node.cadastral_map.default
 targetEntityType: node
@@ -44,7 +43,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 6
     region: content
     settings:
       rows: 9
@@ -54,13 +53,13 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_area_covered:
     type: string_textfield
-    weight: 127
+    weight: 12
     region: content
     settings:
       size: 60
@@ -68,7 +67,7 @@ content:
     third_party_settings: {  }
   field_code:
     type: string_textfield
-    weight: 136
+    weight: 21
     region: content
     settings:
       size: 60
@@ -76,7 +75,7 @@ content:
     third_party_settings: {  }
   field_compiled_by:
     type: entity_reference_autocomplete
-    weight: 140
+    weight: 25
     region: content
     settings:
       match_operator: CONTAINS
@@ -86,7 +85,7 @@ content:
     third_party_settings: {  }
   field_condition:
     type: entity_reference_autocomplete
-    weight: 129
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -96,7 +95,7 @@ content:
     third_party_settings: {  }
   field_coordinate_system:
     type: string_textfield
-    weight: 126
+    weight: 11
     region: content
     settings:
       size: 60
@@ -104,14 +103,14 @@ content:
     third_party_settings: {  }
   field_copies:
     type: number
-    weight: 141
+    weight: 26
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_datum:
     type: string_textfield
-    weight: 125
+    weight: 10
     region: content
     settings:
       size: 60
@@ -119,7 +118,7 @@ content:
     third_party_settings: {  }
   field_edition:
     type: string_textfield
-    weight: 132
+    weight: 17
     region: content
     settings:
       size: 60
@@ -127,7 +126,7 @@ content:
     third_party_settings: {  }
   field_examined_by:
     type: entity_reference_autocomplete
-    weight: 131
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
@@ -135,16 +134,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_geo_data:
-    type: geofield_default
-    weight: 145
-    region: content
-    settings:
-      geometry_validation: false
-    third_party_settings: {  }
   field_magnetic_declination:
     type: string_textfield
-    weight: 130
+    weight: 15
     region: content
     settings:
       size: 60
@@ -152,7 +144,7 @@ content:
     third_party_settings: {  }
   field_map_ref_1:
     type: string_textfield
-    weight: 144
+    weight: 29
     region: content
     settings:
       size: 60
@@ -160,7 +152,7 @@ content:
     third_party_settings: {  }
   field_printed_by:
     type: entity_reference_autocomplete
-    weight: 138
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -170,7 +162,7 @@ content:
     third_party_settings: {  }
   field_produced_by:
     type: entity_reference_autocomplete
-    weight: 134
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -180,7 +172,7 @@ content:
     third_party_settings: {  }
   field_published_by:
     type: entity_reference_autocomplete
-    weight: 137
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -190,14 +182,14 @@ content:
     third_party_settings: {  }
   field_record_id:
     type: number
-    weight: 124
+    weight: 9
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_reference_no:
     type: string_textfield
-    weight: 122
+    weight: 7
     region: content
     settings:
       size: 60
@@ -205,7 +197,7 @@ content:
     third_party_settings: {  }
   field_retraced_by:
     type: entity_reference_autocomplete
-    weight: 143
+    weight: 28
     region: content
     settings:
       match_operator: CONTAINS
@@ -215,7 +207,7 @@ content:
     third_party_settings: {  }
   field_scale:
     type: string_textfield
-    weight: 128
+    weight: 13
     region: content
     settings:
       size: 60
@@ -223,14 +215,14 @@ content:
     third_party_settings: {  }
   field_scanned_copy:
     type: file_generic
-    weight: 146
+    weight: 30
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_series:
     type: string_textfield
-    weight: 133
+    weight: 18
     region: content
     settings:
       size: 60
@@ -238,7 +230,7 @@ content:
     third_party_settings: {  }
   field_sheet_number:
     type: string_textfield
-    weight: 123
+    weight: 8
     region: content
     settings:
       size: 60
@@ -246,7 +238,7 @@ content:
     third_party_settings: {  }
   field_surveyed_by:
     type: entity_reference_autocomplete
-    weight: 139
+    weight: 24
     region: content
     settings:
       match_operator: CONTAINS
@@ -256,7 +248,7 @@ content:
     third_party_settings: {  }
   field_traced_by:
     type: entity_reference_autocomplete
-    weight: 142
+    weight: 27
     region: content
     settings:
       match_operator: CONTAINS
@@ -266,13 +258,23 @@ content:
     third_party_settings: {  }
   field_year:
     type: datetime_default
-    weight: 135
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
+  geolayers:
+    type: entity_reference_autocomplete
+    weight: 32
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
-    weight: 147
+    weight: 31
     region: content
     settings:
       rows: 5
@@ -280,28 +282,28 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 3
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -309,7 +311,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS

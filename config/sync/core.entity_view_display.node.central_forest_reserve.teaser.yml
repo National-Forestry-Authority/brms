@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.central_forest_reserve.feeds_item
     - field.field.node.central_forest_reserve.field_nfa_id
     - field.field.node.central_forest_reserve.field_raw_data
-    - field.field.node.central_forest_reserve.field_spatial_data_cfr
+    - field.field.node.central_forest_reserve.geolayers
     - field.field.node.central_forest_reserve.meta_data_explanation
     - node.type.central_forest_reserve
   module:
@@ -36,5 +36,5 @@ hidden:
   feeds_item: true
   field_nfa_id: true
   field_raw_data: true
-  field_spatial_data_cfr: true
+  geolayers: true
   meta_data_explanation: true

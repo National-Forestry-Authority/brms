@@ -1,0 +1,14 @@
+uuid: 9731c02c-da64-4f42-8f60-842852c6680e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map_mapbox
+_core:
+  default_config_hash: DXGkJ2zKLNsZ-tN365yx2QXo61qwsPIsV5gFGtqlv6k
+id: mapbox
+label: Mapbox
+description: 'Displays Mapbox layers.'
+library: geolayer_map_mapbox/mapbox
+settings: {  }
