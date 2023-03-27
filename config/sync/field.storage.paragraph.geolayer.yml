@@ -1,0 +1,21 @@
+uuid: 5098a748-b343-4cab-8706-9fd671345c52
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - geolayer
+    - paragraphs
+id: paragraph.geolayer
+field_name: geolayer
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: geolayer
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
