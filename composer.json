@@ -57,7 +57,6 @@
         "drupal/views_striping": "^1",
         "drupal/yearonly": "^9",
         "drush/drush": "^11",
-        "farmos/farmos-map": "^2",
         "national-forestry-authority/nfa-map": "^2.1"
     },
     "conflict": {

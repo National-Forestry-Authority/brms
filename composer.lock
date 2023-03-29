@@ -3731,18 +3731,6 @@
             "time": "2022-09-18T07:06:19+00:00"
         },
         {
-            "name": "farmos/farmos-map",
-            "version": "2.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/farmOS/farmOS-map/releases/download/v2.1.0/v2.1.0-dist.zip"
-            },
-            "type": "drupal-library",
-            "extra": {
-                "installer-name": "farmOS-map"
-            }
-        },
-        {
             "name": "grasmash/expander",
             "version": "2.0.3",
             "source": {
