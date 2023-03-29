@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eb9fdd8ef0921592939372b529e4426",
+    "content-hash": "9e1ff27da33796610fa1b5f45f413c32",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4636,6 +4636,18 @@
                 "source": "https://github.com/mkalkbrenner/php-htmldiff/tree/master"
             },
             "time": "2016-07-25T17:07:32+00:00"
+        },
+        {
+            "name": "national-forestry-authority/nfa-map",
+            "version": "2.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/National-Forestry-Authority/nfa-map/archive/refs/heads/2.x.zip"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "nfa-map"
+            }
         },
         {
             "name": "nikic/php-parser",
