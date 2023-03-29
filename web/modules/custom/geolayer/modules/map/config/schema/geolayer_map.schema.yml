@@ -21,7 +21,7 @@ geolayer_map.map_type.*:
         label: 'Map behavior id'
     options:
       type: sequence
-      label: 'geolayer-map options'
+      label: 'nfa-map options'
       sequence:
         type: ignore
         label: 'Option name'
@@ -56,7 +56,7 @@ geolayer_map.layer_style.*:
       label: 'Machine-readable name'
     color:
       type: string
-      label: 'geolayer-map color'
+      label: 'nfa-map color'
     conditions:
       type: sequence
       label: 'Style matching conditions'

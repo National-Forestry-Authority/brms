@@ -32,7 +32,7 @@ class GeolayerMap extends RenderElement {
    *
    * @param array $element
    *   A renderable array containing a #map_type property, which will be
-   *   appended to 'geolayer-map-' as the map element ID.
+   *   appended to 'nfa-map-' as the map element ID.
    *
    * @return array
    *   A renderable array representing the map.
@@ -40,18 +40,18 @@ class GeolayerMap extends RenderElement {
   public static function preRenderMap(array $element) {
     // Set the id to the map name.
     $renderer = \Drupal::service('renderer');
-    $map_id = Html::getUniqueId('geolayer-map-' . $element['#map_type']);
+    $map_id = Html::getUniqueId('nfa-map-' . $element['#map_type']);
     $element['#attributes']['id'] = $map_id;
 
     // Get the map type.
     /** @var \Drupal\geolayer_map\Entity\MapTypeInterface $map */
     $map = \Drupal::entityTypeManager()->getStorage('map_type')->load($element['#map_type']);
 
-    // Add the geolayer-map class.
-    $element['#attributes']['class'][] = 'geolayer-map';
+    // Add the nfa-map class.
+    $element['#attributes']['class'][] = 'nfa-map';
 
-    // Attach the geolayer-map and geolayer_map libraries.
-    $element['#attached']['library'][] = 'geolayer_map/geolayer-map';
+    // Attach the nfa-map and geolayer_map libraries.
+    $element['#attached']['library'][] = 'geolayer_map/nfa-map';
     $element['#attached']['library'][] = 'geolayer_map/geolayer_map';
 
     // Include map settings.

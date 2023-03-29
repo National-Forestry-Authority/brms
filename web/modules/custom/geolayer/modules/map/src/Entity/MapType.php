@@ -59,7 +59,7 @@ class MapType extends ConfigEntityBase implements MapTypeInterface {
   protected $behaviors;
 
   /**
-   * The options to pass to geolayer-map.
+   * The options to pass to nfa-map.
    *
    * @var mixed|null
    */

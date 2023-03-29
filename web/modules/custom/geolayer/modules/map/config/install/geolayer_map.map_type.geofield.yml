@@ -6,6 +6,6 @@ dependencies:
       - geolayer_map
 id: geofield
 label: Geofield
-description: 'Renders geofield using geolayer-map.'
+description: 'Renders geofield using nfa-map.'
 behaviors: {  }
 options: {  }

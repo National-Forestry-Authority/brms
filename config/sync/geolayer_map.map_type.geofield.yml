@@ -9,6 +9,6 @@ _core:
   default_config_hash: ivJnhRHNiJ-3zh8NYRJ5oDrPx1uyGjhpMC7-SlQuTFw
 id: geofield
 label: Geofield
-description: 'Renders geofield using geolayer-map.'
+description: 'Renders geofield using nfa-map.'
 behaviors: {  }
 options: {  }

@@ -1,9 +1,6 @@
-geolayer-map:
+nfa-map:
   js:
-    /libraries/farmOS-map/farmOS-map.js: { minified: true }
-  css:
-    theme:
-      /libraries/farmOS-map/farmOS-map.css: { }
+    /libraries/nfa-map/nfa-map.js: { minified: true }
   dependencies:
     - core/drupalSettings
 geolayer_map:
@@ -13,7 +10,7 @@ geolayer_map:
   js:
     js/geolayer_map.js: { }
   dependencies:
-    - geolayer_map/geolayer-map
+    - geolayer_map/nfa-map
 behavior_wkt:
   js:
     js/geolayer.map.behaviors.wkt.js: { }

@@ -6,6 +6,6 @@ dependencies:
       - geolayer_map
 id: geojson
 label: Geojson
-description: 'Renders geojson using geolayer-map.'
+description: 'Renders geojson using nfa-map.'
 behaviors: {  }
 options: {  }

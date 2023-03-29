@@ -1,5 +1,5 @@
 (function () {
-  geolayer.map.behaviors.popup = {
+  nfa.map.behaviors.popup = {
     attach: function (instance) {
 
       // Helper function to build the feature name as a link.

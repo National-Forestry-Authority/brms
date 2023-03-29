@@ -19,7 +19,7 @@ interface MapTypeInterface extends ConfigEntityInterface, EntityDescriptionInter
   public function getMapBehaviors();
 
   /**
-   * Returns the options to pass to geolayer-map.
+   * Returns the options to pass to nfa-map.
    *
    * @return mixed|null
    *   The map options.

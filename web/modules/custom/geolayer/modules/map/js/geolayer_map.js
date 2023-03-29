@@ -14,7 +14,7 @@
           onFocusOnly: true
         },
       };
-      context.querySelectorAll('.geolayer-map').forEach(function (element) {
+      context.querySelectorAll('.nfa-map').forEach(function (element) {
 
         // Only create a map once per element.
         if (element.getAttribute('processed')) return;
@@ -23,7 +23,7 @@
         element.setAttribute('tabIndex', 0);
         const mapId = element.getAttribute('id');
         const mapOptions = { ...defaultOptions, ...drupalSettings.geolayer_map[mapId].instance};
-        const instance = farmOS.map.create(mapId, mapOptions);
+        const instance = nfa.map.create(mapId, mapOptions);
         context.querySelectorAll('.ol-popup-closer').forEach(function (element) {
           element.onClick = function (element) {
             element.focus();
@@ -41,8 +41,8 @@
           if (modal != null) {
             setTimeout(function () {
               // Update the map size of the map widget.
-              geolayer.map.instances.forEach(function (instance) {
-                if (instance.target.startsWith('geolayer-map-geofield-widget')) {
+              nfa.map.instances.forEach(function (instance) {
+                if (instance.target.startsWith('nfa-map-geofield-widget')) {
                   instance.map.updateSize();
                   instance.map.getView().setZoom(14);
                 }
@@ -80,13 +80,13 @@
         document.addEventListener('toolbar-toggle', function (e) {
 
           // Only continue if map instances are provided.
-          if (typeof geolayer !== 'undefined' && geolayer.map.instances !== 'undefined') {
+          if (typeof nfa !== 'undefined' && nfa.map.instances !== 'undefined') {
 
             // Set a timeout so the computed CSS properties are applied
             // before updating the map size.
             setTimeout(function () {
               // Update the map size of all map instances.
-              geolayer.map.instances.forEach(function (instance) {
+              nfa.map.instances.forEach(function (instance) {
                 instance.map.updateSize();
               });
 

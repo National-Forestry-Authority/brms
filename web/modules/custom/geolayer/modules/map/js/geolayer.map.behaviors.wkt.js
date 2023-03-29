@@ -1,5 +1,5 @@
 (function () {
-  geolayer.map.behaviors.wkt = {
+  nfa.map.behaviors.wkt = {
     attach: async function (instance) {
       // adding single layer
       if (drupalSettings.geolayer_map[instance.target].wkt) {
