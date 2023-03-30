@@ -1,0 +1,6 @@
+mapbox:
+  js:
+    js/geolayer.map.behaviors.mapbox.js: { }
+  dependencies:
+    - core/drupalSettings
+    - geolayer_map/nfa-map

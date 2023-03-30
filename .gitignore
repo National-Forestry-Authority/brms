@@ -52,6 +52,8 @@ web/sites/simpletest
 /web/modules/contrib/
 /web/themes/contrib/
 /web/profiles/contrib/
+/web/libraries/
+!/web/libraries/custom
 
 # Ignore scaffold files
 web/.csslintrc

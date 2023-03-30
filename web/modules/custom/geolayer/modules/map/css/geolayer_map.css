@@ -1,0 +1,8 @@
+.nfa-map {
+  height: 500px;
+}
+
+/* Inline labels cause the map to cover other fields. */
+.field--label-inline .nfa-map {
+  clear: both;
+}

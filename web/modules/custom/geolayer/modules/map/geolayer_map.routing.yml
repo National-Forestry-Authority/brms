@@ -1,0 +1,7 @@
+geolayer_map.settings:
+  path: 'geolayer/settings/map'
+  defaults:
+    _form: '\Drupal\geolayer_map\Form\MapSettingsForm'
+    _title: 'Map settings'
+  requirements:
+    _permission: 'administer geolayer map module'

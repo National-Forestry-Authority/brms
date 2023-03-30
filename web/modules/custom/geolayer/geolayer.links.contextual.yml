@@ -1,0 +1,10 @@
+entity.geolayer.edit_form:
+  route_name: entity.geolayer.edit_form
+  group: geolayer
+  title: Edit
+
+entity.geolayer.delete_form:
+  route_name: entity.geolayer.delete_form
+  group: geolayer
+  title: Delete
+  weight: 10

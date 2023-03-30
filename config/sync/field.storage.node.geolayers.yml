@@ -1,0 +1,20 @@
+uuid: cc51eb93-3e71-48bb-bc7c-df531158785b
+langcode: en
+status: true
+dependencies:
+  module:
+    - geolayer
+    - node
+id: node.geolayers
+field_name: geolayers
+entity_type: node
+type: entity_reference
+settings:
+  target_type: geolayer
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

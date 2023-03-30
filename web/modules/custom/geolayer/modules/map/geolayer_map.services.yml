@@ -1,0 +1,7 @@
+services:
+  geolayer_map.map_render_event_subscriber:
+    class: Drupal\geolayer_map\EventSubscriber\MapRenderEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+  geolayer_map.layer_style_loader:
+    class: Drupal\geolayer_map\LayerStyleLoader

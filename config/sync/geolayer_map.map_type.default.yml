@@ -1,0 +1,14 @@
+uuid: cbe52372-f9c7-4a6e-9dfa-ac7c5656c158
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+_core:
+  default_config_hash: 9gxWbMsfPgAdelBTQj1pX6Hh5-jEwNVYkYzgAOqpe5s
+id: default
+label: Default
+description: 'The default Geolayer map.'
+behaviors: {  }
+options: {  }

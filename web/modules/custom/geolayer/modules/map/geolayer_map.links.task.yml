@@ -1,0 +1,12 @@
+geolayer_map.settings:
+  base_route: geolayer_settings.settings_page
+  route_name: geolayer_map.settings
+  title: 'Map'
+  weight: 5
+
+# Provide a default sub tab.
+geolayer_map.settings_sub:
+  title: 'Map'
+  route_name: geolayer_map.settings
+  parent_id: geolayer_map.settings
+  weight: -5

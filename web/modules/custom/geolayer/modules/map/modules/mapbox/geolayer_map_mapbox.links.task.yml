@@ -1,0 +1,4 @@
+geolayer_map_mapbox.settings:
+  title: 'Mapbox'
+  route_name: geolayer_map_mapbox.settings
+  parent_id: geolayer_map.settings

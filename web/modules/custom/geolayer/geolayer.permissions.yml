@@ -1,0 +1,12 @@
+administer geolayer types:
+  title: 'Administer geolayer types'
+  description: 'Maintain the types of geolayer entity.'
+  restrict access: true
+delete geolayer:
+  title: Delete geolayer
+create geolayer:
+  title: Create geolayer
+view geolayer:
+  title: View geolayer
+edit geolayer:
+  title: Edit geolayer
