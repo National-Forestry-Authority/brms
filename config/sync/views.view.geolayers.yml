@@ -9,7 +9,7 @@ dependencies:
     - serialization
     - views_geojson
 id: geolayers
-label: geolayers
+label: Geolayers
 module: views
 description: ''
 tag: ''

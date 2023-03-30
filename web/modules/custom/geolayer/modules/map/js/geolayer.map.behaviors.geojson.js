@@ -3,7 +3,8 @@
     attach: async function (instance) {
       const geoLayers = drupalSettings.geolayer_map[instance.target].geolayers;
         for (let i = 0; i < geoLayers.length; i++) {
-          await fetch("https://brms.ddev.site/geolayer/geojson/" + geoLayers[i], {
+          var url = new URL("geolayer/geojson/" + geoLayers[i], window.location.origin + drupalSettings.path.baseUrl)
+          await fetch(url, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
