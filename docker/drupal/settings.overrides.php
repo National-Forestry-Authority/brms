@@ -61,4 +61,4 @@ $settings['file_temp_path'] = $docroot_base . '/tmp';
 /**
  * Mapbox access token.
  */
-$config['leaflet_more_maps.settings']['mapbox_access_token']  = 'pk.eyJ1IjoibmF0LWZvci1hdXRoLXVnIiwiYSI6ImNsZGlvem52dDFmcnMzb3BpNmMwczhhZXIifQ.bHtnltunBC7GwOs-igQwVg';
+$config['geolayer_map_mapbox.settings']['api_key'] = 'pk.eyJ1IjoibmF0LWZvci1hdXRoLXVnIiwiYSI6ImNsZGlvem52dDFmcnMzb3BpNmMwczhhZXIifQ.bHtnltunBC7GwOs-igQwVg';
