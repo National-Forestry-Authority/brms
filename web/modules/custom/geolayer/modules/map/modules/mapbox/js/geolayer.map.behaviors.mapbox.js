@@ -1,5 +1,5 @@
 (function () {
-  geolayer.map.behaviors.mapbox = {
+  nfa.map.behaviors.mapbox = {
     attach: function (instance) {
       var key = drupalSettings.geolayer_map.behaviors.mapbox.api_key;
       this.addMapboxLayer(instance, 'Mapbox Outdoors', 'mapbox/outdoors-v11', key);

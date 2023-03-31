@@ -13,7 +13,7 @@
             response.json().then(function(data) {
               data.features.forEach(function(feature) {
                 const layer = instance.addLayer('geojson', {
-                  title: 'Plan asset',
+                  title: feature.properties.label,
                   geojson: feature,
                 });
                 if (geoLayers.length == 1) {
