@@ -11,7 +11,7 @@ use Drupal\geofield\Plugin\Field\FieldWidget\GeofieldBaseWidget;
  *
  * @FieldWidget(
  *   id = "geolayer_map_geofield",
- *   label = @Translation("Geolayer Map"),
+ *   label = @Translation("Geofield Map"),
  *   field_types = {
  *     "geofield"
  *   }

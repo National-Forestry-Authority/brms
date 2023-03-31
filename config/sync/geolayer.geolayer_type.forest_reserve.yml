@@ -1,8 +1,8 @@
-uuid: 8a28b950-f366-48a0-a8bc-4de21ecd55a8
+uuid: 625b299d-34f4-4d6c-92a5-4b4545110cc4
 langcode: en
 status: true
 dependencies: {  }
 _core:
   default_config_hash: lcgV4uFbgTkSby4KrKDa8SepNFsIwJgVEY7yXq-hySg
-id: cfr
-label: CFR
+id: forest_reserve
+label: 'Forest reserve'

@@ -10,6 +10,18 @@ brms_common.central_forest_reserve.add_task:
     - view.central_forest_reserves.listing
   cache_tags:
     - node_list
+brms_common.forest_reserve.add_task:
+  title: 'Add Forest reserve'
+  route_name: node.add
+  route_parameters:
+    node_type: forest_reserve
+  options:
+    query:
+      destination: '/forest-reserves'
+  appears_on:
+    - view.forest_reserves.listing
+  cache_tags:
+    - node_list
 brms_common.aerial_photos.add_task:
   title: 'Add Aerial Photo'
   route_name: node.add

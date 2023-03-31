@@ -34,6 +34,7 @@ dependencies:
     - node.type.cadastral_map
   module:
     - datetime
+    - entity_browser_entity_form
     - file
     - inline_entity_form
     - path
@@ -265,7 +266,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   geolayers:
-    type: inline_entity_form_simple
+    type: inline_entity_form_complex
     weight: 32
     region: content
     settings:
@@ -273,10 +274,17 @@ content:
       override_labels: true
       label_singular: Geolayer
       label_plural: Geolayers
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
       collapsible: true
       collapsed: true
-      revision: true
-    third_party_settings: {  }
+      revision: false
+      removed_reference: optional
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: geolayers
   meta_data_explanation:
     type: string_textarea
     weight: 31

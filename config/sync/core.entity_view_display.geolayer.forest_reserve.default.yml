@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - geolayer.geolayer_type.cfr
+    - geolayer.geolayer_type.forest_reserve
   module:
     - geolayer_map
     - text
     - user
-id: geolayer.cfr.default
+id: geolayer.forest_reserve.default
 targetEntityType: geolayer
-bundle: cfr
+bundle: forest_reserve
 mode: default
 content:
   created:

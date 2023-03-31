@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.geolayers
-    - geolayer.geolayer_type.cfr
+    - geolayer.geolayer_type.forest_reserve
     - node.type.forest_reserve
 id: node.forest_reserve.geolayers
 field_name: geolayers
@@ -20,7 +20,7 @@ settings:
   handler: 'default:geolayer'
   handler_settings:
     target_bundles:
-      cfr: cfr
+      forest_reserve: forest_reserve
     sort:
       field: _none
       direction: ASC
