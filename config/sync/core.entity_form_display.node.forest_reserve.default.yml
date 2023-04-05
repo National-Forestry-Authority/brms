@@ -28,6 +28,7 @@ dependencies:
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
+    - entity_browser_entity_form
     - field_group
     - inline_entity_form
     - paragraphs
@@ -211,7 +212,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   geolayers:
-    type: inline_entity_form_simple
+    type: inline_entity_form_complex
     weight: 5
     region: content
     settings:
@@ -219,10 +220,17 @@ content:
       override_labels: true
       label_singular: Geolayer
       label_plural: Geolayers
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
       collapsible: true
       collapsed: true
       revision: true
-    third_party_settings: {  }
+      removed_reference: optional
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: geolayers
   land_registration_number:
     type: entity_reference_autocomplete
     weight: 14

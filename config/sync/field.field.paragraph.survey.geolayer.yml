@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.geolayer
-    - geolayer.geolayer_type.cfr
+    - geolayer.geolayer_type.forest_reserve
     - paragraphs.paragraphs_type.survey
   module:
     - entity_reference_revisions
@@ -22,7 +22,7 @@ settings:
   handler: 'default:geolayer'
   handler_settings:
     target_bundles:
-      cfr: cfr
+      cfr: forest_reserve
     sort:
       field: _none
       direction: ASC

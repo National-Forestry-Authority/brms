@@ -37,6 +37,7 @@
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
         "drupal/diff": "^1",
+        "drupal/entity_browser": "^2",
         "drupal/feeds": "^3.0@beta",
         "drupal/field_group": "^3",
         "drupal/geofield": "^1",
