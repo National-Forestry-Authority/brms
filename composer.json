@@ -20,7 +20,7 @@
                 "version": "2.1.0",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/National-Forestry-Authority/nfa-map/archive/refs/heads/2.x.zip",
+                    "url": "https://github.com/National-Forestry-Authority/nfa-map/releases/download/v2.1.0/v2.1.0-dist.zip",
                     "type": "zip"
                 },
                 "extra": {

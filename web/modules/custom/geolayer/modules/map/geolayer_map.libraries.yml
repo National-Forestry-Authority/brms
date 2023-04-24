@@ -1,9 +1,9 @@
 nfa-map:
   js:
-    /libraries/nfa-map/dist/nfa-map.js: { minified: true }
+    /libraries/nfa-map/nfa-map.js: { minified: true }
   css:
     theme:
-      /libraries/nfa-map/dist/nfa-map.css: { }
+      /libraries/nfa-map/nfa-map.css: { }
   dependencies:
     - core/drupalSettings
 geolayer_map:
