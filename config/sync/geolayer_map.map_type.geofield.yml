@@ -1,0 +1,14 @@
+uuid: 890f002a-dc84-4060-9200-ede606b25b9e
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+_core:
+  default_config_hash: ivJnhRHNiJ-3zh8NYRJ5oDrPx1uyGjhpMC7-SlQuTFw
+id: geofield
+label: Geofield
+description: 'Renders geofield using nfa-map.'
+behaviors: {  }
+options: {  }

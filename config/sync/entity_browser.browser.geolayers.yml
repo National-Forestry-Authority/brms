@@ -1,0 +1,31 @@
+uuid: b214a051-5226-4c43-bcf3-4a8b6adea82f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.geolayers
+  module:
+    - views
+name: geolayers
+label: 'Geolayer browser'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select geolayer'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  9b018872-9652-4884-b347-fdd7ddb00831:
+    id: view
+    uuid: 9b018872-9652-4884-b347-fdd7ddb00831
+    label: 'Geolayer listing'
+    weight: 2
+    settings:
+      submit_text: 'Select geolayer'
+      auto_select: false
+      view: geolayers
+      view_display: geolayer_browser

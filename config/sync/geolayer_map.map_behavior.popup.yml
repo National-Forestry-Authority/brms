@@ -1,0 +1,14 @@
+uuid: 08f3db37-caf5-465b-a184-f08bdd6fc144
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+_core:
+  default_config_hash: AaIg2CzO46IiYnmYPKQGYxkOOwgro9PtSzUSjCfm-nk
+id: popup
+label: Popup
+description: 'Creates popups on the map when features are selected.'
+library: geolayer_map/behavior_popup
+settings: {  }

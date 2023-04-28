@@ -1,0 +1,11 @@
+geolayer.type_add:
+  title: 'Add geolayer type'
+  route_name: entity.geolayer_type.add_form
+  appears_on:
+    - entity.geolayer_type.collection
+
+geolayer.add_page:
+  title: 'Add geolayer'
+  route_name: entity.geolayer.add_page
+  appears_on:
+    - entity.geolayer.collection

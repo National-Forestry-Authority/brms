@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_type
     - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
     - field.field.node.forest_reserve.map_sheet_reference
     - field.field.node.forest_reserve.mapped_area
@@ -59,6 +60,7 @@ hidden:
   forest_reserve_serial_number: true
   forest_reserve_type: true
   gazetted_area: true
+  geolayers: true
   land_registration_number: true
   map_sheet_reference: true
   mapped_area: true

@@ -1,0 +1,8 @@
+uuid: 625b299d-34f4-4d6c-92a5-4b4545110cc4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: lcgV4uFbgTkSby4KrKDa8SepNFsIwJgVEY7yXq-hySg
+id: forest_reserve
+label: 'Forest reserve'

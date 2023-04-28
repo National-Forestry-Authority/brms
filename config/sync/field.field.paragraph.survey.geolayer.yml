@@ -1,0 +1,31 @@
+uuid: 4cf83a91-90b8-4d89-b195-e6845f4628b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.geolayer
+    - geolayer.geolayer_type.forest_reserve
+    - paragraphs.paragraphs_type.survey
+  module:
+    - entity_reference_revisions
+id: paragraph.survey.geolayer
+field_name: geolayer
+entity_type: paragraph
+bundle: survey
+label: Geolayer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:geolayer'
+  handler_settings:
+    target_bundles:
+      cfr: forest_reserve
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

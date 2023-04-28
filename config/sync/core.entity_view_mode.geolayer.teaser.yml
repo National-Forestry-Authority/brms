@@ -1,0 +1,12 @@
+uuid: 31c205c8-23a0-44f8-ac00-448ee5762e34
+langcode: en
+status: false
+dependencies:
+  module:
+    - geolayer
+_core:
+  default_config_hash: sAcC7rc3-0Gvr3yuLkiTVoM3cSoNCJMkx3iiyF5H7d4
+id: geolayer.teaser
+label: Teaser
+targetEntityType: geolayer
+cache: true

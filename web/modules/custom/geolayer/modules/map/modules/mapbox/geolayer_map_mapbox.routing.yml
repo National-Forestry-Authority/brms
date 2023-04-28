@@ -1,0 +1,7 @@
+geolayer_map_mapbox.settings:
+  path: 'geolayer/settings/map/mapbox'
+  defaults:
+    _form: '\Drupal\geolayer_map_mapbox\Form\MapboxSettingsForm'
+    _title: 'Mapbox settings'
+  requirements:
+    _permission: 'administer geolayer map'

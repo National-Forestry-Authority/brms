@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_type
     - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
     - field.field.node.forest_reserve.map_sheet_reference
     - field.field.node.forest_reserve.mapped_area
@@ -27,8 +28,11 @@ dependencies:
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
+    - entity_browser_entity_form
     - field_group
+    - inline_entity_form
     - paragraphs
+    - path
     - yearonly
 third_party_settings:
   field_group:
@@ -43,7 +47,7 @@ third_party_settings:
       label: Dimensions
       region: content
       parent_name: ''
-      weight: 11
+      weight: 8
       format_type: details
       format_settings:
         classes: ''
@@ -59,7 +63,7 @@ third_party_settings:
       label: Gazette
       region: content
       parent_name: ''
-      weight: 12
+      weight: 9
       format_type: details
       format_settings:
         classes: ''
@@ -76,7 +80,7 @@ third_party_settings:
       label: Status
       region: content
       parent_name: ''
-      weight: 13
+      weight: 10
       format_type: details
       format_settings:
         classes: ''
@@ -94,7 +98,7 @@ third_party_settings:
       label: 'Reference numbers'
       region: content
       parent_name: ''
-      weight: 10
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
@@ -120,7 +124,7 @@ content:
     third_party_settings: {  }
   boundary_plan_number:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -140,7 +144,7 @@ content:
     third_party_settings: {  }
   cadastral_sheet_number_1_10000:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -150,7 +154,7 @@ content:
     third_party_settings: {  }
   cadastral_sheet_number_1_50000:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -170,7 +174,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 16
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -207,9 +211,29 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  geolayers:
+    type: inline_entity_form_complex
+    weight: 5
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Geolayer
+      label_plural: Geolayers
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: true
+      collapsed: true
+      revision: true
+      removed_reference: optional
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: geolayers
   land_registration_number:
     type: entity_reference_autocomplete
-    weight: 9
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -219,7 +243,7 @@ content:
     third_party_settings: {  }
   map_sheet_reference:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -236,7 +260,13 @@ content:
     third_party_settings: {  }
   other_gazette_years:
     type: yearonly_default
-    weight: 13
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -252,49 +282,49 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 17
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   protected_area_length:
     type: number
-    weight: 16
+    weight: 17
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   riverline_length:
     type: number
-    weight: 14
+    weight: 15
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   shoreline_length:
     type: number
-    weight: 15
+    weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 19
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 18
+    weight: 15
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   surveys:
     type: paragraphs
-    weight: 14
+    weight: 11
     region: content
     settings:
       title: Paragraph
@@ -327,7 +357,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS

@@ -157,3 +157,5 @@ $config['mailsystem.settings']['defaults']['formatter'] = 'php_mail';
 if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php')) {
   include $app_root . '/' . $site_path . '/settings.ddev.php';
 }
+
+$config['geolayer_map_mapbox.settings']['api_key'] = 'pk.eyJ1IjoibmF0LWZvci1hdXRoLXVnIiwiYSI6ImNsZGlvem52dDFmcnMzb3BpNmMwczhhZXIifQ.bHtnltunBC7GwOs-igQwVg';

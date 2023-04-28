@@ -1,0 +1,29 @@
+uuid: 83a7ee04-0ce3-4253-9c35-c70cb6cc57a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.geolayers
+    - geolayer.geolayer_type.forest_reserve
+    - node.type.cadastral_map
+id: node.cadastral_map.geolayers
+field_name: geolayers
+entity_type: node
+bundle: cadastral_map
+label: Geolayers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:geolayer'
+  handler_settings:
+    target_bundles:
+      forest_reserve: forest_reserve
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
