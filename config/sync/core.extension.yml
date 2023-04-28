@@ -16,6 +16,7 @@ module:
   brms_revisions: 0
   config: 0
   contextual: 0
+  csv_serialization: 0
   datetime: 0
   dblog: 0
   diff: 0
@@ -49,6 +50,7 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   mysql: 0
+  nfa_tracker: 0
   node: 0
   page_cache: 0
   path: 0
@@ -64,6 +66,8 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_autocomplete_filters: 0
+  views_data_export: 0
   views_geojson: 0
   views_ui: 0
   yearonly: 0
