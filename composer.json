@@ -52,7 +52,7 @@
         "drupal/geofield": "^1",
         "drupal/gin": "^3",
         "drupal/gin_lb": "^1.0.x-dev",
-        "drupal/gin_login": "^1",
+        "drupal/gin_login": "^2",
         "drupal/inline_entity_form": "^1",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
