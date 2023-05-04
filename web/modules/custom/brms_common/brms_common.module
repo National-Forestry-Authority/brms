@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains brms_common.module.
+ */
+
+use Drupal\brms_common\NaturalBoundaryLength;
+use Drupal\brms_common\TotalCutlineLength;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
+  $fields = [];
+  if ($entity_type->id() === "node") {
+    $fields['natural_boundary_length'] = BaseFieldDefinition::create('decimal')
+      ->setName('natural_boundary_length')
+      ->setLabel(t('Natural boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(NaturalBoundaryLength::class);
+
+    $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_boundary_length')
+      ->setLabel(t('Total boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(TotalCutlineLength::class);
+  }
+  return $fields;
+}
