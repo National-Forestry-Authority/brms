@@ -6,7 +6,7 @@
  */
 
 use Drupal\brms_common\NaturalBoundaryLength;
-use Drupal\brms_common\TotalCutlineLength;
+use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 
@@ -30,7 +30,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings(['suffix' => 'km'])
-      ->setClass(TotalCutlineLength::class);
+      ->setClass(TotalBoundaryLength::class);
   }
   return $fields;
 }
