@@ -494,12 +494,12 @@ display:
               administrator: '0'
             placeholder: ''
             autocomplete_filter: 0
-            autocomplete_min_chars: 0
-            autocomplete_items: 10
+            autocomplete_min_chars: '0'
+            autocomplete_items: '10'
             autocomplete_field: filemime
-            autocomplete_raw_suggestion: true
-            autocomplete_raw_dropdown: true
-            autocomplete_dependent: false
+            autocomplete_raw_suggestion: 1
+            autocomplete_raw_dropdown: 1
+            autocomplete_dependent: 0
           is_grouped: false
           group_info:
             label: ''

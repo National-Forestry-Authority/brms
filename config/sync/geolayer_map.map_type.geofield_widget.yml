@@ -1,0 +1,12 @@
+uuid: e0f60e0b-9d14-4318-81dd-10ac12b9153a
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geofield_widget
+label: 'Geofield widget'
+description: 'Renders a geofield widget using nfa-map.'
+behaviors: {  }
+options: {  }

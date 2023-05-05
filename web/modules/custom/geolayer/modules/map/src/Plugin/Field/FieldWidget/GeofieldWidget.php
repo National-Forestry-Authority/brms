@@ -53,7 +53,31 @@ class GeofieldWidget extends GeofieldBaseWidget {
       '#default_value' => $current_value,
     ];
 
+    $element['#description'] = $element['#description'] . '<br />' . $this->t('Geometry Validation enabled (valid WKT, KML or Geojson format & values required)');
+    $element['#element_validate'] = [[get_class($this), 'validateGeofieldGeometryText']];
+
     return $element;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
+    // Always store data as WKT.
+    foreach ($values as $delta => $value) {
+      $values[$delta]['value'] = $this->geofieldBackendValue($value['value']);
+    }
+    return $values;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function validateGeofieldGeometryText(array $element, FormStateInterface &$form_state) {
+    if (!empty($element['#value']) && is_null(\Drupal::service('geofield.geophp')->load($element['#value']))) {
+      $form_state->setError($element, t('The @value is not a valid geospatial content.', [
+        '@value' => $element['#value'],
+      ]));
+    }
+  }
 }
