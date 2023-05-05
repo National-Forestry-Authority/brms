@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geofield
+label: Geofield
+description: 'Copies map layer data into a form textarea.'
+library: 'geolayer_map/behavior_geofield'
+settings: {  }

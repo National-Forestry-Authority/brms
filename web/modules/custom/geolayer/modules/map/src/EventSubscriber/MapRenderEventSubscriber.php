@@ -47,14 +47,9 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
     if (in_array($event->getMapType()->id(), ['geofield_widget'])) {
       $event->addBehavior('wkt');
       $event->addBehavior('geofield');
-      $event->addBehavior('geolayer');
     }
 
-    if (!empty($event->element['#map_settings']['geolayer'])) {
-      $event->addBehavior('geolayer');
-    }
-
-    // Add the popop behavior.
+    // Add the popup behavior.
     if (!empty($event->element['#map_settings']['popup'])) {
       $event->addBehavior('popup');
     }
