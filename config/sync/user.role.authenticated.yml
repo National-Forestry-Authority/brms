@@ -17,7 +17,7 @@ dependencies:
     - node.type.satellite_image
     - node.type.transparency_maps
   module:
-    - admin_toolbar_search
+    - environment_indicator
     - filter
     - node
     - system
@@ -32,6 +32,7 @@ permissions:
   - 'access administration pages'
   - 'access content'
   - 'access content overview'
+  - 'access environment indicator'
   - 'access toolbar'
   - 'access user profiles'
   - 'create cadastral_map content'
@@ -68,7 +69,6 @@ permissions:
   - 'edit own meta_data content'
   - 'edit own satellite_image content'
   - 'edit own transparency_maps content'
-  - 'use admin toolbar search'
   - 'use text format some_html'
   - 'view activity revisions'
   - 'view aerial_photos revisions'
