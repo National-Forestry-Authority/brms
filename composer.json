@@ -39,6 +39,7 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1",
         "drupal/admin_toolbar": "^3",
         "drupal/autotitle": "^1",
         "drupal/core-composer-scaffold": "^9",
@@ -47,6 +48,7 @@
         "drupal/csv_serialization": "^2",
         "drupal/diff": "^1",
         "drupal/entity_browser": "^2",
+        "drupal/environment_indicator": "^4",
         "drupal/feeds": "^3.0@beta",
         "drupal/field_group": "^3",
         "drupal/geofield": "^1",
@@ -84,7 +86,8 @@
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
@@ -143,6 +146,12 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
-        }
+        },
+        "patches": {
+          "drupal/environment_indicator": {
+            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff",
+            "3342457: Configure link is displayed even if user does not have the appropriate permission": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/23.diff"
+          }
+      }
     }
 }

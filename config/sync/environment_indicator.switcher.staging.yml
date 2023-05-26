@@ -1,0 +1,11 @@
+uuid: 71268767-eaf4-47d7-b70e-427d30689f74
+langcode: en
+status: true
+dependencies: {  }
+machine: staging
+description: null
+name: Stage
+weight: '1'
+url: 'https://brms.stg.envs.utils.nfa.go.ug'
+fg_color: '#ffffff'
+bg_color: '#f8a519'

@@ -62,3 +62,17 @@ $settings['file_temp_path'] = $docroot_base . '/tmp';
  * Mapbox access token.
  */
 $config['geolayer_map_mapbox.settings']['api_key'] = 'pk.eyJ1IjoibmF0LWZvci1hdXRoLXVnIiwiYSI6ImNsZGlvem52dDFmcnMzb3BpNmMwczhhZXIifQ.bHtnltunBC7GwOs-igQwVg';
+
+/**
+ * Environment indicator.
+ */
+if ($_SERVER['APP_DOMAIN'] == 'brms.nfa.go.ug') {
+  $config['environment_indicator.indicator']['bg_color'] = '#EF5621';
+  $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+  $config['environment_indicator.indicator']['name'] = 'Production';
+}
+elseif ($_SERVER['APP_DOMAIN'] == 'brms.stg.envs.utils.nfa.go.ug') {
+  $config['environment_indicator.indicator']['bg_color'] = '#F8A519';
+  $config['environment_indicator.indicator']['fg_color'] = '#FFFFFF';
+  $config['environment_indicator.indicator']['name'] = 'Staging';
+}
