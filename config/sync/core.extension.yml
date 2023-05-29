@@ -4,7 +4,6 @@ module:
   require_login: -1000
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
-  admin_toolbar_search: 0
   admin_toolbar_tools: 0
   autotitle: 0
   block: 0
@@ -16,6 +15,7 @@ module:
   brms_revisions: 0
   config: 0
   contextual: 0
+  csv_serialization: 0
   datetime: 0
   dblog: 0
   diff: 0
@@ -23,6 +23,8 @@ module:
   entity_browser: 0
   entity_browser_entity_form: 0
   entity_reference_revisions: 0
+  environment_indicator: 0
+  environment_indicator_ui: 0
   feeds: 0
   field: 0
   field_group: 0
@@ -33,7 +35,9 @@ module:
   geolayer: 0
   geolayer_map: 0
   geolayer_map_mapbox: 0
+  gin_lb: 0
   gin_login: 0
+  gin_toolbar: 0
   image: 0
   inline_entity_form: 0
   layout_builder: 0
@@ -47,6 +51,7 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   mysql: 0
+  nfa_tracker: 0
   node: 0
   page_cache: 0
   path: 0
@@ -62,6 +67,8 @@ module:
   toolbar: 0
   update: 0
   user: 0
+  views_autocomplete_filters: 0
+  views_data_export: 0
   views_geojson: 0
   views_ui: 0
   yearonly: 0
@@ -72,4 +79,5 @@ module:
 theme:
   claro: 0
   gin: 0
+  nfa_gin: 0
 profile: minimal

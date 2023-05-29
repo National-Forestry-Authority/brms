@@ -14,6 +14,14 @@
             "url": "https://packages.drupal.org/8"
         },
         {
+          "type": "git",
+          "url": "https://github.com/National-Forestry-Authority/nfa_gin"
+        },
+        {
+          "type": "git",
+          "url": "https://github.com/National-Forestry-Authority/nfa_tracker.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "national-forestry-authority/nfa-map",
@@ -31,18 +39,22 @@
     ],
     "require": {
         "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1",
         "drupal/admin_toolbar": "^3",
         "drupal/autotitle": "^1",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/csv_serialization": "^2",
         "drupal/diff": "^1",
         "drupal/entity_browser": "^2",
+        "drupal/environment_indicator": "^4",
         "drupal/feeds": "^3.0@beta",
         "drupal/field_group": "^3",
         "drupal/geofield": "^1",
         "drupal/gin": "^3",
-        "drupal/gin_login": "^1",
+        "drupal/gin_lb": "^1.0.x-dev",
+        "drupal/gin_login": "^2",
         "drupal/inline_entity_form": "^1",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
@@ -54,11 +66,15 @@
         "drupal/pdf": "^1",
         "drupal/realname": "^2",
         "drupal/require_login": "^3",
+        "drupal/views_autocomplete_filters": "^1",
+        "drupal/views_data_export": "^1",
         "drupal/views_geojson": "^1",
         "drupal/views_striping": "^1",
         "drupal/yearonly": "^9",
         "drush/drush": "^11",
-        "national-forestry-authority/nfa-map": "^2.1"
+        "national-forestry-authority/nfa-map": "^2",
+        "national-forestry-authority/nfa_gin": "^1",
+        "national-forestry-authority/nfa_tracker": "^1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -70,7 +86,8 @@
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
@@ -129,6 +146,12 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
-        }
+        },
+        "patches": {
+          "drupal/environment_indicator": {
+            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff",
+            "3342457: Configure link is displayed even if user does not have the appropriate permission": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/23.diff"
+          }
+      }
     }
 }

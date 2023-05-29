@@ -1,6 +1,10 @@
 nfa-map:
   js:
-    /libraries/nfa-map/nfa-map.js: { minified: true }
+    /libraries/nfa-map/nfa-map.js:
+      # Skip aggregating farmOS-map.js with other JS since that
+      # breaks the lazy loading of behavior chunks.
+      preprocess: false
+      minified: true
   css:
     theme:
       /libraries/nfa-map/nfa-map.css: { }

@@ -1,0 +1,22 @@
+uuid: 9611e5e3-e007-4b25-8271-c31dbdb9ee7e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nfa_gin
+_core:
+  default_config_hash: yMRK8DP0G4d2eyt9kuYOYAruUcSezayOLIxCg4uJtP0
+id: nfa_gin_primary_local_tasks
+theme: nfa_gin
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

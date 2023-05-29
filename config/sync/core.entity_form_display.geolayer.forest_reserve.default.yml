@@ -5,7 +5,7 @@ dependencies:
   config:
     - geolayer.geolayer_type.forest_reserve
   module:
-    - geofield
+    - geolayer_map
     - text
 id: geolayer.forest_reserve.default
 targetEntityType: geolayer
@@ -21,11 +21,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   geofield:
-    type: geofield_default
+    type: geolayer_map_geofield
     weight: 1
     region: content
-    settings:
-      geometry_validation: false
+    settings: {  }
     third_party_settings: {  }
   label:
     type: string_textfield
