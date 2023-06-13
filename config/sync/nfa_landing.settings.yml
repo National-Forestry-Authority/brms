@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: w6fAfzwN0upAKeyJd9ZJw7-Y5E3Xihm8hOGIML499-I
+site: brms
+message: 'Welcome to the NFA Boundary Records Management System containing the master record for NFA for boundaries of all forest reserve land and other land managed or owned by NFA.'
+sites:
+  farmers:
+    name: Farmers
+    production: 'https://farmers.nfa.go.ug'
+    staging: 'https://farmers.stg.envs.utils.nfa.go.ug'
+    development: 'https://farmers.ddev.site'
+  forests:
+    name: Forests
+    production: 'https://forests.nfa.go.ug'
+    staging: 'https://forests.stg.envs.utils.nfa.go.ug'
+    development: 'https://forests.ddev.site/'
+  brms:
+    name: BRMS
+    production: 'https://brms.nfa.go.ug'
+    staging: 'https://brms.stg.envs.utils.nfa.go.ug'
+    development: 'https://brms.ddev.site/'

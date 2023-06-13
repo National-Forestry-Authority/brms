@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - system
+    - user
   theme:
     - nfa_gin
 _core:
@@ -19,4 +20,11 @@ settings:
   label: Breadcrumbs
   label_display: '0'
   provider: system
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
