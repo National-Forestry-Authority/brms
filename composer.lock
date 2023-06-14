@@ -5294,18 +5294,18 @@
         },
         {
             "name": "national-forestry-authority/nfa_gin",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/National-Forestry-Authority/nfa_gin",
-                "reference": "023289c4f6468589e7d5d72dd4f403268ecb46af"
+                "reference": "75d298100f746e86b853c00566721dddf53231ac"
             },
             "type": "drupal-theme",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Gin sub-theme for NFA websites",
-            "time": "2023-06-13T14:47:41+00:00"
+            "time": "2023-06-14T09:33:16+00:00"
         },
         {
             "name": "national-forestry-authority/nfa_landing",
