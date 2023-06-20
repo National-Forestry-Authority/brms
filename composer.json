@@ -159,5 +159,9 @@
             "3342457: Configure link is displayed even if user does not have the appropriate permission": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/23.diff"
           }
       }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "squizlabs/php_codesniffer": "^3.7"
     }
 }
