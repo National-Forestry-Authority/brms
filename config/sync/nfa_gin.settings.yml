@@ -1,16 +1,25 @@
 _core:
   default_config_hash: RshLWnCvr3JJO-qr6Eglbi9WK2F9GzR6wP-MNcpExpQ
-preset_accent_color: green
-preset_focus_color: nfa_gin
+preset_accent_color: custom
+preset_focus_color: gin
 enable_darkmode: '0'
 classic_toolbar: vertical
-secondary_toolbar_frontend: true
+secondary_toolbar_frontend: 1
 logo:
-  use_default: true
-high_contrast_mode: false
+  use_default: 1
+high_contrast_mode: 0
 layout_density: default
-show_description_toggle: false
-show_user_theme_settings: false
+show_description_toggle: 0
+show_user_theme_settings: 0
 third_party_settings:
   shortcut:
     module_link: true
+features:
+  node_user_picture: false
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+favicon:
+  use_default: 1
+accent_color: '#006547'
+focus_color: ''

@@ -46,32 +46,34 @@ third_party_settings:
         - protected_area_length
       label: Dimensions
       region: content
-      parent_name: ''
-      weight: 8
-      format_type: details
+      parent_name: group_vertical_tabs
+      weight: 22
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: true
+        formatter: closed
         description: ''
         required_fields: true
+        open: true
     group_gazette:
       children:
         - year_gazetted
         - other_gazette_years
       label: Gazette
       region: content
-      parent_name: ''
-      weight: 9
-      format_type: details
+      parent_name: group_vertical_tabs
+      weight: 24
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: true
+        formatter: closed
         description: ''
         required_fields: true
+        open: true
     group_status:
       children:
         - boundary_records_status
@@ -79,16 +81,19 @@ third_party_settings:
         - priority_for_action
       label: Status
       region: content
-      parent_name: ''
-      weight: 10
-      format_type: details
+      parent_name: group_vertical_tabs
+      weight: 25
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: true
+        formatter: closed
         description: ''
         required_fields: true
+        direction: vertical
+        width_breakpoint: 640
+        open: true
     group_reference_numbers:
       children:
         - cadastral_sheet_number_1_10000
@@ -97,14 +102,97 @@ third_party_settings:
         - land_registration_number
       label: 'Reference numbers'
       region: content
-      parent_name: ''
-      weight: 7
-      format_type: details
+      parent_name: group_vertical_tabs
+      weight: 23
+      format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
         open: true
+    group_geolayers:
+      children:
+        - geolayers
+      label: Geolayers
+      region: content
+      parent_name: group_vertical_tabs
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_vertical_tabs:
+      children:
+        - group_location
+        - group_geolayers
+        - group_dimensions
+        - group_reference_numbers
+        - group_gazette
+        - group_status
+        - group_map_
+        - group_surveys
+      label: 'Vertical tabs'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: vertical
+        width_breakpoint: 640
+    group_location:
+      children:
+        - district
+        - county
+      label: Location
+      region: content
+      parent_name: group_vertical_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_map_:
+      children:
+        - map_sheet_reference
+      label: 'Map sheet references'
+      region: content
+      parent_name: group_vertical_tabs
+      weight: 26
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_surveys:
+      children:
+        - surveys
+      label: Surveys
+      region: content
+      parent_name: group_vertical_tabs
+      weight: 27
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
         description: ''
         required_fields: true
 id: node.forest_reserve.default
@@ -114,7 +202,7 @@ mode: default
 content:
   boundary_description_status:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -124,7 +212,7 @@ content:
     third_party_settings: {  }
   boundary_plan_number:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -164,7 +252,7 @@ content:
     third_party_settings: {  }
   county:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -174,13 +262,13 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   district:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -206,7 +294,7 @@ content:
     third_party_settings: {  }
   gazetted_area:
     type: number
-    weight: 11
+    weight: 6
     region: content
     settings:
       placeholder: ''
@@ -225,7 +313,7 @@ content:
       match_operator: CONTAINS
       allow_duplicate: false
       collapsible: true
-      collapsed: true
+      collapsed: false
       revision: true
       removed_reference: optional
     third_party_settings:
@@ -233,7 +321,7 @@ content:
         entity_browser_id: geolayers
   land_registration_number:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 15
     region: content
     settings:
       match_operator: CONTAINS
@@ -243,7 +331,7 @@ content:
     third_party_settings: {  }
   map_sheet_reference:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -253,7 +341,7 @@ content:
     third_party_settings: {  }
   mapped_area:
     type: number
-    weight: 12
+    weight: 7
     region: content
     settings:
       placeholder: ''
@@ -266,7 +354,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -282,61 +370,62 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 14
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   protected_area_length:
     type: number
-    weight: 17
+    weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   riverline_length:
     type: number
-    weight: 15
+    weight: 10
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   shoreline_length:
     type: number
-    weight: 16
+    weight: 11
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 10
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 15
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   surveys:
     type: paragraphs
-    weight: 11
+    weight: 5
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: survey
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
@@ -350,14 +439,14 @@ content:
     third_party_settings: {  }
   total_cutline_length:
     type: number
-    weight: 13
+    weight: 8
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
