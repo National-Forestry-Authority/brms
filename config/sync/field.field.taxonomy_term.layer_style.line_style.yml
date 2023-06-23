@@ -1,0 +1,23 @@
+uuid: ebc6a706-08ae-4483-9388-f152bac9e9c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.line_style
+    - taxonomy.vocabulary.layer_style
+  module:
+    - options
+id: taxonomy_term.layer_style.line_style
+field_name: line_style
+entity_type: taxonomy_term
+bundle: layer_style
+label: 'Line style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: solid
+default_value_callback: ''
+settings: {  }
+field_type: list_string

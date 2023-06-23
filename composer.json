@@ -46,6 +46,7 @@
         "cweagans/composer-patches": "^1",
         "drupal/admin_toolbar": "^3",
         "drupal/autotitle": "^1",
+        "drupal/color_field": "^3",
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",

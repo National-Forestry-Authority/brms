@@ -1,17 +1,48 @@
 (function () {
   nfa.map.behaviors.wkt = {
     attach: async function (instance) {
+      function lineStyle(feature, resolution, style) {
+        var layerStyle = drupalSettings.geolayer_map[instance.target].layer_style;
+        switch (layerStyle.line_style) {
+          case 'dotted':
+            lineDash = [2, 10];
+            lineCap = 'round';
+            lineWidth = layerStyle.line_width;
+            break;
+
+          case 'dashed':
+            lineDash = [10, 10];
+            lineCap = 'square';
+            lineWidth = layerStyle.line_width;
+            break;
+
+          default:
+            lineDash = null;
+            lineCap = null;
+            lineWidth = 2;
+            break
+        }
+        return new style.Style({
+          stroke: new style.Stroke({
+            color: layerStyle.color,
+            width: lineWidth,
+            lineDash: lineDash,
+            lineCap: lineCap,
+          })
+        });
+      }
+
       // adding single layer
       if (drupalSettings.geolayer_map[instance.target].wkt) {
         var wkt = drupalSettings.geolayer_map[instance.target].wkt;
         var type = 'vector';
         var opts = {
           title: 'Geometry',
-          color: 'orange',
         };
         if (wkt !== '' && wkt !== 'GEOMETRYCOLLECTION EMPTY') {
           type = 'wkt';
           opts.wkt = wkt;
+          opts.styleFunction = lineStyle;
         }
         var layer = instance.addLayer(type, opts);
       }
@@ -24,8 +55,7 @@
           var layer = instance.edit.layer;
         }
         // Add the snappingGrid behavior.
-        // @todo this causes js error relating to getChangeEventType on node forms.
-        //instance.addBehavior('snappingGrid');
+        instance.addBehavior('snappingGrid');
       }
       // Enable the line/polygon measure behavior.
       instance.addBehavior('measure', { layer: layer });
