@@ -23,7 +23,7 @@
         }
         return new style.Style({
           stroke: new style.Stroke({
-            color: feature.getProperties().color,
+            color: feature.getProperties().color ? feature.getProperties().color : 'orange',
             width: lineWidth,
             lineDash: lineDash,
             lineCap: lineCap,

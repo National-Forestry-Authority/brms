@@ -24,7 +24,7 @@
         }
         return new style.Style({
           stroke: new style.Stroke({
-            color: layerStyle.color,
+            color: layerStyle.color ? layerStyle.color : 'orange',
             width: lineWidth,
             lineDash: lineDash,
             lineCap: lineCap,
