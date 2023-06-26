@@ -1,0 +1,8 @@
+uuid: 516953e7-fcd4-4d10-8145-a42c48bdd143
+langcode: en
+status: true
+dependencies: {  }
+name: 'Layer style'
+vid: layer_style
+description: ''
+weight: 0
