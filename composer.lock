@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fad59d23f1defa8b835a68323a655dfc",
+    "content-hash": "34eae984b117ff22bf383c64e984e458",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5376,18 +5376,18 @@
         },
         {
             "name": "national-forestry-authority/nfa_tracker",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/National-Forestry-Authority/nfa_tracker.git",
-                "reference": "ae20113d16bcfb990cdcbaee61e2b84d2b3c0a9f"
+                "reference": "c1a95cf7020f9e390fa01a4005b691b55cba1e04"
             },
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "User activity tracking for NFA websites",
-            "time": "2023-04-28T15:47:52+00:00"
+            "time": "2023-06-27T11:14:17+00:00"
         },
         {
             "name": "nikic/php-parser",

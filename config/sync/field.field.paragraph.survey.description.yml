@@ -13,7 +13,7 @@ entity_type: paragraph
 bundle: survey
 label: 'Description of survey work'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

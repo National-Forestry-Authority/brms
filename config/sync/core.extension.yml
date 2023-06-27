@@ -11,7 +11,6 @@ module:
   brms_cleanup: 0
   brms_common: 0
   brms_migrate: 0
-  brms_revisions: 0
   color_field: 0
   config: 0
   contextual: 0

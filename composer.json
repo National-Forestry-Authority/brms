@@ -80,7 +80,7 @@
         "drush/drush": "^11",
         "national-forestry-authority/nfa-map": "^2",
         "national-forestry-authority/nfa_gin": "^1",
-        "national-forestry-authority/nfa_landing": "^1.0",
+        "national-forestry-authority/nfa_landing": "^1",
         "national-forestry-authority/nfa_tracker": "^1"
     },
     "conflict": {
