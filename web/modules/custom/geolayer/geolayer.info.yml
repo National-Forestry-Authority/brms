@@ -4,6 +4,6 @@ package: BRMS
 type: module
 core_version_requirement: ^9 || ^10
 dependencies:
-  - drupal:colour_field
+  - drupal:color_field
   - drupal:geofield
   - drupal:views
