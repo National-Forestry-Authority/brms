@@ -29,14 +29,29 @@ class GeofieldWidget extends GeofieldBaseWidget {
     $element['#open'] = TRUE;
 
     // Get the current value.
-    $current_value = isset($items[$delta]->value) ? $items[$delta]->value : NULL;
+    $item = $items[$delta];
+    $current_value = $item->value ?? NULL;
+
+    // Set the Geolayer style.
+    $style = [];
+    if ($item->getParent() && $item->getParent()->getParent()) {
+      $geolayer = $item->getParent()->getParent()->getEntity();
+      if ($geolayer->layer_style->entity) {
+        $style = [
+          'color' => $geolayer->layer_style->entity->color->color,
+          'line_style' => $geolayer->layer_style->entity->line_style->value,
+          'line_width' => $geolayer->layer_style->entity->line_width->value,
+        ];
+      }
+    }
+
     // Define the map render array.
     $element['map'] = [
       '#type' => 'geolayer_map',
       '#map_type' => 'geofield_widget',
       '#map_settings' => [
         'wkt' => $current_value,
-        'geolayers' => 'geolayer_map_geofield_widget',
+        'layer_style' => $style,
         'behaviors' => [
           'wkt' => [
             'edit' => FALSE,

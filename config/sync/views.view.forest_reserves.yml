@@ -15,6 +15,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - views_autocomplete_filters
 id: forest_reserves
 label: 'Forest reserves'
 module: views
@@ -988,7 +989,7 @@ display:
       path: forest-reserves
       menu:
         type: normal
-        title: 'Forest reserves'
+        title: 'Forest Reserves'
         description: ''
         weight: 0
         expanded: false

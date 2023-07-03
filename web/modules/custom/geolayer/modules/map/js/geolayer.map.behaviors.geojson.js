@@ -1,6 +1,36 @@
 (function () {
   nfa.map.behaviors.geojson = {
     attach: async function (instance) {
+      function lineStyle(feature, resolution, style) {
+        switch (feature.getProperties().line_style) {
+          case 'dotted':
+            lineDash = [2, 10];
+            lineCap = 'round';
+            lineWidth = feature.getProperties().line_width;
+            break;
+
+          case 'dashed':
+            lineDash = [10, 10];
+            lineCap = 'square';
+            lineWidth = feature.getProperties().line_width;
+            break;
+
+          default:
+            lineDash = null;
+            lineCap = null;
+            lineWidth = 2;
+            break
+        }
+        return new style.Style({
+          stroke: new style.Stroke({
+            color: feature.getProperties().color ? feature.getProperties().color : 'orange',
+            width: lineWidth,
+            lineDash: lineDash,
+            lineCap: lineCap,
+          })
+        });
+      }
+
       const geoLayers = drupalSettings.geolayer_map[instance.target].geolayers;
         for (let i = 0; i < geoLayers.length; i++) {
           var url = new URL("geolayer/geojson/" + geoLayers[i], window.location.origin + drupalSettings.path.baseUrl)
@@ -9,14 +39,15 @@
             headers: {
               'Content-Type': 'application/json',
             },
-          }).then(function(response) {
-            response.json().then(function(data) {
-              data.features.forEach(function(feature) {
+          }).then(function (response) {
+            response.json().then(function (data) {
+              data.features.forEach(function (feature) {
                 const layer = instance.addLayer('geojson', {
                   title: feature.properties.label,
                   geojson: feature,
+                  styleFunction: lineStyle,
                 });
-                if (geoLayers.length == 1) {
+                if (geoLayers.length === 1) {
                   instance.zoomToLayer(layer);
                 }
               });

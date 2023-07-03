@@ -25,15 +25,16 @@ class GeolayerFormatter extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $element = [];
     // Get the parent entity of the field item list.
-    $entity = $items->getEntity(); 
-    // Get the value of the entity reference field. 
+    $entity = $items->getEntity();
+    // Get the value of the entity reference field.
     $geolayers = [];
     $referenced_entities = $entity->get('geolayers')->referencedEntities();
-     // Loop through the referenced entities and do something with them.
+    // Loop through the referenced entities and do something with them.
     foreach ($referenced_entities as $referenced_entity) {
       $geolayers[] = $referenced_entity->id();
     }
-    // render a map
+
+    // Render the map.
     $element[0] = [
       '#type' => 'geolayer_map',
       '#map_type' => 'geofield',
@@ -54,4 +55,5 @@ class GeolayerFormatter extends FormatterBase {
     ];
     return $element;
   }
+
 }

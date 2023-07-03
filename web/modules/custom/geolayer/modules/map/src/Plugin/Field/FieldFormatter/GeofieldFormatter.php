@@ -86,14 +86,25 @@ class GeofieldFormatter extends FormatterBase {
     if (empty($items)) {
       return $element;
     }
-    
+
+    // Set the Geolayer style.
+    $style = [];
+    if ($item->getParent() && $item->getParent()->getParent()) {
+      $geolayer = $item->getParent()->getParent()->getEntity();
+      if ($geolayer->layer_style->entity) {
+        $style = [
+          'color' => $geolayer->layer_style->entity->color->color,
+          'line_style' => $geolayer->layer_style->entity->line_style->value,
+          'line_width' => $geolayer->layer_style->entity->line_width->value,
+        ];
+      }
+    }
+
     // Create array of features.
     $features = [];
     foreach ($items as $delta) {
-
       // Get the field value.
       $value = $delta->get('value')->getValue();
-
       // Convert to WKT.
       $geom = $this->geoPhp->load($value);
       $features[] = $geom->out('wkt');
@@ -111,8 +122,8 @@ class GeofieldFormatter extends FormatterBase {
         '#map_type' => 'geofield',
         '#map_settings' => [
           'wkt' => $feature,
-          'geolayers' => '',
           'map_type' => 'geofield',
+          'layer_style' => $style,
           'behaviors' => [
             'wkt' => [
               'zoom' => TRUE,

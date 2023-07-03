@@ -102,20 +102,3 @@ function geolayer_field_formatter_info() {
     ],
   ];
 }
-
-// /**
-//  * Implements hook_entity_field_storage_info_alter().
-//  */
-// function geolayer_entity_field_storage_info_alter(&$fields, $entity_type) {
-//   if ($entity_type->id() == 'node') {
-//     $fields['geolayers'] = [
-//       'type' => 'geolayer',
-//       'settings' => [],
-//       'label' => 'Geolayer field',
-//       'description' => 'An autocomplete entity reference to a geolayer entity.',
-//       'instance_settings' => [],
-//       'default_widget' => 'geolayer_autocomplete',
-//       'default_formatter' => 'geolayer_map_geolayers',
-//     ];
-//   }
-// }

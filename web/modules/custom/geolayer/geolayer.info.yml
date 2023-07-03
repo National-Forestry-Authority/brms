@@ -3,3 +3,7 @@ description: Provides a geolayer entity for storing geographical data to be disp
 package: BRMS
 type: module
 core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:color_field
+  - drupal:geofield
+  - drupal:views
