@@ -9,14 +9,16 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.county
-    - field.field.node.forest_reserve.district
     - field.field.node.forest_reserve.forest_reserve_serial_number
+    - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
     - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.gazetted_area_2
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.location
     - field.field.node.forest_reserve.map_sheet_reference
+    - field.field.node.forest_reserve.map_sheet_reference_2
     - field.field.node.forest_reserve.mapped_area
     - field.field.node.forest_reserve.other_gazette_years
     - field.field.node.forest_reserve.priority_for_action
@@ -85,22 +87,6 @@ content:
     third_party_settings: {  }
     weight: 8
     region: content
-  county:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  district:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
   forest_reserve_serial_number:
     type: entity_reference_label
     label: above
@@ -147,6 +133,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  location:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
     region: content
   map_sheet_reference:
     type: entity_reference_label
@@ -264,4 +258,7 @@ content:
     third_party_settings: {  }
     weight: 22
     region: content
-hidden: {  }
+hidden:
+  forest_reserve_serial_number_2: true
+  gazetted_area_2: true
+  map_sheet_reference_2: true

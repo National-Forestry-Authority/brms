@@ -1,16 +1,16 @@
-uuid: 4b734b77-b7fc-4850-82e6-5c39df5bb445
+uuid: 267a1ec7-b993-4213-a87f-9c86cc748a50
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.district
+    - field.storage.node.location_2
     - node.type.forest_reserve
-    - taxonomy.vocabulary.district
-id: node.forest_reserve.district
-field_name: district
+    - taxonomy.vocabulary.location
+id: node.forest_reserve.location_2
+field_name: location_2
 entity_type: node
 bundle: forest_reserve
-label: District
+label: 'District/County 2'
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      district: district
+      location: location
     sort:
       field: name
       direction: asc
-    auto_create: true
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

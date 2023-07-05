@@ -1,16 +1,16 @@
-uuid: 0e01f4fd-0e2b-4261-9a99-eae81bf3c049
+uuid: 412fd793-6d2e-429d-b712-b400e896067f
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.county
+    - field.storage.node.map_sheet_reference
     - node.type.forest_reserve
-    - taxonomy.vocabulary.counties
-id: node.forest_reserve.county
-field_name: county
+    - taxonomy.vocabulary.map_sheet_reference
+id: node.forest_reserve.map_sheet_reference_2
+field_name: map_sheet_reference_2
 entity_type: node
 bundle: forest_reserve
-label: County
+label: 'Map sheet references 2'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      counties: counties
+      map_sheet_reference: map_sheet_reference
     sort:
       field: name
       direction: asc

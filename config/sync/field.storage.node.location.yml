@@ -1,19 +1,19 @@
-uuid: 86233d0f-cd10-4397-9a88-a3af59832c49
+uuid: bf1b3134-e002-4338-8a61-d2ef81057a25
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.district
-field_name: district
+id: node.location
+field_name: location
 entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

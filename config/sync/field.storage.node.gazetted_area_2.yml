@@ -1,16 +1,16 @@
-uuid: 02a4d2c1-a945-4725-bd07-a83df2f6b8ba
+uuid: df72306e-fe4b-4219-a049-c64c9d9aa50f
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.county
-field_name: county
+id: node.gazetted_area_2
+field_name: gazetted_area_2
 entity_type: node
-type: entity_reference
+type: decimal
 settings:
-  target_type: taxonomy_term
+  precision: 10
+  scale: 2
 module: core
 locked: false
 cardinality: 1
