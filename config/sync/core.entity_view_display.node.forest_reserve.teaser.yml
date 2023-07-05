@@ -10,14 +10,16 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.county
-    - field.field.node.forest_reserve.district
     - field.field.node.forest_reserve.forest_reserve_serial_number
+    - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
     - field.field.node.forest_reserve.gazetted_area
+    - field.field.node.forest_reserve.gazetted_area_2
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.location
     - field.field.node.forest_reserve.map_sheet_reference
+    - field.field.node.forest_reserve.map_sheet_reference_2
     - field.field.node.forest_reserve.mapped_area
     - field.field.node.forest_reserve.other_gazette_years
     - field.field.node.forest_reserve.priority_for_action
@@ -55,20 +57,24 @@ hidden:
   boundary_records_status: true
   cadastral_sheet_number_1_10000: true
   cadastral_sheet_number_1_50000: true
-  county: true
-  district: true
   forest_reserve_serial_number: true
+  forest_reserve_serial_number_2: true
   forest_reserve_type: true
   gazetted_area: true
+  gazetted_area_2: true
   geolayers: true
   land_registration_number: true
+  location: true
   map_sheet_reference: true
+  map_sheet_reference_2: true
   mapped_area: true
+  natural_boundary_length: true
   other_gazette_years: true
   priority_for_action: true
   protected_area_length: true
   riverline_length: true
   shoreline_length: true
   surveys: true
+  total_boundary_length: true
   total_cutline_length: true
   year_gazetted: true
