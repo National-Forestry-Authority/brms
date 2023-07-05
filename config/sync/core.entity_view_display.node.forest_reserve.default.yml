@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
     - field.field.node.forest_reserve.boundary_plan_number
+    - field.field.node.forest_reserve.boundary_plan_number_2
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.forest_reserve.gazetted_area_2
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.land_registration_number_2
     - field.field.node.forest_reserve.location
     - field.field.node.forest_reserve.map_sheet_reference
     - field.field.node.forest_reserve.map_sheet_reference_2
@@ -56,6 +58,14 @@ content:
     weight: 13
     region: content
   boundary_plan_number:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  boundary_plan_number_2:
     type: entity_reference_label
     label: above
     settings:
@@ -122,6 +132,14 @@ content:
     weight: 25
     region: content
   land_registration_number:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  land_registration_number_2:
     type: entity_reference_label
     label: above
     settings:

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
     - field.field.node.forest_reserve.boundary_plan_number
+    - field.field.node.forest_reserve.boundary_plan_number_2
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
@@ -16,6 +17,7 @@ dependencies:
     - field.field.node.forest_reserve.gazetted_area_2
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
+    - field.field.node.forest_reserve.land_registration_number_2
     - field.field.node.forest_reserve.location
     - field.field.node.forest_reserve.location_2
     - field.field.node.forest_reserve.map_sheet_reference
@@ -103,8 +105,6 @@ third_party_settings:
       children:
         - cadastral_sheet_number_1_10000
         - cadastral_sheet_number_1_50000
-        - boundary_plan_number
-        - land_registration_number
       label: 'Reference numbers'
       region: content
       parent_name: group_vertical_tabs
@@ -159,6 +159,8 @@ third_party_settings:
       children:
         - forest_reserve_serial_number
         - location
+        - boundary_plan_number
+        - land_registration_number
       label: Location
       region: content
       parent_name: group_vertical_tabs
@@ -206,6 +208,8 @@ third_party_settings:
       children:
         - forest_reserve_serial_number_2
         - location_2
+        - boundary_plan_number_2
+        - land_registration_number_2
       label: 'Location 2'
       region: content
       parent_name: group_vertical_tabs
@@ -234,6 +238,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   boundary_plan_number:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  boundary_plan_number_2:
     type: entity_reference_autocomplete
     weight: 14
     region: content
@@ -340,6 +354,16 @@ content:
       entity_browser_entity_form:
         entity_browser_id: geolayers
   land_registration_number:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  land_registration_number_2:
     type: entity_reference_autocomplete
     weight: 15
     region: content

@@ -34,3 +34,22 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
   }
   return $fields;
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function brms_common_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // Make fields read-only for all except administrator role.
+  if (!\Drupal::currentUser()->hasPermission('edit nfa readonly field')) {
+    switch ($form_id) {
+      case 'node_forest_reserve_edit_form':
+        $form['title']['#disabled'] = TRUE;
+        $form['forest_reserve_type']['#disabled'] = TRUE;
+        $form['gazetted_area']['#disabled'] = TRUE;
+        $form['gazetted_area_2']['#disabled'] = TRUE;
+        break;
+      default:
+        break;
+    }
+  }
+}
