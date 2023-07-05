@@ -356,7 +356,7 @@ content:
     settings:
       start_minimized: true
       leaves_only: false
-      select_parents: false
+      select_parents: true
       cascading_selection: 0
       max_depth: 0
     third_party_settings: {  }
@@ -367,7 +367,7 @@ content:
     settings:
       start_minimized: true
       leaves_only: false
-      select_parents: false
+      select_parents: true
       cascading_selection: 0
       max_depth: 0
     third_party_settings: {  }
