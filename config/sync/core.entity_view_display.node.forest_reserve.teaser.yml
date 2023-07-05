@@ -65,6 +65,7 @@ hidden:
   geolayers: true
   land_registration_number: true
   location: true
+  location_2: true
   map_sheet_reference: true
   map_sheet_reference_2: true
   mapped_area: true

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "487d91bf353f72ee455495116cd1e7ec",
+    "content-hash": "55a218e7aaba3265b9cfdc57fc261bcb",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3212,6 +3212,62 @@
             "support": {
                 "source": "https://cgit.drupalcode.org/migrate_source_csv",
                 "issues": "https://www.drupal.org/project/issues/migrate_source_csv"
+            }
+        },
+        {
+            "name": "drupal/migrate_source_ui",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/migrate_source_ui.git",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_source_ui-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "83214f27bf591ceae709976adb35aa8e631ce389"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/migrate_plus": "^6",
+                "drupal/migrate_source_csv": "^2.2|^3.0",
+                "drupal/migrate_tools": "^6"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1662135320",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Hedding",
+                    "homepage": "https://www.drupal.org/u/heddn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "hl17",
+                    "homepage": "https://www.drupal.org/user/3542612"
+                }
+            ],
+            "description": "UI for  csv, xml or json sources.",
+            "homepage": "https://www.drupal.org/project/migrate_source_ui",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/migrate_source_ui",
+                "issues": "https://www.drupal.org/project/issues/migrate_source_ui"
             }
         },
         {

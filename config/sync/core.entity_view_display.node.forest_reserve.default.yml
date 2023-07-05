@@ -261,4 +261,5 @@ content:
 hidden:
   forest_reserve_serial_number_2: true
   gazetted_area_2: true
+  location_2: true
   map_sheet_reference_2: true
