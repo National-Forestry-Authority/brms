@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 name: District
 vid: district
-description: ''
+description: 'Districts and counties in the current Cadastral Map'
 weight: 0

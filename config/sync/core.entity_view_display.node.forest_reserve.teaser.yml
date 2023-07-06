@@ -7,9 +7,11 @@ dependencies:
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
     - field.field.node.forest_reserve.boundary_plan_number
+    - field.field.node.forest_reserve.boundary_plan_number_2
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
+    - field.field.node.forest_reserve.district_1998
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
@@ -17,7 +19,7 @@ dependencies:
     - field.field.node.forest_reserve.gazetted_area_2
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
-    - field.field.node.forest_reserve.location
+    - field.field.node.forest_reserve.land_registration_number_2
     - field.field.node.forest_reserve.map_sheet_reference
     - field.field.node.forest_reserve.map_sheet_reference_2
     - field.field.node.forest_reserve.mapped_area
@@ -54,9 +56,11 @@ content:
 hidden:
   boundary_description_status: true
   boundary_plan_number: true
+  boundary_plan_number_2: true
   boundary_records_status: true
   cadastral_sheet_number_1_10000: true
   cadastral_sheet_number_1_50000: true
+  district_1998: true
   forest_reserve_serial_number: true
   forest_reserve_serial_number_2: true
   forest_reserve_type: true
@@ -64,8 +68,7 @@ hidden:
   gazetted_area_2: true
   geolayers: true
   land_registration_number: true
-  location: true
-  location_2: true
+  land_registration_number_2: true
   map_sheet_reference: true
   map_sheet_reference_2: true
   mapped_area: true

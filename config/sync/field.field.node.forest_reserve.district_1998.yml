@@ -1,17 +1,17 @@
-uuid: 267a1ec7-b993-4213-a87f-9c86cc748a50
+uuid: 7cd82f29-cdb4-4578-9f56-6f8f7b1836a1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.location_2
+    - field.storage.node.district_1998
     - node.type.forest_reserve
-    - taxonomy.vocabulary.location
-id: node.forest_reserve.location_2
-field_name: location_2
+    - taxonomy.vocabulary.district_1998
+id: node.forest_reserve.district_1998
+field_name: district_1998
 entity_type: node
 bundle: forest_reserve
-label: 'District/County 2'
-description: ''
+label: 'District (1998 cadastral map)'
+description: 'Click the + beside a district to see its counties.'
 required: false
 translatable: false
 default_value: {  }
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      location: location
+      district_1998: district_1998
     sort:
       field: name
       direction: asc

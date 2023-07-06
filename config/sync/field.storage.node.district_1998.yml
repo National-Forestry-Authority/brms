@@ -1,12 +1,12 @@
-uuid: bf1b3134-e002-4338-8a61-d2ef81057a25
+uuid: d6899ea4-ba02-4961-919b-6db304e3fbd5
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.location
-field_name: location
+id: node.district_1998
+field_name: district_1998
 entity_type: node
 type: entity_reference
 settings:

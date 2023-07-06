@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
+    - field.field.node.forest_reserve.district_1998
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
@@ -18,7 +19,6 @@ dependencies:
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_number
     - field.field.node.forest_reserve.land_registration_number_2
-    - field.field.node.forest_reserve.location
     - field.field.node.forest_reserve.map_sheet_reference
     - field.field.node.forest_reserve.map_sheet_reference_2
     - field.field.node.forest_reserve.mapped_area
@@ -55,7 +55,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 14
     region: content
   boundary_plan_number:
     type: entity_reference_label
@@ -63,7 +63,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 9
+    weight: 8
     region: content
   boundary_plan_number_2:
     type: entity_reference_label
@@ -79,7 +79,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 11
+    weight: 12
     region: content
   cadastral_sheet_number_1_10000:
     type: entity_reference_label
@@ -87,7 +87,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   cadastral_sheet_number_1_50000:
     type: entity_reference_label
@@ -95,7 +95,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 7
+    region: content
+  district_1998:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 28
     region: content
   forest_reserve_serial_number:
     type: entity_reference_label
@@ -104,6 +112,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  forest_reserve_serial_number_2:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 26
     region: content
   forest_reserve_type:
     type: entity_reference_label
@@ -122,14 +138,25 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 14
+    weight: 15
+    region: content
+  gazetted_area_2:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 16
     region: content
   geolayers:
     type: geolayer_map_geolayers
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 25
+    weight: 30
     region: content
   land_registration_number:
     type: entity_reference_label
@@ -145,20 +172,12 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 11
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 0
-    region: content
-  location:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 26
     region: content
   map_sheet_reference:
     type: entity_reference_label
@@ -166,7 +185,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 4
+    region: content
+  map_sheet_reference_2:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   mapped_area:
     type: number_decimal
@@ -177,7 +204,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 15
+    weight: 17
     region: content
   natural_boundary_length:
     type: number_decimal
@@ -188,14 +215,14 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 20
+    weight: 22
     region: content
   other_gazette_years:
     type: yearonly_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 25
     region: content
   priority_for_action:
     type: entity_reference_label
@@ -203,7 +230,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 13
     region: content
   protected_area_length:
     type: number_decimal
@@ -214,7 +241,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 19
+    weight: 21
     region: content
   riverline_length:
     type: number_decimal
@@ -225,7 +252,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 17
+    weight: 19
     region: content
   shoreline_length:
     type: number_decimal
@@ -236,7 +263,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 18
+    weight: 20
     region: content
   surveys:
     type: entity_reference_revisions_entity_view
@@ -245,7 +272,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 24
+    weight: 27
     region: content
   total_boundary_length:
     type: number_decimal
@@ -256,7 +283,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 21
+    weight: 23
     region: content
   total_cutline_length:
     type: number_decimal
@@ -267,17 +294,13 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 16
+    weight: 18
     region: content
   year_gazetted:
     type: yearonly_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 24
     region: content
-hidden:
-  forest_reserve_serial_number_2: true
-  gazetted_area_2: true
-  location_2: true
-  map_sheet_reference_2: true
+hidden: {  }

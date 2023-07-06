@@ -1,0 +1,8 @@
+uuid: 21614bc7-f3f2-4e70-bb74-bc6b2b61a5bb
+langcode: en
+status: true
+dependencies: {  }
+name: 'District Cadastral 1998'
+vid: district_1998
+description: 'Districts and counties in the 1998 Cadastral Map'
+weight: 0
