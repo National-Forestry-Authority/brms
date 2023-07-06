@@ -27,11 +27,13 @@ dependencies:
     - field.storage.node.field_year
     - node.type.cadastral_map
     - node.type.district_map
+    - system.menu.admin
   module:
     - datetime
     - node
     - text
     - user
+    - views_autocomplete_filters
 id: cadastral_maps
 label: 'Cadastral Maps'
 module: views
@@ -2336,6 +2338,15 @@ display:
         filter_groups: false
       display_extenders: {  }
       path: cadastral-maps
+      menu:
+        type: normal
+        title: 'Cadastral Maps'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: 'menu_link_content:ed8642bc-f902-41be-9d5e-20623d389c6e'
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

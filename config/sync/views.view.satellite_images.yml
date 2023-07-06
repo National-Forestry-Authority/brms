@@ -17,6 +17,7 @@ dependencies:
     - field.storage.node.field_scale
     - field.storage.node.field_type
     - node.type.aerial_photos
+    - system.menu.admin
   module:
     - datetime
     - node
@@ -1485,6 +1486,15 @@ display:
     display_options:
       display_extenders: {  }
       path: satellite-images
+      menu:
+        type: normal
+        title: 'Satellite Images'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: 'menu_link_content:ed8642bc-f902-41be-9d5e-20623d389c6e'
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
