@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_county_1998
+label: Counties 1998
+source:
+  plugin: csv
+  path: temporary://uganda-districts-1998.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - district
+    - county
+  fields:
+    0:
+      name: district
+      label: 'District'
+    1:
+      name: county
+      label: 'County'
+process:
+  name: county
+  parent:
+    plugin: entity_lookup
+    source: district
+    entity_type: taxonomy_term
+    value_key: name
+    bundle_key: vid
+    bundle: district_1998
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: district_1998
