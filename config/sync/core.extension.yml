@@ -14,6 +14,7 @@ module:
   color_field: 0
   config: 0
   contextual: 0
+  cshs: 0
   csv_serialization: 0
   datetime: 0
   dblog: 0
@@ -65,7 +66,6 @@ module:
   serialization: 0
   system: 0
   taxonomy: 0
-  term_reference_tree: 0
   text: 0
   token: 0
   toolbar: 0

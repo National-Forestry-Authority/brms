@@ -1,12 +1,12 @@
-uuid: 351affec-ca22-44b8-80db-b277a5b1f669
+uuid: 8f01fbfd-f93d-4ee5-88e1-0e2e141969a5
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - options
-id: node.year_gazetted
-field_name: year_gazetted
+id: node.all_gazette_years
+field_name: all_gazette_years
 entity_type: node
 type: list_integer
 settings:
@@ -26,7 +26,7 @@ settings:
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

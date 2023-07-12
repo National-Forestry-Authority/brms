@@ -1,0 +1,29 @@
+uuid: 6f3f9a5a-f46b-4417-9707-60fa5bd8ed69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.district_1998_2
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.district_1998
+id: node.forest_reserve.district_1998_2
+field_name: district_1998_2
+entity_type: node
+bundle: forest_reserve
+label: 'District 2 (1998 cadastral map)'
+description: 'Click the + beside a district to see its counties.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      district_1998: district_1998
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

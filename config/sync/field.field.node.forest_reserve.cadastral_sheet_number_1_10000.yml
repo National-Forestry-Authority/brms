@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.cadastral_sheet_number_1_10000
     - node.type.forest_reserve
-    - taxonomy.vocabulary.cadastral_sheet_no_1_10000
+    - taxonomy.vocabulary.cadastral_sheet_number_1_10000
 id: node.forest_reserve.cadastral_sheet_number_1_10000
 field_name: cadastral_sheet_number_1_10000
 entity_type: node
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      cadastral_sheet_no_1_10000: cadastral_sheet_no_1_10000
+      cadastral_sheet_number_1_10000: cadastral_sheet_number_1_10000
     sort:
       field: name
       direction: asc

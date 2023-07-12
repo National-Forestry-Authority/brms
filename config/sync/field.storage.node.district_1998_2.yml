@@ -1,16 +1,17 @@
-uuid: bcaed765-36fe-46f9-a8c2-e7f74a5fe0b9
+uuid: c859ebca-18e8-4721-b6e6-d47733580cee
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - yearonly
-id: node.other_gazette_years
-field_name: other_gazette_years
+    - taxonomy
+id: node.district_1998_2
+field_name: district_1998_2
 entity_type: node
-type: yearonly
-settings: {  }
-module: yearonly
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: -1
 translatable: true

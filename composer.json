@@ -50,6 +50,7 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/cshs": "^4",
         "drupal/csv_serialization": "^2",
         "drupal/diff": "^1",
         "drupal/entity_browser": "^2",

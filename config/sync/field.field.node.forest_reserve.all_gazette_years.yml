@@ -1,17 +1,17 @@
-uuid: 344bf1db-6c7a-48a0-b13a-55cd10915c0c
+uuid: 95e117ff-5b7a-454e-8f2a-a07acb0288d8
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.year_gazetted
+    - field.storage.node.all_gazette_years
     - node.type.forest_reserve
   module:
     - options
-id: node.forest_reserve.year_gazetted
-field_name: year_gazetted
+id: node.forest_reserve.all_gazette_years
+field_name: all_gazette_years
 entity_type: node
 bundle: forest_reserve
-label: 'Year gazetted'
+label: 'All gazette mentions'
 description: ''
 required: false
 translatable: false
