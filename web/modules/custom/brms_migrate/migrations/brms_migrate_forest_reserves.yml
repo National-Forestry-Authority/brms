@@ -138,12 +138,10 @@ process:
   district_1998:
     - plugin: concat
       source:
-        - district1
         - county1a
         - county1b
         - county1c
         - county1d
-        - district2
         - county2a
         - county2b
         - county2c
