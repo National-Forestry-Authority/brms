@@ -1,12 +1,12 @@
-uuid: d6899ea4-ba02-4961-919b-6db304e3fbd5
+uuid: fe3ffe0d-e0a1-49db-82f2-cd74cec34041
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.district_1998
-field_name: district_1998
+id: node.boundary_plan_numbers
+field_name: boundary_plan_numbers
 entity_type: node
 type: entity_reference
 settings:

@@ -1,16 +1,16 @@
-uuid: 00b8bda7-314c-4c60-9710-8f3b59ec22f7
+uuid: 3f43df1d-1aa1-42a6-9014-f0f9c5660890
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.boundary_plan_number_2
+    - field.storage.node.land_registration_numbers
     - node.type.forest_reserve
-    - taxonomy.vocabulary.boundary_plan_number
-id: node.forest_reserve.boundary_plan_number_2
-field_name: boundary_plan_number_2
+    - taxonomy.vocabulary.land_registration_number
+id: node.forest_reserve.land_registration_numbers
+field_name: land_registration_numbers
 entity_type: node
 bundle: forest_reserve
-label: 'Boundary plan number 2'
+label: 'Land registration numbers'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      boundary_plan_number: boundary_plan_number
+      land_registration_number: land_registration_number
     sort:
       field: name
       direction: asc

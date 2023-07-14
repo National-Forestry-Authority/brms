@@ -1,19 +1,19 @@
-uuid: 848a5148-4f77-4f90-824a-e2026db4d620
+uuid: 497030f7-3c22-4431-b549-38925fc22514
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.boundary_plan_number
-field_name: boundary_plan_number
+id: node.latest_surveyed_area
+field_name: latest_surveyed_area
 entity_type: node
-type: entity_reference
+type: decimal
 settings:
-  target_type: taxonomy_term
+  precision: 10
+  scale: 2
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,13 +1,13 @@
-uuid: 75e08930-cd1a-4ae1-b81b-bd04697eb66a
+uuid: 604480f5-1216-4683-a7be-55caa21ae7c4
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.map_sheet_reference
+    - field.storage.node.map_sheet_references
     - node.type.forest_reserve
     - taxonomy.vocabulary.map_sheet_reference
-id: node.forest_reserve.map_sheet_reference
-field_name: map_sheet_reference
+id: node.forest_reserve.map_sheet_references
+field_name: map_sheet_references
 entity_type: node
 bundle: forest_reserve
 label: 'Map sheet references'

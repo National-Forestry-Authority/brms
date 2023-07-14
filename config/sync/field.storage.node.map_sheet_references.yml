@@ -1,19 +1,19 @@
-uuid: df72306e-fe4b-4219-a049-c64c9d9aa50f
+uuid: 8b10f5c6-7c0b-4252-94ae-15e4c9a94b11
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.gazetted_area_2
-field_name: gazetted_area_2
+    - taxonomy
+id: node.map_sheet_references
+field_name: map_sheet_references
 entity_type: node
-type: decimal
+type: entity_reference
 settings:
-  precision: 10
-  scale: 2
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

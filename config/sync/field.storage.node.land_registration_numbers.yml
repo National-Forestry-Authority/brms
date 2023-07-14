@@ -1,12 +1,12 @@
-uuid: c31bf3d4-650e-46fc-97f5-e2760ee4cb8b
+uuid: 9386e37c-aa4d-4e01-ae70-2d81b45899ee
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.map_sheet_reference
-field_name: map_sheet_reference
+id: node.land_registration_numbers
+field_name: land_registration_numbers
 entity_type: node
 type: entity_reference
 settings:

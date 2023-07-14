@@ -6,24 +6,23 @@ dependencies:
     - field.field.node.forest_reserve.all_gazette_years
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
-    - field.field.node.forest_reserve.boundary_plan_number
-    - field.field.node.forest_reserve.boundary_plan_number_2
+    - field.field.node.forest_reserve.boundary_plan_numbers
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.district_1998
-    - field.field.node.forest_reserve.district_1998_2
+    - field.field.node.forest_reserve.district_1997
+    - field.field.node.forest_reserve.district_1997_2
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
-    - field.field.node.forest_reserve.gazetted_area
-    - field.field.node.forest_reserve.gazetted_area_2
+    - field.field.node.forest_reserve.gazetted_area_1932
+    - field.field.node.forest_reserve.gazetted_area_1948
+    - field.field.node.forest_reserve.gazetted_area_1968
+    - field.field.node.forest_reserve.gazetted_area_1998
     - field.field.node.forest_reserve.geolayers
-    - field.field.node.forest_reserve.land_registration_number
-    - field.field.node.forest_reserve.land_registration_number_2
-    - field.field.node.forest_reserve.map_sheet_reference
-    - field.field.node.forest_reserve.map_sheet_reference_2
-    - field.field.node.forest_reserve.mapped_area
+    - field.field.node.forest_reserve.land_registration_numbers
+    - field.field.node.forest_reserve.latest_surveyed_area
+    - field.field.node.forest_reserve.map_sheet_references
     - field.field.node.forest_reserve.priority_for_action
     - field.field.node.forest_reserve.protected_area_length
     - field.field.node.forest_reserve.riverline_length
@@ -43,6 +42,11 @@ third_party_settings:
       children:
         - gazetted_area
         - gazetted_area_2
+        - gazetted_area_1998
+        - gazetted_area_1968
+        - gazetted_area_1948
+        - gazetted_area_1932
+        - latest_surveyed_area
         - mapped_area
         - total_cutline_length
         - riverline_length
@@ -100,12 +104,11 @@ third_party_settings:
         open: true
     group_reference_numbers:
       children:
+        - map_sheet_references
         - cadastral_sheet_number_1_10000
         - cadastral_sheet_number_1_50000
-        - land_registration_number
-        - land_registration_number_2
-        - boundary_plan_number
-        - boundary_plan_number_2
+        - boundary_plan_numbers
+        - land_registration_numbers
       label: 'Reference numbers'
       region: content
       parent_name: group_vertical_tabs
@@ -143,7 +146,6 @@ third_party_settings:
         - group_reference_numbers
         - group_gazette
         - group_status
-        - group_map_sheet
         - group_surveys
       label: 'Vertical tabs'
       region: content
@@ -159,27 +161,11 @@ third_party_settings:
     group_district:
       children:
         - forest_reserve_serial_number
-        - district_1998
+        - district_1997
       label: District
       region: content
       parent_name: group_vertical_tabs
       weight: 15
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-    group_map_sheet:
-      children:
-        - map_sheet_reference
-        - map_sheet_reference_2
-      label: 'Map sheet references'
-      region: content
-      parent_name: group_vertical_tabs
-      weight: 22
       format_type: tab
       format_settings:
         classes: ''
@@ -206,7 +192,7 @@ third_party_settings:
     group_district_2:
       children:
         - forest_reserve_serial_number_2
-        - district_1998_2
+        - district_1997_2
       label: 'District 2'
       region: content
       parent_name: group_vertical_tabs
@@ -232,7 +218,7 @@ content:
     third_party_settings: {  }
   boundary_description_status:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -240,19 +226,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  boundary_plan_number:
+  boundary_plan_numbers:
     type: entity_reference_autocomplete
-    weight: 11
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  boundary_plan_number_2:
-    type: entity_reference_autocomplete
-    weight: 12
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -272,7 +248,7 @@ content:
     third_party_settings: {  }
   cadastral_sheet_number_1_10000:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -282,7 +258,7 @@ content:
     third_party_settings: {  }
   cadastral_sheet_number_1_50000:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 3
     region: content
     settings:
       match_operator: CONTAINS
@@ -292,11 +268,11 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
-  district_1998:
+  district_1997:
     type: cshs
     weight: 4
     region: content
@@ -309,7 +285,7 @@ content:
       required_depth: 0
       none_label: '- Please select -'
     third_party_settings: {  }
-  district_1998_2:
+  district_1997_2:
     type: cshs
     weight: 4
     region: content
@@ -348,16 +324,30 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  gazetted_area:
+  gazetted_area_1932:
     type: number
-    weight: 1
+    weight: 6
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-  gazetted_area_2:
+  gazetted_area_1948:
     type: number
-    weight: 2
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  gazetted_area_1968:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  gazetted_area_1998:
+    type: number
+    weight: 3
     region: content
     settings:
       placeholder: ''
@@ -382,27 +372,7 @@ content:
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: geolayers
-  land_registration_number:
-    type: entity_reference_autocomplete
-    weight: 9
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  land_registration_number_2:
-    type: entity_reference_autocomplete
-    weight: 10
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  map_sheet_reference:
+  land_registration_numbers:
     type: entity_reference_autocomplete
     weight: 5
     region: content
@@ -412,9 +382,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  map_sheet_reference_2:
+  latest_surveyed_area:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  map_sheet_references:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 0
     region: content
     settings:
       match_operator: CONTAINS
@@ -422,16 +399,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  mapped_area:
-    type: number
-    weight: 3
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   priority_for_action:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -441,42 +411,42 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   protected_area_length:
     type: number
-    weight: 7
+    weight: 11
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   riverline_length:
     type: number
-    weight: 6
+    weight: 10
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   shoreline_length:
     type: number
-    weight: 8
+    weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
     region: content
     settings:
       display_label: true
@@ -504,7 +474,7 @@ content:
     third_party_settings: {  }
   total_cutline_length:
     type: number
-    weight: 4
+    weight: 9
     region: content
     settings:
       placeholder: ''

@@ -1,16 +1,16 @@
-uuid: c5a1b9fe-b332-48a5-b5ae-88d91aa74cf1
+uuid: 926215ce-b40d-4959-970f-ab2a52af0c2e
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.land_registration_number
+    - field.storage.node.district_1997
     - node.type.forest_reserve
-    - taxonomy.vocabulary.land_registration_number
-id: node.forest_reserve.land_registration_number
-field_name: land_registration_number
+    - taxonomy.vocabulary.district_1997
+id: node.forest_reserve.district_1997
+field_name: district_1997
 entity_type: node
 bundle: forest_reserve
-label: 'Land registration number'
+label: 'District (1997 cadastral)'
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      land_registration_number: land_registration_number
+      district_1997: district_1997
     sort:
       field: name
       direction: asc
-    auto_create: true
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -87,38 +87,53 @@ source:
       name: land_registration_number_2
       label: 'Land registration number 2'
     24:
-      name: gazetted_area
-      label: 'Gazetted area'
+      name: gazetted_area_1998
+      label: 'Gazetted area 1998'
     25:
-      name: gazetted_area_2
-      label: 'Gazetted area 2'
+      name: gazetted_area_1968
+      label: 'Gazetted area 1968'
     26:
-      name: mapped_area
-      label: 'Mapped area'
+      name: gazetted_area_1948
+      label: 'Gazetted area 1948'
     27:
+      name: gazetted_area_1932
+      label: 'Gazetted area 1932'
+    28:
+      name: latest_surveyed_area
+      label: 'Latest surveyed area'
+    29:
       name: total_cutline_length
       label: 'Total cutline length'
-    28:
+    30:
       name: riverline_length
       label: 'Riverline length'
-    29:
+    31:
       name: shoreline_length
       label: 'Shoreline length'
-    30:
+    32:
       name: protected_area_length
       label: 'Protected area length'
-    31:
+    33:
       name: 1998_gazette
       label: '1998 Gazette'
-    32:
+    34:
       name: 1968_gazette
       label: '1968 Gazette'
-    33:
+    35:
       name: 1948_gazette
       label: '1948 Gazette'
-    34:
+    36:
       name: 1932_gazette
       label: '1932 Gazette'
+    37:
+      name: boundary_records_status
+      label: 'Boundary records status'
+    38:
+      name: boundary_desc_records
+      label: 'Boundary description records'
+    39:
+      name: priority_action
+      label: 'Priority for action'
 process:
   nid: nid
   forest_reserve_serial_number:
@@ -135,13 +150,25 @@ process:
       value_key: name
       bundle_key: vid
       bundle: forest_reserve_serial_number
-  district_1998:
+  district_1997:
     - plugin: concat
       source:
         - county1a
         - county1b
         - county1c
         - county1d
+      delimiter: ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: entity_lookup
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: district_1997
+      ignore_case: true
+  district_1997_2:
+    - plugin: concat
+      source:
         - county2a
         - county2b
         - county2c
@@ -153,7 +180,7 @@ process:
       entity_type: taxonomy_term
       value_key: name
       bundle_key: vid
-      bundle: district_1998
+      bundle: district_1997
       ignore_case: true
   map_sheet_reference:
     - plugin: skip_on_value
@@ -162,13 +189,6 @@ process:
         - 'N/A'
         - 'NA'
       source: map_sheet_reference
-    - plugin: explode
-      delimiter: ','
-    - plugin: entity_generate
-      entity_type: taxonomy_term
-      value_key: name
-      bundle_key: vid
-      bundle: map_sheet_reference
   map_sheet_reference_2:
     - plugin: skip_on_value
       method: process
@@ -176,8 +196,21 @@ process:
         - 'N/A'
         - 'NA'
       source: map_sheet_reference_2
+  map_sheet_references:
+    - plugin: concat
+      source:
+        - '@map_sheet_reference'
+        - '@map_sheet_reference_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
     - plugin: explode
       delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
     - plugin: entity_generate
       entity_type: taxonomy_term
       value_key: name
@@ -218,13 +251,6 @@ process:
         - 'N/A'
         - 'NA'
       source: boundary_plan_number
-    - plugin: explode
-      delimiter: ','
-    - plugin: entity_generate
-      entity_type: taxonomy_term
-      value_key: name
-      bundle_key: vid
-      bundle: boundary_plan_number
   boundary_plan_number_2:
     - plugin: skip_on_value
       method: process
@@ -232,8 +258,21 @@ process:
         - 'N/A'
         - 'NA'
       source: boundary_plan_number_2
+  boundary_plan_numbers:
+    - plugin: concat
+      source:
+        - '@boundary_plan_number'
+        - '@boundary_plan_number_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
     - plugin: explode
       delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
     - plugin: entity_generate
       entity_type: taxonomy_term
       value_key: name
@@ -246,18 +285,6 @@ process:
         - 'N/A'
         - 'NA'
       source: land_registration_number
-    - plugin: skip_on_value
-      method: process
-      value:
-        - 'N/A'
-        - 'NA'
-    - plugin: explode
-      delimiter: ','
-    - plugin: entity_generate
-      entity_type: taxonomy_term
-      value_key: name
-      bundle_key: vid
-      bundle: land_registration_number
   land_registration_number_2:
     - plugin: skip_on_value
       method: process
@@ -265,20 +292,33 @@ process:
         - 'N/A'
         - 'NA'
       source: land_registration_number_2
+  land_registration_numbers:
+    - plugin: concat
+      source:
+        - '@land_registration_number'
+        - '@land_registration_number_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
     - plugin: explode
       delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
     - plugin: entity_generate
       entity_type: taxonomy_term
       value_key: name
       bundle_key: vid
       bundle: land_registration_number
-  gazetted_area:
+  gazetted_area_1998:
     - plugin: skip_on_value
       method: process
       value:
         - 'N/A'
         - 'NA'
-      source: gazetted_area
+      source: gazetted_area_1998
     - plugin: skip_on_empty
       method: process
     - plugin: str_replace
@@ -286,15 +326,88 @@ process:
       replace: ''
     - plugin: callback
       callable: floatval
-  gazetted_area_2:
+  gazetted_area_1968:
     - plugin: skip_on_value
       method: process
       value:
         - 'N/A'
         - 'NA'
-      source: gazetted_area_2
+      source: gazetted_area_1968
     - plugin: skip_on_empty
       method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  gazetted_area_1948:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1948
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  gazetted_area_1932:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1932
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  latest_surveyed_area:
+    - plugin: skip_on_empty
+      method: process
+      source: latest_surveyed_area
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  total_cutline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: total_cutline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  riverline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: riverline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  shoreline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: shoreline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  protected_area_length:
+    - plugin: skip_on_empty
+      method: process
+      source: protected_area_length
     - plugin: str_replace
       search: ','
       replace: ''
@@ -306,7 +419,7 @@ process:
     plugin: brms_all_gazette_years
   revision_log:
     - plugin: default_value
-      default_value: 'Initial import from CSV'
+      default_value: 'Import from CSV'
 destination:
   plugin: 'entity:node'
   default_bundle: forest_reserve

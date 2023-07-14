@@ -1,12 +1,12 @@
-uuid: c859ebca-18e8-4721-b6e6-d47733580cee
+uuid: 347cc5a7-8c8e-46a2-bd79-4f1776104db1
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.district_1998_2
-field_name: district_1998_2
+id: node.district_1997
+field_name: district_1997
 entity_type: node
 type: entity_reference
 settings:

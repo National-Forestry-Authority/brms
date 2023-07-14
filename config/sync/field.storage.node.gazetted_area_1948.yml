@@ -1,11 +1,11 @@
-uuid: a8ec68d4-7a13-4fd6-bb3e-d9e5c6471ed4
+uuid: 18aa05ef-5189-4adf-9b38-15f8eee085fa
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.gazetted_area
-field_name: gazetted_area
+id: node.gazetted_area_1948
+field_name: gazetted_area_1948
 entity_type: node
 type: decimal
 settings:

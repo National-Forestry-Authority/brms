@@ -1,15 +1,15 @@
-uuid: 09f0483e-edf5-4d25-a815-d78f7fa75c99
+uuid: c751bbfb-ad7d-4a26-9f21-9bd35efa3149
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.mapped_area
+    - field.storage.node.gazetted_area_1948
     - node.type.forest_reserve
-id: node.forest_reserve.mapped_area
-field_name: mapped_area
+id: node.forest_reserve.gazetted_area_1948
+field_name: gazetted_area_1948
 entity_type: node
 bundle: forest_reserve
-label: 'Mapped Area (ha)'
+label: 'Gazetted area 1948 (ha)'
 description: ''
 required: false
 translatable: false

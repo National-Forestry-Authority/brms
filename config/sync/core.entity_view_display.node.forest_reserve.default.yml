@@ -6,24 +6,23 @@ dependencies:
     - field.field.node.forest_reserve.all_gazette_years
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
-    - field.field.node.forest_reserve.boundary_plan_number
-    - field.field.node.forest_reserve.boundary_plan_number_2
+    - field.field.node.forest_reserve.boundary_plan_numbers
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.district_1998
-    - field.field.node.forest_reserve.district_1998_2
+    - field.field.node.forest_reserve.district_1997
+    - field.field.node.forest_reserve.district_1997_2
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
-    - field.field.node.forest_reserve.gazetted_area
-    - field.field.node.forest_reserve.gazetted_area_2
+    - field.field.node.forest_reserve.gazetted_area_1932
+    - field.field.node.forest_reserve.gazetted_area_1948
+    - field.field.node.forest_reserve.gazetted_area_1968
+    - field.field.node.forest_reserve.gazetted_area_1998
     - field.field.node.forest_reserve.geolayers
-    - field.field.node.forest_reserve.land_registration_number
-    - field.field.node.forest_reserve.land_registration_number_2
-    - field.field.node.forest_reserve.map_sheet_reference
-    - field.field.node.forest_reserve.map_sheet_reference_2
-    - field.field.node.forest_reserve.mapped_area
+    - field.field.node.forest_reserve.land_registration_numbers
+    - field.field.node.forest_reserve.latest_surveyed_area
+    - field.field.node.forest_reserve.map_sheet_references
     - field.field.node.forest_reserve.priority_for_action
     - field.field.node.forest_reserve.protected_area_length
     - field.field.node.forest_reserve.riverline_length
@@ -48,7 +47,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 26
+    weight: 25
     region: content
   body:
     type: text_default
@@ -63,23 +62,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 14
+    weight: 26
     region: content
-  boundary_plan_number:
+  boundary_plan_numbers:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 8
-    region: content
-  boundary_plan_number_2:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 9
+    weight: 22
     region: content
   boundary_records_status:
     type: entity_reference_label
@@ -87,7 +78,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 12
+    weight: 15
     region: content
   cadastral_sheet_number_1_10000:
     type: entity_reference_label
@@ -95,7 +86,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 6
+    weight: 19
     region: content
   cadastral_sheet_number_1_50000:
     type: entity_reference_label
@@ -103,23 +94,23 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 7
+    weight: 20
     region: content
-  district_1998:
+  district_1997:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 29
+    weight: 16
     region: content
-  district_1998_2:
+  district_1997_2:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 30
+    weight: 17
     region: content
   forest_reserve_serial_number:
     type: entity_reference_label
@@ -135,7 +126,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 27
+    weight: 18
     region: content
   forest_reserve_type:
     type: entity_reference_label
@@ -145,7 +136,7 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  gazetted_area:
+  gazetted_area_1932:
     type: number_decimal
     label: above
     settings:
@@ -154,9 +145,9 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 15
+    weight: 13
     region: content
-  gazetted_area_2:
+  gazetted_area_1948:
     type: number_decimal
     label: above
     settings:
@@ -165,53 +156,46 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 16
+    weight: 12
+    region: content
+  gazetted_area_1968:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  gazetted_area_1998:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 10
     region: content
   geolayers:
     type: geolayer_map_geolayers
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 31
+    weight: 29
     region: content
-  land_registration_number:
+  land_registration_numbers:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 10
+    weight: 23
     region: content
-  land_registration_number_2:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  map_sheet_reference:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  map_sheet_reference_2:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  mapped_area:
+  latest_surveyed_area:
     type: number_decimal
     label: above
     settings:
@@ -220,7 +204,20 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 17
+    weight: 14
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  map_sheet_references:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 21
     region: content
   natural_boundary_length:
     type: number_decimal
@@ -231,7 +228,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 22
+    weight: 8
     region: content
   priority_for_action:
     type: entity_reference_label
@@ -239,7 +236,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 13
+    weight: 27
     region: content
   protected_area_length:
     type: number_decimal
@@ -250,7 +247,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 21
+    weight: 7
     region: content
   riverline_length:
     type: number_decimal
@@ -261,7 +258,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 19
+    weight: 5
     region: content
   shoreline_length:
     type: number_decimal
@@ -272,7 +269,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 20
+    weight: 6
     region: content
   surveys:
     type: entity_reference_revisions_entity_view
@@ -292,7 +289,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 23
+    weight: 9
     region: content
   total_cutline_length:
     type: number_decimal
@@ -303,7 +300,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 18
+    weight: 4
     region: content
   year_gazetted:
     type: list_default

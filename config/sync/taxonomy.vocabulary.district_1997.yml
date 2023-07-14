@@ -1,0 +1,8 @@
+uuid: a604ad67-411e-4c8d-9008-2af1da979df2
+langcode: en
+status: true
+dependencies: {  }
+name: 'District Cadastral 1997'
+vid: district_1997
+description: 'Districts and counties in the 1997 Cadastral'
+weight: 0

@@ -1,19 +1,19 @@
-uuid: 2a5a907f-ccd6-4286-a288-2510919f90b1
+uuid: fc1c4cc1-0fe2-4ce0-bb14-ce358d28d546
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.land_registration_number_2
-field_name: land_registration_number_2
+id: node.gazetted_area_1998
+field_name: gazetted_area_1998
 entity_type: node
-type: entity_reference
+type: decimal
 settings:
-  target_type: taxonomy_term
+  precision: 10
+  scale: 2
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

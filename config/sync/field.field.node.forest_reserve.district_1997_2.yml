@@ -1,16 +1,16 @@
-uuid: 412fd793-6d2e-429d-b712-b400e896067f
+uuid: b72a8d3e-d312-4a30-b312-a13543b8c659
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.map_sheet_reference
+    - field.storage.node.district_1997_2
     - node.type.forest_reserve
-    - taxonomy.vocabulary.map_sheet_reference
-id: node.forest_reserve.map_sheet_reference_2
-field_name: map_sheet_reference_2
+    - taxonomy.vocabulary.district_1997
+id: node.forest_reserve.district_1997_2
+field_name: district_1997_2
 entity_type: node
 bundle: forest_reserve
-label: 'Map sheet references 2'
+label: 'District 2 (1997 cadastral)'
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      map_sheet_reference: map_sheet_reference
+      district_1997: district_1997
     sort:
       field: name
       direction: asc
-    auto_create: true
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
