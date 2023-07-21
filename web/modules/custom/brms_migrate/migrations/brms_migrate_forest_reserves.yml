@@ -136,6 +136,7 @@ source:
       label: 'Priority for action'
 process:
   nid: nid
+  nfa_sites_global_id: uuid
   forest_reserve_serial_number:
     - plugin: entity_generate
       source: forest_reserve_serial_number

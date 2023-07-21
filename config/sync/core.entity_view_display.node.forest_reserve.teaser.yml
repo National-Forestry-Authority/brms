@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.forest_reserve.land_registration_numbers
     - field.field.node.forest_reserve.latest_surveyed_area
     - field.field.node.forest_reserve.map_sheet_references
+    - field.field.node.forest_reserve.nfa_sites_global_id
     - field.field.node.forest_reserve.priority_for_action
     - field.field.node.forest_reserve.protected_area_length
     - field.field.node.forest_reserve.riverline_length
@@ -74,6 +75,7 @@ hidden:
   latest_surveyed_area: true
   map_sheet_references: true
   natural_boundary_length: true
+  nfa_sites_global_id: true
   priority_for_action: true
   protected_area_length: true
   riverline_length: true

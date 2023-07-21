@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.forest_reserve.land_registration_numbers
     - field.field.node.forest_reserve.latest_surveyed_area
     - field.field.node.forest_reserve.map_sheet_references
+    - field.field.node.forest_reserve.nfa_sites_global_id
     - field.field.node.forest_reserve.priority_for_action
     - field.field.node.forest_reserve.protected_area_length
     - field.field.node.forest_reserve.riverline_length
@@ -229,6 +230,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     weight: 8
+    region: content
+  nfa_sites_global_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 30
     region: content
   priority_for_action:
     type: entity_reference_label

@@ -39,7 +39,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function brms_common_form_node_form_alter(&$form, &$form_state, $form_id) {
+function brms_common_form_node_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
   // Make fields read-only for all except administrator role.
   if (!\Drupal::currentUser()->hasPermission('edit nfa readonly field')) {
     switch ($form_id) {
@@ -51,6 +51,23 @@ function brms_common_form_node_form_alter(&$form, &$form_state, $form_id) {
         break;
       default:
         break;
+    }
+  }
+  // NFA global id is always read-only.
+  if ($form_id == 'node_forest_reserve_edit_form') {
+    $form['nfa_sites_global_id']['#disabled'] = TRUE;
+  }
+
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  // Make sure the NFA global id is unique.
+  if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
+    if (isset($fields['nfa_sites_global_id'])) {
+      $fields['nfa_sites_global_id']->addConstraint('UniqueField');
     }
   }
 }
