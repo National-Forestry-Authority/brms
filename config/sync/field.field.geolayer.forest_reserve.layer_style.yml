@@ -10,8 +10,8 @@ id: geolayer.forest_reserve.layer_style
 field_name: layer_style
 entity_type: geolayer
 bundle: forest_reserve
-label: 'Layer style'
-description: ''
+label: 'Layer type'
+description: 'The layer type determine the colour and type of the lines drawn on the map.'
 required: false
 translatable: false
 default_value: {  }

@@ -7,7 +7,11 @@ dependencies:
     - node.type.forest_reserve
     - paragraphs.paragraphs_type.survey
   module:
+    - custom_add_another
     - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another survey'
 id: node.forest_reserve.surveys
 field_name: surveys
 entity_type: node

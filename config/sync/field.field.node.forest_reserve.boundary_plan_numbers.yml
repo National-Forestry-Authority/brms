@@ -6,6 +6,11 @@ dependencies:
     - field.storage.node.boundary_plan_numbers
     - node.type.forest_reserve
     - taxonomy.vocabulary.boundary_plan_number
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another boundary plan number'
 id: node.forest_reserve.boundary_plan_numbers
 field_name: boundary_plan_numbers
 entity_type: node

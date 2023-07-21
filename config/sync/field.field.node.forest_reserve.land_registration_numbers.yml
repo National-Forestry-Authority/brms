@@ -6,6 +6,11 @@ dependencies:
     - field.storage.node.land_registration_numbers
     - node.type.forest_reserve
     - taxonomy.vocabulary.land_registration_number
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another land registration number'
 id: node.forest_reserve.land_registration_numbers
 field_name: land_registration_numbers
 entity_type: node

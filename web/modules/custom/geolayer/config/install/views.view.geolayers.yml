@@ -808,7 +808,7 @@ display:
           field: layer_style
           relationship: none
           group_type: group
-          admin_label: 'Layer style'
+          admin_label: 'Layer type'
           plugin_id: standard
           required: false
       display_extenders: {  }

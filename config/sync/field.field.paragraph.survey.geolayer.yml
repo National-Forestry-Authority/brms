@@ -12,7 +12,7 @@ id: paragraph.survey.geolayer
 field_name: geolayer
 entity_type: paragraph
 bundle: survey
-label: Geolayer
+label: 'Survey Geolayer'
 description: ''
 required: false
 translatable: false
@@ -22,7 +22,7 @@ settings:
   handler: 'default:geolayer'
   handler_settings:
     target_bundles:
-      cfr: forest_reserve
+      forest_reserve: forest_reserve
     sort:
       field: _none
       direction: ASC

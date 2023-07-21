@@ -1,7 +1,7 @@
 langcode: en
 status: true
 dependencies: {  }
-name: 'Layer style'
+name: 'Layer type'
 vid: layer_style
 description: ''
 weight: 0

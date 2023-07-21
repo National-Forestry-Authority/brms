@@ -1,0 +1,23 @@
+uuid: 2bb0f13a-6f0f-4c97-af79-36c015db008f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.county_1998_si
+    - taxonomy.vocabulary.district_1997
+id: taxonomy_term.district_1997.county_1998_si
+field_name: county_1998_si
+entity_type: taxonomy_term
+bundle: district_1997
+label: '1998 SI county'
+description: 'This is an alternative county that appears in the 1998 Statutory Instrument.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

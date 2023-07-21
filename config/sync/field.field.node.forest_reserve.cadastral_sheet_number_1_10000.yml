@@ -6,6 +6,11 @@ dependencies:
     - field.storage.node.cadastral_sheet_number_1_10000
     - node.type.forest_reserve
     - taxonomy.vocabulary.cadastral_sheet_number_1_10000
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another cadastral sheet number'
 id: node.forest_reserve.cadastral_sheet_number_1_10000
 field_name: cadastral_sheet_number_1_10000
 entity_type: node

@@ -6,11 +6,16 @@ dependencies:
     - field.storage.node.district_1997_2
     - node.type.forest_reserve
     - taxonomy.vocabulary.district_1997
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another district'
 id: node.forest_reserve.district_1997_2
 field_name: district_1997_2
 entity_type: node
 bundle: forest_reserve
-label: 'District 2 (1997 cadastral)'
+label: 'Administrative district 2 (1997)'
 description: ''
 required: false
 translatable: false

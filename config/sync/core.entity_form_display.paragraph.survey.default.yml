@@ -33,8 +33,8 @@ content:
     settings:
       form_mode: default
       override_labels: true
-      label_singular: Geolayer
-      label_plural: Geolayers
+      label_singular: 'Survey Geolayer'
+      label_plural: 'Survey Geolayers'
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
