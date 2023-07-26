@@ -1,17 +1,17 @@
-uuid: 9ade577e-18d4-42c5-bfc8-20497fe8a3ab
+uuid: 017e55de-7c6c-4ba6-9112-02aab7f2d805
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.geolayer.layer_style
+    - field.storage.geolayer.layer_type
     - geolayer.geolayer_type.forest_reserve
-    - taxonomy.vocabulary.layer_style
-id: geolayer.forest_reserve.layer_style
-field_name: layer_style
+    - taxonomy.vocabulary.layer_type
+id: geolayer.forest_reserve.layer_type
+field_name: layer_type
 entity_type: geolayer
 bundle: forest_reserve
 label: 'Layer type'
-description: 'The layer type determine the colour and type of the lines drawn on the map.'
+description: 'The layer type determines the colour, width and type of line drawn on the map.'
 required: false
 translatable: false
 default_value: {  }
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      layer_style: layer_style
+      layer_type: layer_type
     sort:
       field: name
       direction: asc

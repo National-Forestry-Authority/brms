@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_geolayers
+migration_tags:
+  - Content
+label: Geolayer entities
+source:
+  plugin: directory_kml
+  track_changes: true
+  directory:
+    path: temporary://CFR-geolayers
+  # All files with a .kml extension.
+  file_mask: '/^.*\.kml$/'
+  recurse_level: -1
+process:
+  label: source_file_basename
+  geofield/value: kml
+  geofield/geo_type:
+    plugin: default_value
+    default_value: 'Polygon'
+destination:
+  plugin: 'entity:geolayer'
+  default_bundle: forest_reserve

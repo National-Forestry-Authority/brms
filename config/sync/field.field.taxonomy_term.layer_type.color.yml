@@ -1,23 +1,21 @@
+uuid: e771caba-964d-4402-9183-862598acd2ef
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.color
-    - taxonomy.vocabulary.layer_style
+    - taxonomy.vocabulary.layer_type
   module:
     - color_field
-id: taxonomy_term.layer_style.color
+id: taxonomy_term.layer_type.color
 field_name: color
 entity_type: taxonomy_term
-bundle: layer_style
+bundle: layer_type
 label: Color
 description: ''
 required: false
-translatable: false
-default_value:
-  -
-    color: '#fa573c'
-    opacity: null
+translatable: true
+default_value: {  }
 default_value_callback: ''
 settings:
   opacity: 0

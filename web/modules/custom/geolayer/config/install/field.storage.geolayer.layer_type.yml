@@ -4,8 +4,8 @@ dependencies:
   module:
     - geolayer
     - taxonomy
-id: geolayer.layer_style
-field_name: layer_style
+id: geolayer.layer_type
+field_name: layer_type
 entity_type: geolayer
 type: entity_reference
 settings:

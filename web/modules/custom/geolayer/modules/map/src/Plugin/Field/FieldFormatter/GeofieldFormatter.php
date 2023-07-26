@@ -91,11 +91,11 @@ class GeofieldFormatter extends FormatterBase {
     $style = [];
     if ($item->getParent() && $item->getParent()->getParent()) {
       $geolayer = $item->getParent()->getParent()->getEntity();
-      if ($geolayer->layer_style->entity) {
+      if ($geolayer->layer_type->entity) {
         $style = [
-          'color' => $geolayer->layer_style->entity->color->color,
-          'line_style' => $geolayer->layer_style->entity->line_style->value,
-          'line_width' => $geolayer->layer_style->entity->line_width->value,
+          'color' => $geolayer->layer_type->entity->color->color,
+          'line_style' => $geolayer->layer_type->entity->line_style->value,
+          'line_width' => $geolayer->layer_type->entity->line_width->value,
         ];
       }
     }

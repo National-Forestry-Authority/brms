@@ -1,12 +1,12 @@
-uuid: bdd8d60b-afea-405d-9c33-6149480031f3
+uuid: e6d61cf5-c420-4684-b88f-228e27fab069
 langcode: en
 status: true
 dependencies:
   module:
     - geolayer
     - taxonomy
-id: geolayer.layer_style
-field_name: layer_style
+id: geolayer.layer_type
+field_name: layer_type
 entity_type: geolayer
 type: entity_reference
 settings:

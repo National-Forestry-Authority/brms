@@ -232,7 +232,7 @@ display:
           id: color
           table: taxonomy_term__color
           field: color
-          relationship: layer_style
+          relationship: layer_type
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -296,7 +296,7 @@ display:
           id: line_style
           table: taxonomy_term__line_style
           field: line_style
-          relationship: layer_style
+          relationship: layer_type
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -358,7 +358,7 @@ display:
           id: line_width
           table: taxonomy_term__line_width
           field: line_width
-          relationship: layer_style
+          relationship: layer_type
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -513,11 +513,15 @@ display:
           replica: false
           query_tags: {  }
       relationships:
-        layer_style:
-          id: layer_style
-          table: geolayer__layer_style
-          field: layer_style
+        layer_type:
+          id: layer_type
+          table: geolayer__layer_type
+          field: layer_type
+          relationship: none
+          group_type: group
+          admin_label: 'Layer type'
           plugin_id: standard
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -759,10 +763,12 @@ display:
         css_class: false
         style: false
         row: false
+        relationships: false
         fields: false
         arguments: false
         filters: false
         filter_groups: false
+      relationships: {  }
       css_class: ''
       display_extenders: {  }
     cache_metadata:
@@ -801,17 +807,7 @@ display:
         type: data_entity
         options: {  }
       defaults:
-        relationships: false
-      relationships:
-        layer_style:
-          id: layer_style
-          table: geolayer__layer_style
-          field: layer_style
-          relationship: none
-          group_type: group
-          admin_label: 'Layer style'
-          plugin_id: standard
-          required: false
+        relationships: true
       display_extenders: {  }
       path: geolayer/geojson/%
     cache_metadata:

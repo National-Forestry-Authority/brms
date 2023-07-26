@@ -2,17 +2,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.layer_style.color
-    - field.field.taxonomy_term.layer_style.line_style
-    - field.field.taxonomy_term.layer_style.line_width
-    - taxonomy.vocabulary.layer_style
+    - field.field.taxonomy_term.layer_type.color
+    - field.field.taxonomy_term.layer_type.line_style
+    - field.field.taxonomy_term.layer_type.line_width
+    - taxonomy.vocabulary.layer_type
   module:
     - color_field
     - path
     - text
-id: taxonomy_term.layer_style.default
+id: taxonomy_term.layer_type.default
 targetEntityType: taxonomy_term
-bundle: layer_style
+bundle: layer_type
 mode: default
 content:
   color:

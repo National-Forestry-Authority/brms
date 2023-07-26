@@ -419,8 +419,8 @@ process:
   all_gazette_years:
     plugin: brms_all_gazette_years
   revision_log:
-    - plugin: default_value
-      default_value: 'Import from CSV'
+    plugin: default_value
+    default_value: 'Import from CSV'
 destination:
   plugin: 'entity:node'
   default_bundle: forest_reserve
