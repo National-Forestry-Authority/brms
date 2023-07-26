@@ -4,5 +4,6 @@ description: A module for data migrations.
 core_version_requirement: ^9 || ^10
 package: BRMS
 dependencies:
+  - geofield
   - migrate
   - migrate_tools

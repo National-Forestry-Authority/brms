@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.geolayer.forest_reserve.layer_style
+    - field.field.geolayer.forest_reserve.layer_type
     - geolayer.geolayer_type.forest_reserve
   module:
     - geolayer_map
@@ -35,9 +35,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  layer_style:
+  layer_type:
     type: options_select
-    weight: 3
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }

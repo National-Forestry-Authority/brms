@@ -68,6 +68,7 @@
         "drupal/migrate_conditions": "^2",
         "drupal/migrate_plus": "^6",
         "drupal/migrate_source_csv": "^3",
+        "drupal/migrate_source_directory": "^2",
         "drupal/migrate_source_ui": "^1",
         "drupal/migrate_tools": "^6",
         "drupal/paragraphs": "^1",

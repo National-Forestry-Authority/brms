@@ -1,8 +1,7 @@
-uuid: 516953e7-fcd4-4d10-8145-a42c48bdd143
 langcode: en
 status: true
 dependencies: {  }
 name: 'Layer type'
-vid: layer_style
+vid: layer_type
 description: 'The type of boundary or points shown on the map layer'
 weight: 0

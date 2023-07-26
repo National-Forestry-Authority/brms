@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_forest_reserve_geolayers
+migration_tags:
+  - Content
+label: Forest Reserves
+source:
+  plugin: csv
+  path: temporary://geolayers/reserve-geolayers.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - migration_id
+  fields:
+    0:
+      name: migration_id
+      label: 'Migration ID'
+    1:
+      name: nid
+      label: 'NID'
+    2:
+      name: delta
+      label: 'Layer number'
+    3:
+      name: type
+      label: 'Layer type'
+    4:
+      name: title
+      label: 'Layer title'
+    5:
+      name: description
+      label: 'Layer description'
+process:
+  layer_type:
+    plugin: skip_on_empty
+    method: row
+    source: type
+    message: 'Layer type is missing'
+  nid: nid
+  geolayer_id:
+    plugin: migration_lookup
+    migration: brms_migrate_geolayers
+    source: migration_id
+  geolayers:
+    plugin: brms_forest_reserve_geolayer
+    source: '@geolayer_id'
+  revision_log:
+    plugin: default_value
+    default_value: 'Import geolayers'
+destination:
+  plugin: 'entity:node'
+  default_bundle: forest_reserve
+migration_dependencies:
+  required:
+    - brms_migrate_geolayers
