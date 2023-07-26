@@ -7,7 +7,7 @@ migration_tags:
 label: Forest Reserves
 source:
   plugin: csv
-  path: temporary://CFR-geolayers/reserve-geolayers.csv
+  path: temporary://geolayers/reserve-geolayers.csv
   delimiter: ','
   enclosure: '"'
   header_offset: 0
