@@ -9,7 +9,7 @@ source:
   plugin: directory_kml
   track_changes: true
   directory:
-    path: temporary://geolayers
+    path: public://migrations/geolayers
   # All files with a .kml extension.
   file_mask: '/^.*\.kml$/'
   recurse_level: -1

@@ -5,7 +5,7 @@ id: brms_migrate_county_1997
 label: Counties 1997
 source:
   plugin: csv
-  path: temporary://uganda-districts-1997.csv
+  path: public://migrations/uganda-districts-1997.csv
   delimiter: ','
   enclosure: '"'
   header_offset: 0
