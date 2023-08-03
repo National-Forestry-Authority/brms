@@ -1,0 +1,14 @@
+uuid: c4806af3-4980-4bc5-a641-dc88476602c6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geolayers
+label: Geolayers
+description: 'Renders a geolayers on a map.'
+behaviors:
+  - geojson
+  - popup
+options: {  }

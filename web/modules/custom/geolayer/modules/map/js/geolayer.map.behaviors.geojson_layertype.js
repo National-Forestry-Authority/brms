@@ -1,5 +1,5 @@
 (function () {
-  nfa.map.behaviors.geojson = {
+  nfa.map.behaviors.geojsonLayerType = {
     attach: async function (instance) {
       function lineStyle(feature, resolution, style) {
         switch (feature.getProperties().line_style) {
@@ -35,9 +35,22 @@
         });
       }
 
-      const geoLayers = drupalSettings.geolayer_map[instance.target].geolayers;
-      for (let i = 0; i < geoLayers.length; i++) {
-        var url = new URL("geolayer/geojson/" + geoLayers[i], window.location.origin + drupalSettings.path.baseUrl)
+      const layerTypes = drupalSettings.geolayer_map[instance.target].layer_types;
+      for (let i = 0; i < layerTypes.length; i++) {
+        var url = new URL(`geolayer/geojson/layertype/` + layerTypes[i], window.location.origin + drupalSettings.path.baseUrl)
+
+        // Pass the filters.
+        const filters = drupalSettings.geolayer_map[instance.target].filters || {};
+        Object.entries(filters).forEach( ([key, value]) => {
+          if (Array.isArray(value)) {
+            for (let i = 0; i < value.length; i++) {
+              url.searchParams.append(key + '[]', value[i]);
+            }
+          }
+          else {
+            url.searchParams.append(key, value);
+          }
+        });
         await fetch(url, {
           method: 'GET',
           headers: {
@@ -46,12 +59,15 @@
         }).then(function (response) {
           response.json().then(function (data) {
             data.features.forEach(function (feature) {
+              // Add the layer into the group and hide the child layers.
               const layer = instance.addLayer('geojson', {
                 title: feature.properties.label,
                 geojson: feature,
+                group: feature.properties.name,
+                combine: true,
                 styleFunction: lineStyle,
               });
-              if (geoLayers.length === 1) {
+              if (layerTypes.length === 1) {
                 instance.zoomToLayer(layer);
               }
             });
@@ -59,10 +75,6 @@
         });
       }
       instance.zoomToVectors();
-      if (geoLayers.length > 1) {
-        // Zoom out a little when there are multiple layers.
-        instance.map.getView().setZoom((instance.map.getView().getZoom() - 1.5));
-      }
     },
     weight: 100,
   };

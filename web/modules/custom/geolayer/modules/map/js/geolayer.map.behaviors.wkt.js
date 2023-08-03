@@ -28,7 +28,11 @@
             width: lineWidth,
             lineDash: lineDash,
             lineCap: lineCap,
-          })
+          }),
+          // Must define fill so clicks can be detected. Add a transparent fill.
+          fill: new style.Fill({
+            color: 'rgba(0,0,0,0)',
+          }),
         });
       }
 

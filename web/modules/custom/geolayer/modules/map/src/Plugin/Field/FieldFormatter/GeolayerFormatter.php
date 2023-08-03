@@ -37,20 +37,10 @@ class GeolayerFormatter extends FormatterBase {
     // Render the map.
     $element[0] = [
       '#type' => 'geolayer_map',
-      '#map_type' => 'geofield',
+      '#map_type' => 'geolayers',
       '#map_settings' => [
+        'filter_type' => 'layerid',
         'geolayers' => $geolayers,
-        'map_type' => 'geolayers',
-        'behaviors' => [
-          'wkt' => [
-            'zoom' => TRUE,
-          ],
-        ],
-      ],
-      '#attached' => [
-        'library' => [
-          'geolayer_map/behavior_geojson',
-        ],
       ],
     ];
     return $element;

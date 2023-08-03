@@ -2,6 +2,7 @@
 
 namespace Drupal\geolayer_map\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Entity\Plugin\DataType\EntityAdapter;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
@@ -89,9 +90,9 @@ class GeofieldFormatter extends FormatterBase {
 
     // Set the Geolayer style.
     $style = [];
-    if ($item->getParent() && $item->getParent()->getParent()) {
+    if ($item->getParent() && $item->getParent()->getParent() && $item->getParent()->getParent() instanceof EntityAdapter) {
       $geolayer = $item->getParent()->getParent()->getEntity();
-      if ($geolayer->layer_type->entity) {
+      if ($geolayer->hasField('layer_type')) {
         $style = [
           'color' => $geolayer->layer_type->entity->color->color,
           'line_style' => $geolayer->layer_type->entity->line_style->value,
@@ -122,7 +123,6 @@ class GeofieldFormatter extends FormatterBase {
         '#map_type' => 'geofield',
         '#map_settings' => [
           'wkt' => $feature,
-          'map_type' => 'geofield',
           'layer_style' => $style,
           'behaviors' => [
             'wkt' => [

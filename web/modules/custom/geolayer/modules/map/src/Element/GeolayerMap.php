@@ -65,7 +65,6 @@ class GeolayerMap extends RenderElement {
     $element['#attached']['drupalSettings']['geolayer_map'][$map_id] = $instance_settings;
 
     // Create and dispatch a MapRenderEvent.
-
     $event = new MapRenderEvent($map, $element);
     \Drupal::service('event_dispatcher')->dispatch(MapRenderEvent::EVENT_NAME, $event);
 

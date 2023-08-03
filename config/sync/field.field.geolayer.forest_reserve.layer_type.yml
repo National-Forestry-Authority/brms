@@ -12,7 +12,7 @@ entity_type: geolayer
 bundle: forest_reserve
 label: 'Layer type'
 description: 'The layer type determines the colour, width and type of line drawn on the map.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
