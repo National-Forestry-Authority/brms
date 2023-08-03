@@ -75,8 +75,6 @@ function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterfac
 
 /**
  * Implements hook_views_pre_render().
- *
- * @see farm_ui_map_module_implements_alter()
  */
 function brms_common_views_pre_render(ViewExecutable $view) {
   // Render a map attachment above the forest reserves views.
