@@ -28,7 +28,7 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
    *   The MapRenderEvent.
    */
   public function onMapRender(MapRenderEvent $event) {
-    
+
     // Add the map type cache tags.
     $event->addCacheTags($event->getMapType()->getCacheTags());
 
@@ -41,12 +41,6 @@ class MapRenderEventSubscriber implements EventSubscriberInterface {
     // Add the WKT behavior if the render element has WKT.
     if (!empty($event->element['#map_settings']['wkt'])) {
       $event->addBehavior('wkt');
-    }
-
-    // Add the wkt and geofield behavior to the geofield_widget map.
-    if (in_array($event->getMapType()->id(), ['geofield_widget'])) {
-      $event->addBehavior('wkt');
-      $event->addBehavior('geofield');
     }
 
     // Add the popup behavior.

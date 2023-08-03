@@ -10,6 +10,7 @@ use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_entity_base_field_info().
@@ -68,6 +69,43 @@ function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterfac
   if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
     if (isset($fields['nfa_sites_global_id'])) {
       $fields['nfa_sites_global_id']->addConstraint('UniqueField');
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function brms_common_views_pre_render(ViewExecutable $view) {
+  // Render a map attachment above the forest reserves views.
+  if ($view->id() == 'forest_reserves') {
+
+    // Pass the same exposed filters to the geojson view.
+    $exposed_filters = $view->getExposedInput();
+
+    // Add a layer for all layer types by passing the type term id to the map
+    // settings.
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadTree('layer_type');
+
+    if ($terms) {
+      foreach ($terms as $term) {
+        /** @var \Drupal\taxonomy\Entity\term $term */
+        $layer_types[] = $term->tid;
+      }
+
+      // Build the map render array.
+      $map = [
+        '#type' => 'geolayer_map',
+        '#map_type' => 'geojson_layer_type',
+        '#map_settings' => [
+          'layer_types' => $layer_types,
+          'filters' => $exposed_filters,
+        ],
+      ];
+
+      // Render the map.
+      $view->attachment_before['forest_reserves_map'] = $map;
     }
   }
 }

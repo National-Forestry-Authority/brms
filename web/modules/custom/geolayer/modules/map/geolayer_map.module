@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Entity\View;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_theme().
