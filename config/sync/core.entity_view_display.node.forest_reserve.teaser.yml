@@ -11,8 +11,8 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.district_1997
-    - field.field.node.forest_reserve.district_1997_2
+    - field.field.node.forest_reserve.district
+    - field.field.node.forest_reserve.district_2
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
@@ -61,8 +61,8 @@ hidden:
   boundary_records_status: true
   cadastral_sheet_number_1_10000: true
   cadastral_sheet_number_1_50000: true
-  district_1997: true
-  district_1997_2: true
+  district: true
+  district_2: true
   forest_reserve_serial_number: true
   forest_reserve_serial_number_2: true
   forest_reserve_type: true

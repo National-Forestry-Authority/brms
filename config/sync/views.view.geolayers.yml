@@ -7,7 +7,7 @@ dependencies:
     - field.storage.taxonomy_term.color
     - field.storage.taxonomy_term.line_style
     - field.storage.taxonomy_term.line_width
-    - taxonomy.vocabulary.district_1997
+    - taxonomy.vocabulary.district
     - taxonomy.vocabulary.forest_reserve_type
     - user.role.authenticated
   module:
@@ -1671,7 +1671,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: district_1997
+          vid: district
           type: select
           hierarchy: false
           limit: true

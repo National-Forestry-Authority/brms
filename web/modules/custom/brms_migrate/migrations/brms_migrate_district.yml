@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies: {  }
-id: brms_migrate_district_1997
-label: Districts 1997
+id: brms_migrate_district
+label: Districts
 source:
   plugin: csv
-  path: public://migrations/uganda-districts-1997.csv
+  path: public://migrations/uganda-districts.csv
   delimiter: ','
   enclosure: '"'
   header_offset: 0
@@ -22,4 +22,4 @@ process:
   name: district
 destination:
   plugin: entity:taxonomy_term
-  default_bundle: district_1997
+  default_bundle: district

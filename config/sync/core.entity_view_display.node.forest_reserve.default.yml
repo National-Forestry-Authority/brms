@@ -10,8 +10,8 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.district_1997
-    - field.field.node.forest_reserve.district_1997_2
+    - field.field.node.forest_reserve.district
+    - field.field.node.forest_reserve.district_2
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
@@ -97,7 +97,7 @@ content:
     third_party_settings: {  }
     weight: 20
     region: content
-  district_1997:
+  district:
     type: entity_reference_label
     label: above
     settings:
@@ -105,7 +105,7 @@ content:
     third_party_settings: {  }
     weight: 16
     region: content
-  district_1997_2:
+  district_2:
     type: entity_reference_label
     label: above
     settings:

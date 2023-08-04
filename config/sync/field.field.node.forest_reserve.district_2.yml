@@ -1,21 +1,21 @@
-uuid: b72a8d3e-d312-4a30-b312-a13543b8c659
+uuid: b263c35a-fff2-4d6b-9fe5-594a8f193756
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.district_1997_2
+    - field.storage.node.district_2
     - node.type.forest_reserve
-    - taxonomy.vocabulary.district_1997
+    - taxonomy.vocabulary.district
   module:
     - custom_add_another
 third_party_settings:
   custom_add_another:
     custom_add_another: 'Add another district'
-id: node.forest_reserve.district_1997_2
-field_name: district_1997_2
+id: node.forest_reserve.district_2
+field_name: district_2
 entity_type: node
 bundle: forest_reserve
-label: 'Administrative district 2 (1997)'
+label: 'Administrative district 2'
 description: ''
 required: false
 translatable: false
@@ -25,7 +25,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      district_1997: district_1997
+      district: district
     sort:
       field: name
       direction: asc

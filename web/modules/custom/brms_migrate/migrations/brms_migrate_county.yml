@@ -1,11 +1,11 @@
 langcode: en
 status: true
 dependencies: {  }
-id: brms_migrate_county_1997
-label: Counties 1997
+id: brms_migrate_county
+label: Counties
 source:
   plugin: csv
-  path: public://migrations/uganda-districts-1997.csv
+  path: public://migrations/uganda-districts.csv
   delimiter: ','
   enclosure: '"'
   header_offset: 0
@@ -19,15 +19,19 @@ source:
     1:
       name: county
       label: 'County'
+    2:
+      name: county_1998_si
+      label: '1998 County'
 process:
   name: county
+  county_1998_si: county_1998_si
   parent:
     plugin: entity_lookup
     source: district
     entity_type: taxonomy_term
     value_key: name
     bundle_key: vid
-    bundle: district_1997
+    bundle: district
 destination:
   plugin: entity:taxonomy_term
-  default_bundle: district_1997
+  default_bundle: district

@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.forest_reserve_type
     - node.type.forest_reserve
     - system.menu.admin
-    - taxonomy.vocabulary.district_1997
+    - taxonomy.vocabulary.district
     - taxonomy.vocabulary.forest_reserve_type
   module:
     - node
@@ -937,7 +937,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: district_1997
+          vid: district
           type: select
           hierarchy: true
           limit: true

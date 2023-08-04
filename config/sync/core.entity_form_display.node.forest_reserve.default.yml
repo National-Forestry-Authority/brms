@@ -10,8 +10,8 @@ dependencies:
     - field.field.node.forest_reserve.boundary_records_status
     - field.field.node.forest_reserve.cadastral_sheet_number_1_10000
     - field.field.node.forest_reserve.cadastral_sheet_number_1_50000
-    - field.field.node.forest_reserve.district_1997
-    - field.field.node.forest_reserve.district_1997_2
+    - field.field.node.forest_reserve.district
+    - field.field.node.forest_reserve.district_2
     - field.field.node.forest_reserve.forest_reserve_serial_number
     - field.field.node.forest_reserve.forest_reserve_serial_number_2
     - field.field.node.forest_reserve.forest_reserve_type
@@ -159,7 +159,7 @@ third_party_settings:
     group_district:
       children:
         - forest_reserve_serial_number
-        - district_1997
+        - district
         - group_district_2
       label: Districts
       region: content
@@ -191,7 +191,7 @@ third_party_settings:
     group_district_2:
       children:
         - forest_reserve_serial_number_2
-        - district_1997_2
+        - district_2
       label: 'District 2'
       region: content
       parent_name: group_district
@@ -271,7 +271,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  district_1997:
+  district:
     type: cshs
     weight: 4
     region: content
@@ -284,7 +284,7 @@ content:
       required_depth: 0
       none_label: '- Please select -'
     third_party_settings: {  }
-  district_1997_2:
+  district_2:
     type: cshs
     weight: 4
     region: content

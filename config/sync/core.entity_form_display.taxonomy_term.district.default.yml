@@ -1,16 +1,16 @@
-uuid: 33398a0b-eeda-4921-99b1-f153700ef4eb
+uuid: 509832fa-7ec5-473f-868a-60c333b78771
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.district_1997.county_1998_si
-    - taxonomy.vocabulary.district_1997
+    - field.field.taxonomy_term.district.county_1998_si
+    - taxonomy.vocabulary.district
   module:
     - path
     - text
-id: taxonomy_term.district_1997.default
+id: taxonomy_term.district.default
 targetEntityType: taxonomy_term
-bundle: district_1997
+bundle: district
 mode: default
 content:
   county_1998_si:

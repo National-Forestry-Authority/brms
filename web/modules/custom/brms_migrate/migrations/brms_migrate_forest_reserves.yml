@@ -33,105 +33,129 @@ source:
       name: district1
       label: 'District 1'
     6:
-      name: county1a
-      label: 'County 1a'
+      name: county1a1998
+      label: 'County 1a 1998'
     7:
-      name: county1b
-      label: 'County 1b'
+      name: county1b1998
+      label: 'County 1b 1998'
     8:
-      name: county1c
-      label: 'County 1c'
+      name: county1c1998
+      label: 'County 1c 1998'
     9:
-      name: county1d
-      label: 'County 1d'
+      name: county1d1998
+      label: 'County 1d 1998'
     10:
+      name: county1a1997
+      label: 'County 1a 1997'
+    11:
+      name: county1b1997
+      label: 'County 1b 1997'
+    12:
+      name: county1c1997
+      label: 'County 1c 1997'
+    13:
+      name: county1d1997
+      label: 'County 1d 1997'
+    14:
       name: forest_reserve_serial_number_2
       label: 'Forest reserve serial number 2'
-    11:
+    15:
       name: district2
       label: 'District 2'
-    12:
-      name: county2a
-      label: 'County 2a'
-    13:
-      name: county2b
-      label: 'County 2b'
-    14:
-      name: county2c
-      label: 'County 2c'
-    15:
-      name: county2d
-      label: 'County 2d'
     16:
+      name: county2a1998
+      label: 'County 2a 1998'
+    17:
+      name: county2b1998
+      label: 'County 2b 1998'
+    18:
+      name: county2c1998
+      label: 'County 2c 1998'
+    19:
+      name: county2d1998
+      label: 'County 2d 1998'
+    20:
+      name: county2a1997
+      label: 'County 2a 1997'
+    21:
+      name: county2b1997
+      label: 'County 2b 1997'
+    22:
+      name: county2c1997
+      label: 'County 2c 1997'
+    23:
+      name: county2d1997
+      label: 'County 2d 1997'
+    24:
       name: map_sheet_reference
       label: 'Map sheet references'
-    17:
+    25:
       name: map_sheet_reference_2
       label: 'Map sheet references 2'
-    18:
+    26:
       name: cadastral_sheet_number_1_10000
       label: 'Cadastral sheet number 1:10,000'
-    19:
+    27:
       name: cadastral_sheet_number_1_50000
       label: 'Cadastral sheet number 1:50,000'
-    20:
+    28:
       name: boundary_plan_number
       label: 'Boundary plan number'
-    21:
+    29:
       name: boundary_plan_number_2
       label: 'Boundary plan number 2'
-    22:
+    30:
       name: land_registration_number
       label: 'Land registration number'
-    23:
+    31:
       name: land_registration_number_2
       label: 'Land registration number 2'
-    24:
+    32:
       name: gazetted_area_1998
       label: 'Gazetted area 1998'
-    25:
+    33:
       name: gazetted_area_1968
       label: 'Gazetted area 1968'
-    26:
+    34:
       name: gazetted_area_1948
       label: 'Gazetted area 1948'
-    27:
+    35:
       name: gazetted_area_1932
       label: 'Gazetted area 1932'
-    28:
+    36:
       name: latest_surveyed_area
       label: 'Latest surveyed area'
-    29:
+    37:
       name: total_cutline_length
       label: 'Total cutline length'
-    30:
+    38:
       name: riverline_length
       label: 'Riverline length'
-    31:
+    39:
       name: shoreline_length
       label: 'Shoreline length'
-    32:
+    40:
       name: protected_area_length
       label: 'Protected area length'
-    33:
+    41:
       name: 1998_gazette
       label: '1998 Gazette'
-    34:
+    42:
       name: 1968_gazette
       label: '1968 Gazette'
-    35:
+    43:
       name: 1948_gazette
       label: '1948 Gazette'
-    36:
+    44:
       name: 1932_gazette
       label: '1932 Gazette'
-    37:
+    45:
       name: boundary_records_status
       label: 'Boundary records status'
-    38:
+    46:
       name: boundary_desc_records
       label: 'Boundary description records'
-    39:
+    47:
       name: priority_action
       label: 'Priority for action'
 process:
@@ -151,13 +175,17 @@ process:
       value_key: name
       bundle_key: vid
       bundle: forest_reserve_serial_number
-  district_1997:
+  district:
     - plugin: concat
       source:
-        - county1a
-        - county1b
-        - county1c
-        - county1d
+        - county1a1997
+        - county1b1997
+        - county1c1997
+        - county1d1997
+        - county1a1998
+        - county1b1998
+        - county1c1998
+        - county1d1998
       delimiter: ','
     - plugin: explode
       delimiter: ','
@@ -165,15 +193,19 @@ process:
       entity_type: taxonomy_term
       value_key: name
       bundle_key: vid
-      bundle: district_1997
+      bundle: district
       ignore_case: true
-  district_1997_2:
+  district_2:
     - plugin: concat
       source:
-        - county2a
-        - county2b
-        - county2c
-        - county2d
+        - county2a1997
+        - county2b1997
+        - county2c1997
+        - county2d1997
+        - county2a1998
+        - county2b1998
+        - county2c1998
+        - county2d1998
       delimiter: ','
     - plugin: explode
       delimiter: ','
@@ -181,7 +213,7 @@ process:
       entity_type: taxonomy_term
       value_key: name
       bundle_key: vid
-      bundle: district_1997
+      bundle: district
       ignore_case: true
   map_sheet_reference:
     - plugin: skip_on_value

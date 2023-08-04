@@ -1,8 +1,0 @@
-uuid: a604ad67-411e-4c8d-9008-2af1da979df2
-langcode: en
-status: true
-dependencies: {  }
-name: 'Administrative district 1997'
-vid: district_1997
-description: 'Administrative districts of Uganda at 1997'
-weight: 0
