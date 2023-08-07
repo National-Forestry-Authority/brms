@@ -12,11 +12,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Source for a given directory path.
  *
  * @MigrateSource(
- *   id = "directory_kml",
+ *   id = "directory_forest_reserve_geolayer",
  *   source_module = "brms_migrate",
  * )
  */
-class DirectoryKML extends Directory implements ContainerFactoryPluginInterface {
+class DirectoryForestReserveGeolayer extends Directory implements ContainerFactoryPluginInterface {
   /**
    * The geoPhpWrapper service.
    *
@@ -42,19 +42,25 @@ class DirectoryKML extends Directory implements ContainerFactoryPluginInterface 
    * {@inheritdoc}
    */
   public function prepareRow(Row $row) {
-    // Load the KML content and convert it to WKT using Geofield's geophp
-    // service.
-    $content = file_get_contents($row->getSourceProperty('source_file_pathname'));
-    $geometry = $this->geoPhpWrapper->load($content);
-
-    if ($geometry instanceof \Geometry) {
-      $row->setSourceProperty('kml', $geometry->out('wkt'));
-    }
-
-    // Set the source id to filename without the KML suffix.
+    // The KML filename has the format NID-reservename.layertype.kml for example
+    // 26138-Abera.cairn.kml. We will extract the nid and source id of the
+    // brms_migrate_geolayers migration from the filename.
     $filename = $row->getSourceProperty('source_file_basename');
-    $source_id = substr($filename, 0, strrpos($filename, '.'));
-    $row->setSourceProperty('sourceID', $source_id);
+
+    $parts = explode('.', $filename);
+
+    $nid = explode('-', $parts[0])[0];
+
+    // Set the nid source property of the forest reserve that the geolayer will
+    // be assigned to.
+    $row->setSourceProperty('nid', $nid);
+
+    // Set the unique source id to nid-layertype.
+    $row->setSourceProperty('sourceID', $nid . '-' . $parts[1]);
+    // Set the migration id so we can look up the brms_migrate_geolayers
+    // migration to retrieve the geolayer id that will be assigned to the
+    // forest reserve.
+    $row->setSourceProperty('migration_id', $nid . '-' . $parts[1]);
   }
 
 }

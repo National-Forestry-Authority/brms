@@ -55,32 +55,6 @@ class ForestReserveGeolayer extends ProcessPluginBase implements ContainerFactor
       $geolayers = [0 => ['target_id' => $value]];
     }
 
-    // The source value is the geolayer id. The source row also contains title,
-    // description and layer type values. Update the geolayer entity with these
-    // values.
-    $type = $row->getSourceProperty('type');
-    $title = $row->getSourceProperty('title');
-    if (empty($title)) {
-      $title = $node->getTitle() . ': ' . $type;
-    }
-    $description = $row->getSourceProperty('description');
-
-    /** @var \Drupal\geolayer\GeolayerInterface $geolayer */
-    $geolayer = $this->entityTypeManager->getStorage('geolayer')->load($value);
-    $geolayer->set('label', $title);
-    $geolayer->set('description', $description);
-
-    // Load the layer type taxonomy term.
-    /** @var \Drupal\taxonomy\Entity\term $layer_type */
-    $layer_type = $this->entityTypeManager->getStorage('taxonomy_term')
-      ->loadByProperties(['name' => $type, 'vid' => 'layer_type']);
-    if (!empty($layer_type)) {
-      $geolayer->set('layer_type', reset($layer_type)->id());
-    }
-    else {
-      throw new MigrateException("Invalid layer type $type");
-    }
-    $geolayer->save();
     return $geolayers;
   }
 

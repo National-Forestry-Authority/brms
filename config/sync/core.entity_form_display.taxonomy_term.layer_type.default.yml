@@ -21,13 +21,7 @@ content:
     weight: 1
     region: content
     settings:
-      default_colors: |-
-
-        #ac725e,#d06b64,#f83a22,#fa573c,#ff7537,#ffad46
-        #42d692,#16a765,#7bd148,#b3dc6c,#fbe983
-        #92e1c0,#9fe1e7,#9fc6e7,#4986e7,#9a9cff
-        #b99aff,#c2c2c2,#cabdbf,#cca6ac,#f691b2
-        #cd74e6,#a47ae2
+      default_colors: '#ff3333,#7f3c8d,#11a579,#3969ac,#f2b701,#e73f74,#80ba5a,#e68310,#008695,#f97b72,#f97b72,#4b4b8f,#a5aa99'
     third_party_settings: {  }
   description:
     type: text_textarea

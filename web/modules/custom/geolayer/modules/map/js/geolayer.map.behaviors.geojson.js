@@ -47,7 +47,7 @@
           response.json().then(function (data) {
             data.features.forEach(function (feature) {
               const layer = instance.addLayer('geojson', {
-                title: feature.properties.label,
+                title: feature.properties.name,
                 geojson: feature,
                 styleFunction: lineStyle,
               });

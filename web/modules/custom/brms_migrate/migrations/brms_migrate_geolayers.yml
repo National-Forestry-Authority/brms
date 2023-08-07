@@ -6,19 +6,27 @@ migration_tags:
   - Content
 label: Geolayer entities
 source:
-  plugin: directory_kml
+  plugin: directory_geolayer
   track_changes: true
   directory:
-    path: public://migrations/geolayers
+    path: public://migrations/cfr_kml
   # All files with a .kml extension.
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
 process:
-  label: source_file_basename
+  label: label
   geofield/value: kml
   geofield/geo_type:
     plugin: default_value
     default_value: 'Polygon'
+  layer_type:
+    plugin: entity_lookup
+    entity_type: taxonomy_term
+    value_key: name
+    bundle_key: vid
+    bundle: layer_type
+    ignore_case: true
+    source: layer_type
 destination:
   plugin: 'entity:geolayer'
   default_bundle: forest_reserve

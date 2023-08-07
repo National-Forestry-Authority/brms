@@ -6,38 +6,14 @@ migration_tags:
   - Content
 label: Forest Reserves
 source:
-  plugin: csv
-  path: public://migrations/geolayers/forest-reserve-geolayers.csv
-  delimiter: ','
-  enclosure: '"'
-  header_offset: 0
-  ids:
-    - migration_id
-  fields:
-    0:
-      name: migration_id
-      label: 'Migration ID'
-    1:
-      name: nid
-      label: 'NID'
-    2:
-      name: delta
-      label: 'Layer number'
-    3:
-      name: type
-      label: 'Layer type'
-    4:
-      name: title
-      label: 'Layer title'
-    5:
-      name: description
-      label: 'Layer description'
+  plugin: directory_forest_reserve_geolayer
+  track_changes: true
+  directory:
+    path: public://migrations/cfr_kml
+  # All files with a .kml extension.
+  file_mask: '/^.*\.kml$/'
+  recurse_level: -1
 process:
-  layer_type:
-    plugin: skip_on_empty
-    method: row
-    source: type
-    message: 'Layer type is missing'
   nid: nid
   geolayer_id:
     plugin: migration_lookup
