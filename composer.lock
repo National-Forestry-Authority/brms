@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a4c6bf8b0eded9d1d4985d3982becdf",
+    "content-hash": "a383a148f3d11778ca913e695dcb9796",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5691,7 +5691,7 @@
             "version": "v2.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/National-Forestry-Authority/nfa-map.git",
+                "url": "https://github.com/National-Forestry-Authority/nfa-map",
                 "reference": "9b30abb2cbb82850e4c367b5cd7188606031046d"
             },
             "type": "drupal-library",

@@ -23,11 +23,11 @@
         },
         {
           "type": "git",
-          "url": "https://github.com/National-Forestry-Authority/nfa_tracker.git"
+          "url": "https://github.com/National-Forestry-Authority/nfa_tracker"
         },
         {
           "type": "git",
-          "url": "https://github.com/National-Forestry-Authority/nfa-map.git"
+          "url": "https://github.com/National-Forestry-Authority/nfa-map"
         }
     ],
     "require": {
