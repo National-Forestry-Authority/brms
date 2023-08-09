@@ -59,7 +59,7 @@
         }).then(function (response) {
           response.json().then(function (data) {
             data.features.forEach(function (feature) {
-              // Add the layer into the group and hide the child layers.
+              // Add the layer into the group and hide (combine) child layers.
               const layer = instance.addLayer('geojson', {
                 title: feature.properties.label,
                 geojson: feature,

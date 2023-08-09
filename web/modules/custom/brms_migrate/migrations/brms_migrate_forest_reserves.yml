@@ -158,6 +158,8 @@ source:
     47:
       name: priority_action
       label: 'Priority for action'
+  constants:
+    county_si: '(1998 SI)'
 process:
   nid: nid
   nfa_sites_global_id: uuid
@@ -175,6 +177,30 @@ process:
       value_key: name
       bundle_key: vid
       bundle: forest_reserve_serial_number
+  county1a1998:
+    plugin: concat
+    source:
+      - county1a1998
+      - constants/county_si
+    delimiter: ' '
+  county1b1998:
+    plugin: concat
+    source:
+      - county1b1998
+      - constants/county_si
+    delimiter: ' '
+  county1c1998:
+    plugin: concat
+    source:
+      - county1c1998
+      - constants/county_si
+    delimiter: ' '
+  county1d1998:
+    plugin: concat
+    source:
+      - county1d1998
+      - constants/county_si
+    delimiter: ' '
   district:
     - plugin: concat
       source:
@@ -182,10 +208,10 @@ process:
         - county1b1997
         - county1c1997
         - county1d1997
-        - county1a1998
-        - county1b1998
-        - county1c1998
-        - county1d1998
+        - '@county1a1998'
+        - '@county1b1998'
+        - '@county1c1998'
+        - '@county1d1998'
       delimiter: ','
     - plugin: explode
       delimiter: ','
@@ -195,6 +221,30 @@ process:
       bundle_key: vid
       bundle: district
       ignore_case: true
+  county2a1998:
+    plugin: concat
+    source:
+      - county2a1998
+      - constants/county_si
+    delimiter: ' '
+  county2b1998:
+    plugin: concat
+    source:
+      - county2b1998
+      - constants/county_si
+    delimiter: ' '
+  county2c1998:
+    plugin: concat
+    source:
+      - county2c1998
+      - constants/county_si
+    delimiter: ' '
+  county2d1998:
+    plugin: concat
+    source:
+      - county2d1998
+      - constants/county_si
+    delimiter: ' '
   district_2:
     - plugin: concat
       source:
@@ -202,10 +252,10 @@ process:
         - county2b1997
         - county2c1997
         - county2d1997
-        - county2a1998
-        - county2b1998
-        - county2c1998
-        - county2d1998
+        - '@county2a1998'
+        - '@county2b1998'
+        - '@county2c1998'
+        - '@county2d1998'
       delimiter: ','
     - plugin: explode
       delimiter: ','

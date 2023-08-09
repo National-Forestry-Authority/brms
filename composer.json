@@ -23,22 +23,11 @@
         },
         {
           "type": "git",
-          "url": "https://github.com/National-Forestry-Authority/nfa_tracker.git"
+          "url": "https://github.com/National-Forestry-Authority/nfa_tracker"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "national-forestry-authority/nfa-map",
-                "version": "2.1.0",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/National-Forestry-Authority/nfa-map/releases/download/v2.1.0/v2.1.0-dist.zip",
-                    "type": "zip"
-                },
-                "extra": {
-                    "installer-name": "nfa-map"
-                }
-            }
+          "type": "git",
+          "url": "https://github.com/National-Forestry-Authority/nfa-map"
         }
     ],
     "require": {

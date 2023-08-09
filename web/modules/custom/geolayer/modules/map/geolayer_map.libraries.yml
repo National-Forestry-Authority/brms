@@ -1,13 +1,13 @@
 nfa-map:
   js:
-    /libraries/nfa-map/nfa-map.js:
+    /libraries/nfa-map/dist/nfa-map.js:
       # Skip aggregating farmOS-map.js with other JS since that
       # breaks the lazy loading of behavior chunks.
       preprocess: false
       minified: true
   css:
     theme:
-      /libraries/nfa-map/nfa-map.css: { }
+      /libraries/nfa-map/dist/nfa-map.css: { }
   dependencies:
     - core/drupalSettings
 geolayer_map:
