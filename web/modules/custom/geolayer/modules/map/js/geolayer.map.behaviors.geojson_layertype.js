@@ -64,7 +64,7 @@
                 title: feature.properties.label,
                 geojson: feature,
                 group: feature.properties.name,
-                combine: 1,
+                combine: true,
                 styleFunction: lineStyle,
               });
               if (layerTypes.length === 1) {
