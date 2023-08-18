@@ -1,4 +1,6 @@
 (function () {
+  'use strict';
+
   nfa.map.behaviors.geofield = {
     attach: function (instance) {
       if (instance.edit) {

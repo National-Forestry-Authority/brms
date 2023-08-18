@@ -1,0 +1,23 @@
+uuid: 46d5abe2-a559-411c-983d-12fafaa4c979
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.point_shape
+    - taxonomy.vocabulary.layer_type
+  module:
+    - options
+id: taxonomy_term.layer_type.point_shape
+field_name: point_shape
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Point shape'
+description: 'Used when type of geometry is Point.'
+required: false
+translatable: false
+default_value:
+  -
+    value: circle
+default_value_callback: ''
+settings: {  }
+field_type: list_string

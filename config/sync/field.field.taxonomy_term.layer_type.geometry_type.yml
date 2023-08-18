@@ -1,23 +1,23 @@
-uuid: 5f35e70d-9d8d-4d33-8730-c4f1ce38b5fb
+uuid: 9fce8f53-edbe-40e7-88cd-7f01d3b1ac31
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.line_width
+    - field.storage.taxonomy_term.geometry_type
     - taxonomy.vocabulary.layer_type
   module:
     - options
-id: taxonomy_term.layer_type.line_width
-field_name: line_width
+id: taxonomy_term.layer_type.geometry_type
+field_name: geometry_type
 entity_type: taxonomy_term
 bundle: layer_type
-label: 'Line width'
+label: 'Geometry type'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
-    value: 2
+    value: polygon
 default_value_callback: ''
 settings: {  }
-field_type: list_integer
+field_type: list_string
