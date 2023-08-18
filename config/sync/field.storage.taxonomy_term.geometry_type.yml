@@ -1,0 +1,27 @@
+uuid: 51e78fb4-efd0-4724-853e-a007f8661bef
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.geometry_type
+field_name: geometry_type
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: polygon
+      label: Polygon
+    -
+      value: point
+      label: Point
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
