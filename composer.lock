@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a383a148f3d11778ca913e695dcb9796",
+    "content-hash": "16395367e3c006acb4715ba3eecda699",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2509,6 +2509,69 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/feeds",
                 "issues": "https://www.drupal.org/project/issues/feeds"
+            }
+        },
+        {
+            "name": "drupal/field_formatter_class",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/field_formatter_class.git",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/field_formatter_class-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "11682ba40db28aeac4319428db01590fbf2f4c6c"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1667840724",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Macpherson",
+                    "homepage": "https://www.drupal.org/u/andrewmacpherson",
+                    "role": "maintainer"
+                },
+                {
+                    "name": "Oleksandr Dekhteruk",
+                    "homepage": "https://www.drupal.org/u/pifagor",
+                    "role": "maintainer"
+                },
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "mfer",
+                    "homepage": "https://www.drupal.org/user/25701"
+                },
+                {
+                    "name": "pifagor",
+                    "homepage": "https://www.drupal.org/user/2375692"
+                }
+            ],
+            "description": "Provides custom HTML class settings for field formatters.",
+            "homepage": "https://www.drupal.org/project/field_formatter_class",
+            "support": {
+                "source": "https://git.drupalcode.org/project/field_formatter_class",
+                "issues": "https://www.drupal.org/project/issues/field_formatter_class"
             }
         },
         {
@@ -5703,18 +5766,18 @@
         },
         {
             "name": "national-forestry-authority/nfa_gin",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/National-Forestry-Authority/nfa_gin",
-                "reference": "f2c66c63d2e2d857cc4249590b2a3ce2ce8d72c5"
+                "reference": "0c8e5c751ab7086c6c57f397b4982d995ac9ace9"
             },
             "type": "drupal-theme",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "Gin sub-theme for NFA websites",
-            "time": "2023-08-02T09:06:08+00:00"
+            "time": "2023-08-23T16:07:35+00:00"
         },
         {
             "name": "national-forestry-authority/nfa_landing",

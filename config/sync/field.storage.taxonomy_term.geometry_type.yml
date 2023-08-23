@@ -17,6 +17,9 @@ settings:
     -
       value: point
       label: Point
+    -
+      value: survey
+      label: Survey
   allowed_values_function: ''
 module: options
 locked: false

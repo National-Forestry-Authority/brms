@@ -1,0 +1,30 @@
+uuid: b3f3c27d-7585-4b5d-b115-dbca9e5a9372
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - nfa_gin_brms
+_core:
+  default_config_hash: crrkiWs5wDeV9_dlWbeinEoyvl0emBNM46ZnItEaXwo
+id: nfa_gin_brms_breadcrumbs
+theme: nfa_gin_brms
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
