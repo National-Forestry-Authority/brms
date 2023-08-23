@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * NFA Gin's theme implementation to display a page to anonymouse users.
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.pre_content: Items for the pre-content region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ * - page.highlighted: Items for the highlighted region.
+ * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.content: The main content of the current page.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+{% if not logged_in and is_landing %}
+  {{ attach_library('nfa_gin/nfa_landing') }}
+  <div class="nfa-landing">
+    <div class="content layout-container">
+      <div class="landing-toolbar">
+        <div class="site-logo"><img src="{{ directory ~ '/logo.svg' }}" width="220px" /></div>
+      </div>
+
+      {% block page_title %}
+        <h1>{{ page.header.nfa_gin_brms_page_title }}</h1>
+      {% endblock %}
+
+      {% block page_content %}
+        {{ page.content }}
+      {% endblock %}
+    </div>
+    {% block landing_image %}
+      {% if landing_image %}
+        <div class="wallpaper">
+          <img src="{{ landing_image }}" alt="" />
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% else %}
+  {% include '@gin/page/page.html.twig' %}
+{% endif %}
