@@ -29,21 +29,21 @@ module.exports = {
         exclude: /sprite\.svg$/,
         type: 'javascript/auto',
         use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]', //?[contenthash]
-              publicPath: (url, resourcePath, context) => {
-                const relativePath = path.relative(context, resourcePath);
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]', //?[contenthash]
+            publicPath: (url, resourcePath, context) => {
+              const relativePath = path.relative(context, resourcePath);
 
-                // Settings
-                if (resourcePath.includes('media/settings')) {
-                  return `../../${relativePath}`;
-                }
+              // Settings
+              if (resourcePath.includes('media/settings')) {
+                return `../../${relativePath}`;
+              }
 
-                return `../${relativePath}`;
-              },
+              return `../${relativePath}`;
             },
           },
+        },
           {
             loader: 'img-loader',
             options: {
@@ -112,9 +112,9 @@ module.exports = {
               additionalData: `
                 @use "sass:color";
                 @use "sass:math";
-                @import "../../gin/styles/helpers/_mq.scss";
-                @import "../../gin/styles/helpers/_vars.scss";
-                @import "../../gin/styles/helpers/_tools.scss";
+                @import "../../contrib/gin/styles/helpers/_mq.scss";
+                @import "../../contrib/gin/styles/helpers/_vars.scss";
+                @import "../../contrib/gin/styles/helpers/_tools.scss";
               `,
             },
           },

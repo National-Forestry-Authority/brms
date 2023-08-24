@@ -2,13 +2,6 @@
 
 /**
  * @file
- * nfa_gin_forests.theme
+ * nfa_gin_brms.theme
  */
 
-
-/**
- * Implements hook_preprocess_HOOK() for case 'field__forest_reserve'.
- */
-function nfa_gin_brms_preprocess_field(&$variables) {
-
-}

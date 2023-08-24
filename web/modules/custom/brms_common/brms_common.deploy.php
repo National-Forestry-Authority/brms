@@ -162,3 +162,48 @@ function brms_common_deploy_002(&$sandbox = NULL) {
     $term->save();
   }
 }
+
+/**
+ * Create geolayer type taxonomy terms for surveys.
+ */
+function brms_common_deploy_003(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Old survey',
+      'geometry_type' => 'survey',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#FF3333',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Surveyed and marked',
+      'geometry_type' => 'survey',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#11A579',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Surveyed',
+      'geometry_type' => 'survey',
+      'line_style' => 'dotted',
+      'line_width' => 2,
+      'color' => '#F2B701',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Marked',
+      'geometry_type' => 'survey',
+      'line_style' => 'dashed',
+      'line_width' => 2,
+      'color' => '#F8A519',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}

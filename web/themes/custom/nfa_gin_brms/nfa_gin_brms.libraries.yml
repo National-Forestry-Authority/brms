@@ -1,0 +1,4 @@
+nfa_gin_brms:
+  css:
+    theme:
+      dist/css/base/nfa_gin_brms.css: { minified: false }
