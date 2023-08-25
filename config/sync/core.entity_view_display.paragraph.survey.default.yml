@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.survey.description
-    - field.field.paragraph.survey.geolayer
+    - field.field.paragraph.survey.geolayers
     - field.field.paragraph.survey.surveyor
     - field.field.paragraph.survey.year_surveyed
     - paragraphs.paragraphs_type.survey
   module:
-    - entity_reference_revisions
     - field_formatter_class
+    - geolayer_map
     - text
     - yearonly
 id: paragraph.survey.default
@@ -27,12 +27,10 @@ content:
         class: pill
     weight: 2
     region: content
-  geolayer:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
+  geolayers:
+    type: geolayer_map_geolayers
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
     weight: 3
     region: content
