@@ -5,12 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.row
     - field.field.paragraph.survey.description
-    - field.field.paragraph.survey.geolayer
+    - field.field.paragraph.survey.geolayers
     - field.field.paragraph.survey.surveyor
     - field.field.paragraph.survey.year_surveyed
     - paragraphs.paragraphs_type.survey
   module:
     - field_formatter_class
+    - geolayer_map
     - layout_builder
     - text
     - yearonly
@@ -32,6 +33,13 @@ content:
         class: ''
     weight: 2
     region: content
+  geolayers:
+    type: geolayer_map_geolayers
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
   surveyor:
     type: entity_reference_label
     label: above
@@ -51,5 +59,4 @@ content:
         class: ''
     weight: 0
     region: content
-hidden:
-  geolayer: true
+hidden: {  }

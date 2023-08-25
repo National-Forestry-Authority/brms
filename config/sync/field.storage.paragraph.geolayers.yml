@@ -1,18 +1,17 @@
-uuid: 5098a748-b343-4cab-8706-9fd671345c52
+uuid: 6905715c-4305-4ca7-9304-50e36c4247a2
 langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
     - geolayer
     - paragraphs
-id: paragraph.geolayer
-field_name: geolayer
+id: paragraph.geolayers
+field_name: geolayers
 entity_type: paragraph
-type: entity_reference_revisions
+type: entity_reference
 settings:
   target_type: geolayer
-module: entity_reference_revisions
+module: core
 locked: false
 cardinality: 1
 translatable: true

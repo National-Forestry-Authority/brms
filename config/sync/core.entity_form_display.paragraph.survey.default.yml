@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.survey.description
-    - field.field.paragraph.survey.geolayer
+    - field.field.paragraph.survey.geolayers
     - field.field.paragraph.survey.surveyor
     - field.field.paragraph.survey.year_surveyed
     - paragraphs.paragraphs_type.survey
@@ -26,7 +26,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  geolayer:
+  geolayers:
     type: inline_entity_form_complex
     weight: 3
     region: content
