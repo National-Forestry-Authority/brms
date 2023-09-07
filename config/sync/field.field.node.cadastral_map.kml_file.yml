@@ -1,0 +1,27 @@
+uuid: af5779c0-c008-4781-a812-75d76f79eff9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.kml_file
+    - node.type.cadastral_map
+  module:
+    - file
+id: node.cadastral_map.kml_file
+field_name: kml_file
+entity_type: node
+bundle: cadastral_map
+label: 'KML file'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: kml
+  max_filesize: ''
+  description_field: false
+field_type: file

@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
+    - field.field.node.cadastral_map.kml_file
     - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
@@ -81,4 +82,5 @@ hidden:
   field_traced_by: true
   field_year: true
   geolayers: true
+  kml_file: true
   meta_data_explanation: true

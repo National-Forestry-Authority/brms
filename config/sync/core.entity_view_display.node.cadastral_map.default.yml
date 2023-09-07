@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
+    - field.field.node.cadastral_map.kml_file
     - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
@@ -253,6 +254,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  kml_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 28
     region: content
   links:
     settings: {  }

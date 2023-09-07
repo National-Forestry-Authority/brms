@@ -1,0 +1,23 @@
+uuid: 0c208f00-54e2-4147-b713-2e67dba7f2e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.kml_file
+field_name: kml_file
+entity_type: node
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
