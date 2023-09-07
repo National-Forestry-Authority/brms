@@ -6,14 +6,12 @@ use Drupal\Core\Entity\Plugin\DataType\EntityAdapter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geofield\Plugin\Field\FieldWidget\GeofieldBaseWidget;
-// namespace Drupal\farm_map\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\File\FileSystem;
-// use Drupal\farm_geo\Traits\WktTrait;
 use Drupal\file\FileInterface;
 use Drupal\geofield\GeoPHP\GeoPHPInterface;
 use Drupal\geofield\Plugin\GeofieldBackendManager;
@@ -287,9 +285,7 @@ class GeofieldWidget extends GeofieldBaseWidget {
 
       // Unset the current geometry value from the user input.
       $field_name = $this->fieldDefinition->getName();
-      $delta = $element['#delta'];
       $user_input = $form_state->getUserInput();
-      // unset($user_input[$field_name][$delta]);
       unset($user_input['geolayers']['form']['inline_entity_form']
       ['entities'][0]['form']['geofield'][0]);
       $form_state->setUserInput($user_input);
