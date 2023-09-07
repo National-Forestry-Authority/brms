@@ -1,0 +1,25 @@
+name: NFA Gin BRMS
+type: theme
+base theme: nfa_gin
+description: 'Subtheme of NFA Gin for the BRMS websites'
+core_version_requirement: ^9 || ^10
+
+libraries:
+  - nfa_gin_brms/nfa_gin_brms
+
+# Regions
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+
+dependencies:
+  - nfa_gin:nfa_gin

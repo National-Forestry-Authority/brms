@@ -46,6 +46,7 @@
         "drupal/entity_browser": "^2",
         "drupal/environment_indicator": "^4",
         "drupal/feeds": "^3.0@beta",
+        "drupal/field_formatter_class": "^1",
         "drupal/field_group": "^3",
         "drupal/geofield": "^1",
         "drupal/gin": "^3",

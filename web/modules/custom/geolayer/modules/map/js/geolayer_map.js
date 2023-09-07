@@ -1,4 +1,6 @@
 (function (Drupal) {
+  'use strict';
+
   Drupal.behaviors.geolayer_map = {
     attach: function (context, settings) {
       // Get the units.

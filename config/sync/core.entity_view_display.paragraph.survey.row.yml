@@ -1,0 +1,62 @@
+uuid: 6ea46abe-d96f-4bfb-aecf-c6d1f0dac723
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.row
+    - field.field.paragraph.survey.description
+    - field.field.paragraph.survey.geolayers
+    - field.field.paragraph.survey.surveyor
+    - field.field.paragraph.survey.year_surveyed
+    - paragraphs.paragraphs_type.survey
+  module:
+    - field_formatter_class
+    - geolayer_map
+    - layout_builder
+    - text
+    - yearonly
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.survey.row
+targetEntityType: paragraph
+bundle: survey
+mode: row
+content:
+  description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+  geolayers:
+    type: geolayer_map_geolayers
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  surveyor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  year_surveyed:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+hidden: {  }

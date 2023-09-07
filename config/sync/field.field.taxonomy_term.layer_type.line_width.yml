@@ -13,7 +13,7 @@ entity_type: taxonomy_term
 bundle: layer_type
 label: 'Line width'
 description: ''
-required: true
+required: false
 translatable: true
 default_value:
   -

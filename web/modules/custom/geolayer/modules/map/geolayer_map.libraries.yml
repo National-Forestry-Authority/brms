@@ -18,6 +18,11 @@ geolayer_map:
     js/geolayer_map.js: { }
   dependencies:
     - geolayer_map/nfa-map
+geolayer_styles:
+  js:
+    js/geolayer_style.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
 behavior_wkt:
   js:
     js/geolayer.map.behaviors.wkt.js: { }

@@ -86,12 +86,12 @@ function brms_common_views_pre_render(ViewExecutable $view) {
     // Add a layer for all layer types by passing the type term id to the map
     // settings.
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
-      ->loadTree('layer_type');
+      ->loadTree('layer_type', 0, null, TRUE);
 
     if ($terms) {
       foreach ($terms as $term) {
         /** @var \Drupal\taxonomy\Entity\term $term */
-        $layer_types[] = $term->tid;
+        $layer_types[] = [$term->id(), $term->geometry_type->value];
       }
 
       // Build the map render array.

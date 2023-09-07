@@ -1,4 +1,6 @@
 (function () {
+  'use strict';
+
   nfa.map.behaviors.popup = {
     attach: function (instance) {
 

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - user.role.intern_surveyor
     - user.role.surveyor
   module:
     - user
@@ -131,6 +132,7 @@ display:
           plugin_id: user_roles
           operator: or
           value:
+            intern_surveyor: intern_surveyor
             surveyor: surveyor
           group: 1
           exposed: false

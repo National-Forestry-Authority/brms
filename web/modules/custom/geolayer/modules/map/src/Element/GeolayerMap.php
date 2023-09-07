@@ -39,7 +39,6 @@ class GeolayerMap extends RenderElement {
    */
   public static function preRenderMap(array $element) {
     // Set the id to the map name.
-    $renderer = \Drupal::service('renderer');
     $map_id = Html::getUniqueId('nfa-map-' . $element['#map_type']);
     $element['#attributes']['id'] = $map_id;
 
@@ -53,6 +52,7 @@ class GeolayerMap extends RenderElement {
     // Attach the nfa-map and geolayer_map libraries.
     $element['#attached']['library'][] = 'geolayer_map/nfa-map';
     $element['#attached']['library'][] = 'geolayer_map/geolayer_map';
+    $element['#attached']['library'][] = 'geolayer_map/geolayer_styles';
 
     // Include map settings.
     $map_settings = !empty($element['#map_settings']) ? $element['#map_settings'] : [];

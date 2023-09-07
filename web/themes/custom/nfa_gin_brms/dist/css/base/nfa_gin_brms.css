@@ -1,0 +1,20 @@
+.paragraph--view-mode--row {
+  display: flex;
+}
+
+[dir="ltr"] .paragraph--view-mode--row > div:not(:last-child) {
+  margin-right: 10px;
+}
+
+[dir="rtl"] .paragraph--view-mode--row > div:not(:last-child) {
+  margin-left: 10px;
+}
+
+.paragraph--view-mode--row.paragraph--type--survey > div:first-child {
+  min-width: 15%;
+}
+
+.paragraph--view-mode--row.paragraph--type--survey > div:not(:first-child) {
+  min-width: 25%;
+}
+

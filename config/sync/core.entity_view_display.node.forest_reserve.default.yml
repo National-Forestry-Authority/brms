@@ -34,10 +34,107 @@ dependencies:
     - node.type.forest_reserve
   module:
     - entity_reference_revisions
+    - field_formatter_class
+    - field_group
     - geolayer_map
     - options
     - text
     - user
+third_party_settings:
+  field_group:
+    group_dimensions:
+      children:
+        - total_cutline_length
+        - riverline_length
+        - shoreline_length
+        - protected_area_length
+        - natural_boundary_length
+        - total_boundary_length
+        - gazetted_area_1998
+        - gazetted_area_1968
+        - gazetted_area_1948
+        - gazetted_area_1932
+        - latest_surveyed_area
+      label: Dimensions
+      parent_name: ''
+      region: content
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: pill-wrapper
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+    group_forest_reserve:
+      children:
+        - body
+        - forest_reserve_type
+        - forest_reserve_serial_number
+        - district
+        - forest_reserve_serial_number_2
+        - district_2
+        - year_gazetted
+        - all_gazette_years
+      label: 'Forest reserve'
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: pill-wrapper
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+    group_reference_numbers:
+      children:
+        - map_sheet_references
+        - cadastral_sheet_number_1_50000
+        - cadastral_sheet_number_1_10000
+        - boundary_plan_numbers
+        - land_registration_numbers
+      label: 'Reference numbers'
+      parent_name: ''
+      region: content
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: pill-wrapper
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+    group_status:
+      children:
+        - boundary_records_status
+        - boundary_description_status
+        - priority_for_action
+      label: Status
+      parent_name: ''
+      region: content
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: pill-wrapper
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
+    group_surveys:
+      children:
+        - surveys
+      label: Surveys
+      parent_name: ''
+      region: content
+      weight: 6
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: ''
 id: node.forest_reserve.default
 targetEntityType: node
 bundle: forest_reserve
@@ -47,95 +144,117 @@ content:
     type: list_default
     label: above
     settings: {  }
-    third_party_settings: {  }
-    weight: 25
+    third_party_settings:
+      field_formatter_class:
+        class: 'pill inline'
+    weight: 16
     region: content
   body:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 9
     region: content
   boundary_description_status:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 26
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
   boundary_plan_numbers:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 22
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
   boundary_records_status:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   cadastral_sheet_number_1_10000:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 19
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   cadastral_sheet_number_1_50000:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 20
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 13
     region: content
   district:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 16
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 12
     region: content
   district_2:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 17
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   forest_reserve_serial_number:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 11
     region: content
   forest_reserve_serial_number_2:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 18
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 13
     region: content
   forest_reserve_type:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 10
     region: content
   gazetted_area_1932:
     type: number_decimal
@@ -145,8 +264,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 13
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 22
     region: content
   gazetted_area_1948:
     type: number_decimal
@@ -156,8 +277,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 12
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 21
     region: content
   gazetted_area_1968:
     type: number_decimal
@@ -167,8 +290,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 11
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 20
     region: content
   gazetted_area_1998:
     type: number_decimal
@@ -178,23 +303,27 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 10
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 19
     region: content
   geolayers:
     type: geolayer_map_geolayers
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 29
+    weight: 1
     region: content
   land_registration_numbers:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 23
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 16
     region: content
   latest_surveyed_area:
     type: number_decimal
@@ -204,8 +333,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 14
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 23
     region: content
   links:
     settings: {  }
@@ -216,9 +347,11 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 21
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 12
     region: content
   natural_boundary_length:
     type: number_decimal
@@ -228,24 +361,20 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  nfa_sites_global_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 30
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 17
     region: content
   priority_for_action:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 27
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 16
     region: content
   protected_area_length:
     type: number_decimal
@@ -255,8 +384,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 7
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 16
     region: content
   riverline_length:
     type: number_decimal
@@ -266,8 +397,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   shoreline_length:
     type: number_decimal
@@ -277,17 +410,21 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 6
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
   surveys:
     type: entity_reference_revisions_entity_view
-    label: above
+    label: hidden
     settings:
-      view_mode: default
+      view_mode: row
       link: ''
-    third_party_settings: {  }
-    weight: 28
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 7
     region: content
   total_boundary_length:
     type: number_decimal
@@ -297,8 +434,10 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 9
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 18
     region: content
   total_cutline_length:
     type: number_decimal
@@ -308,15 +447,20 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 4
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 11
     region: content
   year_gazetted:
     type: list_default
     label: above
     settings: {  }
-    third_party_settings: {  }
-    weight: 24
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
 hidden:
+  nfa_sites_global_id: true
   year_gazetted_2: true

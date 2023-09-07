@@ -1,0 +1,22 @@
+uuid: ef37c461-2324-419f-8bf4-f18f9a0ba0bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nfa_gin_brms
+_core:
+  default_config_hash: 1ePLPF7aS6qBqczBDxA2pCcjUa4ODcgctquSub73tvc
+id: nfa_gin_brms_content
+theme: nfa_gin_brms
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

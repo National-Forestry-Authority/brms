@@ -1,0 +1,16 @@
+.paragraph--view-mode--row {
+  display: flex;
+
+  > div:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &.paragraph--type--survey {
+    > div:first-child {
+      min-width: 15%;
+    }
+    > div:not(:first-child) {
+      min-width: 25%;
+    }
+  }
+}
