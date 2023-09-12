@@ -3,9 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.geolayer.forest_reserve.kml_file
     - field.field.geolayer.forest_reserve.layer_type
     - geolayer.geolayer_type.forest_reserve
   module:
+    - file
     - geolayer_map
     - text
 id: geolayer.forest_reserve.default
@@ -26,6 +28,13 @@ content:
     weight: 1
     region: content
     settings: {  }
+    third_party_settings: {  }
+  kml_file:
+    type: file_generic
+    weight: 29
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   label:
     type: string_textfield

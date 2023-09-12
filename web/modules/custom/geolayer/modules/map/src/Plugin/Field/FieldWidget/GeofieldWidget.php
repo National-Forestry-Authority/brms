@@ -118,11 +118,26 @@ class GeofieldWidget extends GeofieldBaseWidget {
     $element['#type'] = 'details';
     $element['#title'] = $this->t('Geometry');
     $element['#open'] = TRUE;
+    $index_values = $form_state->getValue([
+      'geolayers',
+      'entities',
+    ]);
+    $index = 0;
+    if($index_values){
+      $index = count($index_values) - 1;
+    }
     // Get the current value.
     $item = $items[$delta];
     // Get the current form state value. Prioritize form state over field value.
-    $form_value = $form_state->getValue(['geolayers', 'form', 'inline_entity_form',
-    'entities', 0, 'form', 'geofield', 0]);
+    $populate_field = ['geolayers', 'form', 'inline_entity_form',
+    'entities', $index, 'form', 'geofield', 0];
+    $form_value = $form_state->getValue($populate_field);
+
+    if(!$form_value){
+      $populate_field = ['geolayers', 'form', 'inline_entity_form',
+    'entities', $index + 1, 'form', 'geofield', 0];
+      $form_value = $form_state->getValue($populate_field);
+    }
     $field_value = $items[$delta]->value;
 
     $current_value = $form_value['value'] ?? $field_value;
@@ -167,7 +182,7 @@ class GeofieldWidget extends GeofieldBaseWidget {
       $element['value']['#default_value'] = $current_value;
       $element['value']['#value'] = $current_value;
     }
-    $populate_file_field = 'kml_file';
+    $populate_file_field = 'geolayers[form][inline_entity_form][entities][0][form][kml_file]';
     // Wrap the map with a unique id for populating from files.
     $field_name = $this->fieldDefinition->getName();
     $field_wrapper_id = Html::getUniqueId($field_name . '_wrapper');
@@ -184,7 +199,9 @@ class GeofieldWidget extends GeofieldBaseWidget {
         'message' => $this->t('Working...'),
       ],
       '#limit_validation_errors' => [
-        ['kml_file']
+        ['geolayers', 'form', 'inline_entity_form', 'entities', $index, 'form', 'kml_file'],
+        ['geolayers', 'form', $index, 'kml_file'],
+        ['geolayers', 'form', $index + 1, 'kml_file'],
       ],
       '#states' => [
         'disabled' => [
@@ -220,13 +237,41 @@ class GeofieldWidget extends GeofieldBaseWidget {
    */
   public function fileParse(array &$form, FormStateInterface $form_state) {
     // Bail if no populate file field is not configured.
-    $populate_file_field = 'kml_file';
+    $index_values = $form_state->getValue([
+      'geolayers',
+      'form',
+      'inline_entity_form',
+      'entities',
+    ]);
+    $index = 0;
+    if($index_values){
+      $index = array_keys($index_values)[0];
+    }
+    $populate_file_field = ['geolayers', 'form', 'inline_entity_form', 
+    'entities', $index, 'form', 'kml_file'
+    ];
     // Get the form field element.
     $triggering_element = $form_state->getTriggeringElement();
     $element = NestedArray::getValue($form, array_slice($triggering_element['#array_parents'], 0, -1));
 
     // Load the uploaded files.
     $uploaded_files = $form_state->getValue($populate_file_field);
+    if(empty($uploaded_files)) {
+      $index_values = $form_state->getValue([
+        'geolayers',
+        'form',
+      ]);
+      $index = 0;
+      if($index_values){
+        $index = array_keys($index_values)[0];;
+      }
+      $populate_file_field = [
+        'geolayers',
+        'form',
+        $index,
+        'kml_file'];
+      $uploaded_files = $form_state->getValue($populate_file_field);
+    }
 
     if (!empty($uploaded_files)) {
       // Get file IDs.
@@ -292,7 +337,7 @@ class GeofieldWidget extends GeofieldBaseWidget {
 
       // Set the new form value.
       $form_state->setValue(['geolayers', 'form', 'inline_entity_form',
-       'entities', 0, 'form', 'geofield', 0]
+       'entities', $index, 'form', 'geofield', 0]
       , ['value' => $wkt]);
 
       // Rebuild the form so the map widget is rebuilt with the new value.

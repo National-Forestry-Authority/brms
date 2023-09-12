@@ -1,16 +1,16 @@
-uuid: af5779c0-c008-4781-a812-75d76f79eff9
+uuid: 5c6b93e0-8893-45c8-9bdd-25f08906e009
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.kml_file
-    - node.type.cadastral_map
+    - field.storage.geolayer.kml_file
+    - geolayer.geolayer_type.forest_reserve
   module:
     - file
-id: node.cadastral_map.kml_file
+id: geolayer.forest_reserve.kml_file
 field_name: kml_file
-entity_type: node
-bundle: cadastral_map
+entity_type: geolayer
+bundle: forest_reserve
 label: 'KML file'
 description: ''
 required: false

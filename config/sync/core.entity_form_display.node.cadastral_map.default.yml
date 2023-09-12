@@ -30,7 +30,6 @@ dependencies:
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
-    - field.field.node.cadastral_map.kml_file
     - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
@@ -286,13 +285,6 @@ content:
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: geolayers
-  kml_file:
-    type: file_generic
-    weight: 33
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
     weight: 31

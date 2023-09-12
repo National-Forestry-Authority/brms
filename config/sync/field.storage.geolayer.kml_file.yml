@@ -1,13 +1,13 @@
-uuid: 0c208f00-54e2-4147-b713-2e67dba7f2e3
+uuid: 7070c081-90b1-4e00-bac3-f47f3a25fa7f
 langcode: en
 status: true
 dependencies:
   module:
     - file
-    - node
-id: node.kml_file
+    - geolayer
+id: geolayer.kml_file
 field_name: kml_file
-entity_type: node
+entity_type: geolayer
 type: file
 settings:
   target_type: file
