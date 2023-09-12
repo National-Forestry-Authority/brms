@@ -35,7 +35,7 @@ dependencies:
   module:
     - datetime
     - file
-    - geolayer_map
+    - geolayer
     - text
     - user
 id: node.cadastral_map.default
@@ -268,5 +268,3 @@ content:
     region: content
 hidden:
   feeds_item: true
-  natural_boundary_length: true
-  total_boundary_length: true

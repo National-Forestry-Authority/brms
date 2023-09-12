@@ -82,5 +82,3 @@ hidden:
   field_year: true
   geolayers: true
   meta_data_explanation: true
-  natural_boundary_length: true
-  total_boundary_length: true
