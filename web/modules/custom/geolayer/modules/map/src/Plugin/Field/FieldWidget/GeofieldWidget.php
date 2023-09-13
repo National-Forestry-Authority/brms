@@ -202,6 +202,7 @@ class GeofieldWidget extends GeofieldBaseWidget {
         ['geolayers', 'form', 'inline_entity_form', 'entities', $index, 'form', 'kml_file'],
         ['geolayers', 'form', $index, 'kml_file'],
         ['geolayers', 'form', $index + 1, 'kml_file'],
+        ['kml_file']
       ],
       '#states' => [
         'disabled' => [
@@ -270,6 +271,11 @@ class GeofieldWidget extends GeofieldBaseWidget {
         'form',
         $index,
         'kml_file'];
+      $uploaded_files = $form_state->getValue($populate_file_field);
+    }
+
+    if(empty($uploaded_files)) {
+      $populate_file_field = ['kml_file'];
       $uploaded_files = $form_state->getValue($populate_file_field);
     }
 
