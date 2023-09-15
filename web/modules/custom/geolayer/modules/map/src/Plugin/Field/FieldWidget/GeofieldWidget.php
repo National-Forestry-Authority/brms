@@ -132,13 +132,13 @@ class GeofieldWidget extends GeofieldBaseWidget {
     $populate_field = ['geolayers', 'form', 'inline_entity_form',
     'entities', $index, 'form', 'geofield', 0];
     $form_value = $form_state->getValue($populate_field);
-
+    $geolayers_updated = $form_state->getValue(['geolayers_updated', 'value']);
     if(!$form_value){
       $populate_field = ['geolayers', 'form', 'inline_entity_form',
     'entities', $index + 1, 'form', 'geofield', 0];
       $form_value = $form_state->getValue($populate_field);
     }
-    $field_value = $items[$delta]->value;
+    $field_value = $items[$delta]->value ?? NULL;
 
     $current_value = $form_value['value'] ?? $field_value;
 
@@ -180,7 +180,10 @@ class GeofieldWidget extends GeofieldBaseWidget {
       $element['#default_value'] = $current_value;
       $element['map']['#map_settings']['wkt'] = $current_value;
       $element['value']['#default_value'] = $current_value;
-      $element['value']['#value'] = $current_value;
+      if($geolayers_updated){
+        $element['value']['#value'] = $current_value;
+        $form_state->setValue('geolayers_updated', ['value' => FALSE]);
+      }
     }
     $populate_file_field = 'geolayers[form][inline_entity_form][entities][0][form][kml_file]';
     // Wrap the map with a unique id for populating from files.
@@ -211,7 +214,6 @@ class GeofieldWidget extends GeofieldBaseWidget {
       ],
       '#weight' => 10,
     ];
-
 
     $element['#description'] = $element['#description'] . '<br />' . $this->t('Geometry Validation enabled (valid WKT, KML or Geojson format & values required)');
     $element['#element_validate'] = [[get_class($this), 'validateGeofieldGeometryText']];
@@ -338,14 +340,15 @@ class GeofieldWidget extends GeofieldBaseWidget {
       $field_name = $this->fieldDefinition->getName();
       $user_input = $form_state->getUserInput();
       unset($user_input['geolayers']['form']['inline_entity_form']
-      ['entities'][0]['form']['geofield'][0]);
+      ['entities'][$index]['form']['geofield'][0]);
+      unset($user_input['geolayers_updated']);
       $form_state->setUserInput($user_input);
 
       // Set the new form value.
       $form_state->setValue(['geolayers', 'form', 'inline_entity_form',
        'entities', $index, 'form', 'geofield', 0]
       , ['value' => $wkt]);
-
+      $form_state->setValue(['geolayers_updated'], ['value' => TRUE]);
       // Rebuild the form so the map widget is rebuilt with the new value.
       $form_state->setRebuild(TRUE);
     }
