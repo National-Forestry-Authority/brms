@@ -42,9 +42,12 @@ class GeolayerMap extends RenderElement {
     $map_id = Html::getUniqueId('nfa-map-' . $element['#map_type']);
     $element['#attributes']['id'] = $map_id;
 
+    // Get the entity type manager.
+    $entity_type_manager = \Drupal::entityTypeManager();
+
     // Get the map type.
     /** @var \Drupal\geolayer_map\Entity\MapTypeInterface $map */
-    $map = \Drupal::entityTypeManager()->getStorage('map_type')->load($element['#map_type']);
+    $map = $entity_type_manager->getStorage('map_type')->load($element['#map_type']);
 
     // Add the nfa-map class.
     $element['#attributes']['class'][] = 'nfa-map';
@@ -56,6 +59,18 @@ class GeolayerMap extends RenderElement {
 
     // Include map settings.
     $map_settings = !empty($element['#map_settings']) ? $element['#map_settings'] : [];
+
+    // If behaviors are included, attach each one.
+    if (isset($element['#behaviors'])) {
+      foreach ($element['#behaviors'] as $behavior_name) {
+        /** @var \Drupal\geolayer_map\Entity\MapBehaviorInterface $behavior */
+        $behavior = $entity_type_manager->getStorage('map_behavior')
+          ->load($behavior_name);
+        if (!is_null($behavior)) {
+          $element['#attached']['library'][] = $behavior->getLibrary();
+        }
+      }
+    }
 
     // Include the map options.
     $map_options = $map->getMapOptions();
@@ -70,6 +85,15 @@ class GeolayerMap extends RenderElement {
 
     // Return the element.
     return $event->element;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getContextMapping() {
+    $mapping = parent::getContextMapping();
+    // By default, get the node from the URL.
+    return $mapping ?: ['node' => '@node.node_route_context:node'];
   }
 
 }

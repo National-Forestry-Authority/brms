@@ -1,8 +1,9 @@
-uuid: bfdd370b-fba3-41c5-a793-d77ac29cd50d
+uuid: 6841bfa7-bb5e-450f-b59b-e100b5268708
 langcode: en
-status: true
+status: false
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.field.node.forest_reserve.all_gazette_years
     - field.field.node.forest_reserve.body
     - field.field.node.forest_reserve.boundary_description_status
@@ -36,6 +37,8 @@ dependencies:
     - entity_reference_revisions
     - field_formatter_class
     - field_group
+    - geolayer_map
+    - layout_builder
     - options
     - text
     - user
@@ -57,7 +60,7 @@ third_party_settings:
       label: Dimensions
       parent_name: ''
       region: content
-      weight: 2
+      weight: 4
       format_type: details
       format_settings:
         classes: pill-wrapper
@@ -78,7 +81,7 @@ third_party_settings:
       label: 'Forest reserve'
       parent_name: ''
       region: content
-      weight: 0
+      weight: 2
       format_type: details
       format_settings:
         classes: pill-wrapper
@@ -96,7 +99,7 @@ third_party_settings:
       label: 'Reference numbers'
       parent_name: ''
       region: content
-      weight: 3
+      weight: 5
       format_type: details
       format_settings:
         classes: pill-wrapper
@@ -112,7 +115,7 @@ third_party_settings:
       label: Status
       parent_name: ''
       region: content
-      weight: 1
+      weight: 3
       format_type: details
       format_settings:
         classes: pill-wrapper
@@ -126,7 +129,7 @@ third_party_settings:
       label: Surveys
       parent_name: ''
       region: content
-      weight: 4
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
@@ -134,10 +137,13 @@ third_party_settings:
         id: ''
         open: true
         description: ''
-id: node.forest_reserve.default
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.forest_reserve.full
 targetEntityType: node
 bundle: forest_reserve
-mode: default
+mode: full
 content:
   all_gazette_years:
     type: list_default
@@ -307,6 +313,13 @@ content:
         class: pill
     weight: 19
     region: content
+  geolayers:
+    type: geolayer_map_geolayers
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
   land_registration_numbers:
     type: entity_reference_label
     label: above
@@ -329,6 +342,11 @@ content:
       field_formatter_class:
         class: pill
     weight: 23
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   map_sheet_references:
     type: entity_reference_label
@@ -449,7 +467,5 @@ content:
     weight: 15
     region: content
 hidden:
-  geolayers: true
-  links: true
   nfa_sites_global_id: true
   year_gazetted_2: true

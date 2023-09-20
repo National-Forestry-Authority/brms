@@ -9,7 +9,7 @@ _core:
 id: nfa_gin_brms_local_actions
 theme: nfa_gin_brms
 region: content
-weight: -10
+weight: -3
 provider: null
 plugin: local_actions_block
 settings:

@@ -1,0 +1,31 @@
+uuid: 2906b159-7496-4f57-b41c-77d1c7ef5c32
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.geolayers
+  module:
+    - views
+name: forest_reserve_browser
+label: 'Forest reserve browser'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select forest reserve layer'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  d1a924bb-74df-4253-a0b5-03c8556ee11b:
+    id: view
+    uuid: d1a924bb-74df-4253-a0b5-03c8556ee11b
+    label: 'Forest reserve layers'
+    weight: 1
+    settings:
+      submit_text: 'Select geolayer'
+      auto_select: false
+      view: geolayers
+      view_display: forest_reserve_browser

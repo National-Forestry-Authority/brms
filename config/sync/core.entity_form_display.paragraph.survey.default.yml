@@ -45,7 +45,7 @@ content:
       removed_reference: optional
     third_party_settings:
       entity_browser_entity_form:
-        entity_browser_id: geolayers
+        entity_browser_id: survey_browser
   surveyor:
     type: entity_reference_autocomplete
     weight: 1

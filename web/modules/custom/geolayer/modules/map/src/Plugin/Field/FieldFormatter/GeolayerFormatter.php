@@ -18,18 +18,18 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  * )
  */
 class GeolayerFormatter extends FormatterBase {
-  
+
   /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $element = [];
-    // Get the parent entity of the field item list.
+    // Get the parent node of the field item list of geolayers.
     $entity = $items->getEntity();
-    // Get the value of the entity reference field.
+    // Get the value of the geolayer entity reference field.
     $geolayers = [];
     $referenced_entities = $entity->get('geolayers')->referencedEntities();
-    // Loop through the referenced entities and do something with them.
+    // Loop through the referenced geolayers and store their ids.
     foreach ($referenced_entities as $referenced_entity) {
       $geolayers[] = $referenced_entity->id();
     }
@@ -39,7 +39,6 @@ class GeolayerFormatter extends FormatterBase {
       '#type' => 'geolayer_map',
       '#map_type' => 'geolayers',
       '#map_settings' => [
-        'filter_type' => 'layerid',
         'geolayers' => $geolayers,
       ],
     ];

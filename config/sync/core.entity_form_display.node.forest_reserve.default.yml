@@ -370,7 +370,7 @@ content:
       removed_reference: optional
     third_party_settings:
       entity_browser_entity_form:
-        entity_browser_id: geolayers
+        entity_browser_id: forest_reserve_browser
   land_registration_numbers:
     type: entity_reference_autocomplete
     weight: 5
