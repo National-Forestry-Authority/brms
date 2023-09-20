@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.geolayers
-    - geolayer.geolayer_type.forest_reserve
+    - geolayer.geolayer_type.survey
     - paragraphs.paragraphs_type.survey
 id: paragraph.survey.geolayers
 field_name: geolayers
@@ -20,7 +20,7 @@ settings:
   handler: 'default:geolayer'
   handler_settings:
     target_bundles:
-      forest_reserve: forest_reserve
+      survey: survey
     sort:
       field: _none
       direction: ASC

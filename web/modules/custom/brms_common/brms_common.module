@@ -97,11 +97,15 @@ function brms_common_views_pre_render(ViewExecutable $view) {
       // Build the map render array.
       $map = [
         '#type' => 'geolayer_map',
-        '#map_type' => 'geojson_layer_type',
+        '#map_type' => 'default',
         '#map_settings' => [
           'layer_types' => $layer_types,
           'filters' => $exposed_filters,
         ],
+        '#behaviors' => [
+          'geojson_layer_type',
+          'popup',
+        ]
       ];
 
       // Render the map.

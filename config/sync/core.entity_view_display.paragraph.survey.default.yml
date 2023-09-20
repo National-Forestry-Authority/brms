@@ -29,7 +29,7 @@ content:
     region: content
   geolayers:
     type: geolayer_map_geolayers
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
     weight: 3

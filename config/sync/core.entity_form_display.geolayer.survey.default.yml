@@ -1,0 +1,47 @@
+uuid: c957e3a7-2abd-450b-abf5-4707da38ebad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.geolayer.survey.layer_type
+    - geolayer.geolayer_type.survey
+  module:
+    - geolayer_map
+    - text
+id: geolayer.survey.default
+targetEntityType: geolayer
+bundle: survey
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  geofield:
+    type: geolayer_map_geofield
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  layer_type:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

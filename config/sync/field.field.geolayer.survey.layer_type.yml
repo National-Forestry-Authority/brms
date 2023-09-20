@@ -1,18 +1,18 @@
-uuid: 017e55de-7c6c-4ba6-9112-02aab7f2d805
+uuid: 1615f9a3-4ca4-42e2-aa02-bdaeb5148202
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.geolayer.layer_type
-    - geolayer.geolayer_type.forest_reserve
-id: geolayer.forest_reserve.layer_type
+    - geolayer.geolayer_type.survey
+id: geolayer.survey.layer_type
 field_name: layer_type
 entity_type: geolayer
-bundle: forest_reserve
+bundle: survey
 label: 'Layer type'
-description: 'The layer type determines the colour, width and type of line drawn on the map.'
-required: true
-translatable: false
+description: ''
+required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -20,6 +20,6 @@ settings:
   handler_settings:
     view:
       view_name: layer_types
-      display_name: entity_reference_1
+      display_name: entity_reference_2
       arguments: {  }
 field_type: entity_reference

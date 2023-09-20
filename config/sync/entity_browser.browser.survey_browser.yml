@@ -1,0 +1,31 @@
+uuid: 5c513037-8981-4fa5-a463-a6860c0db3ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.geolayers
+  module:
+    - views
+name: survey_browser
+label: 'Survey browser'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select survey layer'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  d9a9d13f-b719-4a9b-ac62-b24d3d2acb54:
+    id: view
+    uuid: d9a9d13f-b719-4a9b-ac62-b24d3d2acb54
+    label: 'Survey layers'
+    weight: 1
+    settings:
+      submit_text: 'Select survey layers'
+      auto_select: false
+      view: geolayers
+      view_display: survey_browser
