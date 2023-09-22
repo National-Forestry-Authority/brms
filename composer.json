@@ -152,11 +152,7 @@
         },
         "patches": {
           "drupal/environment_indicator": {
-            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff",
-            "3342457: Configure link is displayed even if user does not have the appropriate permission": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/23.diff"
-          },
-          "drupal/gin": {
-            "3377045: gin-table-scroll-wrapper adds unnecessary horizontal scroll on tables without header": "https://git.drupalcode.org/project/gin/-/merge_requests/286.diff"
+            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff"
           }
       }
     },
