@@ -1,0 +1,508 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_forest_reserves
+migration_tags:
+  - Content
+label: Forest Reserves
+source:
+  plugin: csv
+  path: public://migrations/forest-reserves.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - nid
+  fields:
+    0:
+      name: nid
+      label: 'NID'
+    1:
+      name: uuid
+      label: 'UUID'
+    2:
+      name: title
+      label: 'title'
+    3:
+      name: reserve_type
+      label: 'Reserve type'
+    4:
+      name: forest_reserve_serial_number
+      label: 'Forest reserve serial number 1'
+    5:
+      name: district1
+      label: 'District 1'
+    6:
+      name: county1a1998
+      label: 'County 1a 1998'
+    7:
+      name: county1b1998
+      label: 'County 1b 1998'
+    8:
+      name: county1c1998
+      label: 'County 1c 1998'
+    9:
+      name: county1d1998
+      label: 'County 1d 1998'
+    10:
+      name: county1a1997
+      label: 'County 1a 1997'
+    11:
+      name: county1b1997
+      label: 'County 1b 1997'
+    12:
+      name: county1c1997
+      label: 'County 1c 1997'
+    13:
+      name: county1d1997
+      label: 'County 1d 1997'
+    14:
+      name: forest_reserve_serial_number_2
+      label: 'Forest reserve serial number 2'
+    15:
+      name: district2
+      label: 'District 2'
+    16:
+      name: county2a1998
+      label: 'County 2a 1998'
+    17:
+      name: county2b1998
+      label: 'County 2b 1998'
+    18:
+      name: county2c1998
+      label: 'County 2c 1998'
+    19:
+      name: county2d1998
+      label: 'County 2d 1998'
+    20:
+      name: county2a1997
+      label: 'County 2a 1997'
+    21:
+      name: county2b1997
+      label: 'County 2b 1997'
+    22:
+      name: county2c1997
+      label: 'County 2c 1997'
+    23:
+      name: county2d1997
+      label: 'County 2d 1997'
+    24:
+      name: map_sheet_reference
+      label: 'Map sheet references'
+    25:
+      name: map_sheet_reference_2
+      label: 'Map sheet references 2'
+    26:
+      name: cadastral_sheet_number_1_10000
+      label: 'Cadastral sheet number 1:10,000'
+    27:
+      name: cadastral_sheet_number_1_50000
+      label: 'Cadastral sheet number 1:50,000'
+    28:
+      name: boundary_plan_number
+      label: 'Boundary plan number'
+    29:
+      name: boundary_plan_number_2
+      label: 'Boundary plan number 2'
+    30:
+      name: land_registration_number
+      label: 'Land registration number'
+    31:
+      name: land_registration_number_2
+      label: 'Land registration number 2'
+    32:
+      name: gazetted_area_1998
+      label: 'Gazetted area 1998'
+    33:
+      name: gazetted_area_1968
+      label: 'Gazetted area 1968'
+    34:
+      name: gazetted_area_1948
+      label: 'Gazetted area 1948'
+    35:
+      name: gazetted_area_1932
+      label: 'Gazetted area 1932'
+    36:
+      name: latest_surveyed_area
+      label: 'Latest surveyed area'
+    37:
+      name: total_cutline_length
+      label: 'Total cutline length'
+    38:
+      name: riverline_length
+      label: 'Riverline length'
+    39:
+      name: shoreline_length
+      label: 'Shoreline length'
+    40:
+      name: protected_area_length
+      label: 'Protected area length'
+    41:
+      name: 1998_gazette
+      label: '1998 Gazette'
+    42:
+      name: 1968_gazette
+      label: '1968 Gazette'
+    43:
+      name: 1948_gazette
+      label: '1948 Gazette'
+    44:
+      name: 1932_gazette
+      label: '1932 Gazette'
+    45:
+      name: boundary_records_status
+      label: 'Boundary records status'
+    46:
+      name: boundary_desc_records
+      label: 'Boundary description records'
+    47:
+      name: priority_action
+      label: 'Priority for action'
+  constants:
+    county_si: '(1998 SI)'
+process:
+  nid: nid
+  nfa_sites_global_id: uuid
+  forest_reserve_serial_number:
+    - plugin: entity_generate
+      source: forest_reserve_serial_number
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: forest_reserve_serial_number
+  forest_reserve_serial_number_2:
+    - plugin: entity_generate
+      source: forest_reserve_serial_number_2
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: forest_reserve_serial_number
+  county1a1998:
+    plugin: concat
+    source:
+      - county1a1998
+      - constants/county_si
+    delimiter: ' '
+  county1b1998:
+    plugin: concat
+    source:
+      - county1b1998
+      - constants/county_si
+    delimiter: ' '
+  county1c1998:
+    plugin: concat
+    source:
+      - county1c1998
+      - constants/county_si
+    delimiter: ' '
+  county1d1998:
+    plugin: concat
+    source:
+      - county1d1998
+      - constants/county_si
+    delimiter: ' '
+  district:
+    - plugin: concat
+      source:
+        - county1a1997
+        - county1b1997
+        - county1c1997
+        - county1d1997
+        - '@county1a1998'
+        - '@county1b1998'
+        - '@county1c1998'
+        - '@county1d1998'
+      delimiter: ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: entity_lookup
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: district
+      ignore_case: true
+  county2a1998:
+    plugin: concat
+    source:
+      - county2a1998
+      - constants/county_si
+    delimiter: ' '
+  county2b1998:
+    plugin: concat
+    source:
+      - county2b1998
+      - constants/county_si
+    delimiter: ' '
+  county2c1998:
+    plugin: concat
+    source:
+      - county2c1998
+      - constants/county_si
+    delimiter: ' '
+  county2d1998:
+    plugin: concat
+    source:
+      - county2d1998
+      - constants/county_si
+    delimiter: ' '
+  district_2:
+    - plugin: concat
+      source:
+        - county2a1997
+        - county2b1997
+        - county2c1997
+        - county2d1997
+        - '@county2a1998'
+        - '@county2b1998'
+        - '@county2c1998'
+        - '@county2d1998'
+      delimiter: ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: entity_lookup
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: district
+      ignore_case: true
+  map_sheet_reference:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: map_sheet_reference
+  map_sheet_reference_2:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: map_sheet_reference_2
+  map_sheet_references:
+    - plugin: concat
+      source:
+        - '@map_sheet_reference'
+        - '@map_sheet_reference_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
+    - plugin: entity_generate
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: map_sheet_reference
+  cadastral_sheet_number_1_10000:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: cadastral_sheet_number_1_10000
+    - plugin: explode
+      delimiter: ','
+    - plugin: entity_generate
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: cadastral_sheet_number_1_10000
+  cadastral_sheet_number_1_50000:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: cadastral_sheet_number_1_50000
+    - plugin: explode
+      delimiter: ','
+    - plugin: entity_generate
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: cadastral_sheet_number_1_50000
+  boundary_plan_number:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: boundary_plan_number
+  boundary_plan_number_2:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: boundary_plan_number_2
+  boundary_plan_numbers:
+    - plugin: concat
+      source:
+        - '@boundary_plan_number'
+        - '@boundary_plan_number_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
+    - plugin: entity_generate
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: boundary_plan_number
+  land_registration_number:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: land_registration_number
+  land_registration_number_2:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: land_registration_number_2
+  land_registration_numbers:
+    - plugin: concat
+      source:
+        - '@land_registration_number'
+        - '@land_registration_number_2'
+      delimiter: ','
+    - plugin: skip_on_value
+      method: process
+      value:
+        - ','
+    - plugin: explode
+      delimiter: ','
+    - plugin: single_value
+    - plugin: callback
+      callable: array_unique
+    - plugin: entity_generate
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: land_registration_number
+  gazetted_area_1998:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1998
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  gazetted_area_1968:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1968
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  gazetted_area_1948:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1948
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  gazetted_area_1932:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1932
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  latest_surveyed_area:
+    - plugin: skip_on_empty
+      method: process
+      source: latest_surveyed_area
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  total_cutline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: total_cutline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  riverline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: riverline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  shoreline_length:
+    - plugin: skip_on_empty
+      method: process
+      source: shoreline_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  protected_area_length:
+    - plugin: skip_on_empty
+      method: process
+      source: protected_area_length
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
+  year_gazetted:
+    plugin: brms_year_gazetted
+  all_gazette_years:
+    plugin: brms_all_gazette_years
+  revision_log:
+    plugin: default_value
+    default_value: 'Import from CSV'
+destination:
+  plugin: 'entity:node'
+  default_bundle: forest_reserve

@@ -2,6 +2,7 @@
 
 namespace Drupal\geolayer_map\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Entity\Plugin\DataType\EntityAdapter;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
@@ -89,13 +90,15 @@ class GeofieldFormatter extends FormatterBase {
 
     // Set the Geolayer style.
     $style = [];
-    if ($item->getParent() && $item->getParent()->getParent()) {
+    if ($item->getParent() && $item->getParent()->getParent() && $item->getParent()->getParent() instanceof EntityAdapter) {
       $geolayer = $item->getParent()->getParent()->getEntity();
-      if ($geolayer->layer_style->entity) {
+      if ($geolayer->hasField('layer_type')) {
         $style = [
-          'color' => $geolayer->layer_style->entity->color->color,
-          'line_style' => $geolayer->layer_style->entity->line_style->value,
-          'line_width' => $geolayer->layer_style->entity->line_width->value,
+          'geometry_type' => $geolayer->layer_type?->entity?->geometry_type?->value ?? 'polygon',
+          'color' => $geolayer->layer_type?->entity?->color?->color ?? 'orange',
+          'line_style' => $geolayer->layer_type?->entity?->line_style?->value ?? 'solid',
+          'line_width' => $geolayer->layer_type?->entity?->line_width?->value ?? 2,
+          'point_shape' => $geolayer->layer_type?->entity?->point_shape?->value ?? 'circle',
         ];
       }
     }
@@ -122,7 +125,6 @@ class GeofieldFormatter extends FormatterBase {
         '#map_type' => 'geofield',
         '#map_settings' => [
           'wkt' => $feature,
-          'map_type' => 'geofield',
           'layer_style' => $style,
           'behaviors' => [
             'wkt' => [

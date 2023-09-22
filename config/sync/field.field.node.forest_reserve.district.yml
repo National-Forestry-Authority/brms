@@ -1,4 +1,4 @@
-uuid: 4b734b77-b7fc-4850-82e6-5c39df5bb445
+uuid: 8f030ea2-096f-46e1-ba3a-66b05909d303
 langcode: en
 status: true
 dependencies:
@@ -6,11 +6,16 @@ dependencies:
     - field.storage.node.district
     - node.type.forest_reserve
     - taxonomy.vocabulary.district
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another district'
 id: node.forest_reserve.district
 field_name: district
 entity_type: node
 bundle: forest_reserve
-label: District
+label: 'Administrative district'
 description: ''
 required: false
 translatable: false
@@ -24,6 +29,6 @@ settings:
     sort:
       field: name
       direction: asc
-    auto_create: true
+    auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 5f35e70d-9d8d-4d33-8730-c4f1ce38b5fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.line_width
+    - taxonomy.vocabulary.layer_type
+  module:
+    - options
+id: taxonomy_term.layer_type.line_width
+field_name: line_width
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Line width'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 2
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

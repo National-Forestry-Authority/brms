@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Compile theme sass
+## Usage: theme:sass
+## Example: "ddev theme:sass"
+
+cd ./web/themes/custom/nfa_gin_brms && npm run build

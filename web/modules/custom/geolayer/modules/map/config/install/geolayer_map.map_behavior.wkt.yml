@@ -7,5 +7,5 @@ dependencies:
 id: wkt
 label: WKT
 description: 'Displays WKT as a map layer.'
-library: 'geolayer_map/behavior_wkt'
+library: geolayer_map/behavior_wkt
 settings: {  }

@@ -3,13 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_nfa_id
     - field.storage.node.forest_reserve_serial_number
     - field.storage.node.forest_reserve_type
-    - node.type.central_forest_reserve
     - node.type.forest_reserve
     - system.menu.admin
-    - taxonomy.vocabulary.forest_reserve_serial_number
+    - taxonomy.vocabulary.district
     - taxonomy.vocabulary.forest_reserve_type
   module:
     - node
@@ -88,69 +86,6 @@ display:
           settings:
             thousand_separator: ''
             prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_nfa_id:
-          id: field_nfa_id
-          table: node__field_nfa_id
-          field: field_nfa_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'NFA ID'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -352,14 +287,44 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          operator: in
           value:
-            central_forest_reserve: central_forest_reserve
+            forest_reserve: forest_reserve
+          group: 1
+          exposed: false
           expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
             operator_limit_selection: false
             operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
@@ -443,8 +408,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.field_nfa_id'
+      tags: {  }
   listing:
     id: listing
     display_title: Page
@@ -923,27 +887,28 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        forest_reserve_serial_number_target_id:
-          id: forest_reserve_serial_number_target_id
-          table: node__forest_reserve_serial_number
-          field: forest_reserve_serial_number_target_id
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: taxonomy_index_tid
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: forest_reserve_serial_number_target_id_op
-            label: 'Forest reserve serial number'
+            operator_id: term_node_tid_depth_op
+            label: District
             description: ''
             use_operator: false
-            operator: forest_reserve_serial_number_target_id_op
+            operator: term_node_tid_depth_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: serial_number
+            identifier: district
             required: false
             remember: false
             multiple: false
@@ -972,11 +937,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          vid: forest_reserve_serial_number
-          type: textfield
-          hierarchy: false
+          vid: district
+          type: select
+          hierarchy: true
           limit: true
           error_message: true
+          save_lineage: false
+          force_deepest: false
+          parent: null
+          level_labels: ''
+          hierarchy_depth: 0
+          required_depth: 0
+          none_label: '- Please select -'
+          depth: 1
       filter_groups:
         operator: AND
         groups:

@@ -1,0 +1,20 @@
+uuid: ccf99f5f-327f-4107-9adc-67f78abd4b29
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.gazetted_area_1932
+field_name: gazetted_area_1932
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

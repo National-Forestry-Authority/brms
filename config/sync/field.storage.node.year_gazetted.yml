@@ -1,16 +1,30 @@
-uuid: d2f00e3d-7b05-4b38-800d-ab69999dfb2a
+uuid: 351affec-ca22-44b8-80db-b277a5b1f669
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - yearonly
+    - options
 id: node.year_gazetted
 field_name: year_gazetted
 entity_type: node
-type: yearonly
-settings: {  }
-module: yearonly
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1932
+      label: '1932'
+    -
+      value: 1948
+      label: '1948'
+    -
+      value: 1968
+      label: '1968'
+    -
+      value: 1998
+      label: '1998'
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true

@@ -1,0 +1,25 @@
+uuid: 1615f9a3-4ca4-42e2-aa02-bdaeb5148202
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.geolayer.layer_type
+    - geolayer.geolayer_type.survey
+id: geolayer.survey.layer_type
+field_name: layer_type
+entity_type: geolayer
+bundle: survey
+label: 'Layer type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: layer_types
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

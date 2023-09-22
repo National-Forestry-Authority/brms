@@ -1,0 +1,20 @@
+uuid: 79a29ac6-d973-4914-8ac0-f0714add2ecc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.gazetted_area_1968
+field_name: gazetted_area_1968
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

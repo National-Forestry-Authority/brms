@@ -23,22 +23,11 @@
         },
         {
           "type": "git",
-          "url": "https://github.com/National-Forestry-Authority/nfa_tracker.git"
+          "url": "https://github.com/National-Forestry-Authority/nfa_tracker"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "national-forestry-authority/nfa-map",
-                "version": "2.1.0",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/National-Forestry-Authority/nfa-map/releases/download/v2.1.0/v2.1.0-dist.zip",
-                    "type": "zip"
-                },
-                "extra": {
-                    "installer-name": "nfa-map"
-                }
-            }
+          "type": "git",
+          "url": "https://github.com/National-Forestry-Authority/nfa-map"
         }
     ],
     "require": {
@@ -50,11 +39,14 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/cshs": "^4",
         "drupal/csv_serialization": "^2",
+        "drupal/custom_add_another": "^2",
         "drupal/diff": "^1",
         "drupal/entity_browser": "^2",
         "drupal/environment_indicator": "^4",
         "drupal/feeds": "^3.0@beta",
+        "drupal/field_formatter_class": "^1",
         "drupal/field_group": "^3",
         "drupal/geofield": "^1",
         "drupal/gin": "^3",
@@ -65,6 +57,9 @@
         "drupal/leaflet_more_maps": "^2.1",
         "drupal/migrate_conditions": "^2",
         "drupal/migrate_plus": "^6",
+        "drupal/migrate_source_csv": "^3",
+        "drupal/migrate_source_directory": "^2",
+        "drupal/migrate_source_ui": "^1",
         "drupal/migrate_tools": "^6",
         "drupal/paragraphs": "^1",
         "drupal/pathauto": "^1",
@@ -72,6 +67,7 @@
         "drupal/r4032login": "^2",
         "drupal/realname": "^2",
         "drupal/require_login": "^3",
+        "drupal/term_reference_tree": "^2",
         "drupal/views_autocomplete_filters": "^1",
         "drupal/views_data_export": "^1",
         "drupal/views_geojson": "^1",
@@ -158,6 +154,9 @@
           "drupal/environment_indicator": {
             "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff",
             "3342457: Configure link is displayed even if user does not have the appropriate permission": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/23.diff"
+          },
+          "drupal/gin": {
+            "3377045: gin-table-scroll-wrapper adds unnecessary horizontal scroll on tables without header": "https://git.drupalcode.org/project/gin/-/merge_requests/286.diff"
           }
       }
     },

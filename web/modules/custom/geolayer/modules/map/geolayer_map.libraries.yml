@@ -1,13 +1,13 @@
 nfa-map:
   js:
-    /libraries/nfa-map/nfa-map.js:
+    /libraries/nfa-map/dist/nfa-map.js:
       # Skip aggregating farmOS-map.js with other JS since that
       # breaks the lazy loading of behavior chunks.
       preprocess: false
       minified: true
   css:
     theme:
-      /libraries/nfa-map/nfa-map.css: { }
+      /libraries/nfa-map/dist/nfa-map.css: { }
   dependencies:
     - core/drupalSettings
 geolayer_map:
@@ -18,6 +18,11 @@ geolayer_map:
     js/geolayer_map.js: { }
   dependencies:
     - geolayer_map/nfa-map
+geolayer_styles:
+  js:
+    js/geolayer_style.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
 behavior_wkt:
   js:
     js/geolayer.map.behaviors.wkt.js: { }
@@ -27,6 +32,11 @@ behavior_wkt:
 behavior_geojson:
   js:
     js/geolayer.map.behaviors.geojson.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
+behavior_geojson_layer_type:
+  js:
+    js/geolayer.map.behaviors.geojson_layertype.js: { }
   dependencies:
     - geolayer_map/geolayer_map
 behavior_geofield:

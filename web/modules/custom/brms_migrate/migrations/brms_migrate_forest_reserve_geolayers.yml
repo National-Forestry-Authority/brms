@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_forest_reserve_geolayers
+migration_tags:
+  - Content
+label: Forest Reserves
+source:
+  plugin: directory_forest_reserve_geolayer
+  track_changes: true
+  directory:
+    path: public://migrations/cfr_kml
+  # All files with a .kml extension.
+  file_mask: '/^.*\.kml$/'
+  recurse_level: -1
+process:
+  nid: nid
+  geolayer_id:
+    plugin: migration_lookup
+    migration: brms_migrate_geolayers
+    source: migration_id
+  geolayers:
+    plugin: brms_forest_reserve_geolayer
+    source: '@geolayer_id'
+  revision_log:
+    plugin: default_value
+    default_value: 'Import geolayers'
+destination:
+  plugin: 'entity:node'
+  default_bundle: forest_reserve
+migration_dependencies:
+  required:
+    - brms_migrate_geolayers

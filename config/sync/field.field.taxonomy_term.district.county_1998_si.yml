@@ -1,0 +1,23 @@
+uuid: 4d3476ba-5987-4c83-ac11-210e6950a84e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.county_1998_si
+    - taxonomy.vocabulary.district
+id: taxonomy_term.district.county_1998_si
+field_name: county_1998_si
+entity_type: taxonomy_term
+bundle: district
+label: '1998 SI county'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

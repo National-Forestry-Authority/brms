@@ -2,6 +2,7 @@
 
 namespace Drupal\geolayer_map\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Entity\Plugin\DataType\EntityAdapter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geofield\Plugin\Field\FieldWidget\GeofieldBaseWidget;
@@ -34,13 +35,15 @@ class GeofieldWidget extends GeofieldBaseWidget {
 
     // Set the Geolayer style.
     $style = [];
-    if ($item->getParent() && $item->getParent()->getParent()) {
+    if ($item->getParent() && $item->getParent()->getParent() && $item->getParent()->getParent() instanceof EntityAdapter) {
       $geolayer = $item->getParent()->getParent()->getEntity();
-      if ($geolayer->layer_style->entity) {
+      if ($geolayer->hasField('layer_type')) {
         $style = [
-          'color' => $geolayer->layer_style->entity->color->color,
-          'line_style' => $geolayer->layer_style->entity->line_style->value,
-          'line_width' => $geolayer->layer_style->entity->line_width->value,
+          'geometry_type' => $geolayer->layer_type?->entity?->geometry_type?->value ?? 'polygon',
+          'color' => $geolayer->layer_type?->entity?->color?->color ?? 'orange',
+          'line_style' => $geolayer->layer_type?->entity?->line_style?->value ?? 'solid',
+          'line_width' => $geolayer->layer_type?->entity?->line_width?->value ?? 2,
+          'point_shape' => $geolayer->layer_type?->entity?->point_shape?->value ?? 'circle',
         ];
       }
     }
@@ -48,13 +51,12 @@ class GeofieldWidget extends GeofieldBaseWidget {
     // Define the map render array.
     $element['map'] = [
       '#type' => 'geolayer_map',
-      '#map_type' => 'geofield_widget',
+      '#map_type' => 'geofield',
       '#map_settings' => [
         'wkt' => $current_value,
         'layer_style' => $style,
         'behaviors' => [
           'wkt' => [
-            'edit' => FALSE,
             'zoom' => TRUE,
           ],
         ],

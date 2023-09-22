@@ -1,8 +1,0 @@
-uuid: 76b60e00-cace-42f5-bfc6-1565d5c8bf8d
-langcode: en
-status: true
-dependencies: {  }
-name: 'Cadastral sheet number (1:10,000)'
-vid: cadastral_sheet_no_1_10000
-description: ''
-weight: 0

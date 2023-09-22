@@ -1,0 +1,23 @@
+uuid: 9e61ca08-f155-433b-84f9-b3e4d567205b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.latest_surveyed_area
+    - node.type.forest_reserve
+id: node.forest_reserve.latest_surveyed_area
+field_name: latest_surveyed_area
+entity_type: node
+bundle: forest_reserve
+label: 'Latest surveyed area (ha)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ha'
+field_type: decimal

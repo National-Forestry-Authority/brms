@@ -1,0 +1,14 @@
+uuid: 987badaf-89c3-43ab-b060-d1dc5382df85
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: forest_reserve
+label: 'Forest reserve map'
+description: 'Renders a forest reserve map that shows geolayers and survey geolayers.'
+behaviors:
+  - geojson
+  - popup
+options: {  }

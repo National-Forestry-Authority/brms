@@ -1,0 +1,33 @@
+uuid: 8f01fbfd-f93d-4ee5-88e1-0e2e141969a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.all_gazette_years
+field_name: all_gazette_years
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1932
+      label: '1932'
+    -
+      value: 1948
+      label: '1948'
+    -
+      value: 1968
+      label: '1968'
+    -
+      value: 1998
+      label: '1998'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

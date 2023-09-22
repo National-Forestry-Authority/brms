@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.survey.description
-    - field.field.paragraph.survey.geolayer
+    - field.field.paragraph.survey.geolayers
     - field.field.paragraph.survey.surveyor
     - field.field.paragraph.survey.year_surveyed
     - paragraphs.paragraphs_type.survey
   module:
-    - entity_reference_revisions
+    - field_formatter_class
+    - geolayer_map
     - text
     - yearonly
 id: paragraph.survey.default
@@ -21,15 +22,15 @@ content:
     type: text_default
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 2
     region: content
-  geolayer:
-    type: entity_reference_revisions_entity_view
+  geolayers:
+    type: geolayer_map_geolayers
     label: above
-    settings:
-      view_mode: default
-      link: ''
+    settings: {  }
     third_party_settings: {  }
     weight: 3
     region: content
@@ -38,14 +39,18 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 1
     region: content
   year_surveyed:
     type: yearonly_default
     label: above
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 0
     region: content
 hidden: {  }

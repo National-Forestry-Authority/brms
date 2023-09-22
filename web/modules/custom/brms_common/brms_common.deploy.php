@@ -2,11 +2,8 @@
 
 /**
  * @file
- * Deploy functions run after drush config:import
+ * Deploy functions run after drush config:import.
  */
-
-use Drupal\migrate\MigrateExecutable;
-use Drupal\migrate\MigrateMessage;
 
 /**
  * Initialise taxonomy terms.
@@ -79,7 +76,133 @@ function brms_common_deploy_001(&$sandbox = NULL) {
     ],
   ];
 
-  foreach($terms as $term) {
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}
+
+/**
+ * Create geolayer type taxonomy terms.
+ */
+function brms_common_deploy_002(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Master polygon',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#7F3C8D',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Cutline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#FF3333',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Riverline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'dotted',
+      'line_width' => 4,
+      'color' => '#3969AC',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Shoreline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'dashed',
+      'line_width' => 3,
+      'color' => '#E68310',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Inter protected area line',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 4,
+      'color' => '#80BA5A',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Corner pillar',
+      'geometry_type' => 'point',
+      'point_shape' => 'square',
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Intermediate pillar',
+      'geometry_type' => 'point',
+      'point_shape' => 'triangle',
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'FD numbered markstone',
+      'geometry_type' => 'point',
+      'point_shape' => 'circle',
+      'color' => '#4b4b8f',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Cairn',
+      'geometry_type' => 'point',
+      'point_shape' => 'star',
+      'color' => '#E73F74',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}
+
+/**
+ * Create geolayer type taxonomy terms for surveys.
+ */
+function brms_common_deploy_003(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Old survey',
+      'geometry_type' => 'survey',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#FF3333',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Surveyed and marked',
+      'geometry_type' => 'survey',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#11A579',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Surveyed',
+      'geometry_type' => 'survey',
+      'line_style' => 'dotted',
+      'line_width' => 2,
+      'color' => '#F2B701',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Marked',
+      'geometry_type' => 'survey',
+      'line_style' => 'dashed',
+      'line_width' => 2,
+      'color' => '#F8A519',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
     $term->save();
   }

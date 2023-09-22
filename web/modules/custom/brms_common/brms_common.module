@@ -9,6 +9,8 @@ use Drupal\brms_common\NaturalBoundaryLength;
 use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_entity_base_field_info().
@@ -33,4 +35,81 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setClass(TotalBoundaryLength::class);
   }
   return $fields;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function brms_common_form_node_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
+  // Make fields read-only for all except administrator role.
+  if (!\Drupal::currentUser()->hasPermission('edit nfa readonly field')) {
+    switch ($form_id) {
+      case 'node_forest_reserve_edit_form':
+        $form['title']['#disabled'] = TRUE;
+        $form['forest_reserve_type']['#disabled'] = TRUE;
+        $form['gazetted_area']['#disabled'] = TRUE;
+        $form['gazetted_area_2']['#disabled'] = TRUE;
+        break;
+      default:
+        break;
+    }
+  }
+  // NFA global id is always read-only.
+  if ($form_id == 'node_forest_reserve_edit_form') {
+    $form['nfa_sites_global_id']['#disabled'] = TRUE;
+  }
+
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
+  // Make sure the NFA global id is unique.
+  if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
+    if (isset($fields['nfa_sites_global_id'])) {
+      $fields['nfa_sites_global_id']->addConstraint('UniqueField');
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function brms_common_views_pre_render(ViewExecutable $view) {
+  // Render a map attachment above the forest reserves views.
+  if ($view->id() == 'forest_reserves') {
+
+    // Pass the same exposed filters to the geojson view.
+    $exposed_filters = $view->getExposedInput();
+
+    // Add a layer for all layer types by passing the type term id to the map
+    // settings.
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadTree('layer_type', 0, null, TRUE);
+
+    if ($terms) {
+      foreach ($terms as $term) {
+        /** @var \Drupal\taxonomy\Entity\term $term */
+        $layer_types[] = [$term->id(), $term->geometry_type->value];
+      }
+
+      // Build the map render array.
+      $map = [
+        '#type' => 'geolayer_map',
+        '#map_type' => 'default',
+        '#map_settings' => [
+          'layer_types' => $layer_types,
+          'filters' => $exposed_filters,
+        ],
+        '#behaviors' => [
+          'geojson_layer_type',
+          'popup',
+        ]
+      ];
+
+      // Render the map.
+      $view->attachment_before['forest_reserves_map'] = $map;
+    }
+  }
 }

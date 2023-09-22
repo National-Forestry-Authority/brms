@@ -26,6 +26,7 @@ dependencies:
     - field.storage.node.field_surveyed_by
     - field.storage.node.field_year
     - node.type.district_map
+    - system.menu.admin
   module:
     - datetime
     - node
@@ -2123,6 +2124,15 @@ display:
         title: false
       display_extenders: {  }
       path: district-maps
+      menu:
+        type: normal
+        title: 'District Maps'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: 'menu_link_content:ed8642bc-f902-41be-9d5e-20623d389c6e'
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

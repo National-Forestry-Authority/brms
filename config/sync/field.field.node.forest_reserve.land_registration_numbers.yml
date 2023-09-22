@@ -1,0 +1,34 @@
+uuid: 3f43df1d-1aa1-42a6-9014-f0f9c5660890
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.land_registration_numbers
+    - node.type.forest_reserve
+    - taxonomy.vocabulary.land_registration_number
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another land registration number'
+id: node.forest_reserve.land_registration_numbers
+field_name: land_registration_numbers
+entity_type: node
+bundle: forest_reserve
+label: 'Land registration numbers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      land_registration_number: land_registration_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

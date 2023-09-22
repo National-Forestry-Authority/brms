@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.type.central_forest_reserve
     - node.type.forest_reserve
   module:
     - node
@@ -368,7 +367,6 @@ display:
           plugin_id: bundle
           operator: in
           value:
-            central_forest_reserve: central_forest_reserve
             forest_reserve: forest_reserve
           group: 1
           exposed: false

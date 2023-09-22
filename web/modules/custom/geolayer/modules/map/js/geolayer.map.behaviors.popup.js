@@ -1,4 +1,6 @@
 (function () {
+  'use strict';
+
   nfa.map.behaviors.popup = {
     attach: function (instance) {
 
@@ -17,7 +19,9 @@
       // Create a popup and add it to the instance for future reference.
       instance.popup = instance.addPopup(function (event) {
         var content = '';
-        var feature = instance.map.forEachFeatureAtPixel(event.pixel, function(feature, layer) { return feature; });
+        var feature = instance.map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
+          return feature;
+        });
         if (feature) {
 
           // If the feature is a cluster, then create a list of names and add it

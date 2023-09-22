@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_district
+label: Districts
+source:
+  plugin: csv
+  path: public://migrations/uganda-districts.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - district
+  fields:
+    0:
+      name: district
+      label: 'District'
+    1:
+      name: county
+      label: 'County'
+process:
+  name: district
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: district

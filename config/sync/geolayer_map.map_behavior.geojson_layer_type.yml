@@ -1,0 +1,12 @@
+uuid: c3348f84-8e95-4bbd-aff3-96354606d268
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson_layer_type
+label: 'Geojson layer type groups'
+description: 'Renders geojson grouped by layer type.'
+library: geolayer_map/behavior_geojson_layer_type
+settings: {  }

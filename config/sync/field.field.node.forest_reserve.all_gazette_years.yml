@@ -1,0 +1,21 @@
+uuid: 95e117ff-5b7a-454e-8f2a-a07acb0288d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.all_gazette_years
+    - node.type.forest_reserve
+  module:
+    - options
+id: node.forest_reserve.all_gazette_years
+field_name: all_gazette_years
+entity_type: node
+bundle: forest_reserve
+label: 'All gazette mentions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,32 @@
+uuid: 33b5d0bd-f968-4391-af3f-36436c0264de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.district.county_1998_si
+    - taxonomy.vocabulary.district
+  module:
+    - text
+id: taxonomy_term.district.default
+targetEntityType: taxonomy_term
+bundle: district
+mode: default
+content:
+  county_1998_si:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

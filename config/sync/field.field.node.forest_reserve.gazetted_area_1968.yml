@@ -1,0 +1,23 @@
+uuid: ad2fecae-4d1e-4524-9cf8-a46db5f9a26c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.gazetted_area_1968
+    - node.type.forest_reserve
+id: node.forest_reserve.gazetted_area_1968
+field_name: gazetted_area_1968
+entity_type: node
+bundle: forest_reserve
+label: 'Gazetted area 1968 (ha)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ha'
+field_type: decimal

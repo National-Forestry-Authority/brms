@@ -1,0 +1,12 @@
+uuid: 12500bbc-3424-43aa-aa10-20342816efa6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson
+label: Geojson
+description: 'Renders geojson using nfa-map.'
+library: geolayer_map/behavior_geojson
+settings: {  }

@@ -42,13 +42,14 @@ dependencies:
     - field.storage.node.field_year_of_survey
     - field.storage.node.field_year_of_tracing
     - node.type.forest_reserve_boundary
+    - system.menu.admin
   module:
     - datetime
     - node
     - text
     - user
 id: forest_reserve_boundary
-label: 'Forest Reserve Boundary'
+label: 'Forest Inventory Maps'
 module: views
 description: ''
 tag: ''
@@ -3411,7 +3412,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: forest-reserve-boundaries
+      path: forest-inventory-maps
+      menu:
+        type: normal
+        title: 'Forest Inventory Maps'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: admin
+        parent: 'menu_link_content:ed8642bc-f902-41be-9d5e-20623d389c6e'
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:

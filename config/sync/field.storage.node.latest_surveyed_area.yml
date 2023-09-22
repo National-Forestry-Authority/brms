@@ -1,0 +1,20 @@
+uuid: 497030f7-3c22-4431-b549-38925fc22514
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.latest_surveyed_area
+field_name: latest_surveyed_area
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

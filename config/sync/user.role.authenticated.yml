@@ -8,9 +8,9 @@ dependencies:
     - node.type.aerial_photos
     - node.type.basic_page
     - node.type.cadastral_map
-    - node.type.central_forest_reserve
     - node.type.district_map
     - node.type.field_books
+    - node.type.forest_reserve
     - node.type.forest_reserve_boundary
     - node.type.historical_sheets
     - node.type.meta_data
@@ -35,23 +35,25 @@ permissions:
   - 'access environment indicator'
   - 'access toolbar'
   - 'access user profiles'
+  - 'create activity content'
+  - 'create aerial_photos content'
+  - 'create basic_page content'
   - 'create cadastral_map content'
-  - 'create central_forest_reserve content'
   - 'create district_map content'
   - 'create field_books content'
+  - 'create forest_reserve content'
   - 'create forest_reserve_boundary content'
   - 'create historical_sheets content'
   - 'create meta_data content'
   - 'create satellite_image content'
   - 'create transparency_maps content'
-  - 'delete any transparency_maps content'
   - 'delete own activity content'
   - 'delete own aerial_photos content'
   - 'delete own basic_page content'
   - 'delete own cadastral_map content'
-  - 'delete own central_forest_reserve content'
   - 'delete own district_map content'
   - 'delete own field_books content'
+  - 'delete own forest_reserve content'
   - 'delete own forest_reserve_boundary content'
   - 'delete own historical_sheets content'
   - 'delete own meta_data content'
@@ -61,9 +63,9 @@ permissions:
   - 'edit own aerial_photos content'
   - 'edit own basic_page content'
   - 'edit own cadastral_map content'
-  - 'edit own central_forest_reserve content'
   - 'edit own district_map content'
   - 'edit own field_books content'
+  - 'edit own forest_reserve content'
   - 'edit own forest_reserve_boundary content'
   - 'edit own historical_sheets content'
   - 'edit own meta_data content'
@@ -74,9 +76,9 @@ permissions:
   - 'view aerial_photos revisions'
   - 'view basic_page revisions'
   - 'view cadastral_map revisions'
-  - 'view central_forest_reserve revisions'
   - 'view district_map revisions'
   - 'view field_books revisions'
+  - 'view forest_reserve revisions'
   - 'view forest_reserve_boundary revisions'
   - 'view historical_sheets revisions'
   - 'view meta_data revisions'

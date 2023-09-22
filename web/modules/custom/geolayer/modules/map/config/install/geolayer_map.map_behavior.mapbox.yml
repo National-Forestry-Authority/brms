@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map_mapbox
+id: mapbox
+label: Mapbox
+description: 'Displays Mapbox layers.'
+library: geolayer_map_mapbox/mapbox
+settings: {  }

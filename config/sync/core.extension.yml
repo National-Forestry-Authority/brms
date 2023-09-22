@@ -14,7 +14,10 @@ module:
   color_field: 0
   config: 0
   contextual: 0
+  cshs: 0
   csv_serialization: 0
+  ctools: 0
+  custom_add_another: 0
   datetime: 0
   dblog: 0
   diff: 0
@@ -26,6 +29,7 @@ module:
   environment_indicator_ui: 0
   feeds: 0
   field: 0
+  field_formatter_class: 0
   field_group: 0
   field_ui: 0
   file: 0
@@ -47,6 +51,8 @@ module:
   migrate_conditions: 0
   migrate_drupal: 0
   migrate_plus: 0
+  migrate_source_csv: 0
+  migrate_source_directory: 0
   migrate_tools: 0
   mysql: 0
   nfa_landing: 0
@@ -81,4 +87,5 @@ theme:
   claro: 0
   gin: 0
   nfa_gin: 0
+  nfa_gin_brms: 0
 profile: minimal

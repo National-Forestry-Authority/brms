@@ -7,5 +7,6 @@ dependencies:
 id: geofield
 label: Geofield
 description: 'Renders geofield using nfa-map.'
-behaviors: {  }
+behaviors:
+  - geofield
 options: {  }

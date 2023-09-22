@@ -6,6 +6,6 @@ dependencies:
       - geolayer_map
 id: default
 label: Default
-description: 'The default geolayer map.'
+description: 'The default Geolayer map.'
 behaviors: {  }
 options: {  }

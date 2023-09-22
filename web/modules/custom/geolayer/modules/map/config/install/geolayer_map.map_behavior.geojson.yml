@@ -7,5 +7,5 @@ dependencies:
 id: geojson
 label: Geojson
 description: 'Renders geojson using nfa-map.'
-behaviors: {  }
-options: {  }
+library: geolayer_map/behavior_geojson
+settings: {  }

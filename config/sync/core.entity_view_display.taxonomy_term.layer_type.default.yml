@@ -1,0 +1,65 @@
+uuid: f0694c9d-6f79-4569-baaa-be932bf00de0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.layer_type.color
+    - field.field.taxonomy_term.layer_type.geometry_type
+    - field.field.taxonomy_term.layer_type.line_style
+    - field.field.taxonomy_term.layer_type.line_width
+    - field.field.taxonomy_term.layer_type.point_shape
+    - taxonomy.vocabulary.layer_type
+  module:
+    - color_field
+    - options
+    - text
+id: taxonomy_term.layer_type.default
+targetEntityType: taxonomy_term
+bundle: layer_type
+mode: default
+content:
+  color:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  geometry_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  line_style:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  line_width:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  point_shape:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

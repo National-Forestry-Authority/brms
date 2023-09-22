@@ -1,0 +1,19 @@
+uuid: 79761043-09dc-424b-9fde-1f8181116932
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.nfa_sites_global_id
+    - node.type.forest_reserve
+id: node.forest_reserve.nfa_sites_global_id
+field_name: nfa_sites_global_id
+entity_type: node
+bundle: forest_reserve
+label: 'NFA sites global ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

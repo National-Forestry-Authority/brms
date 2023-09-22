@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.survey.description
-    - field.field.paragraph.survey.geolayer
+    - field.field.paragraph.survey.geolayers
     - field.field.paragraph.survey.surveyor
     - field.field.paragraph.survey.year_surveyed
     - paragraphs.paragraphs_type.survey
@@ -26,15 +26,15 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  geolayer:
+  geolayers:
     type: inline_entity_form_complex
     weight: 3
     region: content
     settings:
       form_mode: default
       override_labels: true
-      label_singular: Geolayer
-      label_plural: Geolayers
+      label_singular: 'Survey Geolayer'
+      label_plural: 'Survey Geolayers'
       allow_new: true
       allow_existing: true
       match_operator: CONTAINS
@@ -45,7 +45,7 @@ content:
       removed_reference: optional
     third_party_settings:
       entity_browser_entity_form:
-        entity_browser_id: geolayers
+        entity_browser_id: survey_browser
   surveyor:
     type: entity_reference_autocomplete
     weight: 1
