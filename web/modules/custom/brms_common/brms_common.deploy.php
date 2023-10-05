@@ -207,3 +207,87 @@ function brms_common_deploy_003(&$sandbox = NULL) {
     $term->save();
   }
 }
+
+/**
+ * Create geolayer type taxonomy terms for base layers.
+ */
+function brms_common_deploy_004(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'UTM 50000 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#BDABB8',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'UTM 10000 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#8F818B',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Sector boundary base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#AD9DA9',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}
+
+/**
+ * Create base layers nodes.
+ */
+function brms_common_deploy_005(&$sandbox = NULL) {
+  $nodes = [
+    [
+      'title' => 'UTM 50000 base layer',
+      'type' => 'map_base_layer',
+    ],
+    [
+      'title' => 'UTM 10000 base layer',
+      'type' => 'map_base_layer',
+    ],
+    [
+      'title' => 'Sector boundary base layer',
+      'type' => 'map_base_layer',
+    ],
+  ];
+
+  foreach ($nodes as $node) {
+    $node = \Drupal::entityTypeManager()->getStorage('node')->create($node);
+    $node->save();
+  }
+}
+
+/**
+ * Update layer group of geolayer type taxonomy terms.
+ */
+function brms_common_deploy_006(&$sandbox = NULL) {
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->loadTree('layer_type', 0, NULL, TRUE);
+  foreach ($terms as $term) {
+    if (empty($term->layer_group->value)) {
+      if ($term->geometry_type->value == 'survey') {
+        $term->layer_group->value = 'survey';
+      }
+      else {
+        $term->layer_group->value = 'feature';
+      }
+      $term->save();
+    }
+  }
+}

@@ -79,6 +79,7 @@ function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterfac
 function brms_common_views_pre_render(ViewExecutable $view) {
   // Render a map attachment above the forest reserves views.
   if ($view->id() == 'forest_reserves') {
+    $map_settings = [];
 
     // Pass the same exposed filters to the geojson view.
     $exposed_filters = $view->getExposedInput();
@@ -89,27 +90,54 @@ function brms_common_views_pre_render(ViewExecutable $view) {
       ->loadTree('layer_type', 0, null, TRUE);
 
     if ($terms) {
+      $layer_types = [];
       foreach ($terms as $term) {
         /** @var \Drupal\taxonomy\Entity\term $term */
-        $layer_types[] = [$term->id(), $term->geometry_type->value];
+        if ($term->layer_group->value == 'feature') {
+          $layer_types[] = [
+            'url' => 'geolayer/geojson/layertype/' . $term->id(),
+            'label' => $term->getName(),
+            'group' => t('Forest reserve features')
+          ];
+        }
+        elseif ($term->layer_group->value == 'survey') {
+          $layer_types[] = [
+            'url' => 'survey/geolayer/geojson/layertype/' . $term->id(),
+            'label' => $term->getName(),
+            'group' => t('Forest reserve surveys')
+          ];
+        }
       }
 
-      // Build the map render array.
-      $map = [
-        '#type' => 'geolayer_map',
-        '#map_type' => 'default',
-        '#map_settings' => [
-          'layer_types' => $layer_types,
-          'filters' => $exposed_filters,
-        ],
-        '#behaviors' => [
-          'geojson_layer_type',
-          'popup',
-        ]
+      $map_settings = [
+        'layer_types' => $layer_types,
+        'filters' => $exposed_filters,
       ];
-
-      // Render the map.
-      $view->attachment_before['forest_reserves_map'] = $map;
     }
-  }
+
+    // Add the base map layers.
+    $entity_ids = \Drupal::entityTypeManager()->getStorage('node')
+      ->loadByProperties(['type' => 'map_base_layer', 'status' => TRUE]);
+    foreach ($entity_ids as $entity_id => $entity) {
+      $base_map_urls[] = [
+        'url' => 'baselayer/geojson/' . $entity_id,
+        'layer_name' => $entity->getTitle(),
+      ];
+    }
+    $map_settings['base_map_urls'] = $base_map_urls;
+
+    // Build the map render array.
+    $map = [
+      '#type' => 'geolayer_map',
+      '#map_type' => 'default',
+      '#map_settings' => $map_settings,
+      '#behaviors' => [
+        'geojson_layer_type',
+        'geojson_basemaps',
+        'popup',
+      ]
+    ];
+
+    // Render the map.
+    $view->attachment_before['forest_reserves_map'] = $map;  }
 }

@@ -1,0 +1,14 @@
+uuid: 0e0f4348-902a-4a52-9211-fcda0fb4d58c
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: map_base_layer
+label: 'Map base layer map'
+description: 'Renders a Map base layer map that shows geolayers.'
+behaviors:
+  - geojson
+  - popup
+options: {  }

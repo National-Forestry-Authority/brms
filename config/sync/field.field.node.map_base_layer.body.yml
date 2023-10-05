@@ -1,0 +1,23 @@
+uuid: 5ff31584-55f2-4459-84ec-e00e4b49ac43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.map_base_layer
+  module:
+    - text
+id: node.map_base_layer.body
+field_name: body
+entity_type: node
+bundle: map_base_layer
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,21 @@
+uuid: 0fa01ec9-f59d-43d8-bf2c-a02229b62258
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.layer_group
+    - taxonomy.vocabulary.layer_type
+  module:
+    - options
+id: taxonomy_term.layer_type.layer_group
+field_name: layer_group
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Layer group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

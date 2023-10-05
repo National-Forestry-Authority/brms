@@ -34,9 +34,19 @@ behavior_geojson:
     js/geolayer.map.behaviors.geojson.js: { }
   dependencies:
     - geolayer_map/geolayer_map
+behavior_geojson_geolayers:
+  js:
+    js/geolayer.map.behaviors.geojson.geolayers.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
 behavior_geojson_layer_type:
   js:
-    js/geolayer.map.behaviors.geojson_layertype.js: { }
+    js/geolayer.map.behaviors.geojson.layertype.js: { }
+  dependencies:
+    - geolayer_map/geolayer_map
+behavior_geojson_basemaps:
+  js:
+    js/geolayer.map.behaviors.geojson.basemaps.js: { }
   dependencies:
     - geolayer_map/geolayer_map
 behavior_geofield:

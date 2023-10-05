@@ -1,0 +1,32 @@
+uuid: 3b8026f0-5d35-4a22-bb43-0e64b60e6a43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.map_base_layer.body
+    - field.field.node.map_base_layer.geolayers
+    - node.type.map_base_layer
+  module:
+    - text
+    - user
+id: node.map_base_layer.default
+targetEntityType: node
+bundle: map_base_layer
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  geolayers: true
+  natural_boundary_length: true
+  total_boundary_length: true

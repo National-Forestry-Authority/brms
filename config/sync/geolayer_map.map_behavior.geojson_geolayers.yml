@@ -1,0 +1,12 @@
+uuid: 4a064753-248a-49f7-afe8-e66b3299c3f2
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson_geolayers
+label: 'Geojson geolayers'
+description: 'Renders each geolayer as separate map layer.'
+library: geolayer_map/behavior_geojson_geolayers
+settings: {  }

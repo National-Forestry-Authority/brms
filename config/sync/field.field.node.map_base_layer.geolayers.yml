@@ -1,0 +1,29 @@
+uuid: d635be08-d4b7-4279-99b2-6acbf49942a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.geolayers
+    - geolayer.geolayer_type.base_layer
+    - node.type.map_base_layer
+id: node.map_base_layer.geolayers
+field_name: geolayers
+entity_type: node
+bundle: map_base_layer
+label: Geolayers
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:geolayer'
+  handler_settings:
+    target_bundles:
+      base_layer: base_layer
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: base_layer
+field_type: entity_reference

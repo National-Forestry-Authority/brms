@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson_basemaps
+label: Geojson base maps
+description: 'Renders base map layers layer.'
+library: geolayer_map/behavior_geojson_basemaps
+settings: {  }
