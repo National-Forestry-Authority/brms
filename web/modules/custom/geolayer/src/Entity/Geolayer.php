@@ -128,6 +128,26 @@ class Geolayer extends RevisionableContentEntityBase implements GeolayerInterfac
       ])
       ->setDisplayConfigurable('view', TRUE);
 
+    $fields['kml_file'] = BaseFieldDefinition::create('file')
+      ->setRevisionable(TRUE)
+      ->setTranslatable(TRUE)
+      ->setLabel(t('KML file'))
+      ->setSettings([
+        'uri_scheme' => 'public',
+        'file_directory' => 'kml_upload',
+        'file_extensions' => 'kml',
+      ])
+      ->setDescription(t('The uploaded KML will be used as the source for the Geofield field and <strong>will overwrite any existing Geometry data.</strong>'))
+      ->setDisplayOptions('form', [
+        'type' => 'file_generic',
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'type' => 'file',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     $fields['description'] = BaseFieldDefinition::create('text_long')
       ->setRevisionable(TRUE)
       ->setTranslatable(TRUE)

@@ -283,6 +283,7 @@ function brms_common_deploy_006(&$sandbox = NULL) {
     if (empty($term->layer_group->value)) {
       if ($term->geometry_type->value == 'survey') {
         $term->layer_group->value = 'survey';
+        $term->geometry_type->value = 'polygon';
       }
       else {
         $term->layer_group->value = 'feature';

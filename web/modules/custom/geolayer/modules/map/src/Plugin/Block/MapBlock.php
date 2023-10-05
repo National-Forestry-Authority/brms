@@ -146,7 +146,6 @@ class MapBlock extends BlockBase implements ContainerFactoryPluginInterface {
               $urls[] = 'geolayer/geojson/' . $survey->id();
             }
           }
-
           $map_settings = [
             'urls' => $urls,
           ];
