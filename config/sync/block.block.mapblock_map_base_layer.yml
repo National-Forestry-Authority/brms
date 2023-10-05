@@ -1,4 +1,4 @@
-uuid: cdf3ba6d-0a38-4e92-8304-606f525d1ed7
+uuid: a915c2ac-4edc-4acc-b280-8f90683df0b6
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - system
   theme:
     - nfa_gin_brms
-id: mapblock
+id: mapblock_map_base_layer
 theme: nfa_gin_brms
 region: content
 weight: -2
@@ -16,12 +16,12 @@ provider: null
 plugin: map_block
 settings:
   id: map_block
-  label: 'Map block'
+  label: 'Base layer map block'
   label_display: '0'
   provider: geolayer_map
   context_mapping:
     node: '@node.node_route_context:node'
-  map_type: forest_reserve
+  map_type: map_base_layer
   map_behaviors: {  }
 visibility:
   request_path:
@@ -34,4 +34,4 @@ visibility:
     context_mapping:
       node: '@node.node_route_context:node'
     bundles:
-      forest_reserve: forest_reserve
+      map_base_layer: map_base_layer

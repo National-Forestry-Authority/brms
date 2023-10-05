@@ -1,33 +1,40 @@
 langcode: en
 status: true
 dependencies: {  }
-id: brms_migrate_forest_reserve_geolayers
+id: brms_migrate_sector
 migration_tags:
   - Content
-label: Forest Reserves
+label: Sector boundaries
 source:
   plugin: directory_geolayer
   track_changes: true
   directory:
-    path: public://migrations/cfr_kml
+    path: public://migrations/sector_boundaries
   # All files with a .kml extension.
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
 process:
-  nid: nid
+  nid:
+    - plugin: default_value
+      default_value: 'Sector boundary base layer'
+    - plugin: entity_lookup
+      entity_type: node
+      value_key: title
+    - plugin: skip_on_empty
+      method: row
   geolayer_id:
     plugin: migration_lookup
-    migration: brms_migrate_geolayers
+    migration: brms_migrate_sector_geolayers
     source: migration_id
   geolayers:
-    plugin: brms_forest_reserve_geolayer
+    plugin: brms_base_layer_geolayer
     source: '@geolayer_id'
   revision_log:
     plugin: default_value
     default_value: 'Import geolayers'
 destination:
   plugin: 'entity:node'
-  default_bundle: forest_reserve
+  default_bundle: map_base_layer
 migration_dependencies:
   required:
-    - brms_migrate_geolayers
+    - brms_migrate_sector_geolayers

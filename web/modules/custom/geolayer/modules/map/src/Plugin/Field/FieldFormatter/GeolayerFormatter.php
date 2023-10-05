@@ -26,12 +26,12 @@ class GeolayerFormatter extends FormatterBase {
     $element = [];
     // Get the parent node of the field item list of geolayers.
     $entity = $items->getEntity();
-    // Get the value of the geolayer entity reference field.
-    $geolayers = [];
+    // Construct the geojson url.
+    $urls = [];
     $referenced_entities = $entity->get('geolayers')->referencedEntities();
     // Loop through the referenced geolayers and store their ids.
     foreach ($referenced_entities as $referenced_entity) {
-      $geolayers[] = $referenced_entity->id();
+      $urls[] = 'geolayer/geojson/' . $referenced_entity->id();
     }
 
     // Render the map.
@@ -39,7 +39,7 @@ class GeolayerFormatter extends FormatterBase {
       '#type' => 'geolayer_map',
       '#map_type' => 'geolayers',
       '#map_settings' => [
-        'geolayers' => $geolayers,
+        'urls' => $urls,
       ],
     ];
     return $element;

@@ -6,6 +6,7 @@ dependencies:
     - field.storage.geolayer.layer_type
     - field.storage.taxonomy_term.color
     - field.storage.taxonomy_term.geometry_type
+    - field.storage.taxonomy_term.layer_group
     - field.storage.taxonomy_term.line_style
     - field.storage.taxonomy_term.line_width
     - field.storage.taxonomy_term.point_shape
@@ -240,10 +241,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        geometry_type:
-          id: geometry_type
-          table: taxonomy_term__geometry_type
-          field: geometry_type
+        layer_group:
+          id: layer_group
+          table: taxonomy_term__layer_group
+          field: layer_group
           relationship: layer_type
           group_type: group
           admin_label: ''
@@ -850,7 +851,7 @@ display:
       tags:
         - 'config:field.storage.geolayer.layer_type'
         - 'config:field.storage.taxonomy_term.color'
-        - 'config:field.storage.taxonomy_term.geometry_type'
+        - 'config:field.storage.taxonomy_term.layer_group'
         - 'config:field.storage.taxonomy_term.line_style'
         - 'config:field.storage.taxonomy_term.line_width'
         - 'config:field.storage.taxonomy_term.point_shape'
@@ -1430,15 +1431,14 @@ display:
       tags: {  }
   geolayer_json:
     id: geolayer_json
-    display_title: 'Geojson by forest reserve'
+    display_title: 'Geojson by geolayer'
     display_plugin: rest_export
     position: 1
     display_options:
       pager:
-        type: some
+        type: none
         options:
           offset: 0
-          items_per_page: 10
       arguments:
         id:
           id: id
@@ -1509,7 +1509,7 @@ display:
       tags:
         - 'config:field.storage.geolayer.layer_type'
         - 'config:field.storage.taxonomy_term.color'
-        - 'config:field.storage.taxonomy_term.geometry_type'
+        - 'config:field.storage.taxonomy_term.layer_group'
         - 'config:field.storage.taxonomy_term.line_style'
         - 'config:field.storage.taxonomy_term.line_width'
         - 'config:field.storage.taxonomy_term.point_shape'
@@ -2209,10 +2209,9 @@ display:
           empty_zero: false
           hide_alter_empty: false
       pager:
-        type: some
+        type: none
         options:
           offset: 0
-          items_per_page: 10
       arguments:
         tid:
           id: tid
@@ -3521,10 +3520,9 @@ display:
           empty_zero: false
           hide_alter_empty: false
       pager:
-        type: some
+        type: none
         options:
           offset: 0
-          items_per_page: 10
       arguments:
         tid:
           id: tid
@@ -3745,10 +3743,10 @@ display:
           required_depth: 0
           none_label: '- Please select -'
           depth: 1
-        geometry_type_value:
-          id: geometry_type_value
-          table: taxonomy_term__geometry_type
-          field: geometry_type_value
+        layer_group_value:
+          id: layer_group_value
+          table: taxonomy_term__layer_group
+          field: layer_group_value
           relationship: layer_type
           group_type: group
           admin_label: ''
@@ -3844,7 +3842,7 @@ display:
           required: false
       display_description: ''
       display_extenders: {  }
-      path: geolayer/survey-geojson/layertype/%
+      path: survey/geolayer/geojson/layertype/%
     cache_metadata:
       max-age: -1
       contexts:

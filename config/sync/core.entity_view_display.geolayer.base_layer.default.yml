@@ -1,16 +1,16 @@
-uuid: 981a8cf2-58a9-48c4-aa63-eb013e85d974
+uuid: 99484d92-76c7-4652-bfa8-debe515b80aa
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.geolayer.forest_reserve.layer_type
-    - geolayer.geolayer_type.forest_reserve
+    - field.field.geolayer.base_layer.layer_type
+    - geolayer.geolayer_type.base_layer
   module:
     - geolayer_map
     - text
-id: geolayer.forest_reserve.default
+id: geolayer.base_layer.default
 targetEntityType: geolayer
-bundle: forest_reserve
+bundle: base_layer
 mode: default
 content:
   description:
