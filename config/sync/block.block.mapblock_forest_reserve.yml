@@ -28,7 +28,7 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "/node/*/edit\r\n/node/*/revisions"
+    pages: "/node/*/edit\r\n/node/*/revisions\r\n/node/add/*"
   'entity_bundle:node':
     id: 'entity_bundle:node'
     negate: false

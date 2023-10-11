@@ -175,10 +175,36 @@ class GeofieldWidget extends GeofieldBaseWidget {
     $element['#prefix'] = '<div id="' . $field_wrapper_id . '">';
     $element['#suffix'] = '</div>';
 
+    // The button value needs to be unique so that the correct triggering
+    // element is set. In geolayer multivalue entity reference fields append the
+    // parent element's delta to the button value.
+    if (!empty($element['#field_parents'])) {
+      if (in_array('surveys', $element['#field_parents'])) {
+        // The survey paragraph has a single geolayer but there can be multiple
+        // surveys, so use the delta of the survey itself as the unique id for
+        // the upload button.
+        $delta = $element['#field_parents'][1];
+      }
+      elseif (in_array('inline_entity_form', $element['#field_parents'])) {
+        // The geolayer field is a multiple value entity reference field. Use
+        // the geolayer delta as the unique id for the upload button.
+        $delta = $element['#field_parents'][count($element['#field_parents']) - 2];
+      }
+      else {
+        // When adding a new geolayer the delta is the last parent.
+        $delta = end($element['#field_parents']);
+      }
+      $button_label = $this->t('Import geometry from uploaded files (@delta)', ['@delta' => $delta + 1]);
+    }
+    else {
+      // On the geolayer edit form accesed from admin/content/geolayer we don't
+      // have deltas so we can use a simple butotn label.
+      $button_label = $this->t('Import geometry from uploaded files');
+    }
     // Add a button to import geometry from the uploaded KML file.
     $element['trigger'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Import geometry from uploaded files'),
+      '#value' => $button_label,
       '#submit' => [[$this, 'fileParse']],
       '#ajax' => [
         'wrapper' => $field_wrapper_id,
