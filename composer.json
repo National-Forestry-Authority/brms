@@ -52,7 +52,7 @@
         "drupal/gin": "^3",
         "drupal/gin_lb": "^1.0.x-dev",
         "drupal/gin_login": "^2",
-        "drupal/inline_entity_form": "^1",
+        "drupal/inline_entity_form": "2.0.x",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
         "drupal/migrate_conditions": "^2",
@@ -153,6 +153,9 @@
         "patches": {
           "drupal/environment_indicator": {
             "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff"
+          },
+          "drupal/inline_entity_form": {
+            "3383346: Can't save the content without reloading if you miss the required fields once": "https://www.drupal.org/files/issues/2023-09-08/3383346-11.patch"
           }
       }
     },
