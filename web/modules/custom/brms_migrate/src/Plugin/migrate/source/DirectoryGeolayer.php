@@ -84,6 +84,25 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         $row->setSourceProperty('migration_id', $nid . '-' . $parts[1]);
         break;
 
+      case 'brms_migrate_utm10000_geolayers':
+        $parts = explode('_', $parts[0]);
+        $name = str_replace('-', ' ', $parts[1]);
+        $map_sheet = $parts[2] . '/' . $parts[3] . '/' . $parts[4];
+        $row->setSourceProperty('label', $name);
+        $row->setSourceProperty('description', 'Map sheet: ' . $map_sheet);
+        // Set the unique source id to the map sheet number.
+        $row->setSourceProperty('sourceID', $map_sheet);
+        break;
+
+      case 'brms_migrate_utm10000':
+        $parts = explode('_', $parts[0]);
+        $map_sheet = $parts[2] . '/' . $parts[3] . '/' . $parts[4];
+        // Set the migration id so that we can look up the
+        // brms_migrate_utm50000_geolayers migration to retrieve the geolayer id
+        // that will be assigned to the base layer node.
+        $row->setSourceProperty('migration_id', $map_sheet);
+        break;
+
       case 'brms_migrate_utm50000_geolayers':
         $name = str_replace('-', ' ', explode('_', $parts[0])[2]);
         $map_sheet = explode('_', $parts[0])[1];

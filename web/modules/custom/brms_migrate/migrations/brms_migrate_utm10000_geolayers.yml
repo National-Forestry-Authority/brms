@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_utm10000_geolayers
+migration_tags:
+  - Content
+label: UTM 10000 map sheet geolayer entities
+source:
+  plugin: directory_geolayer
+  track_changes: true
+  directory:
+    path: public://migrations/utm_10000
+  # All files with a .kml extension.
+  file_mask: '/^.*\.kml$/'
+  recurse_level: -1
+process:
+  nid:
+    - plugin: default_value
+      default_value: 'UTM 10000 base layer'
+    - plugin: entity_lookup
+      entity_type: node
+      value_key: title
+    - plugin: skip_on_empty
+      method: row
+  label: label
+  description: description
+  geofield/value: kml
+  geofield/geo_type:
+    plugin: default_value
+    default_value: 'Polygon'
+  layer_type:
+    - plugin: default_value
+      default_value: 'UTM 10000 base layer'
+    - plugin: entity_lookup
+      entity_type: taxonomy_term
+      value_key: name
+      bundle_key: vid
+      bundle: layer_type
+      ignore_case: true
+destination:
+  plugin: 'entity:geolayer'
+  default_bundle: base_layer
