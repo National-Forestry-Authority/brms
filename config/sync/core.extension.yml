@@ -67,6 +67,7 @@ module:
   realname: 0
   rest: 0
   serialization: 0
+  symfony_mailer: 0
   system: 0
   taxonomy: 0
   text: 0
