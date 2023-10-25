@@ -55,4 +55,5 @@ content:
     region: content
 hidden:
   created: true
+  kml_file: true
   uid: true
