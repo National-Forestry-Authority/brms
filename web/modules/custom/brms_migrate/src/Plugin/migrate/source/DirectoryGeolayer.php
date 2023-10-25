@@ -86,7 +86,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
 
       case 'brms_migrate_utm10000_geolayers':
         $parts = explode('_', $parts[0]);
-        $name = str_replace('-', ' ', $parts[1]);
+        $name = str_replace('-', ' ', $parts[1]) . ' - UTM 10000';
         $map_sheet = $parts[2] . '/' . $parts[3] . '/' . $parts[4];
         $row->setSourceProperty('label', $name);
         $row->setSourceProperty('description', 'Map sheet: ' . $map_sheet);
@@ -104,7 +104,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         break;
 
       case 'brms_migrate_utm50000_geolayers':
-        $name = str_replace('-', ' ', explode('_', $parts[0])[2]);
+        $name = str_replace('-', ' ', explode('_', $parts[0])[2]) . ' - UTM 50000';
         $map_sheet = explode('_', $parts[0])[1];
         $row->setSourceProperty('label', $name);
         $row->setSourceProperty('description', 'Map sheet: ' . $map_sheet);
@@ -121,7 +121,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         break;
 
       case 'brms_migrate_sector_geolayers':
-        $name = str_replace('-', ' ', explode('_', $parts[0])[1]);
+        $name = str_replace('-', ' ', explode('_', $parts[0])[1]) . ' - Sector';
         $row->setSourceProperty('label', $name);
         $row->setSourceProperty('sourceID', $name);
         break;
