@@ -240,6 +240,24 @@ function brms_common_deploy_004(&$sandbox = NULL) {
       'color' => '#AD9DA9',
       'vid' => 'layer_type',
     ],
+    [
+      'name' => 'District 2022 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#4b4b8f',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'District 1997 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
   ];
 
   foreach ($terms as $term) {
@@ -249,34 +267,9 @@ function brms_common_deploy_004(&$sandbox = NULL) {
 }
 
 /**
- * Create base layers nodes.
- */
-function brms_common_deploy_005(&$sandbox = NULL) {
-  $nodes = [
-    [
-      'title' => 'UTM 50000 base layer',
-      'type' => 'map_base_layer',
-    ],
-    [
-      'title' => 'UTM 10000 base layer',
-      'type' => 'map_base_layer',
-    ],
-    [
-      'title' => 'Sector boundary base layer',
-      'type' => 'map_base_layer',
-    ],
-  ];
-
-  foreach ($nodes as $node) {
-    $node = \Drupal::entityTypeManager()->getStorage('node')->create($node);
-    $node->save();
-  }
-}
-
-/**
  * Update layer group of geolayer type taxonomy terms.
  */
-function brms_common_deploy_006(&$sandbox = NULL) {
+function brms_common_deploy_005(&$sandbox = NULL) {
   $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
     ->loadTree('layer_type', 0, NULL, TRUE);
   foreach ($terms as $term) {

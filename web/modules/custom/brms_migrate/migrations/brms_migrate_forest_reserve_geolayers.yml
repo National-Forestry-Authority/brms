@@ -4,7 +4,7 @@ dependencies: {  }
 id: brms_migrate_forest_reserve_geolayers
 migration_tags:
   - Content
-label: Forest Reserves
+label: Forest Reserve geolayer entities
 source:
   plugin: directory_geolayer
   track_changes: true
@@ -14,20 +14,19 @@ source:
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
 process:
-  nid: nid
-  geolayer_id:
-    plugin: migration_lookup
-    migration: brms_migrate_geolayers
-    source: migration_id
-  geolayers:
-    plugin: brms_forest_reserve_geolayer
-    source: '@geolayer_id'
-  revision_log:
+  label: label
+  geofield/value: kml
+  geofield/geo_type:
     plugin: default_value
-    default_value: 'Import geolayers'
+    default_value: 'Polygon'
+  layer_type:
+    plugin: entity_lookup
+    entity_type: taxonomy_term
+    value_key: name
+    bundle_key: vid
+    bundle: layer_type
+    ignore_case: true
+    source: layer_type
 destination:
-  plugin: 'entity:node'
+  plugin: 'entity:geolayer'
   default_bundle: forest_reserve
-migration_dependencies:
-  required:
-    - brms_migrate_geolayers

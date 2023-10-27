@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.map_base_layer.body
+    - field.field.node.map_base_layer.common_base_layer
     - field.field.node.map_base_layer.geolayers
+    - field.field.node.map_base_layer.related_forest_reserve
     - node.type.map_base_layer
   module:
     - entity_browser_entity_form
@@ -18,7 +20,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 8
+    weight: 10
     region: content
     settings:
       rows: 9
@@ -26,55 +28,80 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  common_base_layer:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   geolayers:
     type: inline_entity_form_complex
-    weight: 7
+    weight: 2
     region: content
     settings:
       form_mode: default
       override_labels: true
       label_singular: Geolayer
       label_plural: Geolayer
+      auto_open: true
       allow_new: true
       allow_existing: false
+      allow_edit: true
       match_operator: CONTAINS
       allow_duplicate: false
+      hide_fieldset: false
+      hide_title: false
       collapsible: true
       collapsed: false
       revision: false
       removed_reference: optional
+      config_labels_button: _none
+      labels: {  }
+      add_existing_widget: autocomplete
+      auto_open_edit_form: false
     third_party_settings:
       entity_browser_entity_form:
         entity_browser_id: geolayers
   path:
     type: path
-    weight: 5
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
-    type: boolean_checkbox
-    weight: 3
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  status:
     type: boolean_checkbox
     weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  related_forest_reserve:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 4
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -89,7 +116,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS

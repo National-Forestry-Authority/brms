@@ -1,0 +1,23 @@
+uuid: b0dde2eb-d54b-42d3-8d43-e937d1846d82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.common_base_layer
+    - node.type.map_base_layer
+id: node.map_base_layer.common_base_layer
+field_name: common_base_layer
+entity_type: node
+bundle: map_base_layer
+label: 'Common base layer'
+description: 'Common base layers will be shown on all maps'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

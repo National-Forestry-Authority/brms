@@ -27,6 +27,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  kml_file:
+    type: file_generic
+    weight: 27
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   label:
     type: string_textfield
     weight: 0

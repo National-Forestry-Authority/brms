@@ -87,7 +87,7 @@ function brms_common_views_pre_render(ViewExecutable $view) {
     // Add a layer for all layer types by passing the type term id to the map
     // settings.
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
-      ->loadTree('layer_type', 0, null, TRUE);
+      ->loadTree('layer_type', 0, NULL, TRUE);
 
     if ($terms) {
       $layer_types = [];
@@ -97,14 +97,14 @@ function brms_common_views_pre_render(ViewExecutable $view) {
           $layer_types[] = [
             'url' => 'geolayer/geojson/layertype/' . $term->id(),
             'label' => $term->getName(),
-            'group' => t('Forest reserve features')
+            'group' => t('Forest reserve features'),
           ];
         }
         elseif ($term->layer_group->value == 'survey') {
           $layer_types[] = [
             'url' => 'survey/geolayer/geojson/layertype/' . $term->id(),
             'label' => $term->getName(),
-            'group' => t('Forest reserve surveys')
+            'group' => t('Forest reserve surveys'),
           ];
         }
       }
@@ -116,15 +116,21 @@ function brms_common_views_pre_render(ViewExecutable $view) {
     }
 
     // Add the base map layers.
-    $entity_ids = \Drupal::entityTypeManager()->getStorage('node')
-      ->loadByProperties(['type' => 'map_base_layer', 'status' => TRUE]);
-    foreach ($entity_ids as $entity_id => $entity) {
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $entity_ids = $storage->getQuery()
+      ->condition('type', 'map_base_layer')
+      ->condition('status', TRUE)
+      ->condition('common_base_layer', TRUE)
+      ->accessCheck(TRUE)
+      ->execute();
+    $entities = $storage->loadMultiple($entity_ids);
+    foreach ($entities as $entity) {
       $base_map_urls[] = [
-        'url' => 'baselayer/geojson/' . $entity_id,
+        'url' => 'baselayer/geojson/' . $entity->id(),
         'layer_name' => $entity->getTitle(),
       ];
     }
-    $map_settings['base_map_urls'] = $base_map_urls;
+    $map_settings['base_map_urls'] = $base_map_urls ?? NULL;
 
     // Build the map render array.
     $map = [
@@ -135,9 +141,10 @@ function brms_common_views_pre_render(ViewExecutable $view) {
         'geojson_layer_type',
         'geojson_basemaps',
         'popup',
-      ]
+      ],
     ];
 
     // Render the map.
-    $view->attachment_before['forest_reserves_map'] = $map;  }
+    $view->attachment_before['forest_reserves_map'] = $map;
+  }
 }

@@ -1,22 +1,22 @@
 langcode: en
 status: true
 dependencies: {  }
-id: brms_migrate_sector
+id: brms_migrate_district2022
 migration_tags:
   - Content
-label: Sector boundaries base layer
+label: District 2022 base layer
 source:
   plugin: directory_geolayer
   track_changes: true
   directory:
-    path: public://migrations/sector_boundaries
+    path: public://migrations/districts_2022
   # All files with a .kml extension.
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
 process:
   nid:
     - plugin: default_value
-      default_value: 'Sector boundary base layer'
+      default_value: 'Districts 2022 base layer'
     - plugin: entity_generate
       entity_type: node
       bundle: map_base_layer
@@ -24,7 +24,7 @@ process:
       bundle_key: type
   geolayer_id:
     plugin: migration_lookup
-    migration: brms_migrate_sector_geolayers
+    migration: brms_migrate_district2022_geolayers
     source: migration_id
   geolayers:
     plugin: brms_base_layer_geolayer
@@ -40,4 +40,4 @@ destination:
   default_bundle: map_base_layer
 migration_dependencies:
   required:
-    - brms_migrate_sector_geolayers
+    - brms_migrate_district2022_geolayers

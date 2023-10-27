@@ -1,0 +1,29 @@
+uuid: 55404058-dd5e-46de-82da-b85cfde00732
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.related_forest_reserve
+    - node.type.forest_reserve
+    - node.type.map_base_layer
+id: node.map_base_layer.related_forest_reserve
+field_name: related_forest_reserve
+entity_type: node
+bundle: map_base_layer
+label: 'Related forest reserve'
+description: 'The forest reserve related to the base map. When a base map is related to a forest reserve it is only shown on that forest reserve.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      forest_reserve: forest_reserve
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

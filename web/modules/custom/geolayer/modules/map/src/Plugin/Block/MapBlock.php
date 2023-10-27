@@ -122,6 +122,8 @@ class MapBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
+    $storage = $this->entityTypeManager->getStorage('node');
+
     if (isset($this->configuration['context_mapping']['node'])) {
       /** @var \Drupal\node\NodeInterface $node */
       $node = $this->getContextValue('node');
@@ -164,15 +166,39 @@ class MapBlock extends BlockBase implements ContainerFactoryPluginInterface {
     // Add the base map layers.
     if (array_search('geojson_basemaps', $this->configuration['map_behaviors']) !== FALSE) {
       // Get the nids of all base map nodes.
-      $entity_ids = $this->entityTypeManager->getStorage('node')
-        ->loadByProperties(['type' => 'map_base_layer', 'status' => TRUE]);
-      foreach ($entity_ids as $entity_id => $entity) {
+      $entity_ids = $storage->getQuery()
+        ->condition('type', 'map_base_layer')
+        ->condition('status', TRUE)
+        ->condition('common_base_layer', TRUE)
+        ->accessCheck(TRUE)
+        ->execute();
+      $entities = $storage->loadMultiple($entity_ids);
+      foreach ($entities as $entity) {
         $base_map_urls[] = [
-          'url' => 'baselayer/geojson/' . $entity_id,
+          'url' => 'baselayer/geojson/' . $entity->id(),
           'layer_name' => $entity->getTitle(),
         ];
       }
-      $map_settings['base_map_urls'] = $base_map_urls;
+
+      // If this is a Forest reserve node, get the non-common base maps that are
+      // related to this forest reserve.
+      if (isset($node)) {
+        $entity_ids = $storage->getQuery()
+          ->condition('type', 'map_base_layer')
+          ->condition('status', TRUE)
+          ->condition('common_base_layer', FALSE)
+          ->condition('related_forest_reserve', $node->id())
+          ->accessCheck(TRUE)
+          ->execute();
+        $entities = $storage->loadMultiple($entity_ids);
+        foreach ($entities as $entity) {
+          $base_map_urls[] = [
+            'url' => 'baselayer/geojson/' . $entity->id(),
+            'layer_name' => $entity->getTitle(),
+          ];
+        }
+      }
+      $map_settings['base_map_urls'] = $base_map_urls ?? NULL;
     }
 
     return [

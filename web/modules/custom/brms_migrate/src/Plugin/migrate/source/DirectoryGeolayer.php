@@ -55,7 +55,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
     $parts = explode('.', $filename);
 
     switch ($this->migration->getPluginId()) {
-      case 'brms_migrate_geolayers':
+      case 'brms_migrate_forest_reserve_geolayers':
         // The KML filename has the format NID-reservename.layertype.kml e.g.
         // 26138-Abera.cairn.kml.
         $nid = explode('-', $parts[0])[0];
@@ -70,7 +70,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         $row->setSourceProperty('layer_type', $layer_type);
         break;
 
-      case 'brms_migrate_forest_reserve_geolayers':
+      case 'brms_migrate_forest_reserve_geolayer_ref':
         $nid = explode('-', $parts[0])[0];
         // Set the nid source property of the forest reserve that the geolayer
         // will be assigned to.
@@ -86,8 +86,8 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
 
       case 'brms_migrate_utm10000_geolayers':
         $parts = explode('_', $parts[0]);
-        $name = str_replace('-', ' ', $parts[1]) . ' - UTM 10000';
         $map_sheet = $parts[2] . '/' . $parts[3] . '/' . $parts[4];
+        $name = str_replace('-', ' ', $parts[1]) . ' - UTM 10000 - map sheet ' . $map_sheet;
         $row->setSourceProperty('label', $name);
         $row->setSourceProperty('description', 'Map sheet: ' . $map_sheet);
         // Set the unique source id to the map sheet number.
@@ -96,11 +96,15 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
 
       case 'brms_migrate_utm10000':
         $parts = explode('_', $parts[0]);
+        $name = str_replace('-', ' ', $parts[1]);
         $map_sheet = $parts[2] . '/' . $parts[3] . '/' . $parts[4];
         // Set the migration id so that we can look up the
         // brms_migrate_utm50000_geolayers migration to retrieve the geolayer id
         // that will be assigned to the base layer node.
         $row->setSourceProperty('migration_id', $map_sheet);
+        // There is a UTM 10000 base layer node for each CFR. Construct the node
+        // title to be search for in the migration.
+        $row->setSourceProperty('title', 'UTM 10000 base layer - ' . $name);
         break;
 
       case 'brms_migrate_utm50000_geolayers':
@@ -121,8 +125,8 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         break;
 
       case 'brms_migrate_sector_geolayers':
-        $name = str_replace('-', ' ', explode('_', $parts[0])[1]) . ' - Sector';
-        $row->setSourceProperty('label', $name);
+        $name = str_replace('-', ' ', explode('_', $parts[0])[1]);
+        $row->setSourceProperty('label', $name . ' - Sector');
         $row->setSourceProperty('sourceID', $name);
         break;
 
@@ -132,6 +136,28 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         // brms_migrate_sector_geolayers migration to retrieve the geolayer id
         // that will be assigned to the base layer node.
         $row->setSourceProperty('migration_id', $name);
+        break;
+
+      case 'brms_migrate_district2022_geolayers':
+        $name = str_replace('-', ' ', explode('_', $parts[0])[2]) . ' - District 2022';
+        $row->setSourceProperty('label', $name);
+        // Set the unique source id to the map sheet number.
+        $row->setSourceProperty('sourceID', $parts[0]);
+        break;
+
+      case 'brms_migrate_district1997_geolayers':
+        $name = str_replace('-', ' ', explode('_', $parts[0])[1]) . ' - District 1997';
+        $row->setSourceProperty('label', $name);
+        // Set the unique source id to the map sheet number.
+        $row->setSourceProperty('sourceID', $parts[0]);
+        break;
+
+      case 'brms_migrate_district2022':
+      case 'brms_migrate_district1997':
+        // Set the migration id so that we can look up the
+        // brms_migrate_sector_geolayers migration to retrieve the geolayer id
+        // that will be assigned to the base layer node.
+        $row->setSourceProperty('migration_id', $parts[0]);
         break;
     }
 

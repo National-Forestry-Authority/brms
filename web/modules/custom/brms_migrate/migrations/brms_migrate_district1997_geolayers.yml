@@ -1,15 +1,15 @@
 langcode: en
 status: true
 dependencies: {  }
-id: brms_migrate_sector_geolayers
+id: brms_migrate_district1997_geolayers
 migration_tags:
   - Content
-label: Sector boundary base layer geolayer entities
+label: Uganda districts in 1997 geolayer entities
 source:
   plugin: directory_geolayer
   track_changes: true
   directory:
-    path: public://migrations/sector_boundaries
+    path: public://migrations/districts_1997
   # All files with a .kml extension.
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
@@ -22,7 +22,7 @@ process:
     default_value: 'Polygon'
   layer_type:
     - plugin: default_value
-      default_value: 'Sector boundary base layer'
+      default_value: 'District 1997 base layer'
     - plugin: entity_lookup
       entity_type: taxonomy_term
       value_key: name

@@ -4,7 +4,7 @@ dependencies: {  }
 id: brms_migrate_utm50000_geolayers
 migration_tags:
   - Content
-label: UTM 50000 map sheet geolayer entities
+label: UTM 50000 map sheet base layer geolayer entities
 source:
   plugin: directory_geolayer
   track_changes: true
@@ -14,14 +14,6 @@ source:
   file_mask: '/^.*\.kml$/'
   recurse_level: -1
 process:
-  nid:
-    - plugin: default_value
-      default_value: 'UTM 50000 base layer'
-    - plugin: entity_lookup
-      entity_type: node
-      value_key: title
-    - plugin: skip_on_empty
-      method: row
   label: label
   description: description
   geofield/value: kml
