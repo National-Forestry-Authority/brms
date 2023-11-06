@@ -33,7 +33,6 @@ dependencies:
     - node
     - text
     - user
-    - views_autocomplete_filters
 id: cadastral_maps
 label: 'Cadastral Maps'
 module: views

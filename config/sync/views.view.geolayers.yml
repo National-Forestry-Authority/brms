@@ -27,7 +27,6 @@ dependencies:
     - taxonomy
     - text
     - user
-    - views_autocomplete_filters
     - views_geojson
 id: geolayers
 label: Geolayers

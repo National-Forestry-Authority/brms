@@ -13,7 +13,6 @@ dependencies:
     - node
     - taxonomy
     - user
-    - views_autocomplete_filters
 id: forest_reserves
 label: 'Forest reserves'
 module: views
