@@ -82,3 +82,15 @@ brms_common.satellite_image.add_task:
     - view.satellite_images.listing
   cache_tags:
     - node_list
+brms_common.map_base_layer.add_task:
+  title: 'Add Map base layer'
+  route_name: node.add
+  route_parameters:
+    node_type: map_base_layer
+  options:
+    query:
+      destination: '/map-base-layers'
+  appears_on:
+    - view.map_base_layers.listing
+  cache_tags:
+    - node_list
