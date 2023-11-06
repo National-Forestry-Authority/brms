@@ -18,6 +18,7 @@ dependencies:
     - node.type.transparency_maps
   module:
     - environment_indicator
+    - file
     - filter
     - node
     - system
@@ -53,6 +54,7 @@ permissions:
   - 'delete own cadastral_map content'
   - 'delete own district_map content'
   - 'delete own field_books content'
+  - 'delete own files'
   - 'delete own forest_reserve content'
   - 'delete own forest_reserve_boundary content'
   - 'delete own historical_sheets content'

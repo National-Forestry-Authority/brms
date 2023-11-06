@@ -2,7 +2,7 @@
 
 namespace Drupal\geolayer_map\Event;
 
-use Symfony\Component\EventDispatcher\Event;
+use Drupal\Component\EventDispatcher\Event;
 use Drupal\geolayer_map\Entity\MapTypeInterface;
 
 /**

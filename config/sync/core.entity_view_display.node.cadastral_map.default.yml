@@ -35,7 +35,7 @@ dependencies:
   module:
     - datetime
     - file
-    - geolayer
+    - geolayer_map
     - text
     - user
 id: node.cadastral_map.default

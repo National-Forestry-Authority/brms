@@ -30,3 +30,5 @@ content:
     region: content
 hidden:
   layout_builder__layout: true
+  natural_boundary_length: true
+  total_boundary_length: true

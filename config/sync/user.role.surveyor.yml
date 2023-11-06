@@ -1,9 +1,12 @@
 uuid: 7c31a34b-74ca-458d-9785-d33107f4bfb7
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - file
 id: surveyor
 label: Surveyor
 weight: -1
 is_admin: null
-permissions: {  }
+permissions:
+  - 'delete own files'
