@@ -5767,18 +5767,18 @@
         },
         {
             "name": "national-forestry-authority/nfa_tracker",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/National-Forestry-Authority/nfa_tracker",
-                "reference": "c1a95cf7020f9e390fa01a4005b691b55cba1e04"
+                "reference": "ea28ba9291c07cf8de9bced63c7d179e29147723"
             },
             "type": "drupal-module",
             "license": [
                 "GPL-2.0-or-later"
             ],
             "description": "User activity tracking for NFA websites",
-            "time": "2023-06-27T11:14:17+00:00"
+            "time": "2023-11-07T10:41:38+00:00"
         },
         {
             "name": "nikic/php-parser",
