@@ -669,7 +669,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
       tags:
         - 'config:field.storage.geolayer.layer_type'
   page_1:
@@ -701,6 +700,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
       tags:
         - 'config:field.storage.geolayer.layer_type'
