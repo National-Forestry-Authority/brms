@@ -33,4 +33,6 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
-hidden: {  }
+hidden:
+  natural_boundary_length: true
+  total_boundary_length: true

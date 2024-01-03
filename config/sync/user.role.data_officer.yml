@@ -5,10 +5,12 @@ dependencies:
   config:
     - filter.format.some_html
   module:
+    - file
     - filter
 id: data_officer
 label: 'Data Officer'
 weight: -9
 is_admin: null
 permissions:
+  - 'delete own files'
   - 'use text format some_html'

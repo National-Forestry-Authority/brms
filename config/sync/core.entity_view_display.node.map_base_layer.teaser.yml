@@ -1,0 +1,38 @@
+uuid: cd110b3d-7348-48ab-96b6-62dbf8401dff
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.map_base_layer.body
+    - field.field.node.map_base_layer.common_base_layer
+    - field.field.node.map_base_layer.geolayers
+    - field.field.node.map_base_layer.related_forest_reserve
+    - node.type.map_base_layer
+  module:
+    - text
+    - user
+id: node.map_base_layer.teaser
+targetEntityType: node
+bundle: map_base_layer
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  common_base_layer: true
+  geolayers: true
+  natural_boundary_length: true
+  related_forest_reserve: true
+  total_boundary_length: true

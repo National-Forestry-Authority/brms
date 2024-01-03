@@ -8,6 +8,6 @@ id: forest_reserve
 label: 'Forest reserve map'
 description: 'Renders a forest reserve map that shows geolayers and survey geolayers.'
 behaviors:
-  - geojson
+  - geojson_geolayers
   - popup
 options: {  }

@@ -5,6 +5,7 @@ dependencies:
   config:
     - filter.format.some_html
   module:
+    - file
     - filter
     - toolbar
 id: cartographer
@@ -13,4 +14,5 @@ weight: -3
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'delete own files'
   - 'use text format some_html'

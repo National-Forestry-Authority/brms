@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: geojson_geolayers
+label: Geojson geolayers
+description: 'Renders each geolayer as separate map layer.'
+library: geolayer_map/behavior_geojson
+settings: {  }

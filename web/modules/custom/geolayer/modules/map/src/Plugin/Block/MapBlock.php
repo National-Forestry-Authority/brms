@@ -122,39 +122,90 @@ class MapBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function build() {
-    // If it's a forest reserve map type, pass the geolayer ids to the map. the
-    // map behavior uses the ids to build the urls of the geojson view.
-    if ($this->configuration['map_type'] == 'forest_reserve') {
+    $storage = $this->entityTypeManager->getStorage('node');
+
+    if (isset($this->configuration['context_mapping']['node'])) {
       /** @var \Drupal\node\NodeInterface $node */
       $node = $this->getContextValue('node');
       if ($node) {
-        // Get the value of the geolayer entity reference field.
-        $geolayers = [];
-        $referenced_entities = $node->get('geolayers')->referencedEntities();
-        // Loop through the referenced geolayers and store their ids.
-        foreach ($referenced_entities as $referenced_entity) {
-          $geolayers[] = $referenced_entity->id();
-        }
-
-        // Get the survey geolayers from the survey paragraph.
-        $survey_paragraphs = $node->get('surveys')->referencedEntities();
-        foreach ($survey_paragraphs as $survey_paragraph) {
-          $surveys = $survey_paragraph->get('geolayers')->referencedEntities();
-          foreach ($surveys as $survey) {
-            $geolayers[] = $survey->id();
+        // If it's a forest reserve map type, pass the geolayer ids to the map.
+        // The map behavior uses the ids to build the urls of the geojson view.
+        if ($this->configuration['map_type'] == 'forest_reserve') {
+          // Construct the geojson url.
+          $urls = [];
+          $referenced_entities = $node->get('geolayers')->referencedEntities();
+          // Loop through the referenced geolayers and store their ids.
+          foreach ($referenced_entities as $referenced_entity) {
+            $urls[] = 'geolayer/geojson/' . $referenced_entity->id();
           }
+
+          // Get the survey geolayers from the survey paragraph.
+          $survey_paragraphs = $node->get('surveys')->referencedEntities();
+          foreach ($survey_paragraphs as $survey_paragraph) {
+            $surveys = $survey_paragraph->get('geolayers')
+              ->referencedEntities();
+            foreach ($surveys as $survey) {
+              $urls[] = 'geolayer/geojson/' . $survey->id();
+            }
+          }
+          $map_settings = [
+            'urls' => $urls,
+          ];
         }
-        $map_settings = [
-          'geolayers' => $geolayers,
+        elseif ($this->configuration['map_type'] == 'map_base_layer') {
+          // Construct the geojson url.
+          $urls[] = 'baselayer/geojson/' . $node->id();
+          $map_settings = [
+            'urls' => $urls,
+            'layer_name' => $node->getTitle(),
+          ];
+        }
+      }
+    }
+
+    // Add the base map layers.
+    if (array_search('geojson_basemaps', $this->configuration['map_behaviors']) !== FALSE) {
+      // Get the nids of all base map nodes.
+      $entity_ids = $storage->getQuery()
+        ->condition('type', 'map_base_layer')
+        ->condition('status', TRUE)
+        ->condition('common_base_layer', TRUE)
+        ->accessCheck(TRUE)
+        ->execute();
+      $entities = $storage->loadMultiple($entity_ids);
+      foreach ($entities as $entity) {
+        $base_map_urls[] = [
+          'url' => 'baselayer/geojson/' . $entity->id(),
+          'layer_name' => $entity->getTitle(),
         ];
       }
+
+      // If this is a Forest reserve node, get the non-common base maps that are
+      // related to this forest reserve.
+      if (isset($node)) {
+        $entity_ids = $storage->getQuery()
+          ->condition('type', 'map_base_layer')
+          ->condition('status', TRUE)
+          ->condition('common_base_layer', FALSE)
+          ->condition('related_forest_reserve', $node->id())
+          ->accessCheck(TRUE)
+          ->execute();
+        $entities = $storage->loadMultiple($entity_ids);
+        foreach ($entities as $entity) {
+          $base_map_urls[] = [
+            'url' => 'baselayer/geojson/' . $entity->id(),
+            'layer_name' => $entity->getTitle(),
+          ];
+        }
+      }
+      $map_settings['base_map_urls'] = $base_map_urls ?? NULL;
     }
 
     return [
       '#type' => 'geolayer_map',
       '#map_type' => $this->configuration['map_type'] ?? 'default',
       '#behaviors' => $this->configuration['map_behaviors'] ?? [],
-      '#map_settings' => $map_settings ?: [],
+      '#map_settings' => $map_settings ?? [],
     ];
   }
 

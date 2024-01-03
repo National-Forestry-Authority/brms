@@ -207,3 +207,118 @@ function brms_common_deploy_003(&$sandbox = NULL) {
     $term->save();
   }
 }
+
+/**
+ * Create geolayer type taxonomy terms for base layers.
+ */
+function brms_common_deploy_004(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'UTM 50000 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#BDABB8',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'UTM 10000 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#8F818B',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Sector boundary base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#AD9DA9',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'District 2022 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#4b4b8f',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'District 1997 base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}
+
+/**
+ * Update layer group of geolayer type taxonomy terms.
+ */
+function brms_common_deploy_005(&$sandbox = NULL) {
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->loadTree('layer_type', 0, NULL, TRUE);
+  foreach ($terms as $term) {
+    if (empty($term->layer_group->value)) {
+      if ($term->geometry_type->value == 'survey') {
+        $term->layer_group->value = 'survey';
+        $term->geometry_type->value = 'polygon';
+      }
+      else {
+        $term->layer_group->value = 'feature';
+      }
+      $term->save();
+    }
+  }
+}
+
+/**
+ * Create additional geolayer type taxonomy terms.
+ */
+function brms_common_deploy_006(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Inter protected area riverline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 4,
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Wetlandline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#FF3333',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Internationalline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'dotted',
+      'line_width' => 4,
+      'color' => '#3969AC',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}

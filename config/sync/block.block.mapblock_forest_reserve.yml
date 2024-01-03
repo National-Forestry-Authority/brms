@@ -1,0 +1,38 @@
+uuid: cdf3ba6d-0a38-4e92-8304-606f525d1ed7
+langcode: en
+status: true
+dependencies:
+  module:
+    - geolayer_map
+    - node
+    - system
+  theme:
+    - nfa_gin_brms
+id: mapblock_forest_reserve
+theme: nfa_gin_brms
+region: content
+weight: -3
+provider: null
+plugin: map_block
+settings:
+  id: map_block
+  label: 'Forest reserve map block'
+  label_display: '0'
+  provider: geolayer_map
+  context_mapping:
+    node: '@node.node_route_context:node'
+  map_type: forest_reserve
+  map_behaviors:
+    - geojson_basemaps
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/node/*/edit\r\n/node/*/revisions\r\n/node/add/*"
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      forest_reserve: forest_reserve

@@ -1,0 +1,22 @@
+uuid: 9f4fb130-01e0-42ce-840f-bc411c737444
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: map_base_layer
+label: 'Map base layer'
+type: 'canonical_entities:node'
+pattern: 'base-layer/[node:title]'
+selection_criteria:
+  8d14ec7e-c849-4eab-a6a7-e51b48f15272:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 8d14ec7e-c849-4eab-a6a7-e51b48f15272
+    context_mapping:
+      node: node
+    bundles:
+      map_base_layer: map_base_layer
+selection_logic: and
+weight: -5
+relationships: {  }

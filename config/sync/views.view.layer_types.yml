@@ -135,18 +135,17 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        geometry_type_value:
-          id: geometry_type_value
-          table: taxonomy_term__geometry_type
-          field: geometry_type_value
+        layer_group_value:
+          id: layer_group_value
+          table: taxonomy_term__layer_group
+          field: layer_group_value
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: list_field
           operator: or
           value:
-            polygon: polygon
-            point: point
+            feature: feature
           group: 1
           exposed: false
           expose:
@@ -271,10 +270,10 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        geometry_type_value:
-          id: geometry_type_value
-          table: taxonomy_term__geometry_type
-          field: geometry_type_value
+        layer_group_value:
+          id: layer_group_value
+          table: taxonomy_term__layer_group
+          field: layer_group_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -282,6 +281,104 @@ display:
           operator: or
           value:
             survey: survey
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: entity_reference
+        options:
+          search_fields:
+            name: name
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags: {  }
+  entity_reference_3:
+    id: entity_reference_3
+    display_title: 'Base types'
+    display_plugin: entity_reference
+    position: 1
+    display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
+      filters:
+        status:
+          id: status
+          table: taxonomy_term_field_data
+          field: status
+          entity_type: taxonomy_term
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        vid:
+          id: vid
+          table: taxonomy_term_field_data
+          field: vid
+          entity_type: taxonomy_term
+          entity_field: vid
+          plugin_id: bundle
+          value:
+            layer_type: layer_type
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        layer_group_value:
+          id: layer_group_value
+          table: taxonomy_term__layer_group
+          field: layer_group_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: list_field
+          operator: or
+          value:
+            base: base
           group: 1
           exposed: false
           expose:

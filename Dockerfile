@@ -35,6 +35,12 @@ RUN set -eux; \
         pdo_pgsql \
         zip \
     ; \
+    pecl install \
+        apcu \
+    ; \
+    docker-php-ext-enable \
+        apcu \
+    ; \
     \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
     apt-mark auto '.*' > /dev/null; \
@@ -47,8 +53,12 @@ RUN set -eux; \
         | sort -u \
         | xargs -rt apt-mark manual; \
     \
+    DEBIAN_FRONTEND=noninteractive \
+      apt-get install -yqq -o=Dpkg::Use-Pty=0 --no-install-recommends \
+        msmtp; \
     apt-get install -y --no-install-recommends \
         git \
+        default-mysql-client \
     ; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     rm -rf /var/lib/apt/lists/*
@@ -61,7 +71,11 @@ RUN { \
         echo 'opcache.max_accelerated_files=4000'; \
         echo 'opcache.revalidate_freq=60'; \
         echo 'opcache.fast_shutdown=1'; \
-    } > /usr/local/etc/php/conf.d/opcache-recommended.ini
+    } > /usr/local/etc/php/conf.d/opcache-recommended.ini ; \
+    { \
+        echo '[PHP]'; \
+        echo 'sendmail_path="${SENDMAIL_PATH}"'; \
+    } > /usr/local/etc/php/conf.d/sendmail.ini
 
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/
 
@@ -109,7 +123,9 @@ RUN set -eux; \
       ;
 
 # Initialize ENV vars for safety
-ENV DB_HOST='mysql' \
+ENV \
+    SENDMAIL_PATH='/usr/bin/msmtp --host=${MAIL_SMTP_HOST:-smtp.relay.service} --port=${MAIL_SMTP_PORT:-25} --from=${MAIL_DEFAULT_FROM:-docker-${APP_DOMAIN}-${HOSTNAME}} -ti' \
+    DB_HOST='mysql' \
     DB_PORT='3306' \
     DB_NAME='drupal' \
     DB_USER='drupal' \

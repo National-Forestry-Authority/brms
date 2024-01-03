@@ -6,3 +6,12 @@
 .field--label-inline .nfa-map {
   clear: both;
 }
+
+.ol-popup-measurement {
+  font-size: 12px;
+  text-align: right;
+}
+
+.ol-popup-description p {
+  margin: .5em 0;
+}

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolayer_map
+id: map_base_layer
+label: 'Map base layer map'
+description: 'Renders a Map base layer map that shows geolayers.'
+behaviors:
+  - geojson
+  - popup
+options: {  }

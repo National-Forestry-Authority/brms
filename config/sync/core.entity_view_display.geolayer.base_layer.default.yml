@@ -1,0 +1,59 @@
+uuid: 99484d92-76c7-4652-bfa8-debe515b80aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.geolayer.base_layer.layer_type
+    - geolayer.geolayer_type.base_layer
+  module:
+    - geolayer_map
+    - text
+id: geolayer.base_layer.default
+targetEntityType: geolayer
+bundle: base_layer
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  geofield:
+    type: geolayer_map_geofield
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  layer_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  status:
+    type: boolean
+    label: above
+    settings:
+      format: enabled-disabled
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  created: true
+  kml_file: true
+  uid: true

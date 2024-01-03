@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * @file
+ * Install and update functions for Geolayer.
+ */
+
+/**
+ * Update field definitions after adding KML file to Geolayer.
+ */
+function geolayer_update_9001() {
+  $field_storage_definition = BaseFieldDefinition::create('file')
+    ->setRevisionable(TRUE)
+    ->setTranslatable(TRUE)
+    ->setLabel(t('KML file'))
+    ->setSettings([
+      'uri_scheme' => 'public',
+      'file_directory' => 'kml_upload',
+      'file_extensions' => 'kml',
+    ])
+    ->setDescription(t('The uploaded KML will be used as the source for the Geofield field and <strong>will overwrite any existing Geometry data.</strong>'))
+    ->setDisplayOptions('form', [
+      'type' => 'file_generic',
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayOptions('view', [
+      'label' => 'hidden',
+      'type' => 'file',
+    ])
+    ->setDisplayConfigurable('view', TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('kml_file', 'geolayer', 'geolayer', $field_storage_definition);
+}

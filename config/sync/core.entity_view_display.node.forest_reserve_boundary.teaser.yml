@@ -100,3 +100,5 @@ hidden:
   field_year_of_survey: true
   field_year_of_tracing: true
   meta_data_explanation: true
+  natural_boundary_length: true
+  total_boundary_length: true

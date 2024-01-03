@@ -48,6 +48,7 @@ permissions:
   - 'create terms in prepared_for'
   - 'create terms in surveyors'
   - 'create terms in type_of_map'
+  - 'delete own files'
   - 'delete terms in aerial_photo_type'
   - 'delete terms in area'
   - 'delete terms in company'

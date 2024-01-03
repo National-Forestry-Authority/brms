@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_district1997
+migration_tags:
+  - Content
+label: District 1997 base layer
+source:
+  plugin: directory_geolayer
+  track_changes: true
+  directory:
+    path: public://migrations/districts_1997
+  # All files with a .kml extension.
+  file_mask: '/^.*\.kml$/'
+  recurse_level: -1
+process:
+  nid:
+    - plugin: default_value
+      default_value: 'Districts 1997 base layer'
+    - plugin: entity_generate
+      entity_type: node
+      bundle: map_base_layer
+      value_key: title
+      bundle_key: type
+  geolayer_id:
+    plugin: migration_lookup
+    migration: brms_migrate_district1997_geolayers
+    source: migration_id
+  geolayers:
+    plugin: brms_base_layer_geolayer
+    source: '@geolayer_id'
+  common_base_layer:
+    plugin: default_value
+    default_value: 1
+  revision_log:
+    plugin: default_value
+    default_value: 'Import geolayers'
+destination:
+  plugin: 'entity:node'
+  default_bundle: map_base_layer
+migration_dependencies:
+  required:
+    - brms_migrate_district1997_geolayers

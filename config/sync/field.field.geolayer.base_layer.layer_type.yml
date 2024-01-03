@@ -1,0 +1,29 @@
+uuid: 8f9a282e-f6f6-489c-8fdc-cfca210df126
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.geolayer.layer_type
+    - geolayer.geolayer_type.base_layer
+    - taxonomy.vocabulary.layer_type
+id: geolayer.base_layer.layer_type
+field_name: layer_type
+entity_type: geolayer
+bundle: base_layer
+label: 'Layer type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      layer_type: layer_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -8,5 +8,6 @@ _core:
   default_config_hash: sAcC7rc3-0Gvr3yuLkiTVoM3cSoNCJMkx3iiyF5H7d4
 id: geolayer.teaser
 label: Teaser
+description: ''
 targetEntityType: geolayer
 cache: true

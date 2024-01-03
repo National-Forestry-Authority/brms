@@ -48,3 +48,5 @@ hidden:
   field_scale: true
   field_type: true
   meta_data_explanation: true
+  natural_boundary_length: true
+  total_boundary_length: true

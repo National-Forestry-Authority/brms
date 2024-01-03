@@ -10,7 +10,6 @@ dependencies:
     - paragraphs.paragraphs_type.survey
   module:
     - field_formatter_class
-    - geolayer_map
     - text
     - yearonly
 id: paragraph.survey.default
@@ -28,10 +27,14 @@ content:
     weight: 2
     region: content
   geolayers:
-    type: geolayer_map_geolayers
-    label: above
-    settings: {  }
-    third_party_settings: {  }
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     weight: 3
     region: content
   surveyor:

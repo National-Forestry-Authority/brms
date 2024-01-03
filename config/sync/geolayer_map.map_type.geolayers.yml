@@ -7,8 +7,8 @@ dependencies:
       - geolayer_map
 id: geolayers
 label: Geolayers
-description: 'Renders a geolayers on a map.'
+description: 'Renders geolayers on a map.'
 behaviors:
-  - geojson
+  - geojson_geolayers
   - popup
 options: {  }
