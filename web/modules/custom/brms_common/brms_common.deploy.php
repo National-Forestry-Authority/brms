@@ -285,3 +285,40 @@ function brms_common_deploy_005(&$sandbox = NULL) {
     }
   }
 }
+
+/**
+ * Create additional geolayer type taxonomy terms.
+ */
+function brms_common_deploy_006(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Inter protected area riverline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 4,
+      'color' => '#f97b72',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Wetlandline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'solid',
+      'line_width' => 2,
+      'color' => '#FF3333',
+      'vid' => 'layer_type',
+    ],
+    [
+      'name' => 'Internationalline',
+      'geometry_type' => 'polygon',
+      'line_style' => 'dotted',
+      'line_width' => 4,
+      'color' => '#3969AC',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}

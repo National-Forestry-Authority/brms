@@ -59,7 +59,7 @@
         "drupal/migrate_source_csv": "^3",
         "drupal/migrate_source_directory": "^2",
         "drupal/migrate_source_ui": "^1",
-        "drupal/migrate_tools": "^6",
+        "drupal/migrate_tools": "6.0.x-dev",
         "drupal/paragraphs": "^1",
         "drupal/pathauto": "^1",
         "drupal/pdf": "^1",
@@ -159,6 +159,9 @@
           },
           "drupal/cshs": {
             "3347581: Drupal 10 proper once dependency": "https://www.drupal.org/files/issues/2023-05-22/3347581-module-is-not-working-in-fresh-d10-12.patch"
+          },
+          "drupal/migrate_tools": {
+            "3412074: Drush command to disable a migration": "https://www.drupal.org/files/issues/2024-01-03/3412074-migrate-disable-command.patch"
           }
       }
     },

@@ -50,18 +50,18 @@ content:
       override_labels: true
       label_singular: Geolayer
       label_plural: Geolayer
-      auto_open: true
       allow_new: true
       allow_existing: false
-      allow_edit: true
       match_operator: CONTAINS
       allow_duplicate: false
-      hide_fieldset: false
-      hide_title: false
       collapsible: true
       collapsed: false
       revision: false
       removed_reference: optional
+      auto_open: true
+      allow_edit: true
+      hide_fieldset: false
+      hide_title: false
       config_labels_button: _none
       labels: {  }
       add_existing_widget: autocomplete

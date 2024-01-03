@@ -8,6 +8,7 @@ dependencies:
   module:
     - geolayer
     - taxonomy
+    - user
 id: geolayer
 label: Geolayer
 module: views
@@ -365,8 +366,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       access:
-        type: none
-        options: {  }
+        type: perm
+        options:
+          perm: 'view geolayer'
       cache:
         type: tag
         options: {  }
@@ -669,6 +671,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags:
         - 'config:field.storage.geolayer.layer_type'
   page_1:
@@ -700,5 +703,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.permissions
       tags:
         - 'config:field.storage.geolayer.layer_type'
