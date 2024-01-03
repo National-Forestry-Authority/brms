@@ -58,6 +58,7 @@ RUN set -eux; \
         msmtp; \
     apt-get install -y --no-install-recommends \
         git \
+        default-mysql-client \
     ; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
     rm -rf /var/lib/apt/lists/*
