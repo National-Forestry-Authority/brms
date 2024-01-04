@@ -9,10 +9,11 @@ function getLayerStyle(feature, resolution, style, layer_style) {
   var line_dash;
   var line_cap;
   var line_width;
+  var fill;
 
   if (layer_style.geometry_type === 'point') {
     var point_image;
-    var fill = new style.Fill({
+    fill = new style.Fill({
       color: 'rgba(0,0,0,0)',
     });
     var stroke = new style.Stroke({
@@ -66,9 +67,7 @@ function getLayerStyle(feature, resolution, style, layer_style) {
         // The default point shape is a circle.
         point_image = new style.Circle({
           radius: 5,
-          fill: new style.Fill({
-            color: 'rgba(0,0,0,0)',
-          }),
+          fill: fill,
           stroke: stroke,
         });
         break;
@@ -79,6 +78,27 @@ function getLayerStyle(feature, resolution, style, layer_style) {
 
   }
   else {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var pattern;
+    var stripeWidth = 10;
+    var stripeGap = 2;
+
+    canvas.width = canvas.height = stripeWidth + stripeGap;
+    context.fillStyle = 'rgba(0,0,0,0.1)';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeStyle = 'rgba(0,101,71,0.2)';
+    context.lineWidth = 2;
+    context.beginPath();
+    context.moveTo(0, stripeWidth);
+    context.lineTo(stripeWidth, 0);
+    context.stroke();
+    pattern = context.createPattern(canvas, 'repeat');
+
+    fill = new style.Fill({
+      color: pattern
+    });
+
     switch (layer_style.line_style) {
       case 'dotted':
         line_dash = [2, 10];
@@ -105,10 +125,7 @@ function getLayerStyle(feature, resolution, style, layer_style) {
         line_dash: line_dash,
         line_cap: line_cap,
       }),
-      // Must define fill so clicks can be detected. Add a transparent fill.
-      fill: new style.Fill({
-        color: 'rgba(0,0,0,0)',
-      }),
+      fill: fill,
     });
   }
 }

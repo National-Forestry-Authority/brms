@@ -2220,19 +2220,20 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: reverse__node__geolayers
           group_type: group
           admin_label: ''
-          plugin_id: custom
-          label: ''
+          entity_type: node
+          plugin_id: entity_link
+          label: url
           exclude: false
           alter:
-            alter_text: true
-            text: "<div>{{ label }}</div>\r\n{{ description__value }} "
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -2268,7 +2269,10 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
       pager:
         type: none
         options:
@@ -2548,8 +2552,8 @@ display:
             geofield: geofield__value
             geolocation: geofield__value
             wkt: geofield__value
-            name_field: name
-            description_field: nothing
+            name_field: label
+            description_field: name
           jsonp_prefix: ''
       row:
         type: data_entity
