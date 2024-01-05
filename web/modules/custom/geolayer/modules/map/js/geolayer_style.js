@@ -85,9 +85,9 @@ function getLayerStyle(feature, resolution, style, layer_style) {
     var stripeGap = 2;
 
     canvas.width = canvas.height = stripeWidth + stripeGap;
-    context.fillStyle = 'rgba(0,0,0,0.1)';
+    context.fillStyle = 'rgba(0,0,0,0.3)';
     context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = 'rgba(0,101,71,0.2)';
+    context.strokeStyle = 'rgba(0,101,71,0.6)';
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(0, stripeWidth);
