@@ -78,27 +78,34 @@ function getLayerStyle(feature, resolution, style, layer_style) {
 
   }
   else {
-    var canvas = document.createElement('canvas');
-    var context = canvas.getContext('2d');
-    var pattern;
-    var stripeWidth = 10;
-    var stripeGap = 2;
+    if (feature.get('layer_type') === 'Master polygon') {
+      var canvas = document.createElement('canvas');
+      var context = canvas.getContext('2d');
+      var pattern;
+      var stripeWidth = 10;
+      var stripeGap = 2;
 
-    canvas.width = canvas.height = stripeWidth + stripeGap;
-    context.fillStyle = 'rgba(0,0,0,0.3)';
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    context.strokeStyle = 'rgba(0,101,71,0.6)';
-    context.lineWidth = 2;
-    context.beginPath();
-    context.moveTo(0, stripeWidth);
-    context.lineTo(stripeWidth, 0);
-    context.stroke();
-    pattern = context.createPattern(canvas, 'repeat');
+      canvas.width = canvas.height = stripeWidth + stripeGap;
+      context.fillStyle = 'rgba(0,0,0,0.3)';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.strokeStyle = 'rgba(0,101,71,0.6)';
+      context.lineWidth = 2;
+      context.beginPath();
+      context.moveTo(0, stripeWidth);
+      context.lineTo(stripeWidth, 0);
+      context.stroke();
+      pattern = context.createPattern(canvas, 'repeat');
 
-    fill = new style.Fill({
-      color: pattern
-    });
-
+      fill = new style.Fill({
+        color: pattern
+      });
+    }
+    else {
+      // We need a fill so that the polygon is clickable. Add a transparent one.
+      fill = new style.Fill({
+        color: 'rgba(0,0,0,0)',
+      });
+    }
     switch (layer_style.line_style) {
       case 'dotted':
         line_dash = [2, 10];
