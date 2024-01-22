@@ -2220,19 +2220,20 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: reverse__node__geolayers
           group_type: group
           admin_label: ''
-          plugin_id: custom
-          label: ''
+          entity_type: node
+          plugin_id: entity_link
+          label: url
           exclude: false
           alter:
-            alter_text: true
-            text: "<div>{{ label }}</div>\r\n{{ description__value }} "
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -2268,7 +2269,73 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+        layer_type:
+          id: layer_type
+          table: geolayer__layer_type
+          field: layer_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: none
         options:
@@ -2548,8 +2615,8 @@ display:
             geofield: geofield__value
             geolocation: geofield__value
             wkt: geofield__value
-            name_field: name
-            description_field: nothing
+            name_field: label
+            description_field: name
           jsonp_prefix: ''
       row:
         type: data_entity
@@ -2591,6 +2658,7 @@ display:
         - url
         - user.roles
       tags:
+        - 'config:field.storage.geolayer.layer_type'
         - 'config:field.storage.taxonomy_term.color'
         - 'config:field.storage.taxonomy_term.geometry_type'
         - 'config:field.storage.taxonomy_term.line_style'
@@ -3578,6 +3646,69 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+        layer_type:
+          id: layer_type
+          table: geolayer__layer_type
+          field: layer_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: none
         options:
@@ -3909,6 +4040,7 @@ display:
         - url
         - user.roles
       tags:
+        - 'config:field.storage.geolayer.layer_type'
         - 'config:field.storage.taxonomy_term.color'
         - 'config:field.storage.taxonomy_term.geometry_type'
         - 'config:field.storage.taxonomy_term.line_style'
