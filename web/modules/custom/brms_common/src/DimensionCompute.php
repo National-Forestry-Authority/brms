@@ -46,7 +46,6 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         $geolayer = \Drupal::entityTypeManager()->getStorage('geolayer')->load($added_layers[$i]['target_id']);
         $geofield = $geolayer->get('geofield')->getValue();
         $wkt = \geoPHP::load($geofield[0]['value'], 'wkt');
-        $test = $geolayer->getFieldDefinitions();
         $label = $geolayer->get('label')->value;
         $label = explode(': ', $label);
         $label = $label[1];
