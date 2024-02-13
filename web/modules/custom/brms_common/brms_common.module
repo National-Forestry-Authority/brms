@@ -7,9 +7,11 @@
 
 use Drupal\brms_common\NaturalBoundaryLength;
 use Drupal\brms_common\TotalBoundaryLength;
+use Drupal\brms_common\DimensionCompute;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -25,6 +27,94 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings(['suffix' => 'km'])
       ->setClass(NaturalBoundaryLength::class);
+
+     $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('shoreline_length_computed')
+      ->setLabel(t('ShoreLine length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['interprotected_area_length_computed'] = BaseFieldDefinition::create('decimal')
+    ->setName('interprotected_area_length_computed')
+    ->setLabel(t('Interpolated Area length (km)(computed)'))
+    ->setComputed(TRUE)
+    ->setDisplayConfigurable('view', TRUE)
+    ->setSettings(['suffix' => 'km'])
+    ->setClass(DimensionCompute::class);
+    
+    $fields['riverline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('riverline_length_computed')
+      ->setLabel(t('RiverLine length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['protected_area_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('protected_area_length_computed')
+      ->setLabel(t('Protected Area length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['cutline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('cutline_length_computed')
+      ->setLabel(t('Cutline length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+
+    $fields['wetland_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('wetland_length_computed')
+      ->setLabel(t('Wetland length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['international_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('international_length_computed')
+      ->setLabel(t('International length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+
+    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_area_computed')
+      ->setLabel(t('Total Area (ha)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['intermediate_pillar_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('intermediate_pillar_computed')
+      ->setLabel(t('Intermediate Pillar (no.)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'no.'])
+      ->setClass(DimensionCompute::class);
+    
+    $fields['corner_pillar_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('corner_pillar_computed')
+      ->setLabel(t('Corner Pillar (no.)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'no.'])
+      ->setClass(DimensionCompute::class);
+
+    $fields['cairn_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('cairn_computed')
+      ->setLabel(t('Cairn (no.)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'no.'])
+      ->setClass(DimensionCompute::class);
 
     $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
       ->setName('total_boundary_length')
