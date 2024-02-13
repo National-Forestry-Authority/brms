@@ -20,7 +20,6 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
    * Compute the values.
    */
   protected function computeValue() {
-    error_log(print_r('testing test 1', TRUE));
     /** @var \Drupal\node\Entity\Node $node */
     $node = $this->getParent()->getValue();
     $dimension_name = $this->getFieldDefinition()['label'];
@@ -40,10 +39,7 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
       'cairn_computed' => 'points',
     ];
     $dimension_to_calculate = $layer_compute_attributes[$dimension_id];
-    // error_log(print_r($dimension_name, TRUE));
     if ($node->hasField('riverline_length') && $node->hasField('protected_area_length')) {
-      error_log(print_r('testing test 3', TRUE));
-      // $line_length = 0;
       $added_layers = $node->get('geolayers')->getValue();
 
       for ($i = 0; $i < count($added_layers); $i++) {
@@ -54,8 +50,6 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         $label = $geolayer->get('label')->value;
         $label = explode(': ', $label);
         $label = $label[1];
-        error_log(print_r($label, TRUE));
-        error_log(print_r($dimension_name, TRUE));
         if (strpos(strtolower($dimension_name), strtolower($label)) !== FALSE) {
           if ($dimension_to_calculate == 'length') {
             $this->list[0] = $this->createItem(0, $wkt->length());
