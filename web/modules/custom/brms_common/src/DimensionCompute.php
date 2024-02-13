@@ -39,7 +39,7 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
       'cairn_computed' => 'points',
     ];
     $dimension_to_calculate = $layer_compute_attributes[$dimension_id];
-    if ($node->hasField('riverline_length') && $node->hasField('protected_area_length')) {
+    if ($node->hasField('riverline_length_computed') && $node->hasField('protected_area_length_computed')) {
       $added_layers = $node->get('geolayers')->getValue();
 
       for ($i = 0; $i < count($added_layers); $i++) {
