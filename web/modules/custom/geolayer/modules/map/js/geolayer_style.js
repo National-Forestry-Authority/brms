@@ -129,8 +129,8 @@ function getLayerStyle(feature, resolution, style, layer_style) {
       stroke: new style.Stroke({
         color: layer_style.color ? layer_style.color : 'orange',
         width: line_width,
-        line_dash: line_dash,
-        line_cap: line_cap,
+        lineDash: line_dash,
+        lineCap: line_cap,
       }),
       fill: fill,
     });

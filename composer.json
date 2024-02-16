@@ -154,9 +154,6 @@
           "drupal/environment_indicator": {
             "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff"
           },
-          "drupal/gin": {
-            "3409899: Primary local tasks not rendering on entity routes due to striptags filter": "https://git.drupalcode.org/project/gin/-/merge_requests/348.diff"
-          },
           "drupal/migrate_tools": {
             "3412074: Drush command to disable a migration": "https://www.drupal.org/files/issues/2024-01-03/3412074-migrate-disable-command.patch"
           }
