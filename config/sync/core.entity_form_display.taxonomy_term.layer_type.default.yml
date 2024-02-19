@@ -6,6 +6,7 @@ dependencies:
     - field.field.taxonomy_term.layer_type.color
     - field.field.taxonomy_term.layer_type.geometry_type
     - field.field.taxonomy_term.layer_type.layer_group
+    - field.field.taxonomy_term.layer_type.layer_type_id
     - field.field.taxonomy_term.layer_type.line_style
     - field.field.taxonomy_term.layer_type.line_width
     - field.field.taxonomy_term.layer_type.point_shape
@@ -45,6 +46,14 @@ content:
     weight: 2
     region: content
     settings: {  }
+    third_party_settings: {  }
+  layer_type_id:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   line_style:
     type: options_select

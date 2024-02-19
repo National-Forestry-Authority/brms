@@ -28,36 +28,40 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings(['suffix' => 'km'])
       ->setClass(NaturalBoundaryLength::class);
 
-     $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
+    $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('shoreline_length_computed')
       ->setLabel(t('ShoreLine length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'shoreline_length_computed',
+      ])
       ->setClass(DimensionCompute::class);
     
     $fields['interprotected_area_length_computed'] = BaseFieldDefinition::create('decimal')
-    ->setName('interprotected_area_length_computed')
-    ->setLabel(t('Interpolated Area length (km)(computed)'))
-    ->setComputed(TRUE)
-    ->setDisplayConfigurable('view', TRUE)
-    ->setSettings(['suffix' => 'km'])
-    ->setClass(DimensionCompute::class);
+      ->setName('interprotected_area_length_computed')
+      ->setLabel(t('Interpolated Area length (km)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'interprotected_area_length_computed',
+      ])
+      ->setClass(DimensionCompute::class);
     
     $fields['riverline_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('riverline_length_computed')
       ->setLabel(t('RiverLine length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(DimensionCompute::class);
-    
-    $fields['protected_area_length_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('protected_area_length_computed')
-      ->setLabel(t('Protected Area length (km)(computed)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'riverline_length_computed',
+      ])
       ->setClass(DimensionCompute::class);
     
     $fields['cutline_length_computed'] = BaseFieldDefinition::create('decimal')
@@ -65,7 +69,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Cutline length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'cutline_length_computed',
+      ])
       ->setClass(DimensionCompute::class);
 
     $fields['wetland_length_computed'] = BaseFieldDefinition::create('decimal')
@@ -73,7 +81,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Wetland length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'wetland_length_computed',
+      ])
       ->setClass(DimensionCompute::class);
     
     $fields['international_length_computed'] = BaseFieldDefinition::create('decimal')
@@ -81,7 +93,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('International length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'international_length_computed',
+      ])
       ->setClass(DimensionCompute::class);
 
     $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
@@ -89,7 +105,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Total Area (ha)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'area',
+        'layer_type_id' => 'master_polygon',
+      ])
       ->setClass(DimensionCompute::class);
     
     $fields['intermediate_pillar_computed'] = BaseFieldDefinition::create('decimal')
@@ -97,7 +117,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Intermediate Pillar (no.)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'no.'])
+      ->setSettings([
+        'suffix' => 'no.',
+        'computed_field' => 'points',
+        'layer_type_id' => 'intermediate_pillar_computed',
+      ])
       ->setClass(DimensionCompute::class);
     
     $fields['corner_pillar_computed'] = BaseFieldDefinition::create('decimal')
@@ -105,7 +129,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Corner Pillar (no.)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'no.'])
+      ->setSettings([
+        'suffix' => 'no.',
+        'computed_field' => 'points',
+        'layer_type_id' => 'corner_pillar_computed',
+      ])
       ->setClass(DimensionCompute::class);
 
     $fields['cairn_computed'] = BaseFieldDefinition::create('decimal')
@@ -113,7 +141,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Cairn (no.)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'no.'])
+      ->setSettings([
+        'suffix' => ' no.',
+        'computed_field' => 'points',
+        'layer_type_id' => 'cairn_computed',
+      ])
       ->setClass(DimensionCompute::class);
 
     $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
@@ -121,7 +153,11 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setLabel(t('Total boundary length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
+      ->setSettings([
+        'suffix' => 'km',
+        'computed_field' => 'length',
+        'layer_type_id' => 'master_polygon',
+      ])
       ->setClass(TotalBoundaryLength::class);
   }
   return $fields;

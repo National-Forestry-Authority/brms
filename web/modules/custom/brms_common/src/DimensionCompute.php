@@ -6,6 +6,7 @@ use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\TypedData\ComputedItemListTrait;
 use Drupal\geofield\GeoPHP\GeoPHPInterface;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Class DimensionCompute, to compute the values of the dimension fields.
@@ -25,31 +26,23 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
     $dimension_name = $this->getFieldDefinition()['label'];
     $dimension_name = (string) $dimension_name;
     $dimension_id = $this->getName();
-    $layer_compute_attributes = [
-      'interprotected_area_length_computed' => 'length',
-      'riverline_length_computed' => 'length',
-      'shoreline_length_computed' => 'length',
-      'protected_area_length_computed' => 'length',
-      'cutline_length_computed' => 'length',
-      'wetland_length_computed' => 'length',
-      'international_length_computed' => 'length',
-      'total_area_computed' => 'area',
-      'intermediate_pillar_computed' => 'points',
-      'corner_pillar_computed' => 'points',
-      'cairn_computed' => 'points',
-    ];
-    $dimension_to_calculate = $layer_compute_attributes[$dimension_id];
-    if ($node->hasField('riverline_length_computed') && $node->hasField('protected_area_length_computed')) {
-      $added_layers = $node->get('geolayers')->getValue();
-
+    $dimension_settings = $node->get($dimension_id)->getSettings();
+    $dimension_to_calculate = $dimension_settings['computed_field'];
+    $dimension_computed_id = $dimension_settings['layer_type_id'];
+    if (isset($dimension_to_calculate) && $dimension_to_calculate != '') {
+      $added_layers = $node->get('geolayers');
+      if (!isset($added_layers) || empty($added_layers)) {
+        return;
+      }
+      $added_layers = $added_layers->getValue();
       for ($i = 0; $i < count($added_layers); $i++) {
         $geolayer = \Drupal::entityTypeManager()->getStorage('geolayer')->load($added_layers[$i]['target_id']);
+        $layer_type = $geolayer->get('layer_type')->getValue();
+        $layer_taxonomy = Term::load($layer_type[0]['target_id']);
+        $layer_id = $layer_taxonomy->get('layer_type_id')->value;
         $geofield = $geolayer->get('geofield')->getValue();
         $wkt = \geoPHP::load($geofield[0]['value'], 'wkt');
-        $label = $geolayer->get('label')->value;
-        $label = explode(': ', $label);
-        $label = $label[1];
-        if (strpos(strtolower($dimension_name), strtolower($label)) !== FALSE) {
+        if ($layer_id == $dimension_computed_id) {
           if ($dimension_to_calculate == 'length') {
             $this->list[0] = $this->createItem(0, $wkt->length());
           }
