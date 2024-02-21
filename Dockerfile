@@ -85,11 +85,15 @@ WORKDIR /var/www
 
 RUN set -eux; \
     export COMPOSER_HOME="$(mktemp -d)"; \
+    export COMPOSER_ALLOW_SUPERUSER=1; \
     composer install --no-dev --optimize-autoloader; \
+    #composer diagnose ; pwd ; ls -lah ; ls -lah /var/www ; ls -lah /var/www/web; \
     rm -rf html; \
     ln -s web html; \
     #chown -R www-data:www-data web/sites web/modules web/themes; \
-    rm -rf "$COMPOSER_HOME"
+    rm -rf "$COMPOSER_HOME"; \
+    # Ensure drupal's autolad.php is present
+    ls -lah web/autoload.php;
 
 ENV PATH=${PATH}:/var/www/vendor/bin
 

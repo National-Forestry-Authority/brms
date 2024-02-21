@@ -221,7 +221,7 @@ function brms_common_deploy_004(&$sandbox = NULL) {
       'layer_group' => 'base',
       'line_style' => 'solid',
       'line_width' => 2,
-      'color' => '#BDABB8',
+      'color' => '#8F818B',
       'vid' => 'layer_type',
     ],
     [
@@ -326,9 +326,31 @@ function brms_common_deploy_006(&$sandbox = NULL) {
 }
 
 /**
- * Update layer_type taxonmy terms.
+ * Create geolayer type taxonomy terms for Range base layers.
  */
 function brms_common_deploy_007(&$sandbox = NULL) {
+  $terms = [
+    [
+      'name' => 'Range base layer',
+      'geometry_type' => 'polygon',
+      'layer_group' => 'base',
+      'line_style' => 'dashed',
+      'line_width' => 2,
+      'color' => '#BDABB8',
+      'vid' => 'layer_type',
+    ],
+  ];
+
+  foreach ($terms as $term) {
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
+    $term->save();
+  }
+}
+
+/**
+ * Update layer_type taxonmy terms.
+ */
+function brms_common_deploy_008(&$sandbox = NULL) {
   $computed_taxonomy_values = [
     'Shoreline' => 'shoreline_length_computed',
     'Riverline' => 'riverline_length_computed',
