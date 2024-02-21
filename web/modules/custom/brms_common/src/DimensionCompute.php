@@ -24,7 +24,9 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $this->getParent()->getValue();
     $dimension_name = $this->getFieldDefinition()['label'];
+    // Convert to string.
     $dimension_name = (string) $dimension_name;
+    // Extracting the exact compute dimension to calculate.
     $dimension_id = $this->getName();
     $dimension_settings = $node->get($dimension_id)->getSettings();
     // Extracting the dimension to calculate.
