@@ -1,0 +1,21 @@
+uuid: 4eb2e2e2-1f59-44a3-b239-35d3d0af741f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.computed_geolayer_field
+    - taxonomy.vocabulary.layer_type
+  module:
+    - options
+id: taxonomy_term.layer_type.computed_geolayer_field
+field_name: computed_geolayer_field
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Computed geolayer field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

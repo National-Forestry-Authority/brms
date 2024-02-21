@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.layer_type.color
+    - field.field.taxonomy_term.layer_type.computed_geolayer_field
     - field.field.taxonomy_term.layer_type.geometry_type
     - field.field.taxonomy_term.layer_type.layer_group
-    - field.field.taxonomy_term.layer_type.layer_type_id
     - field.field.taxonomy_term.layer_type.line_style
     - field.field.taxonomy_term.layer_type.line_width
     - field.field.taxonomy_term.layer_type.point_shape
@@ -29,6 +29,13 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  computed_geolayer_field:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
   description:
     type: text_default
     label: hidden
@@ -49,14 +56,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 7
-    region: content
-  layer_type_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 8
     region: content
   line_style:
     type: list_default

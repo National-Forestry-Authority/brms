@@ -5,6 +5,8 @@
  * Deploy functions run after drush config:import.
  */
 
+use Drupal\taxonomy\Entity\Term;
+
 /**
  * Initialise taxonomy terms.
  */
@@ -320,5 +322,32 @@ function brms_common_deploy_006(&$sandbox = NULL) {
   foreach ($terms as $term) {
     $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->create($term);
     $term->save();
+  }
+}
+
+/**
+ * Update layer_type taxonmy terms.
+ */
+function brms_common_deploy_007(&$sandbox = NULL) {
+  $computed_taxonomy_values = [
+    'Shoreline' => 'shoreline_length_computed',
+    'Riverline' => 'riverline_length_computed',
+    'Inter protected area line' => 'interprotected_area_length_computed',
+    'Wetlandline' => 'wetland_length_computed',
+    'Internationalline' => 'international_length_computed',
+    'Master polygon' => 'master_polygon_computed',
+    'Cutline' => 'cutline_length_computed',
+    'Corner pillar' => 'corner_pillar_computed',
+    'Intermediate pillar' => 'intermediate_pillar_computed',
+    'FD numbered markstone' => 'fd_numbered_markstone_computed',
+    'Cairn' => 'cairn_computed',
+  ];
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->loadTree('layer_type', 0, NULL, TRUE);
+  foreach ($terms as $term) {
+    if (isset($computed_taxonomy_values[$term->name->value])) {
+      $term->computed_geolayer_field->value = $computed_taxonomy_values[$term->name->value];
+      $term->save();
+    }
   }
 }

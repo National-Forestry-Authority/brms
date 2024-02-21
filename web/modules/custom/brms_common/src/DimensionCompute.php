@@ -27,8 +27,10 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
     $dimension_name = (string) $dimension_name;
     $dimension_id = $this->getName();
     $dimension_settings = $node->get($dimension_id)->getSettings();
+    // Extracting the dimension to calculate.
     $dimension_to_calculate = $dimension_settings['computed_field'];
-    $dimension_computed_id = $dimension_settings['layer_type_id'];
+    // Extracting the geolayer field to match with the correct geolayer.
+    $dimension_computed_id = $dimension_settings['computed_geolayer_field'];
     if (isset($dimension_to_calculate) && $dimension_to_calculate != '') {
       $added_layers = $node->get('geolayers');
       if (!isset($added_layers) || empty($added_layers)) {
@@ -39,10 +41,12 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         $geolayer = \Drupal::entityTypeManager()->getStorage('geolayer')->load($added_layers[$i]['target_id']);
         $layer_type = $geolayer->get('layer_type')->getValue();
         $layer_taxonomy = Term::load($layer_type[0]['target_id']);
-        $layer_id = $layer_taxonomy->get('layer_type_id')->value;
+        $layer_id = $layer_taxonomy->get('computed_geolayer_field')->value;
         $geofield = $geolayer->get('geofield')->getValue();
         $wkt = \geoPHP::load($geofield[0]['value'], 'wkt');
+        // Matching the dimension field with the correct geolayer.
         if ($layer_id == $dimension_computed_id) {
+          // Calculating the dimension.
           if ($dimension_to_calculate == 'length') {
             $this->list[0] = $this->createItem(0, $wkt->length());
           }

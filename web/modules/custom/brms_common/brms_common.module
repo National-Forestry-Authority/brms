@@ -36,7 +36,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'shoreline_length_computed',
+        'computed_geolayer_field' => 'shoreline_length_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -48,7 +48,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'interprotected_area_length_computed',
+        'computed_geolayer_field' => 'interprotected_area_length_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -60,7 +60,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'riverline_length_computed',
+        'computed_geolayer_field' => 'riverline_length_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -72,7 +72,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'cutline_length_computed',
+        'computed_geolayer_field' => 'cutline_length_computed',
       ])
       ->setClass(DimensionCompute::class);
 
@@ -84,7 +84,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'wetland_length_computed',
+        'computed_geolayer_field' => 'wetland_length_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -96,7 +96,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'international_length_computed',
+        'computed_geolayer_field' => 'international_length_computed',
       ])
       ->setClass(DimensionCompute::class);
 
@@ -108,7 +108,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'area',
-        'layer_type_id' => 'master_polygon',
+        'computed_geolayer_field' => 'master_polygon_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -120,7 +120,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'no.',
         'computed_field' => 'points',
-        'layer_type_id' => 'intermediate_pillar_computed',
+        'computed_geolayer_field' => 'intermediate_pillar_computed',
       ])
       ->setClass(DimensionCompute::class);
     
@@ -132,7 +132,19 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'no.',
         'computed_field' => 'points',
-        'layer_type_id' => 'corner_pillar_computed',
+        'computed_geolayer_field' => 'corner_pillar_computed',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['fd_numbered_markstone_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('fd_numbered_markstone')
+      ->setLabel(t('FD Numbered Markstone (no.)(computed)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' no.',
+        'computed_field' => 'points',
+        'computed_geolayer_field' => 'fd_numbered_markstone',
       ])
       ->setClass(DimensionCompute::class);
 
@@ -144,7 +156,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => ' no.',
         'computed_field' => 'points',
-        'layer_type_id' => 'cairn_computed',
+        'computed_geolayer_field' => 'cairn_computed',
       ])
       ->setClass(DimensionCompute::class);
 
@@ -156,7 +168,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setSettings([
         'suffix' => 'km',
         'computed_field' => 'length',
-        'layer_type_id' => 'master_polygon',
+        'computed_geolayer_field' => 'master_polygon_computed',
       ])
       ->setClass(TotalBoundaryLength::class);
   }
