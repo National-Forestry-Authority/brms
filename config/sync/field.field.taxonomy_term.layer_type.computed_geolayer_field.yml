@@ -12,7 +12,7 @@ field_name: computed_geolayer_field
 entity_type: taxonomy_term
 bundle: layer_type
 label: 'Computed geolayer field'
-description: ''
+description: 'This value is used for calculating polygon dimensions computed fields from a Forest Reserve geolayer'
 required: false
 translatable: false
 default_value: {  }

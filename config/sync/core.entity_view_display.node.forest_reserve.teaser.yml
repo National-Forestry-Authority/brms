@@ -66,6 +66,7 @@ hidden:
   cutline_length_computed: true
   district: true
   district_2: true
+  fd_numbered_markstone_computed: true
   forest_reserve_serial_number: true
   forest_reserve_serial_number_2: true
   forest_reserve_type: true

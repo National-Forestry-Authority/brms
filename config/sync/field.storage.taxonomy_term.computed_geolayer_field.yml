@@ -13,34 +13,34 @@ settings:
   allowed_values:
     -
       value: shoreline_length_computed
-      label: 'shoreline length computed'
+      label: 'Shoreline length computed'
     -
       value: interprotected_area_length_computed
-      label: 'interprotected area length computed'
+      label: 'Interprotected area length computed'
     -
       value: riverline_length_computed
-      label: 'riverline length computed'
+      label: 'Riverline length computed'
     -
       value: cutline_length_computed
-      label: 'cutline length computed'
+      label: 'Cutline length computed'
     -
       value: wetland_length_computed
-      label: 'wetland length computed'
+      label: 'Wetland length computed'
     -
       value: international_length_computed
-      label: 'international length computed'
+      label: 'International length computed'
     -
-      value: master_polygon
-      label: 'master polygon computed'
+      value: master_polygon_computed
+      label: 'Master polygon computed'
     -
       value: intermediate_pillar_computed
-      label: 'intermediate pillar computed'
+      label: 'Intermediate pillar computed'
     -
       value: corner_pillar_computed
-      label: 'corner pillar computed'
+      label: 'Corner pillar computed'
     -
       value: cairn_computed
-      label: 'cairn computed'
+      label: 'Cairn computed'
   allowed_values_function: ''
 module: options
 locked: false

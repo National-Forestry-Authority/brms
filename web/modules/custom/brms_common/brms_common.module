@@ -106,7 +106,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => 'ha',
         'computed_field' => 'area',
         'computed_geolayer_field' => 'master_polygon_computed',
       ])
@@ -162,7 +162,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
 
     $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
       ->setName('total_boundary_length')
-      ->setLabel(t('Total boundary length (km)'))
+      ->setLabel(t('Total boundary length (km)(computed)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
@@ -170,7 +170,7 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
         'computed_field' => 'length',
         'computed_geolayer_field' => 'master_polygon_computed',
       ])
-      ->setClass(TotalBoundaryLength::class);
+      ->setClass(DimensionCompute::class);
   }
   return $fields;
 }

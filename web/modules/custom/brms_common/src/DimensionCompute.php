@@ -23,9 +23,6 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
   protected function computeValue() {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $this->getParent()->getValue();
-    $dimension_name = $this->getFieldDefinition()['label'];
-    // Convert to string.
-    $dimension_name = (string) $dimension_name;
     // Extracting the exact compute dimension to calculate.
     $dimension_id = $this->getName();
     $dimension_settings = $node->get($dimension_id)->getSettings();
@@ -45,6 +42,9 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         $layer_taxonomy = Term::load($layer_type[0]['target_id']);
         $layer_id = $layer_taxonomy->get('computed_geolayer_field')->value;
         $geofield = $geolayer->get('geofield')->getValue();
+        if (!isset($geofield[0]['value']) || empty($geofield[0]['value'])) {
+          return;
+        }
         $wkt = \geoPHP::load($geofield[0]['value'], 'wkt');
         // Matching the dimension field with the correct geolayer.
         if ($layer_id == $dimension_computed_id) {
