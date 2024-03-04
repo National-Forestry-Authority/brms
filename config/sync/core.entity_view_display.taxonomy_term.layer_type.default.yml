@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.layer_type.color
+    - field.field.taxonomy_term.layer_type.computed_geolayer_field
     - field.field.taxonomy_term.layer_type.geometry_type
     - field.field.taxonomy_term.layer_type.layer_group
     - field.field.taxonomy_term.layer_type.line_style
@@ -27,6 +28,13 @@ content:
       opacity: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  computed_geolayer_field:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
     region: content
   description:
     type: text_default

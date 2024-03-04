@@ -1,0 +1,54 @@
+uuid: cb283f7d-25e3-45a0-b362-0b966a5f25a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.computed_geolayer_field
+field_name: computed_geolayer_field
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: cairn_computed
+      label: 'Cairn computed'
+    -
+      value: corner_pillar_computed
+      label: 'Corner pillar computed'
+    -
+      value: cutline_length_computed
+      label: 'Cutline length computed'
+    -
+      value: intermediate_pillar_computed
+      label: 'Intermediate pillar computed'
+    -
+      value: international_length_computed
+      label: 'International length computed'
+    -
+      value: interprotected_area_length_computed
+      label: 'Interprotected area length computed'
+    -
+      value: inter_protected_area_riverline_computed
+      label: 'Inter protected area riverline computed'
+    -
+      value: master_polygon_computed
+      label: 'Master polygon computed'
+    -
+      value: riverline_length_computed
+      label: 'Riverline length computed'
+    -
+      value: shoreline_length_computed
+      label: 'Shoreline length computed'
+    -
+      value: wetland_length_computed
+      label: 'Wetland length computed'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
