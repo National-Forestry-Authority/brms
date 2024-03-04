@@ -12,35 +12,38 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: shoreline_length_computed
-      label: 'Shoreline length computed'
-    -
-      value: interprotected_area_length_computed
-      label: 'Interprotected area length computed'
-    -
-      value: riverline_length_computed
-      label: 'Riverline length computed'
-    -
-      value: cutline_length_computed
-      label: 'Cutline length computed'
-    -
-      value: wetland_length_computed
-      label: 'Wetland length computed'
-    -
-      value: international_length_computed
-      label: 'International length computed'
-    -
-      value: master_polygon_computed
-      label: 'Master polygon computed'
-    -
-      value: intermediate_pillar_computed
-      label: 'Intermediate pillar computed'
+      value: cairn_computed
+      label: 'Cairn computed'
     -
       value: corner_pillar_computed
       label: 'Corner pillar computed'
     -
-      value: cairn_computed
-      label: 'Cairn computed'
+      value: cutline_length_computed
+      label: 'Cutline length computed'
+    -
+      value: intermediate_pillar_computed
+      label: 'Intermediate pillar computed'
+    -
+      value: international_length_computed
+      label: 'International length computed'
+    -
+      value: interprotected_area_length_computed
+      label: 'Interprotected area length computed'
+    -
+      value: inter_protected_area_riverline_computed
+      label: 'Inter protected area riverline computed'
+    -
+      value: master_polygon_computed
+      label: 'Master polygon computed'
+    -
+      value: riverline_length_computed
+      label: 'Riverline length computed'
+    -
+      value: shoreline_length_computed
+      label: 'Shoreline length computed'
+    -
+      value: wetland_length_computed
+      label: 'Wetland length computed'
   allowed_values_function: ''
 module: options
 locked: false

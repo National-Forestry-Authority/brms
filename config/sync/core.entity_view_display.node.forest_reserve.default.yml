@@ -43,16 +43,18 @@ third_party_settings:
   field_group:
     group_dimensions:
       children:
+        - total_area_computed
+        - total_boundary_length
         - riverline_length_computed
         - cutline_length_computed
         - shoreline_length_computed
         - wetland_length_computed
+        - interprotected_area_length_computed
+        - interprotected_area_riverline_length_computed
         - international_length_computed
-        - total_area_computed
         - fd_numbered_markstone_computed
         - corner_pillar_computed
         - intermediate_pillar_computed
-        - total_boundary_length
         - cairn_computed
       label: Dimensions
       parent_name: ''
@@ -173,7 +175,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 8
+    weight: 9
     region: content
   boundary_records_status:
     type: entity_reference_label
@@ -193,7 +195,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 7
+    weight: 8
     region: content
   cadastral_sheet_number_1_50000:
     type: entity_reference_label
@@ -203,7 +205,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 6
+    weight: 7
     region: content
   cairn_computed:
     type: number_decimal
@@ -211,12 +213,12 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: .
-      scale: 2
+      scale: 0
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 21
+    weight: 33
     region: content
   corner_pillar_computed:
     type: number_decimal
@@ -224,12 +226,12 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: .
-      scale: 2
+      scale: 0
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 18
+    weight: 31
     region: content
   cutline_length_computed:
     type: number_decimal
@@ -242,7 +244,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 12
+    weight: 24
     region: content
   district:
     type: entity_reference_label
@@ -270,10 +272,12 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: .
-      scale: 2
+      scale: 0
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 17
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 30
     region: content
   forest_reserve_serial_number:
     type: entity_reference_label
@@ -311,12 +315,12 @@ content:
     settings:
       thousand_separator: ''
       decimal_separator: .
-      scale: 2
+      scale: 0
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 19
+    weight: 32
     region: content
   international_length_computed:
     type: number_decimal
@@ -329,7 +333,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 15
+    weight: 29
     region: content
   interprotected_area_length_computed:
     type: number_decimal
@@ -342,7 +346,20 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 3
+    weight: 27
+    region: content
+  interprotected_area_riverline_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 28
     region: content
   land_registration_numbers:
     type: entity_reference_label
@@ -352,7 +369,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 9
+    weight: 10
     region: content
   map_sheet_references:
     type: entity_reference_label
@@ -398,7 +415,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 11
+    weight: 23
     region: content
   shoreline_length_computed:
     type: number_decimal
@@ -411,7 +428,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 13
+    weight: 25
     region: content
   surveys:
     type: entity_reference_revisions_entity_view
@@ -435,7 +452,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 16
+    weight: 21
     region: content
   total_boundary_length:
     type: number_decimal
@@ -448,7 +465,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 20
+    weight: 22
     region: content
   wetland_length_computed:
     type: number_decimal
@@ -461,7 +478,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 14
+    weight: 26
     region: content
   year_gazetted:
     type: list_default

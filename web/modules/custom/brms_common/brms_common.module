@@ -20,57 +20,87 @@ use Drupal\views\ViewExecutable;
 function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
   $fields = [];
   if ($entity_type->id() === "node") {
-    $fields['natural_boundary_length'] = BaseFieldDefinition::create('decimal')
-      ->setName('natural_boundary_length')
-      ->setLabel(t('Natural boundary length (km)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(NaturalBoundaryLength::class);
-
-    $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('shoreline_length_computed')
-      ->setLabel(t('ShoreLine length (km)(computed)'))
+    // Master polygon computed fields.
+    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_area_computed')
+      ->setLabel(t('Total area (ha)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' ha',
+        'computed_field' => 'area',
+        'computed_geolayer_field' => 'master_polygon_computed',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_boundary_length')
+      ->setLabel(t('Total boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'computed_field' => 'length',
+        'computed_geolayer_field' => 'master_polygon_computed',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    // Length computed fields.
+    $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('shoreline_length_computed')
+      ->setLabel(t('Shoreline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'shoreline_length_computed',
       ])
       ->setClass(DimensionCompute::class);
-    
+
     $fields['interprotected_area_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('interprotected_area_length_computed')
-      ->setLabel(t('Interpolated Area length (km)(computed)'))
+      ->setLabel(t('Inter protected area length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'interprotected_area_length_computed',
       ])
       ->setClass(DimensionCompute::class);
-    
-    $fields['riverline_length_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('riverline_length_computed')
-      ->setLabel(t('RiverLine length (km)(computed)'))
+
+    $fields['interprotected_area_riverline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('interprotected_area_riverline_length_computed')
+      ->setLabel(t('Inter protected area riverline length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' km',
+        'computed_field' => 'length',
+        'computed_geolayer_field' => 'interprotected_area_riverline_length_computed',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['riverline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('riverline_length_computed')
+      ->setLabel(t('Riverline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'riverline_length_computed',
       ])
       ->setClass(DimensionCompute::class);
-    
+
     $fields['cutline_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('cutline_length_computed')
-      ->setLabel(t('Cutline length (km)(computed)'))
+      ->setLabel(t('Cutline length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'cutline_length_computed',
       ])
@@ -78,59 +108,46 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
 
     $fields['wetland_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('wetland_length_computed')
-      ->setLabel(t('Wetland length (km)(computed)'))
+      ->setLabel(t('Wetland length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'wetland_length_computed',
       ])
       ->setClass(DimensionCompute::class);
-    
+
     $fields['international_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('international_length_computed')
-      ->setLabel(t('International length (km)(computed)'))
+      ->setLabel(t('International length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'km',
+        'suffix' => ' km',
         'computed_field' => 'length',
         'computed_geolayer_field' => 'international_length_computed',
       ])
       ->setClass(DimensionCompute::class);
 
-    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('total_area_computed')
-      ->setLabel(t('Total Area (ha)(computed)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings([
-        'suffix' => 'ha',
-        'computed_field' => 'area',
-        'computed_geolayer_field' => 'master_polygon_computed',
-      ])
-      ->setClass(DimensionCompute::class);
-    
+    // Points computed fields.
     $fields['intermediate_pillar_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('intermediate_pillar_computed')
-      ->setLabel(t('Intermediate Pillar (no.)(computed)'))
+      ->setLabel(t('Intermediate pillars'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'no.',
         'computed_field' => 'points',
         'computed_geolayer_field' => 'intermediate_pillar_computed',
       ])
       ->setClass(DimensionCompute::class);
-    
+
     $fields['corner_pillar_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('corner_pillar_computed')
-      ->setLabel(t('Corner Pillar (no.)(computed)'))
+      ->setLabel(t('Corner pillars'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => 'no.',
         'computed_field' => 'points',
         'computed_geolayer_field' => 'corner_pillar_computed',
       ])
@@ -138,11 +155,10 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
 
     $fields['fd_numbered_markstone_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('fd_numbered_markstone')
-      ->setLabel(t('FD Numbered Markstone (no.)(computed)'))
+      ->setLabel(t('FD numbered markstones'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => ' no.',
         'computed_field' => 'points',
         'computed_geolayer_field' => 'fd_numbered_markstone',
       ])
@@ -150,25 +166,12 @@ function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
 
     $fields['cairn_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('cairn_computed')
-      ->setLabel(t('Cairn (no.)(computed)'))
+      ->setLabel(t('Cairns'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => ' no.',
         'computed_field' => 'points',
         'computed_geolayer_field' => 'cairn_computed',
-      ])
-      ->setClass(DimensionCompute::class);
-
-    $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
-      ->setName('total_boundary_length')
-      ->setLabel(t('Total boundary length (km)(computed)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings([
-        'suffix' => 'km',
-        'computed_field' => 'length',
-        'computed_geolayer_field' => 'master_polygon_computed',
       ])
       ->setClass(DimensionCompute::class);
   }

@@ -348,13 +348,14 @@ function brms_common_deploy_007(&$sandbox = NULL) {
 }
 
 /**
- * Update layer_type taxonmy terms.
+ * Update layer type taxonomy terms.
  */
 function brms_common_deploy_008(&$sandbox = NULL) {
   $computed_taxonomy_values = [
     'Shoreline' => 'shoreline_length_computed',
     'Riverline' => 'riverline_length_computed',
     'Inter protected area line' => 'interprotected_area_length_computed',
+    'Inter protected area riverline' => 'interprotected_area_riverline_length_computed',
     'Wetlandline' => 'wetland_length_computed',
     'Internationalline' => 'international_length_computed',
     'Master polygon' => 'master_polygon_computed',
