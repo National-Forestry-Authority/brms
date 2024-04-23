@@ -5697,11 +5697,11 @@
         },
         {
             "name": "national-forestry-authority/nfa-map",
-            "version": "v2.1.4",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/National-Forestry-Authority/nfa-map",
-                "reference": "586bac9cb594c054c152a33912dd03eeb24f9fcf"
+                "reference": "c3f3b62020c790dd54a32133dde3c6333d607bb1"
             },
             "type": "drupal-library",
             "license": [
