@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Cadastral sheet number (1:10,000)'
 vid: cadastral_sheet_number_1_10000
-description: ''
+description: null
 weight: 0
+new_revision: false

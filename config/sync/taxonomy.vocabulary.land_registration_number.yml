@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Land registration number'
 vid: land_registration_number
-description: ''
+description: null
 weight: 0
+new_revision: false

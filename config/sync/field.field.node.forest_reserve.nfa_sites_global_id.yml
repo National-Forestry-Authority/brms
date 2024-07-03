@@ -9,8 +9,8 @@ id: node.forest_reserve.nfa_sites_global_id
 field_name: nfa_sites_global_id
 entity_type: node
 bundle: forest_reserve
-label: 'NFA sites global ID'
-description: ''
+label: 'CFR global ID'
+description: 'Global CFR identifier for NFA websites'
 required: true
 translatable: false
 default_value: {  }

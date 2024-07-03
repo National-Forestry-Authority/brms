@@ -18,7 +18,7 @@ third_party_settings:
 name: 'Map base layer'
 type: map_base_layer
 description: 'A base layer that will be sown on all maps.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

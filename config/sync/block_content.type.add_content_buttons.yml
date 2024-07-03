@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: add_content_buttons
 label: 'Add Content Buttons'
-revision: 0
+revision: false
 description: ''

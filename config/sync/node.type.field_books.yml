@@ -18,7 +18,7 @@ third_party_settings:
 name: 'Field Books'
 type: field_books
 description: 'Create datasets relating to field books'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: true

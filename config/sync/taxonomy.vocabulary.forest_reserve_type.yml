@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Forest reserve type'
 vid: forest_reserve_type
-description: ''
+description: null
 weight: 0
+new_revision: false

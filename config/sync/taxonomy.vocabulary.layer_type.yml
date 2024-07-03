@@ -6,3 +6,4 @@ name: 'Layer type'
 vid: layer_type
 description: 'The type of boundary or points shown on the map layer'
 weight: 0
+new_revision: false
