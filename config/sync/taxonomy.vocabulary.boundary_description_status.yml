@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Boundary description status'
 vid: boundary_description_status
-description: ''
+description: null
 weight: 0
+new_revision: false

@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Boundary plan number'
 vid: boundary_plan_number
-description: ''
+description: null
 weight: 0
+new_revision: false

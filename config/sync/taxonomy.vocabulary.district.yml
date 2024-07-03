@@ -6,3 +6,4 @@ name: District
 vid: district
 description: 'Administrative districts and counties of Uganda'
 weight: 0
+new_revision: false

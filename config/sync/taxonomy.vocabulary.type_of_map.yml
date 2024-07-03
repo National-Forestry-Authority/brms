@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Type of Map'
 vid: type_of_map
-description: ''
+description: null
 weight: 0
+new_revision: false

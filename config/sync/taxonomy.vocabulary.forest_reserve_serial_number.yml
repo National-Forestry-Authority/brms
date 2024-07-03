@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Forest reserve serial number'
 vid: forest_reserve_serial_number
-description: ''
+description: null
 weight: 0
+new_revision: false

@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Boundary records status'
 vid: boundary_records_status
-description: ''
+description: null
 weight: 0
+new_revision: false

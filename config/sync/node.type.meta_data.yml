@@ -17,7 +17,7 @@ third_party_settings:
 name: 'Meta Data'
 type: meta_data
 description: 'Summary of a given dataset'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: true
