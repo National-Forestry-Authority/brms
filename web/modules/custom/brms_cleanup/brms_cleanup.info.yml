@@ -1,5 +1,0 @@
-name: BRMS Cleanup
-description: Cleans up content that is not related to the site after the split.
-package: BRMS
-type: module
-core_version_requirement: ^9.2 || ^10
