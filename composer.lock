@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70d6dcaa088bdba25cb9c813aac70ae4",
+    "content-hash": "a3eb4ad0ab5755c3910dd795af44914e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3007,6 +3007,77 @@
             }
         },
         {
+            "name": "drupal/key",
+            "version": "1.19.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/key.git",
+                "reference": "8.x-1.19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.19.zip",
+                "reference": "8.x-1.19",
+                "shasum": "ee8f7b8f8babd381f1e4423dccede94b4eb5985c"
+            },
+            "require": {
+                "drupal/core": ">=8.9 <12"
+            },
+            "require-dev": {
+                "drush/drush": ">=9"
+            },
+            "suggest": {
+                "drush/drush": ">=11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.19",
+                    "datestamp": "1720053341",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cellar Door",
+                    "homepage": "https://www.drupal.org/user/658076"
+                },
+                {
+                    "name": "crashtest_",
+                    "homepage": "https://www.drupal.org/user/261457"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                },
+                {
+                    "name": "rlhawk",
+                    "homepage": "https://www.drupal.org/user/352283"
+                }
+            ],
+            "description": "Provides the ability to manage site-wide keys",
+            "homepage": "http://drupal.org/project/key",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/key",
+                "issues": "http://drupal.org/project/key"
+            }
+        },
+        {
             "name": "drupal/leaflet",
             "version": "2.2.12",
             "source": {
@@ -3144,50 +3215,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/leaflet_more_maps",
                 "issues": "https://www.drupal.org/project/issues/leaflet_more_maps"
-            }
-        },
-        {
-            "name": "drupal/migrate_conditions",
-            "version": "2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/migrate_conditions.git",
-                "reference": "2.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_conditions-2.1.2.zip",
-                "reference": "2.1.2",
-                "shasum": "314a30b2051b71cedc401f4210c573bbf384c46e"
-            },
-            "require": {
-                "drupal/core": "^9.3 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.1.2",
-                    "datestamp": "1718140771",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "danflanagan8",
-                    "homepage": "https://www.drupal.org/user/3615359"
-                }
-            ],
-            "description": "Provides framework of conditions plugins and process plugins that use them",
-            "homepage": "https://www.drupal.org/project/migrate_conditions",
-            "support": {
-                "source": "https://git.drupalcode.org/project/migrate_conditions"
             }
         },
         {
@@ -3696,6 +3723,89 @@
             "homepage": "https://www.drupal.org/project/pdf",
             "support": {
                 "source": "https://git.drupalcode.org/project/pdf"
+            }
+        },
+        {
+            "name": "drupal/queue_ui",
+            "version": "3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/queue_ui.git",
+                "reference": "3.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/queue_ui-3.1.4.zip",
+                "reference": "3.1.4",
+                "shasum": "a701e551683b2b026f4223ac81a6f5a3c34eedcb"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10"
+            },
+            "require-dev": {
+                "drupal/queue_order": "^2"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.4",
+                    "datestamp": "1708276956",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "floretan",
+                    "homepage": "https://www.drupal.org/user/2743951",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "coltrane",
+                    "homepage": "https://www.drupal.org/user/91990",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "tsphethean",
+                    "homepage": "https://www.drupal.org/user/66163",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "bceyssens",
+                    "homepage": "https://www.drupal.org/user/2811585",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/881620",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "Interface and manager for Drupal queues.",
+            "homepage": "https://www.drupal.org/project/queue_ui",
+            "keywords": [
+                "drupal",
+                "php",
+                "queue"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/queue_ui",
+                "issues": "https://www.drupal.org/project/issues/queue_ui"
             }
         },
         {
