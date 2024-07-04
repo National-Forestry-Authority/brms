@@ -1,5 +1,0 @@
-name: 'BRMS Require Revision Log Message'
-type: module
-description: 'Require revision log message for all content types.'
-core_version_requirement: ^9
-package: 'BRMS'
