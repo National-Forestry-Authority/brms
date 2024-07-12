@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * This is the BRMS System of Record module for sharing data across NFA sites.
+ */
+
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for node entities.
+ */
+function brms_sor_node_update(NodeInterface $node) {
+  if ($node->getType() == 'forest_reserve') {
+    $service = \Drupal::service('brms_sor.forest_reserve_service');
+
+    // Compare the master polygon with the original to see if it has changed.
+    $polygon = $service->getMasterPolygon($node);
+    $original_polygon = $service->getMasterPolygon($node->original);
+
+    // If there is a master polygon or if there was one that has been removed,
+    // queue it for sending to the FMS.
+    if ($polygon || ($original_polygon && !$polygon)) {
+      $data = [
+        'global_id' => $node->nfa_sites_global_id->value,
+        'polygon' => $polygon,
+      ];
+
+      // Retrieve the 'brms_sor_fms' queue.
+      $queue = \Drupal::queue('brms_sor_fms');
+
+      // Add the data as an item to the queue.
+      $queue->createItem($data);
+    }
+  }
+}

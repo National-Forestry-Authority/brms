@@ -1,0 +1,5 @@
+name: 'BRMS System of Record'
+type: module
+description: 'Utilities allowing BRMS to act as the system of record for NFA data.'
+package: '@todo Add package'
+core_version_requirement: ^10
