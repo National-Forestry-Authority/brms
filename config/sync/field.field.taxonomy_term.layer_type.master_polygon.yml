@@ -1,0 +1,21 @@
+uuid: 3065f24d-4f58-4b90-b9b1-0b312d1c6e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.master_polygon
+    - taxonomy.vocabulary.layer_type
+id: taxonomy_term.layer_type.master_polygon
+field_name: master_polygon
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Master polygon'
+description: 'Flag to indicate that this geolayer is the master polygon.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

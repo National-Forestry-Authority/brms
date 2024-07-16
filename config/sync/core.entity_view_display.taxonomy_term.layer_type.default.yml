@@ -8,6 +8,7 @@ dependencies:
     - field.field.taxonomy_term.layer_type.layer_group
     - field.field.taxonomy_term.layer_type.line_style
     - field.field.taxonomy_term.layer_type.line_width
+    - field.field.taxonomy_term.layer_type.master_polygon
     - field.field.taxonomy_term.layer_type.point_shape
     - taxonomy.vocabulary.layer_type
   module:
@@ -62,6 +63,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  master_polygon:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   point_shape:
     type: list_default
