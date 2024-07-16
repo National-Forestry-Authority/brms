@@ -2,6 +2,6 @@ services:
   brms_sor.fms_client:
     class: Drupal\brms_sor\Service\FmsSorApi
     arguments: ['@http_client', '@logger.factory', '@cache.default', '@key.repository', '@serialization.json', '@datetime.time']
-  brms_sor.forest_reserve_service:
+  brms_sor.forest_reserve_utils:
     class: Drupal\brms_sor\Service\ForestReserveService
     arguments: ['@entity_type.manager']

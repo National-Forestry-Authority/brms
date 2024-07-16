@@ -54,11 +54,12 @@ final class FmsQueueWorker extends QueueWorkerBase implements ContainerFactoryPl
   public function processItem($data): void {
     if (!isset($data['global_id'])) {
       $this->loggerFactory->get('brms_sor')->error('Missing global_id in queue item.');
+      // If global id is missing the queue item will be removed because it's a
+      // permanent error and can never be successfully processed.
       return;
     }
-    // Call the API update the polygon of the corresponding CFR in the FMS.
-    $this->client->updateCfrPolygon($data['global_id'], $data['polygon']);
-    // @todo should we keep the item in the queue if the API call fails?
+    // Call the API to update the polygon of the corresponding CFR in the FMS.
+    $this->client->updatePolygon($data['global_id'], $data['polygon']);
   }
 
 }

@@ -12,25 +12,21 @@ use Drupal\node\NodeInterface;
  */
 function brms_sor_node_update(NodeInterface $node) {
   if ($node->getType() == 'forest_reserve') {
-    $service = \Drupal::service('brms_sor.forest_reserve_service');
+    /** @var \Drupal\brms_sor\Service\ForestReserveService $cfr_utils */
+    $cfr_utils = \Drupal::service('brms_sor.forest_reserve_utils');
 
     // Compare the master polygon with the original to see if it has changed.
-    $polygon = $service->getMasterPolygon($node);
-    $original_polygon = $service->getMasterPolygon($node->original);
+    $polygon = $cfr_utils->getMasterPolygon($node);
+    $original_polygon = $cfr_utils->getMasterPolygon($node->original);
 
     // If there is a master polygon or if there was one that has been removed,
     // queue it for sending to the FMS.
-    if ($polygon || ($original_polygon && !$polygon)) {
-      $data = [
-        'global_id' => $node->nfa_sites_global_id->value,
-        'polygon' => $polygon,
-      ];
-
-      // Retrieve the 'brms_sor_fms' queue.
+    if (($polygon || ($original_polygon && !$polygon)) && $node->hasField('nfa_sites_global_id') && !$node->nfa_sites_global_id->isEmpty()) {
       $queue = \Drupal::queue('brms_sor_fms');
-
-      // Add the data as an item to the queue.
-      $queue->createItem($data);
+      $queue->createItem([
+        'global_id' => $node->get('nfa_sites_global_id')->value,
+        'polygon' => $polygon,
+      ]);
     }
   }
 }

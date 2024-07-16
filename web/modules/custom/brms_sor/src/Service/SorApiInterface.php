@@ -11,11 +11,11 @@ interface SorApiInterface {
    * Gets a bearer token for accessing the API.
    *
    * @return string|null
-   *   The bearer token.
+   *   The bearer token or NULL if an error occurred
    *
    * @throws \GuzzleHttp\Exception\RequestException
    */
-  public function getAccessToken(bool $use_cached_token = TRUE): ?string;
+  public function getAccessToken(): ?string;
 
   /**
    * Make a GET call to the API.
@@ -24,15 +24,13 @@ interface SorApiInterface {
    *   The API call to make.
    * @param array $data
    *   Data to provide.
-   * @param bool $use_cached_token
-   *   Whether to use the cached bearer token or generate a new one.
    *
    * @return array
    *   Array of data returned by the API.
    *
    * @throws \GuzzleHttp\Exception\RequestException
    */
-  public function get(string $call, array $data = [], bool $use_cached_token = TRUE): array;
+  public function get(string $call, array $data = []): array;
 
   /**
    * Make a PATCH call to the API.
@@ -41,14 +39,24 @@ interface SorApiInterface {
    *   The API call to make.
    * @param array $data
    *   Data to provide.
-   * @param bool $use_cached_token
-   *   Whether to use the cached bearer token or generate a new one.
    *
    * @return array
    *   Array of data returned by the API.
    *
    * @throws \GuzzleHttp\Exception\RequestException
    */
-  public function patch(string $call, array $data = [], bool $use_cached_token = TRUE): array;
+  public function patch(string $call, array $data = []): array;
+
+  /**
+   * Update the polygon of an entity.
+   *
+   * @param string $global_id
+   *   The global ID of the entity to be updated.
+   * @param string $polygon
+   *   The polygon to update.
+   *
+   * @throws \GuzzleHttp\Exception\RequestException
+   */
+  public function updatePolygon(string $global_id, string $polygon): void;
 
 }

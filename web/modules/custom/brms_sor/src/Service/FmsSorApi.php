@@ -112,12 +112,12 @@ final class FmsSorApi implements SorApiInterface {
   /**
    * {@inheritdoc}
    */
-  public function getAccessToken(bool $use_cached_token = TRUE): string {
-    if ($use_cached_token) {
-      $cache_access_token = $this->cache->get('brms_sor_fms_access_token');
-      if ($cache_access_token) {
-        return $cache_access_token->data;
-      }
+  public function getAccessToken(): ?string {
+    $cache_access_token = $this->cache->get('brms_sor_fms_access_token');
+    // If there is a cached token, and it's not going to expire in the next
+    // minute, return it, otherwise generate a new one.
+    if ($cache_access_token && $cache_access_token->expire > ($this->time->getRequestTime() + 60)) {
+      return $cache_access_token->data;
     }
 
     try {
@@ -139,16 +139,16 @@ final class FmsSorApi implements SorApiInterface {
     }
     catch (\Exception $e) {
       $this->logger->get('brms_sor')->error('Failed to get access token from the FMS API: @message', ['@message' => $e->getMessage()]);
-      throw $e;
+      return NULL;
     }
   }
 
   /**
    * {@inheritdoc}
    */
-  public function get(string $call, array $data = [], bool $use_cached_token = TRUE): array {
+  public function get(string $call, array $data = []): array {
     try {
-      $token = $this->getAccessToken($use_cached_token);
+      $token = $this->getAccessToken();
       $headers = [
         'Authorization' => 'Bearer ' . $token,
       ];
@@ -162,22 +162,18 @@ final class FmsSorApi implements SorApiInterface {
       $this->response = $e->getResponse();
       $this->logger->get('brms_sor')->error('Failed to call GET @uri on FMS API: @message',
         ['@uri' => $uri, '@message' => $e->getMessage()]);
-      // If the token expired, try again with a new token.
-      if ($e->getCode() === 401 && $use_cached_token) {
-        return $this->get($call, $data, FALSE);
-      }
-      else {
-        throw $e;
-      }
+      // Throw the exception to the queue processor so the item stays in the
+      // queue and can be retried.
+      throw $e;
     }
   }
 
   /**
    * {@inheritdoc}
    */
-  public function patch(string $call, array $data = [], bool $use_cached_token = TRUE): array {
+  public function patch(string $call, array $data = [],): array {
     try {
-      $token = $this->getAccessToken($use_cached_token);
+      $token = $this->getAccessToken();
       $headers = [
         'Authorization' => 'Bearer ' . $token,
         'Content-type' => 'application/vnd.api+json',
@@ -192,37 +188,36 @@ final class FmsSorApi implements SorApiInterface {
       $this->response = $e->getResponse();
       $this->logger->get('brms_sor')->error('Failed to call PATCH @uri on FMS API: @message',
         ['@uri' => $uri, '@message' => $e->getMessage()]);
-      // If the token expired, try again with a new token.
-      if ($e->getCode() === 401 && $use_cached_token) {
-        return $this->patch($call, $data, FALSE);
-      }
-      else {
-        throw $e;
-      }
+      // Throw the exception to the queue processor so the item stays in the
+      // queue and can be retried.
+      throw $e;
     }
   }
 
   /**
    * Get the UUID of a CFR by its global ID.
    */
-  public function getCfrUuid(string $cfr_global_id): ?string {
+  protected function getCfrUuid(string $cfr_global_id): ?string {
     try {
+      // Get the UUID of the CFR with the given global ID in the FMS.
       $response = $this->get('/asset/cfr', ['filter[cfr_global_id]' => $cfr_global_id]);
       return $response['data'][0]['id'] ?? NULL;
     }
     catch (RequestException $e) {
       $this->logger->get('brms_sor')->error('Failed to get CFR UUID for global ID @cfr_global_id: @message',
         ['@cfr_global_id' => $cfr_global_id, '@message' => $e->getMessage()]);
-      return NULL;
+      // Throw the exception to the queue processor so the item stays in the
+      // queue and can be retried.
+      throw $e;
     }
   }
 
   /**
    * Update the polygon of a CFR.
    */
-  public function updateCfrPolygon(string $cfr_global_id, ?string $polygon): void {
+  public function updatePolygon(string $global_id, ?string $polygon): void {
     // Get the UUID of the CFR.
-    $uuid = $this->getCfrUuid($cfr_global_id);
+    $uuid = $this->getCfrUuid($global_id);
     if ($uuid) {
       // Call the API to update the CFR.
       $body['data'] = [
@@ -236,16 +231,21 @@ final class FmsSorApi implements SorApiInterface {
       catch (RequestException $e) {
         $this->logger->get('brms_sor')
           ->error('Failed to update CFR polygon for global ID @cfr_global_id: @message', [
-            '@cfr_global_id' => $cfr_global_id,
+            '@cfr_global_id' => $global_id,
             '@message' => $e->getMessage(),
           ]);
+        // Throw the exception to the queue processor so the item stays in the
+        // queue and can be retried.
+        throw $e;
       }
     }
     else {
       $this->logger->get('brms_sor')
         ->error('Failed to update CFR polygon for global ID @cfr_global_id: CFR not found.', [
-          '@cfr_global_id' => $cfr_global_id,
+          '@cfr_global_id' => $global_id,
         ]);
+      // We don't throw an exception here because this is a permanent error and
+      // the item should be removed from the queue.
     }
   }
 

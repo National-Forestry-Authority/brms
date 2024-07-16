@@ -41,13 +41,17 @@ class ForestReserveService {
       return NULL;
     }
 
-    $geolayers = $node->get('geolayers')->getValue();
-    foreach ($geolayers as $geolayer) {
-      $geolayerEntity = $this->entityTypeManager->getStorage('geolayer')->load($geolayer['target_id']);
-      $layerType = $geolayerEntity->get('layer_type')->entity;
-
-      if ($layerType && $layerType->getName() == 'Master polygon') {
-        return $geolayerEntity->get('geofield')->value;
+    // Iterate through the geolayers to find the master polygon.
+    if ($node->hasField('geolayers') && !$node->get('geolayers')->isEmpty()) {
+      $geolayers = $node->get('geolayers')->referencedEntities();
+      foreach ($geolayers as $geolayer) {
+        if ($geolayer->hasField('layer_type') && !$geolayer->get('layer_type')->isEmpty()) {
+          $layer_type = $geolayer->get('layer_type')->referencedEntities();
+          $layer_type = reset($layer_type);
+          if ($layer_type->get('master_polygon')->value) {
+            return $geolayer->get('geofield')->value;
+          }
+        }
       }
     }
 
