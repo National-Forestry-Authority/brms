@@ -45,7 +45,7 @@ function brms_sor_entity_bundle_field_info(EntityTypeInterface $entity_type, $bu
       ->setLabel(t('Master Polygon KML'))
       ->setDescription(t('The master polygon KML of the forest reserve.'))
       ->setComputed(TRUE)
-      ->setClass('\Drupal\brms_sor\Plugin\Field\FieldType\MasterPolygonKML')
+      ->setClass('\Drupal\brms_sor\Plugin\Field\FieldType\MasterPolygonKml')
       ->setReadOnly(TRUE);
   }
   return $fields;

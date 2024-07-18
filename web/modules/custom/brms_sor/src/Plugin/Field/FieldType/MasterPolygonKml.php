@@ -16,13 +16,14 @@ use Drupal\Core\TypedData\ComputedItemListTrait;
  *   default_formatter = "string",
  * )
  */
-class MasterPolygonKML extends FieldItemList {
+class MasterPolygonKml extends FieldItemList {
   use ComputedItemListTrait;
 
   /**
    * {@inheritdoc}
    */
   public function computeValue() {
+    /** @var \Drupal\node\NodeInterface $node */
     $node = $this->getEntity();
     if ($node->getType() === 'forest_reserve') {
       $polygon = NULL;
