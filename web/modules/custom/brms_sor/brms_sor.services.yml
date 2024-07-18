@@ -1,0 +1,4 @@
+services:
+  brms_sor.fms_client:
+    class: Drupal\brms_sor\Service\FmsSorApi
+    arguments: ['@http_client', '@logger.factory', '@tempstore.shared', '@key.repository', '@serialization.json', '@datetime.time']

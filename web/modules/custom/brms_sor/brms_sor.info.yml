@@ -1,0 +1,8 @@
+name: 'BRMS System of Record'
+type: module
+description: 'Utilities allowing BRMS to act as the system of record for NFA data.'
+package: BRMS
+core_version_requirement: ^10
+dependencies:
+  - key:key
+  - geolayer:geolayer
