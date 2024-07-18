@@ -780,6 +780,13 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 $settings['config_sync_directory'] = '../config/sync';
 
+// BRMS System of Record variables.
+$settings['brms_sor'] = [
+  'fms_api_base_url' => $_ENV['FMS_API_BASE_URL'],
+  'fms_api_auth_url' => $_ENV['FMS_API_AUTH_URL'],
+  'fms_api_client_id' => $_ENV['FMS_API_CLIENT_ID'],
+];
+
 /**
  * Load local development override configuration, if available.
  *

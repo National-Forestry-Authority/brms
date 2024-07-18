@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * This is the BRMS System of Record module for sharing data across NFA sites.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for node entities.
+ *
+ * When updating a forest reserve node, check if the master polygon has changed
+ * and queue the update for synchronisation to the Forest Management System.
+ */
+function brms_sor_node_update(NodeInterface $node) {
+  if ($node->getType() == 'forest_reserve' && $node->hasField('master_polygon')) {
+    // Compare the master polygon with the original to see if it has changed.
+    $polygon = $node->get('master_polygon')->value;
+    $original_polygon = $node->original ? $node->original->get('master_polygon')->value : NULL;
+
+    // If there is a master polygon or if there was one that has been removed,
+    // add it to the FMS queue for sending to the FMS.
+    if (($polygon || ($original_polygon && !$polygon)) && $node->hasField('nfa_sites_global_id') && !$node->nfa_sites_global_id->isEmpty()) {
+      $queue = \Drupal::queue('brms_sor_fms');
+      $queue->createItem([
+        'global_id' => $node->get('nfa_sites_global_id')->value,
+        'polygon' => $polygon,
+      ]);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ *
+ * Add a computed field that calculates the master polygon of a forest reserve.
+ */
+function brms_sor_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions): array {
+  $fields = [];
+  if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
+    $fields['master_polygon'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Master Polygon KML'))
+      ->setDescription(t('The master polygon KML of the forest reserve.'))
+      ->setComputed(TRUE)
+      ->setClass('\Drupal\brms_sor\Plugin\Field\FieldType\MasterPolygonKml')
+      ->setReadOnly(TRUE);
+  }
+  return $fields;
+}
