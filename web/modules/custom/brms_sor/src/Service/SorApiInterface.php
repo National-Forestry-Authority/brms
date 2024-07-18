@@ -18,8 +18,10 @@ interface SorApiInterface {
   public function getAccessToken(): ?string;
 
   /**
-   * Make a GET call to the API.
+   * Make a GET or PATCH call to the API.
    *
+   * @param string $method
+   *   The request method, 'GET' or 'PATCH'.
    * @param string $call
    *   The API call to make.
    * @param array $data
@@ -30,22 +32,7 @@ interface SorApiInterface {
    *
    * @throws \GuzzleHttp\Exception\RequestException
    */
-  public function get(string $call, array $data = []): array;
-
-  /**
-   * Make a PATCH call to the API.
-   *
-   * @param string $call
-   *   The API call to make.
-   * @param array $data
-   *   Data to provide.
-   *
-   * @return array
-   *   Array of data returned by the API.
-   *
-   * @throws \GuzzleHttp\Exception\RequestException
-   */
-  public function patch(string $call, array $data = []): array;
+  public function apiCall(string $method, string $call, array $data = []): array;
 
   /**
    * Update the polygon of an entity.

@@ -4,13 +4,13 @@ namespace Drupal\brms_sor\Service;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Serialization\Json;
-use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\TempStore\SharedTempStoreFactory;
 use Drupal\key\KeyRepositoryInterface;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use Psr\Http\Client\ClientInterface;
 
 /**
  * Implementation of System of Record API interface for FMS.
@@ -40,11 +40,11 @@ final class FmsSorApi implements SorApiInterface {
   protected $json;
 
   /**
-   * The cache backend.
+   * The temp store.
    *
-   * @var \Drupal\Core\Cache\CacheBackendInterface
+   * @var \Drupal\Core\TempStore\SharedTempStore
    */
-  protected $cache;
+  protected $tempStore;
 
   /**
    * FMS API auth URL.
@@ -81,8 +81,8 @@ final class FmsSorApi implements SorApiInterface {
    *   The GuzzleHttp Client.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   The logger factory.
-   * @param \Drupal\Core\Cache\CacheBackendInterface $cache_backend
-   *   The cache backend.
+   * @param \Drupal\Core\TempStore\SharedTempStoreFactory $temp_store_factory
+   *   The temp store factory.
    * @param \Drupal\key\KeyRepositoryInterface $key_repository
    *   The key repository.
    * @param \Drupal\Component\Serialization\Json $json_service
@@ -93,14 +93,14 @@ final class FmsSorApi implements SorApiInterface {
   public function __construct(
     protected ClientInterface $http_client,
     protected LoggerChannelFactoryInterface $logger_factory,
-    protected CacheBackendInterface $cache_backend,
+    SharedTempStoreFactory $temp_store_factory,
     protected KeyRepositoryInterface $key_repository,
     protected Json $json_service,
     protected TimeInterface $time,
   ) {
     $this->httpClient = $http_client;
     $this->logger = $logger_factory;
-    $this->cache = $cache_backend;
+    $this->tempStore = $temp_store_factory->get('brms_sor_fms_access_token');
     $this->json = $json_service;
     $settings = Settings::get('brms_sor');
     $this->authUrl = $settings['fms_api_auth_url'];
@@ -113,11 +113,11 @@ final class FmsSorApi implements SorApiInterface {
    * {@inheritdoc}
    */
   public function getAccessToken(): ?string {
-    $cache_access_token = $this->cache->get('brms_sor_fms_access_token');
-    // If there is a cached token, and it's not going to expire in the next
+    // If there is a stored token, and it's not going to expire in the next
     // minute, return it, otherwise generate a new one.
-    if ($cache_access_token && $cache_access_token->expire > ($this->time->getRequestTime() + 60)) {
-      return $cache_access_token->data;
+    $tokenData = $this->tempStore->get('token_data');
+    if ($tokenData && $tokenData['expire'] > ($this->time->getRequestTime() + 60)) {
+      return $tokenData['token'];
     }
 
     try {
@@ -133,8 +133,11 @@ final class FmsSorApi implements SorApiInterface {
       ]);
 
       $data = $this->json->decode($response->getBody()->getContents());
-      $this->cache->set('brms_sor_fms_access_token', $data['access_token'], $this->time->getRequestTime() + $data['expires_in']);
-
+      // Store the token and its expiration time in the temp store.
+      $this->tempStore->set('token_data', [
+        'token' => $data['access_token'],
+        'expire' => $this->time->getRequestTime() + $data['expires_in'],
+      ]);
       return $data['access_token'];
     }
     catch (\Exception $e) {
@@ -146,48 +149,30 @@ final class FmsSorApi implements SorApiInterface {
   /**
    * {@inheritdoc}
    */
-  public function get(string $call, array $data = []): array {
+  public function apiCall(string $method, string $call, array $data = []): array {
     try {
       $token = $this->getAccessToken();
       $headers = [
         'Authorization' => 'Bearer ' . $token,
       ];
+      if ($method === 'PATCH') {
+        $headers['Content-type'] = 'application/vnd.api+json';
+      }
 
-      $args = ['headers' => $headers, 'query' => $data];
+      $args = ['headers' => $headers];
+      if ($method === 'GET') {
+        $args['query'] = $data;
+      }
+      else {
+        $args['json'] = $data;
+      }
       $uri = $this->baseUrl . $call;
-      $this->response = $this->httpClient->get($uri, $args);
-      return $this->json->decode($this->response->getBody()->getContents());
+      $response = $this->httpClient->request($method, $uri, $args);
+      return $this->json->decode($response->getBody()->getContents());
     }
     catch (RequestException $e) {
-      $this->response = $e->getResponse();
-      $this->logger->get('brms_sor')->error('Failed to call GET @uri on FMS API: @message',
-        ['@uri' => $uri, '@message' => $e->getMessage()]);
-      // Throw the exception to the queue processor so the item stays in the
-      // queue and can be retried.
-      throw $e;
-    }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function patch(string $call, array $data = [],): array {
-    try {
-      $token = $this->getAccessToken();
-      $headers = [
-        'Authorization' => 'Bearer ' . $token,
-        'Content-type' => 'application/vnd.api+json',
-      ];
-
-      $args = ['headers' => $headers, 'json' => $data];
-      $uri = $this->baseUrl . $call;
-      $this->response = $this->httpClient->patch($uri, $args);
-      return $this->json->decode($this->response->getBody()->getContents());
-    }
-    catch (RequestException $e) {
-      $this->response = $e->getResponse();
-      $this->logger->get('brms_sor')->error('Failed to call PATCH @uri on FMS API: @message',
-        ['@uri' => $uri, '@message' => $e->getMessage()]);
+      $this->logger->get('brms_sor')->error('Failed to call @method @uri on FMS API: @message',
+        ['@method' => $method, '@uri' => $uri, '@message' => $e->getMessage()]);
       // Throw the exception to the queue processor so the item stays in the
       // queue and can be retried.
       throw $e;
@@ -200,7 +185,7 @@ final class FmsSorApi implements SorApiInterface {
   protected function getCfrUuid(string $cfr_global_id): ?string {
     try {
       // Get the UUID of the CFR with the given global ID in the FMS.
-      $response = $this->get('/asset/cfr', ['filter[cfr_global_id]' => $cfr_global_id]);
+      $response = $this->apiCall('GET', '/asset/cfr', ['filter[cfr_global_id]' => $cfr_global_id]);
       return $response['data'][0]['id'] ?? NULL;
     }
     catch (RequestException $e) {
@@ -226,7 +211,7 @@ final class FmsSorApi implements SorApiInterface {
         'attributes' => ['intrinsic_geometry' => $polygon],
       ];
       try {
-        $response = $this->patch('/asset/cfr/' . $uuid, $body);
+        $response = $this->apiCall('PATCH', '/asset/cfr/' . $uuid, $body);
       }
       catch (RequestException $e) {
         $this->logger->get('brms_sor')

@@ -2,7 +2,7 @@
 
 namespace Drupal\brms_sor\Plugin\QueueWorker;
 
-use Drupal\brms_sor\Service\FmsSorApi;
+use Drupal\brms_sor\Service\SorApiInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -29,7 +29,7 @@ final class FmsQueueWorker extends QueueWorkerBase implements ContainerFactoryPl
     $plugin_definition,
     protected LoggerChannelFactoryInterface $loggerFactory,
     protected EntityTypeManagerInterface $entityTypeManager,
-    protected FmsSorApi $client,
+    protected SorApiInterface $client,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
