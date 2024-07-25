@@ -100,7 +100,7 @@ final class FmsSorApi implements SorApiInterface {
   ) {
     $this->httpClient = $http_client;
     $this->logger = $logger_factory;
-    $this->tempStore = $temp_store_factory->get('brms_sor_fms_access_token');
+    $this->tempStore = $temp_store_factory->get('brms_sor');
     $this->json = $json_service;
     $settings = Settings::get('brms_sor');
     $this->authUrl = $settings['fms_api_auth_url'];
@@ -115,7 +115,7 @@ final class FmsSorApi implements SorApiInterface {
   public function getAccessToken(): ?string {
     // If there is a stored token, and it's not going to expire in the next
     // minute, return it, otherwise generate a new one.
-    $tokenData = $this->tempStore->get('token_data');
+    $tokenData = $this->tempStore->get('fms_access_token');
     if ($tokenData && $tokenData['expire'] > ($this->time->getRequestTime() + 60)) {
       return $tokenData['token'];
     }
@@ -134,7 +134,7 @@ final class FmsSorApi implements SorApiInterface {
 
       $data = $this->json->decode($response->getBody()->getContents());
       // Store the token and its expiration time in the temp store.
-      $this->tempStore->set('token_data', [
+      $this->tempStore->set('fms_access_token', [
         'token' => $data['access_token'],
         'expire' => $this->time->getRequestTime() + $data['expires_in'],
       ]);
