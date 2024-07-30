@@ -22,6 +22,10 @@ services:
       - "host.docker.internal:host-gateway"
     environment:
       MAIL_SMTP_HOST: ${MAIL_SMTP_HOST:-host.docker.internal}
+      FMS_API_SECRET:
+      FMS_API_AUTH_URL:
+      FMS_API_BASE_URL:
+      FMS_API_CLIENT_ID:
   backup:
     profiles:
       - prod
