@@ -157,9 +157,6 @@
           },
           "drupal/migrate_tools": {
             "3412074: Drush command to disable a migration": "https://www.drupal.org/files/issues/2024-01-03/3412074-migrate-disable-command.patch"
-          },
-          "drupal/gin": {
-            "3419180: Resolve Missing Dependency 'core/once' in Gin_accent Library": "https://git.drupalcode.org/project/gin/-/merge_requests/380.diff"
           }
       }
     },
