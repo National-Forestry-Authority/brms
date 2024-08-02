@@ -14,3 +14,18 @@
     }
   }
 }
+
+.pill-wrapper .details-wrapper {
+  flex-direction: column;
+  .pill {
+    margin-bottom: 5px;
+  }
+  @media (min-width: 48em) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    .pill {
+      flex: 0 0 calc(20% - 15px);
+    }
+  }
+
+}

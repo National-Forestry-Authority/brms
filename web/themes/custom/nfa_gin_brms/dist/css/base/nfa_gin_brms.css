@@ -18,3 +18,24 @@
   min-width: 25%;
 }
 
+.pill-wrapper .details-wrapper {
+  flex-direction: column;
+}
+
+.pill-wrapper .details-wrapper .pill {
+  margin-bottom: 5px;
+}
+
+@media (min-width: 48em) {
+  .pill-wrapper .details-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .pill-wrapper .details-wrapper .pill {
+    flex: 0 0 calc(20% - 15px);
+  }
+}
+
+
+/*# sourceMappingURL=nfa_gin_brms.css.map*/

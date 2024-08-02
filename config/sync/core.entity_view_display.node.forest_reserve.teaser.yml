@@ -23,14 +23,11 @@ dependencies:
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_numbers
     - field.field.node.forest_reserve.latest_surveyed_area
+    - field.field.node.forest_reserve.legal_si_area
     - field.field.node.forest_reserve.map_sheet_references
     - field.field.node.forest_reserve.nfa_sites_global_id
     - field.field.node.forest_reserve.priority_for_action
-    - field.field.node.forest_reserve.protected_area_length
-    - field.field.node.forest_reserve.riverline_length
-    - field.field.node.forest_reserve.shoreline_length
     - field.field.node.forest_reserve.surveys
-    - field.field.node.forest_reserve.total_cutline_length
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
@@ -61,8 +58,12 @@ hidden:
   boundary_records_status: true
   cadastral_sheet_number_1_10000: true
   cadastral_sheet_number_1_50000: true
+  cairn_computed: true
+  corner_pillar_computed: true
+  cutline_length_computed: true
   district: true
   district_2: true
+  fd_numbered_markstone_computed: true
   forest_reserve_serial_number: true
   forest_reserve_serial_number_2: true
   forest_reserve_type: true
@@ -71,17 +72,24 @@ hidden:
   gazetted_area_1968: true
   gazetted_area_1998: true
   geolayers: true
+  intermediate_pillar_computed: true
+  international_length_computed: true
+  interprotected_area_length_computed: true
+  interprotected_area_riverline_length_computed: true
   land_registration_numbers: true
   latest_surveyed_area: true
+  legal_si_area: true
   map_sheet_references: true
   natural_boundary_length: true
+  natural_boundary_length_computed: true
   nfa_sites_global_id: true
   priority_for_action: true
-  protected_area_length: true
-  riverline_length: true
-  shoreline_length: true
+  riverline_length_computed: true
+  shoreline_length_computed: true
   surveys: true
+  total_area_computed: true
   total_boundary_length: true
-  total_cutline_length: true
+  total_boundary_length_computed: true
+  wetland_length_computed: true
   year_gazetted: true
   year_gazetted_2: true

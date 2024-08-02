@@ -22,14 +22,11 @@ dependencies:
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_numbers
     - field.field.node.forest_reserve.latest_surveyed_area
+    - field.field.node.forest_reserve.legal_si_area
     - field.field.node.forest_reserve.map_sheet_references
     - field.field.node.forest_reserve.nfa_sites_global_id
     - field.field.node.forest_reserve.priority_for_action
-    - field.field.node.forest_reserve.protected_area_length
-    - field.field.node.forest_reserve.riverline_length
-    - field.field.node.forest_reserve.shoreline_length
     - field.field.node.forest_reserve.surveys
-    - field.field.node.forest_reserve.total_cutline_length
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
@@ -47,10 +44,7 @@ third_party_settings:
         - gazetted_area_1948
         - gazetted_area_1932
         - latest_surveyed_area
-        - total_cutline_length
-        - riverline_length
-        - protected_area_length
-        - shoreline_length
+        - legal_si_area
       label: Dimensions
       region: content
       parent_name: group_vertical_tabs
@@ -388,6 +382,13 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  legal_si_area:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   map_sheet_references:
     type: entity_reference_autocomplete
     weight: 0
@@ -422,27 +423,6 @@ content:
     region: content
     settings:
       display_label: true
-    third_party_settings: {  }
-  protected_area_length:
-    type: number
-    weight: 11
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  riverline_length:
-    type: number
-    weight: 10
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  shoreline_length:
-    type: number
-    weight: 12
-    region: content
-    settings:
-      placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -483,13 +463,6 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  total_cutline_length:
-    type: number
-    weight: 9
-    region: content
-    settings:
       placeholder: ''
     third_party_settings: {  }
   uid:

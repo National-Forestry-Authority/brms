@@ -5,6 +5,7 @@
  * Contains brms_common.module.
  */
 
+use Drupal\brms_common\DimensionCompute;
 use Drupal\brms_common\NaturalBoundaryLength;
 use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -13,31 +14,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
 use Drupal\Core\Url;
 use Drupal\views\ViewExecutable;
-
-/**
- * Implements hook_entity_base_field_info().
- */
-function brms_common_entity_base_field_info(EntityTypeInterface $entity_type) {
-  $fields = [];
-  if ($entity_type->id() === "node") {
-    $fields['natural_boundary_length'] = BaseFieldDefinition::create('decimal')
-      ->setName('natural_boundary_length')
-      ->setLabel(t('Natural boundary length (km)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(NaturalBoundaryLength::class);
-
-    $fields['total_boundary_length'] = BaseFieldDefinition::create('decimal')
-      ->setName('total_boundary_length')
-      ->setLabel(t('Total boundary length (km)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(TotalBoundaryLength::class);
-  }
-  return $fields;
-}
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -52,6 +28,7 @@ function brms_common_form_node_form_alter(&$form, FormStateInterface &$form_stat
         $form['gazetted_area']['#disabled'] = TRUE;
         $form['gazetted_area_2']['#disabled'] = TRUE;
         break;
+
       default:
         break;
     }
@@ -61,6 +38,160 @@ function brms_common_form_node_form_alter(&$form, FormStateInterface &$form_stat
     $form['nfa_sites_global_id']['#disabled'] = TRUE;
   }
 
+}
+
+/**
+ * Implements hook_entity_bundle_field_info().
+ */
+function brms_common_entity_bundle_field_info(EntityTypeInterface $entity_type, $bundle, array $base_field_definitions): array {
+  // Add computed fields to the forest reserve bundle.
+  $fields = [];
+  if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
+    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_area_computed')
+      ->setLabel(t('Total area (ha)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' ha',
+        'metric' => 'area',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['shoreline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('shoreline_length_computed')
+      ->setLabel(t('Shoreline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['interprotected_area_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('interprotected_area_length_computed')
+      ->setLabel(t('Inter protected area length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['interprotected_area_riverline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('interprotected_area_riverline_length_computed')
+      ->setLabel(t('Inter protected area riverline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['riverline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('riverline_length_computed')
+      ->setLabel(t('Riverline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['cutline_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('cutline_length_computed')
+      ->setLabel(t('Cutline length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['wetland_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('wetland_length_computed')
+      ->setLabel(t('Wetland length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['international_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('international_length_computed')
+      ->setLabel(t('International length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'suffix' => ' km',
+        'metric' => 'length',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['intermediate_pillar_computed'] = BaseFieldDefinition::create('integer')
+      ->setName('intermediate_pillar_computed')
+      ->setLabel(t('Intermediate pillars'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'metric' => 'points',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['corner_pillar_computed'] = BaseFieldDefinition::create('integer')
+      ->setName('corner_pillar_computed')
+      ->setLabel(t('Corner pillars'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'metric' => 'points',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['fd_numbered_markstone_computed'] = BaseFieldDefinition::create('integer')
+      ->setName('fd_numbered_markstone_computed')
+      ->setLabel(t('FD numbered markstones'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'metric' => 'points',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['cairn_computed'] = BaseFieldDefinition::create('integer')
+      ->setName('cairn_computed')
+      ->setLabel(t('Cairns'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings([
+        'metric' => 'points',
+      ])
+      ->setClass(DimensionCompute::class);
+
+    $fields['natural_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('natural_boundary_length_computed')
+      ->setLabel(t('Natural boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(NaturalBoundaryLength::class);
+
+    $fields['total_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_boundary_length_computed')
+      ->setLabel(t('Total boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(TotalBoundaryLength::class);
+  }
+  return $fields;
 }
 
 /**

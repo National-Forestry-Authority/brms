@@ -1,0 +1,63 @@
+uuid: d45dfeb3-8fc3-44b1-8cb7-9a1a5b189c59
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.forest_reserve_computed_field
+field_name: forest_reserve_computed_field
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: total_area_computed
+      label: 'Total area'
+    -
+      value: total_boundary_length_computed
+      label: 'Total boundary length'
+    -
+      value: natural_boundary_length_computed
+      label: 'Natural boundary length'
+    -
+      value: shoreline_length_computed
+      label: 'Shoreline length'
+    -
+      value: interprotected_area_length_computed
+      label: 'Inter protected area length'
+    -
+      value: interprotected_area_riverline_length_computed
+      label: 'Inter protected area riverline length'
+    -
+      value: riverline_length_computed
+      label: 'Riverline length'
+    -
+      value: cutline_length_computed
+      label: 'Cutline length'
+    -
+      value: wetland_length_computed
+      label: 'Wetland line length'
+    -
+      value: international_length_computed
+      label: 'International line length'
+    -
+      value: intermediate_pillar_computed
+      label: 'Intermediate pillars count'
+    -
+      value: corner_pillar_computed
+      label: 'Corner pillars count'
+    -
+      value: fd_numbered_markstone_computed
+      label: 'FD numbered markstones count'
+    -
+      value: cairn_computed
+      label: 'Cairns count'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
