@@ -22,14 +22,11 @@ dependencies:
     - field.field.node.forest_reserve.geolayers
     - field.field.node.forest_reserve.land_registration_numbers
     - field.field.node.forest_reserve.latest_surveyed_area
+    - field.field.node.forest_reserve.legal_si_area
     - field.field.node.forest_reserve.map_sheet_references
     - field.field.node.forest_reserve.nfa_sites_global_id
     - field.field.node.forest_reserve.priority_for_action
-    - field.field.node.forest_reserve.protected_area_length
-    - field.field.node.forest_reserve.riverline_length
-    - field.field.node.forest_reserve.shoreline_length
     - field.field.node.forest_reserve.surveys
-    - field.field.node.forest_reserve.total_cutline_length
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
@@ -43,12 +40,21 @@ third_party_settings:
   field_group:
     group_dimensions:
       children:
-        - total_cutline_length
-        - riverline_length
-        - shoreline_length
-        - protected_area_length
-        - natural_boundary_length
-        - total_boundary_length
+        - total_area_computed
+        - shoreline_length_computed
+        - interprotected_area_length_computed
+        - interprotected_area_riverline_length_computed
+        - riverline_length_computed
+        - cutline_length_computed
+        - wetland_length_computed
+        - international_length_computed
+        - intermediate_pillar_computed
+        - corner_pillar_computed
+        - fd_numbered_markstone_computed
+        - cairn_computed
+        - natural_boundary_length_computed
+        - total_boundary_length_computed
+        - legal_si_area
         - gazetted_area_1998
         - gazetted_area_1968
         - gazetted_area_1948
@@ -205,6 +211,45 @@ content:
         class: pill
     weight: 13
     region: content
+  cairn_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  corner_pillar_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  cutline_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
   district:
     type: entity_reference_label
     label: above
@@ -224,6 +269,17 @@ content:
       field_formatter_class:
         class: pill
     weight: 14
+    region: content
+  fd_numbered_markstone_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 0
     region: content
   forest_reserve_serial_number:
     type: entity_reference_label
@@ -307,6 +363,58 @@ content:
         class: pill
     weight: 19
     region: content
+  intermediate_pillar_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  international_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  interprotected_area_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  interprotected_area_riverline_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
   land_registration_numbers:
     type: entity_reference_label
     label: above
@@ -329,6 +437,17 @@ content:
       field_formatter_class:
         class: pill
     weight: 23
+    region: content
+  legal_si_area:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
     region: content
   map_sheet_references:
     type: entity_reference_label
@@ -353,6 +472,19 @@ content:
         class: pill
     weight: 17
     region: content
+  natural_boundary_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
   priority_for_action:
     type: entity_reference_label
     label: above
@@ -363,7 +495,7 @@ content:
         class: pill
     weight: 16
     region: content
-  protected_area_length:
+  riverline_length_computed:
     type: number_decimal
     label: above
     settings:
@@ -374,9 +506,9 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 16
+    weight: 0
     region: content
-  riverline_length:
+  shoreline_length_computed:
     type: number_decimal
     label: above
     settings:
@@ -387,20 +519,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 14
-    region: content
-  shoreline_length:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings:
-      field_formatter_class:
-        class: pill
-    weight: 15
+    weight: 0
     region: content
   surveys:
     type: entity_reference_revisions_entity_view
@@ -412,6 +531,19 @@ content:
       field_formatter_class:
         class: ''
     weight: 7
+    region: content
+  total_area_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
     region: content
   total_boundary_length:
     type: number_decimal
@@ -426,7 +558,7 @@ content:
         class: pill
     weight: 18
     region: content
-  total_cutline_length:
+  total_boundary_length_computed:
     type: number_decimal
     label: above
     settings:
@@ -437,7 +569,20 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 11
+    weight: 0
+    region: content
+  wetland_length_computed:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
     region: content
   year_gazetted:
     type: list_default

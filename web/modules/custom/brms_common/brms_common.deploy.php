@@ -344,3 +344,35 @@ function brms_common_deploy_007(&$sandbox = NULL) {
     $term->save();
   }
 }
+
+/**
+ * Update associated computed fields of taxonomy terms.
+ */
+function brms_common_deploy_008(&$sandbox = NULL) {
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->loadTree('layer_type', 0, NULL, TRUE);
+
+  $computed_fields = [
+    'Cairn' => 'cairn_computed',
+    'Corner pillar' => 'corner_pillar_computed',
+    'FD numbered markstone' => 'fd_numbered_markstone_computed',
+    'Intermediate pillar' => 'intermediate_pillar_computed',
+    'Master polygon' => 'total_area_computed',
+    'Riverline' => 'riverline_length_computed',
+    'Shoreline' => 'shoreline_length_computed',
+    'Cutline' => 'cutline_length_computed',
+    'Inter protected area line' => 'interprotected_area_length_computed',
+    'Inter protected area riverline' => 'interprotected_area_riverline_length_computed',
+    'Wetlandline' => 'wetland_length_computed',
+    'Internationalline' => 'international_length_computed',
+  ];
+  foreach ($terms as $term) {
+    $name = $term->getName();
+    if (empty($term->forest_reserve_computed_field->value)) {
+      if (in_array($name, array_keys($computed_fields))) {
+        $term->forest_reserve_computed_field->value = $computed_fields[$name];
+        $term->save();
+      }
+    }
+  }
+}

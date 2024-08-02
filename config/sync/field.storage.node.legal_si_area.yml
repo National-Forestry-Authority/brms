@@ -1,11 +1,11 @@
-uuid: d6ccf500-4a2d-4143-9b67-5731f67d13a4
+uuid: 94f389dd-33a2-4f78-884f-e355418805e0
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.riverline_length
-field_name: riverline_length
+id: node.legal_si_area
+field_name: legal_si_area
 entity_type: node
 type: decimal
 settings:
