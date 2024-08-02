@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.taxonomy_term.layer_type.color
+    - field.field.taxonomy_term.layer_type.forest_reserve_computed_field
     - field.field.taxonomy_term.layer_type.geometry_type
     - field.field.taxonomy_term.layer_type.layer_group
     - field.field.taxonomy_term.layer_type.line_style
@@ -35,6 +36,12 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  forest_reserve_computed_field:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
     third_party_settings: {  }
   geometry_type:
     type: options_select

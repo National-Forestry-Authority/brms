@@ -1,0 +1,21 @@
+uuid: f7815f33-4bad-4a57-98c4-b56e4f21349a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.forest_reserve_computed_field
+    - taxonomy.vocabulary.layer_type
+  module:
+    - options
+id: taxonomy_term.layer_type.forest_reserve_computed_field
+field_name: forest_reserve_computed_field
+entity_type: taxonomy_term
+bundle: layer_type
+label: 'Forest reserve computed field'
+description: 'The Forest Reserve computed fields that can be calculated from a geometry layer of this type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

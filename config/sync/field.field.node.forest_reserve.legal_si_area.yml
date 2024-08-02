@@ -1,0 +1,23 @@
+uuid: 8e624447-a93e-4720-a158-748fc2de3518
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.legal_si_area
+    - node.type.forest_reserve
+id: node.forest_reserve.legal_si_area
+field_name: legal_si_area
+entity_type: node
+bundle: forest_reserve
+label: 'Legal SI area'
+description: 'The legal statutory instrument area. It may be different from the calculated total area.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' ha'
+field_type: decimal
