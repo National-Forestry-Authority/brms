@@ -157,7 +157,6 @@ function brms_common_views_pre_render(ViewExecutable $view) {
  * Redirect to home page on login.
  */
 function brms_common_user_login(UserInterface $account) {
-  error_log(print_r('testing 123', TRUE));
   $route_name = \Drupal::routeMatch()->getRouteName();
   error_log(print_r($route_name, TRUE));
   // Ignore the password reset route.
