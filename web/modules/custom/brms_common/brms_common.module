@@ -10,6 +10,8 @@ use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\UserInterface;
+use Drupal\Core\Url;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -146,5 +148,26 @@ function brms_common_views_pre_render(ViewExecutable $view) {
 
     // Render the map.
     $view->attachment_before['forest_reserves_map'] = $map;
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ *
+ * Redirect to home page on login.
+ */
+function brms_common_user_login(UserInterface $account) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  error_log(print_r($route_name, TRUE));
+  // Ignore the password reset route.
+  if ($route_name !== 'user.reset.login') {
+    // Do not interfere if a destination was already set.
+    $current_request = \Drupal::service('request_stack')->getCurrentRequest();
+    if (!$current_request->query->get('destination')) {
+      // Default login destination to the home page.
+      $current_request->query->set(
+        'destination', Url::fromRoute('<front>')->toString()
+      );
+    }
   }
 }
