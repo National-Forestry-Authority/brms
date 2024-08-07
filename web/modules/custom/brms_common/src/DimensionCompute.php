@@ -22,6 +22,7 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
   protected function computeValue() {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $this->getParent()->getValue();
+
     // The metric we want to calculate is stored in the computed field's
     // settings.
     $field_settings = $node->get($this->getName())->getSettings();
@@ -33,7 +34,7 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         return;
       }
       // Iterate through the geolayers uploaded to the node and look for one
-      // with a layer type that matches the dimension we are calculating.
+      // with a layer type that matches the field we are calculating.
       foreach ($added_layers as $added_layer) {
         if (!$added_layer['target_id']) {
           continue;
@@ -49,44 +50,44 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
         }
 
         // Get the computed fields that can be generated from the layer type.
-        $associated_computed_fields = $layer_type->forest_reserve_computed_field->value;
-        // @todo there may be more than one computed field associated with a
-        // geolayer type.
+        $associated_computed_fields = $layer_type->forest_reserve_computed_field->getValue();
+        foreach ($associated_computed_fields as $key => $value) {
+          $associated_computed_field = $value['value'];
 
-        // If the geolayer type matches the dimension we want to calculate go
-        // ahead and extract the geolayer's geometry and do the calculation.
-        if ($associated_computed_fields == $this->getName()) {
-          $geofield = $geolayer->geofield->getValue();
-          if (empty($geofield[0]['value'])) {
-            return;
-          }
+          // If the geolayer type matches the dimension we want to calculate go
+          // ahead and extract the geolayer's geometry and do the calculation.
+          if ($associated_computed_field == $this->getName()) {
+            $geofield = $geolayer->geofield->getValue();
+            if (empty($geofield[0]['value'])) {
+              return;
+            }
 
-          // @todo inject the geophp service.
-          $wkt = \Drupal::service('geofield.geophp')->load($geofield[0]['value'], 'wkt');
-          if ($dimension_to_calculate == 'length') {
-            // To calculate the length of a polygon we must add together the
-            // lengths of the linestring components that make up the polygon.
-            if ($wkt->getGeomType() == 'Polygon') {
-              $length = 0;
-              foreach ($wkt->components as $component) {
-                // Return length in meters.
-                $length += $component->greatCircleLength();
+            $wkt = \Drupal::service('geofield.geophp')->load($geofield[0]['value'], 'wkt');
+            if ($dimension_to_calculate == 'length') {
+              // To calculate the length of a polygon we must add together the
+              // lengths of the linestring components that make up the polygon.
+              if ($wkt->getGeomType() == 'Polygon') {
+                $length = 0;
+                foreach ($wkt->components as $component) {
+                  // Return length in meters.
+                  $length += $component->greatCircleLength();
+                }
+                // Set length in kilometers.
+                $this->list[0] = $this->createItem(0, $length / 1000);
               }
-              // Set length in kilometers.
-              $this->list[0] = $this->createItem(0, $length / 1000);
+              else {
+                // Set length in kilometers.
+                $this->list[0] = $this->createItem(0, $wkt->greatCircleLength() / 1000);
+              }
             }
-            else {
-              // Set length in kilometers.
-              $this->list[0] = $this->createItem(0, $wkt->greatCircleLength() / 1000);
+            elseif ($dimension_to_calculate == 'area') {
+              // @todo area is not in hectares. Figure out how to generate metric
+              // units. See https://www.drupal.org/project/farm/issues/3425516
+              $this->list[0] = $this->createItem(0, $wkt->area());
             }
-          }
-          elseif ($dimension_to_calculate == 'area') {
-            // @todo area is not in hectares. Figure out how to generate metric
-            // units. See https://stackoverflow.com/questions/53323445/convert-geophp-getarea-values-into-km2-or-acres
-            $this->list[0] = $this->createItem(0, $wkt->area());
-          }
-          elseif ($dimension_to_calculate == 'points') {
-            $this->list[0] = $this->createItem(0, $wkt->numPoints());
+            elseif ($dimension_to_calculate == 'points') {
+              $this->list[0] = $this->createItem(0, $wkt->numPoints());
+            }
           }
         }
       }

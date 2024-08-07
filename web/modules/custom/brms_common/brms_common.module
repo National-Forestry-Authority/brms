@@ -7,12 +7,10 @@
 
 use Drupal\brms_common\DimensionCompute;
 use Drupal\brms_common\NaturalBoundaryLength;
-use Drupal\brms_common\TotalBoundaryLength;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\UserInterface;
-use Drupal\Core\Url;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -47,14 +45,27 @@ function brms_common_entity_bundle_field_info(EntityTypeInterface $entity_type, 
   // Add computed fields to the forest reserve bundle.
   $fields = [];
   if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
-    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('total_area_computed')
-      ->setLabel(t('Total area (ha)'))
+    // @todo add a field for the total area of the forest reserve.
+    // See DimensionCompute.php#L84
+//    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
+//      ->setName('total_area_computed')
+//      ->setLabel(t('Total area (ha)'))
+//      ->setComputed(TRUE)
+//      ->setDisplayConfigurable('view', TRUE)
+//      ->setSettings([
+//        'suffix' => ' ha',
+//        'metric' => 'area',
+//      ])
+//      ->setClass(DimensionCompute::class);
+
+    $fields['total_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('total_boundary_length_computed')
+      ->setLabel(t('Total boundary length (km)'))
       ->setComputed(TRUE)
       ->setDisplayConfigurable('view', TRUE)
       ->setSettings([
-        'suffix' => ' ha',
-        'metric' => 'area',
+        'suffix' => ' km',
+        'metric' => 'length',
       ])
       ->setClass(DimensionCompute::class);
 
@@ -135,6 +146,14 @@ function brms_common_entity_bundle_field_info(EntityTypeInterface $entity_type, 
       ])
       ->setClass(DimensionCompute::class);
 
+    $fields['natural_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
+      ->setName('natural_boundary_length_computed')
+      ->setLabel(t('Natural boundary length (km)'))
+      ->setComputed(TRUE)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setSettings(['suffix' => 'km'])
+      ->setClass(NaturalBoundaryLength::class);
+
     $fields['intermediate_pillar_computed'] = BaseFieldDefinition::create('integer')
       ->setName('intermediate_pillar_computed')
       ->setLabel(t('Intermediate pillars'))
@@ -174,22 +193,6 @@ function brms_common_entity_bundle_field_info(EntityTypeInterface $entity_type, 
         'metric' => 'points',
       ])
       ->setClass(DimensionCompute::class);
-
-    $fields['natural_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('natural_boundary_length_computed')
-      ->setLabel(t('Natural boundary length (km)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(NaturalBoundaryLength::class);
-
-    $fields['total_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
-      ->setName('total_boundary_length_computed')
-      ->setLabel(t('Total boundary length (km)'))
-      ->setComputed(TRUE)
-      ->setDisplayConfigurable('view', TRUE)
-      ->setSettings(['suffix' => 'km'])
-      ->setClass(TotalBoundaryLength::class);
   }
   return $fields;
 }
