@@ -40,7 +40,7 @@ third_party_settings:
   field_group:
     group_dimensions:
       children:
-        - total_area_computed
+        - total_boundary_length_computed
         - shoreline_length_computed
         - interprotected_area_length_computed
         - interprotected_area_riverline_length_computed
@@ -48,12 +48,11 @@ third_party_settings:
         - cutline_length_computed
         - wetland_length_computed
         - international_length_computed
+        - natural_boundary_length_computed
         - intermediate_pillar_computed
         - corner_pillar_computed
         - fd_numbered_markstone_computed
         - cairn_computed
-        - natural_boundary_length_computed
-        - total_boundary_length_computed
         - legal_si_area
         - gazetted_area_1998
         - gazetted_area_1968
@@ -71,6 +70,7 @@ third_party_settings:
         id: ''
         open: true
         description: ''
+        required_fields: false
     group_forest_reserve:
       children:
         - body
@@ -212,12 +212,10 @@ content:
     weight: 13
     region: content
   cairn_computed:
-    type: number_decimal
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
@@ -225,12 +223,10 @@ content:
     weight: 0
     region: content
   corner_pillar_computed:
-    type: number_decimal
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
@@ -271,12 +267,10 @@ content:
     weight: 14
     region: content
   fd_numbered_markstone_computed:
-    type: number_decimal
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
     weight: 0
@@ -364,12 +358,10 @@ content:
     weight: 19
     region: content
   intermediate_pillar_computed:
-    type: number_decimal
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings:
       field_formatter_class:
