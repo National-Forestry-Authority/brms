@@ -5,6 +5,9 @@
  * Deploy functions run after drush config:import.
  */
 
+use Drupal\Core\Site\Settings;
+use Drupal\node\Entity\Node;
+
 /**
  * Initialise taxonomy terms.
  */
@@ -375,4 +378,36 @@ function brms_common_deploy_008(&$sandbox = NULL) {
       }
     }
   }
+}
+
+/**
+ * Update Forest Reserve Legal SI area field values
+ */
+function brms_common_deploy_009(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    /** @var \Drupal\Core\Entity\EntityTypeManager $entity_type_manager */
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'forest_reserve')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    // Define the step size.
+    $sandbox['steps'] = Settings::get('entity_update_batch_size', 25);
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  /** @var \Drupal\node\NodeInterface $node */
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('legal_si_area') && $node->hasField('gazetted_area_1998') && !$node->gazetted_area_1998->isEmpty()) {
+      $node->legal_si_area->value = $node->gazetted_area_1998->value;
+      $node->save();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
 }

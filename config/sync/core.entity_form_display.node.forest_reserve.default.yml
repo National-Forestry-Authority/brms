@@ -39,13 +39,13 @@ third_party_settings:
   field_group:
     group_dimensions:
       children:
+        - legal_si_area
         - gazetted_area_1998
         - gazetted_area_1968
         - gazetted_area_1948
         - gazetted_area_1932
         - latest_surveyed_area
-        - legal_si_area
-      label: Dimensions
+      label: 'Statutory reserve area'
       region: content
       parent_name: group_vertical_tabs
       weight: 18
@@ -54,10 +54,10 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: ''
+        label_as_html: false
         formatter: closed
         description: ''
         required_fields: true
-        open: true
     group_gazette:
       children:
         - year_gazetted

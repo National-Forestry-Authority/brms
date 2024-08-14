@@ -10,7 +10,7 @@ field_name: legal_si_area
 entity_type: node
 bundle: forest_reserve
 label: 'Legal SI area'
-description: 'The legal statutory instrument area. It may be different from the calculated total area.'
+description: 'The legal statutory instrument area.'
 required: false
 translatable: false
 default_value: {  }
