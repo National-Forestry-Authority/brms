@@ -10,7 +10,7 @@ field_name: layer_type
 entity_type: geolayer
 bundle: forest_reserve
 label: 'Layer type'
-description: 'The layer type determines the colour, width and type of line drawn on the map.'
+description: '<big><strong>NOTE: there should be only one Master polygon geolayer per forest reserve.</strong></big>'
 required: true
 translatable: false
 default_value: {  }
