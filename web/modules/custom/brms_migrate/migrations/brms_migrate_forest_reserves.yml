@@ -395,6 +395,20 @@ process:
       value_key: name
       bundle_key: vid
       bundle: land_registration_number
+  legal_si_area:
+    - plugin: skip_on_value
+      method: process
+      value:
+        - 'N/A'
+        - 'NA'
+      source: gazetted_area_1998
+    - plugin: skip_on_empty
+      method: process
+    - plugin: str_replace
+      search: ','
+      replace: ''
+    - plugin: callback
+      callable: floatval
   gazetted_area_1998:
     - plugin: skip_on_value
       method: process
