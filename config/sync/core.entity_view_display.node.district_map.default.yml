@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.district_map.field_produced_by
     - field.field.node.district_map.field_published_by
     - field.field.node.district_map.field_record_id
+    - field.field.node.district_map.field_record_no
     - field.field.node.district_map.field_ref_number
     - field.field.node.district_map.field_scale
     - field.field.node.district_map.field_series
@@ -42,7 +43,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 121
+    weight: 20
     region: content
   field_area:
     type: entity_reference_label
@@ -50,7 +51,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 105
+    weight: 4
     region: content
   field_code:
     type: string
@@ -58,7 +59,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 103
+    weight: 2
     region: content
   field_compiled_by:
     type: entity_reference_label
@@ -66,7 +67,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 120
+    weight: 19
     region: content
   field_condition:
     type: entity_reference_label
@@ -74,7 +75,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 108
+    weight: 7
     region: content
   field_coordinate_system:
     type: string
@@ -82,7 +83,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 104
+    weight: 3
     region: content
   field_edition:
     type: string
@@ -90,7 +91,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 111
+    weight: 10
     region: content
   field_examined_by:
     type: entity_reference_label
@@ -98,7 +99,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 110
+    weight: 9
     region: content
   field_magnetic_declination:
     type: string
@@ -106,7 +107,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 109
+    weight: 8
     region: content
   field_meta_data:
     type: entity_reference_label
@@ -114,7 +115,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 122
+    weight: 21
     region: content
   field_number:
     type: string
@@ -122,7 +123,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 115
+    weight: 14
     region: content
   field_phases:
     type: string
@@ -130,7 +131,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 1
     region: content
   field_printed_by:
     type: entity_reference_label
@@ -138,7 +139,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 117
+    weight: 16
     region: content
   field_produced_by:
     type: entity_reference_label
@@ -146,7 +147,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 113
+    weight: 12
     region: content
   field_published_by:
     type: entity_reference_label
@@ -154,18 +155,16 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 116
+    weight: 15
     region: content
-  field_record_id:
-    type: number_decimal
+  field_record_no:
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 101
+    weight: 0
     region: content
   field_ref_number:
     type: string
@@ -173,7 +172,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 106
+    weight: 5
     region: content
   field_scale:
     type: string
@@ -181,7 +180,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 107
+    weight: 6
     region: content
   field_series:
     type: string
@@ -189,7 +188,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 112
+    weight: 11
     region: content
   field_sheet_number:
     type: string
@@ -197,7 +196,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 119
+    weight: 18
     region: content
   field_surveyed_by:
     type: entity_reference_label
@@ -205,7 +204,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 118
+    weight: 17
     region: content
   field_year:
     type: datetime_default
@@ -214,21 +213,22 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 114
+    weight: 13
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 23
     region: content
   meta_data_explanation:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 123
+    weight: 22
     region: content
 hidden:
   feeds_item: true
+  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true

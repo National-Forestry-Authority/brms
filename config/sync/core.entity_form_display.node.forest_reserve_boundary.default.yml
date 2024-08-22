@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_plotted_by
     - field.field.node.forest_reserve_boundary.field_pocket_number
     - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_record_no
     - field.field.node.forest_reserve_boundary.field_reserve_serial_number
     - field.field.node.forest_reserve_boundary.field_retraced_by
     - field.field.node.forest_reserve_boundary.field_scale
@@ -47,6 +48,7 @@ dependencies:
     - node.type.forest_reserve_boundary
   module:
     - datetime
+    - path
     - text
 id: node.forest_reserve_boundary.default
 targetEntityType: node
@@ -55,7 +57,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 157
+    weight: 44
     region: content
     settings:
       rows: 9
@@ -65,13 +67,13 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_aerial_photo_number:
     type: string_textfield
-    weight: 128
+    weight: 15
     region: content
     settings:
       size: 60
@@ -79,7 +81,7 @@ content:
     third_party_settings: {  }
   field_area_covered:
     type: string_textfield
-    weight: 143
+    weight: 30
     region: content
     settings:
       size: 60
@@ -87,7 +89,7 @@ content:
     third_party_settings: {  }
   field_bp_number:
     type: string_textfield
-    weight: 127
+    weight: 14
     region: content
     settings:
       size: 60
@@ -95,7 +97,7 @@ content:
     third_party_settings: {  }
   field_category:
     type: entity_reference_autocomplete
-    weight: 124
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -105,7 +107,7 @@ content:
     third_party_settings: {  }
   field_checked_by:
     type: entity_reference_autocomplete
-    weight: 137
+    weight: 24
     region: content
     settings:
       match_operator: CONTAINS
@@ -115,13 +117,13 @@ content:
     third_party_settings: {  }
   field_checking_year:
     type: datetime_default
-    weight: 138
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
   field_cl_number:
     type: string_textfield
-    weight: 129
+    weight: 16
     region: content
     settings:
       size: 60
@@ -129,7 +131,7 @@ content:
     third_party_settings: {  }
   field_condition:
     type: entity_reference_autocomplete
-    weight: 146
+    weight: 33
     region: content
     settings:
       match_operator: CONTAINS
@@ -139,7 +141,7 @@ content:
     third_party_settings: {  }
   field_copied_by:
     type: entity_reference_autocomplete
-    weight: 151
+    weight: 38
     region: content
     settings:
       match_operator: CONTAINS
@@ -149,7 +151,7 @@ content:
     third_party_settings: {  }
   field_counties:
     type: entity_reference_autocomplete
-    weight: 144
+    weight: 31
     region: content
     settings:
       match_operator: CONTAINS
@@ -159,7 +161,7 @@ content:
     third_party_settings: {  }
   field_district:
     type: entity_reference_autocomplete
-    weight: 150
+    weight: 37
     region: content
     settings:
       match_operator: CONTAINS
@@ -169,7 +171,7 @@ content:
     third_party_settings: {  }
   field_drawn_by:
     type: entity_reference_autocomplete
-    weight: 148
+    weight: 35
     region: content
     settings:
       match_operator: CONTAINS
@@ -179,7 +181,7 @@ content:
     third_party_settings: {  }
   field_enlarged_by:
     type: entity_reference_autocomplete
-    weight: 141
+    weight: 28
     region: content
     settings:
       match_operator: CONTAINS
@@ -189,13 +191,13 @@ content:
     third_party_settings: {  }
   field_enlargement_year:
     type: datetime_default
-    weight: 142
+    weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_field_book_number:
     type: string_textfield
-    weight: 136
+    weight: 23
     region: content
     settings:
       size: 60
@@ -203,7 +205,7 @@ content:
     third_party_settings: {  }
   field_folder_number:
     type: string_textfield
-    weight: 154
+    weight: 41
     region: content
     settings:
       size: 60
@@ -211,7 +213,7 @@ content:
     third_party_settings: {  }
   field_gazetted_area:
     type: string_textfield
-    weight: 152
+    weight: 39
     region: content
     settings:
       size: 60
@@ -219,7 +221,7 @@ content:
     third_party_settings: {  }
   field_magnetic_declination:
     type: string_textfield
-    weight: 149
+    weight: 36
     region: content
     settings:
       size: 60
@@ -227,7 +229,7 @@ content:
     third_party_settings: {  }
   field_map_ref_1:
     type: string_textfield
-    weight: 122
+    weight: 9
     region: content
     settings:
       size: 60
@@ -235,7 +237,7 @@ content:
     third_party_settings: {  }
   field_map_ref_2:
     type: string_textfield
-    weight: 123
+    weight: 10
     region: content
     settings:
       size: 60
@@ -243,7 +245,7 @@ content:
     third_party_settings: {  }
   field_meta_data:
     type: entity_reference_autocomplete
-    weight: 158
+    weight: 45
     region: content
     settings:
       match_operator: CONTAINS
@@ -253,7 +255,7 @@ content:
     third_party_settings: {  }
   field_name:
     type: string_textfield
-    weight: 121
+    weight: 7
     region: content
     settings:
       size: 60
@@ -261,7 +263,7 @@ content:
     third_party_settings: {  }
   field_plain_file_number:
     type: string_textfield
-    weight: 155
+    weight: 42
     region: content
     settings:
       size: 60
@@ -269,7 +271,7 @@ content:
     third_party_settings: {  }
   field_plotted_by:
     type: entity_reference_autocomplete
-    weight: 140
+    weight: 27
     region: content
     settings:
       match_operator: CONTAINS
@@ -279,22 +281,22 @@ content:
     third_party_settings: {  }
   field_pocket_number:
     type: string_textfield
-    weight: 153
+    weight: 40
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_record_id:
+  field_record_no:
     type: number
-    weight: 159
+    weight: 8
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_reserve_serial_number:
     type: string_textfield
-    weight: 145
+    weight: 32
     region: content
     settings:
       size: 60
@@ -302,7 +304,7 @@ content:
     third_party_settings: {  }
   field_retraced_by:
     type: entity_reference_autocomplete
-    weight: 135
+    weight: 22
     region: content
     settings:
       match_operator: CONTAINS
@@ -312,7 +314,7 @@ content:
     third_party_settings: {  }
   field_scale:
     type: string_textfield
-    weight: 125
+    weight: 12
     region: content
     settings:
       size: 60
@@ -320,7 +322,7 @@ content:
     third_party_settings: {  }
   field_sheet_number:
     type: string_textfield
-    weight: 126
+    weight: 13
     region: content
     settings:
       size: 60
@@ -328,7 +330,7 @@ content:
     third_party_settings: {  }
   field_surveyed_by:
     type: entity_reference_autocomplete
-    weight: 130
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS
@@ -338,7 +340,7 @@ content:
     third_party_settings: {  }
   field_traced_by:
     type: entity_reference_autocomplete
-    weight: 133
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -348,7 +350,7 @@ content:
     third_party_settings: {  }
   field_type_of_map:
     type: entity_reference_autocomplete
-    weight: 156
+    weight: 43
     region: content
     settings:
       match_operator: CONTAINS
@@ -358,66 +360,80 @@ content:
     third_party_settings: {  }
   field_year_of_drawing:
     type: datetime_default
-    weight: 147
+    weight: 34
     region: content
     settings: {  }
     third_party_settings: {  }
   field_year_of_plotting:
     type: datetime_default
-    weight: 139
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
   field_year_of_retracing:
     type: datetime_default
-    weight: 134
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   field_year_of_survey:
     type: datetime_default
-    weight: 131
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_year_of_tracing:
     type: datetime_default
-    weight: 132
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
-    weight: 160
+    weight: 46
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 3
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -427,4 +443,4 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
-  title: true
+  field_record_id: true

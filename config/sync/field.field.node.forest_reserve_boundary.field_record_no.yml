@@ -1,0 +1,23 @@
+uuid: ac6f6d4b-d42d-40cb-9497-8ef1fc4b7586
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_record_no
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_record_no
+field_name: field_record_no
+entity_type: node
+bundle: forest_reserve_boundary
+label: 'Record ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -30,7 +30,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_plain_file_number
     - field.field.node.forest_reserve_boundary.field_plotted_by
     - field.field.node.forest_reserve_boundary.field_pocket_number
-    - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_record_no
     - field.field.node.forest_reserve_boundary.field_reserve_serial_number
     - field.field.node.forest_reserve_boundary.field_retraced_by
     - field.field.node.forest_reserve_boundary.field_scale
@@ -68,7 +68,10 @@ processor_configuration:
   update_existing: 0
   update_non_existent: _keep
   skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 0
@@ -285,8 +288,7 @@ mappings:
       value: record_number
     settings:
       language: null
-    unique:
-      value: '1'
+    unique: {  }
   -
     target: field_name
     map:
@@ -316,6 +318,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: forest_reserve_boundary_category
   -
     target: field_scale
     map:
@@ -359,6 +362,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_year_of_survey
     map:
@@ -381,6 +385,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_year_of_retracing
     map:
@@ -403,6 +408,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_checking_year
     map:
@@ -425,6 +431,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_enlarged_by
     map:
@@ -433,6 +440,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_enlargement_year
     map:
@@ -455,6 +463,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: counties
   -
     target: field_reserve_serial_number
     map:
@@ -470,6 +479,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: condition
   -
     target: field_year_of_drawing
     map:
@@ -485,6 +495,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_magnetic_declination
     map:
@@ -500,6 +511,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: area
   -
     target: field_copied_by
     map:
@@ -508,6 +520,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_gazetted_area
     map:
@@ -544,6 +557,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: type_of_map
   -
     target: body
     map:
@@ -561,9 +575,12 @@ mappings:
       reference_by: nid
       feeds_item: guid
       autocreate: 0
+      autocreate_bundle: meta_data
   -
-    target: field_record_id
+    target: field_record_no
     map:
       value: record_number
     settings:
       language: null
+    unique:
+      value: 1

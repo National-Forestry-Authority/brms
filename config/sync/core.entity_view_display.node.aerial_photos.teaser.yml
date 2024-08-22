@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
     - field.field.node.aerial_photos.field_record_id
+    - field.field.node.aerial_photos.field_record_no
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
     - field.field.node.aerial_photos.field_type
@@ -44,6 +45,7 @@ hidden:
   field_notes: true
   field_photo_number: true
   field_record_id: true
+  field_record_no: true
   field_run_number: true
   field_scale: true
   field_type: true

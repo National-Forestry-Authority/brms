@@ -3,17 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
-    - autotitle
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-  autotitle:
-    enabled: false
-    field: body
-    fallback_title: 'Untitled []'
-    headings: {  }
 name: 'Basic Page'
 type: basic_page
 description: 'Admin related pages'

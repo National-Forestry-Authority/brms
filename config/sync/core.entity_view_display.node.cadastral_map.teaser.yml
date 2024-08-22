@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.cadastral_map.field_produced_by
     - field.field.node.cadastral_map.field_published_by
     - field.field.node.cadastral_map.field_record_id
+    - field.field.node.cadastral_map.field_record_no
     - field.field.node.cadastral_map.field_reference_no
     - field.field.node.cadastral_map.field_retraced_by
     - field.field.node.cadastral_map.field_scale
@@ -71,6 +72,7 @@ hidden:
   field_produced_by: true
   field_published_by: true
   field_record_id: true
+  field_record_no: true
   field_reference_no: true
   field_retraced_by: true
   field_scale: true
