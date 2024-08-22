@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_plotted_by
     - field.field.node.forest_reserve_boundary.field_pocket_number
     - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_record_no
     - field.field.node.forest_reserve_boundary.field_reserve_serial_number
     - field.field.node.forest_reserve_boundary.field_retraced_by
     - field.field.node.forest_reserve_boundary.field_scale
@@ -59,7 +60,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 137
+    weight: 37
     region: content
   field_aerial_photo_number:
     type: string
@@ -67,7 +68,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 108
+    weight: 8
     region: content
   field_area_covered:
     type: string
@@ -75,7 +76,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 123
+    weight: 23
     region: content
   field_bp_number:
     type: string
@@ -83,7 +84,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 107
+    weight: 7
     region: content
   field_category:
     type: entity_reference_label
@@ -91,7 +92,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 104
+    weight: 4
     region: content
   field_checked_by:
     type: entity_reference_label
@@ -99,7 +100,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 117
+    weight: 17
     region: content
   field_checking_year:
     type: datetime_default
@@ -108,7 +109,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 118
+    weight: 18
     region: content
   field_cl_number:
     type: string
@@ -116,7 +117,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 109
+    weight: 9
     region: content
   field_condition:
     type: entity_reference_label
@@ -124,7 +125,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 126
+    weight: 26
     region: content
   field_copied_by:
     type: entity_reference_label
@@ -132,7 +133,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 131
+    weight: 31
     region: content
   field_counties:
     type: entity_reference_label
@@ -140,7 +141,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 124
+    weight: 24
     region: content
   field_district:
     type: entity_reference_label
@@ -148,7 +149,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 130
+    weight: 30
     region: content
   field_drawn_by:
     type: entity_reference_label
@@ -156,7 +157,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 128
+    weight: 28
     region: content
   field_enlarged_by:
     type: entity_reference_label
@@ -164,7 +165,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 121
+    weight: 21
     region: content
   field_enlargement_year:
     type: datetime_default
@@ -173,7 +174,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 122
+    weight: 22
     region: content
   field_field_book_number:
     type: string
@@ -181,7 +182,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 116
+    weight: 16
     region: content
   field_folder_number:
     type: string
@@ -189,7 +190,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 134
+    weight: 34
     region: content
   field_gazetted_area:
     type: string
@@ -197,7 +198,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 132
+    weight: 32
     region: content
   field_magnetic_declination:
     type: string
@@ -205,7 +206,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 129
+    weight: 29
     region: content
   field_map_ref_1:
     type: string
@@ -213,7 +214,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   field_map_ref_2:
     type: string
@@ -221,7 +222,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 103
+    weight: 3
     region: content
   field_meta_data:
     type: entity_reference_label
@@ -229,7 +230,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 138
+    weight: 38
     region: content
   field_name:
     type: string
@@ -237,7 +238,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_plain_file_number:
     type: string
@@ -245,7 +246,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 135
+    weight: 35
     region: content
   field_plotted_by:
     type: entity_reference_label
@@ -253,7 +254,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 120
+    weight: 20
     region: content
   field_pocket_number:
     type: string
@@ -261,18 +262,16 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 133
+    weight: 33
     region: content
-  field_record_id:
-    type: number_decimal
+  field_record_no:
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 139
+    weight: 0
     region: content
   field_reserve_serial_number:
     type: string
@@ -280,7 +279,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 125
+    weight: 25
     region: content
   field_retraced_by:
     type: entity_reference_label
@@ -288,7 +287,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 115
+    weight: 15
     region: content
   field_scale:
     type: string
@@ -296,7 +295,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 105
+    weight: 5
     region: content
   field_sheet_number:
     type: string
@@ -304,7 +303,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 106
+    weight: 6
     region: content
   field_surveyed_by:
     type: entity_reference_label
@@ -312,7 +311,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 110
+    weight: 10
     region: content
   field_traced_by:
     type: entity_reference_label
@@ -320,7 +319,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 113
+    weight: 13
     region: content
   field_type_of_map:
     type: entity_reference_label
@@ -328,7 +327,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 136
+    weight: 36
     region: content
   field_year_of_drawing:
     type: datetime_default
@@ -337,7 +336,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 127
+    weight: 27
     region: content
   field_year_of_plotting:
     type: datetime_default
@@ -346,7 +345,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 119
+    weight: 19
     region: content
   field_year_of_retracing:
     type: datetime_default
@@ -355,7 +354,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 114
+    weight: 14
     region: content
   field_year_of_survey:
     type: datetime_default
@@ -364,7 +363,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 111
+    weight: 11
     region: content
   field_year_of_tracing:
     type: datetime_default
@@ -373,21 +372,22 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 112
+    weight: 12
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 40
     region: content
   meta_data_explanation:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 140
+    weight: 39
     region: content
 hidden:
   feeds_item: true
+  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true

@@ -1,0 +1,23 @@
+uuid: e83e763d-2057-4c6a-8780-11e13faf2893
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_record_no
+    - node.type.cadastral_map
+id: node.cadastral_map.field_record_no
+field_name: field_record_no
+entity_type: node
+bundle: cadastral_map
+label: 'Record ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

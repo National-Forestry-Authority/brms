@@ -19,7 +19,7 @@ dependencies:
     - field.field.node.cadastral_map.field_printed_by
     - field.field.node.cadastral_map.field_produced_by
     - field.field.node.cadastral_map.field_published_by
-    - field.field.node.cadastral_map.field_record_id
+    - field.field.node.cadastral_map.field_record_no
     - field.field.node.cadastral_map.field_reference_no
     - field.field.node.cadastral_map.field_retraced_by
     - field.field.node.cadastral_map.field_scale
@@ -28,6 +28,7 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
+    - field.field.node.cadastral_map.meta_data_explanation
     - node.type.cadastral_map
   module:
     - node
@@ -54,7 +55,10 @@ processor_configuration:
   update_existing: 0
   update_non_existent: _keep
   skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 0
@@ -193,12 +197,6 @@ mappings:
       language: null
     unique: {  }
   -
-    target: field_record_id
-    map:
-      value: sn
-    settings:
-      language: null
-  -
     target: field_sheet_number
     map:
       value: sheet
@@ -234,6 +232,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: condition
   -
     target: field_traced_by
     map:
@@ -242,6 +241,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_compiled_by
     map:
@@ -250,6 +250,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_published_by
     map:
@@ -258,6 +259,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_examined_by
     map:
@@ -266,6 +268,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_surveyed_by
     map:
@@ -274,6 +277,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_year
     map:
@@ -346,6 +350,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_printed_by
     map:
@@ -354,6 +359,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_retraced_by
     map:
@@ -362,6 +368,7 @@ mappings:
       language: null
       reference_by: name
       autocreate: false
+      autocreate_bundle: surveyors
   -
     target: field_map_ref_1
     map:
@@ -369,3 +376,17 @@ mappings:
     settings:
       language: null
     unique: {  }
+  -
+    target: field_record_no
+    map:
+      value: sn
+    settings:
+      language: null
+    unique:
+      value: 1
+  -
+    target: meta_data_explanation
+    map:
+      value: name
+    settings:
+      language: ''

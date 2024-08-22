@@ -3,34 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.body
     - field.storage.node.field_area
     - field.storage.node.field_code
-    - field.storage.node.field_compiled_by
     - field.storage.node.field_condition
-    - field.storage.node.field_coordinate_system
-    - field.storage.node.field_edition
     - field.storage.node.field_examined_by
-    - field.storage.node.field_magnetic_declination
-    - field.storage.node.field_meta_data
-    - field.storage.node.field_notes
     - field.storage.node.field_number
     - field.storage.node.field_phases
-    - field.storage.node.field_printed_by
-    - field.storage.node.field_produced_by
-    - field.storage.node.field_published_by
-    - field.storage.node.field_ref_number
+    - field.storage.node.field_record_no
     - field.storage.node.field_scale
-    - field.storage.node.field_series
     - field.storage.node.field_sheet_number
-    - field.storage.node.field_surveyed_by
     - field.storage.node.field_year
     - node.type.district_map
     - system.menu.admin
   module:
     - datetime
     - node
-    - text
     - user
 id: district_maps
 label: 'District maps'
@@ -58,7 +45,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: 'Record ID'
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -102,7 +89,71 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_record_no:
+          id: field_record_no
+          table: node__field_record_no
+          field: field_record_no
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Record ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -239,271 +290,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_notes:
-          id: field_notes
-          table: node__field_notes
-          field: field_notes
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Notes
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: uid
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: short
-            custom_date_format: ''
-            timezone: ''
-            tooltip:
-              date_format: ''
-              custom_date_format: ''
-            time_diff:
-              enabled: false
-              future_format: '@interval hence'
-              past_format: '@interval ago'
-              granularity: 2
-              refresh: 60
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: field_meta_data
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_code:
           id: field_code
           table: node__field_code
@@ -558,69 +344,6 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_compiled_by:
-          id: field_compiled_by
-          table: node__field_compiled_by
-          field: field_compiled_by
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Compiled By'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -693,132 +416,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_coordinate_system:
-          id: field_coordinate_system
-          table: node__field_coordinate_system
-          field: field_coordinate_system
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Coordinate System'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_edition:
-          id: field_edition
-          table: node__field_edition
-          field: field_edition
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Edition
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_examined_by:
           id: field_examined_by
           table: node__field_examined_by
@@ -873,131 +470,6 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_magnetic_declination:
-          id: field_magnetic_declination
-          table: node__field_magnetic_declination
-          field: field_magnetic_declination
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Magnetic Declination'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        body_1:
-          id: body_1
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Notes
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1133,321 +605,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_printed_by:
-          id: field_printed_by
-          table: node__field_printed_by
-          field: field_printed_by
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Printed By'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_produced_by:
-          id: field_produced_by
-          table: node__field_produced_by
-          field: field_produced_by
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Produced By'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_published_by:
-          id: field_published_by
-          table: node__field_published_by
-          field: field_published_by
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Published By'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_ref_number:
-          id: field_ref_number
-          table: node__field_ref_number
-          field: field_ref_number
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Ref Number'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_series:
-          id: field_series
-          table: node__field_series
-          field: field_series
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Series
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_sheet_number:
           id: field_sheet_number
           table: node__field_sheet_number
@@ -1502,69 +659,6 @@ display:
           settings:
             link_to_entity: false
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_surveyed_by:
-          id: field_surveyed_by
-          table: node__field_surveyed_by
-          field: field_surveyed_by
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Surveyed By'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1638,205 +732,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_meta_data:
-          id: field_meta_data
-          table: node__field_meta_data
-          field: field_meta_data
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Meta Data'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nid_1:
-          id: nid_1
-          table: node_field_data
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-          label: Actions
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<span data-details="details-{{ nid_1 }}" class="details-link">More</span>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: 'sidebar details'
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div id=\"details-{{ nid }}\" class=\"sidebar-details\">\r\n<span class=\"close-details\">X</span>\r\n\r\n<div class=\"field field--type-string field--label-above\">\r\n<div class=\"field__label\">Series</div>\r\n    <div class=\"field__item\">{{ field_series }}</div>\r\n<div class=\"field__label\">Edition</div>\r\n    <div class=\"field__item\">{{ field_edition }}</div>\r\n<div class=\"field__label\">Magnetic Declination</div>\r\n    <div class=\"field__item\">{{ field_magnetic_declination }}</div>\r\n<div class=\"field__label\">Ref Number</div>\r\n    <div class=\"field__item\">{{ field_ref_number }}</div>\r\n<div class=\"field__label\">Coordinate System</div>\r\n    <div class=\"field__item\">{{ field_coordinate_system }}</div>\r\n<div class=\"field__label\">Compiled By</div>\r\n    <div class=\"field__item\">{{ field_compiled_by }}</div>\r\n<div class=\"field__label\">Printed By</div>\r\n    <div class=\"field__item\">{{ field_printed_by }}</div>\r\n<div class=\"field__label\">Produced By</div>\r\n    <div class=\"field__item\">{{ field_produced_by }}</div>\r\n<div class=\"field__label\">Published By</div>\r\n    <div class=\"field__item\">{{ field_published_by }}</div>\r\n<div class=\"field__label\">Surveyed By</div>\r\n    <div class=\"field__item\">{{ field_surveyed_by }}</div>\r\n\r\n    <div class=\"field__label\">NOTES</div>\r\n    <div class=\"field__item\">{{ field_notes }}</div>\r\n</div>\r\n<span class=\"separator\"></span>\r\n<div class=\"field field--type-string field--label-above\">\r\n    <div class=\"field__label\">Meta Data</div>\r\n    <div class=\"field__item\">{{ field_meta_data }}</div>\r\n    <div class=\"field__item\">{{ body }}</div>\r\n</div>\r\n<span class=\"separator\"></span>\r\n<div class=\"field field--type-string field--label-above\">\r\n    <div class=\"field__label\">Data Entrant</div>\r\n    <div class=\"field__item\">{{ uid }}</div>\r\n    <div class=\"field__label\">Entry Made On</div>\r\n    <div class=\"field__item\">{{ created }}</div>\r\n</div>\r\n</div>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -1854,7 +754,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -1984,12 +883,30 @@ display:
             title: title
             field_area: field_area
             field_scale: field_scale
-            field_meta_data: field_meta_data
             field_notes: field_notes
-            nid_1: nid_1
             uid: uid
             created: created
             body: body
+            field_code: field_code
+            field_compiled_by: field_compiled_by
+            field_condition: field_condition
+            field_coordinate_system: field_coordinate_system
+            field_edition: field_edition
+            field_examined_by: field_examined_by
+            field_magnetic_declination: field_magnetic_declination
+            body_1: body_1
+            field_number: field_number
+            field_phases: field_phases
+            field_printed_by: field_printed_by
+            field_produced_by: field_produced_by
+            field_published_by: field_published_by
+            field_ref_number: field_ref_number
+            field_series: field_series
+            field_sheet_number: field_sheet_number
+            field_surveyed_by: field_surveyed_by
+            field_year: field_year
+            field_meta_data: field_meta_data
+            nid_1: nid_1
             nid: nid
           default: '-1'
           info:
@@ -2014,21 +931,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_meta_data:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_notes:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2056,6 +959,146 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_code:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_compiled_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_condition:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_coordinate_system:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_edition:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_examined_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_magnetic_declination:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            body_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_phases:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_printed_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_produced_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_published_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ref_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_series:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_sheet_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_surveyed_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_year:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_meta_data:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nid_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             nid:
               sortable: false
               default_sort_order: asc
@@ -2064,7 +1107,7 @@ display:
               empty_column: false
               responsive: ''
           override: true
-          sticky: false
+          sticky: true
           summary: ''
           empty_table: false
           caption: ''
@@ -2089,7 +1132,17 @@ display:
           admin_label: 'field_meta_data: Content'
           plugin_id: standard
           required: true
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -2101,27 +1154,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_area'
         - 'config:field.storage.node.field_code'
-        - 'config:field.storage.node.field_compiled_by'
         - 'config:field.storage.node.field_condition'
-        - 'config:field.storage.node.field_coordinate_system'
-        - 'config:field.storage.node.field_edition'
         - 'config:field.storage.node.field_examined_by'
-        - 'config:field.storage.node.field_magnetic_declination'
-        - 'config:field.storage.node.field_meta_data'
-        - 'config:field.storage.node.field_notes'
         - 'config:field.storage.node.field_number'
         - 'config:field.storage.node.field_phases'
-        - 'config:field.storage.node.field_printed_by'
-        - 'config:field.storage.node.field_produced_by'
-        - 'config:field.storage.node.field_published_by'
-        - 'config:field.storage.node.field_ref_number'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_scale'
-        - 'config:field.storage.node.field_series'
         - 'config:field.storage.node.field_sheet_number'
-        - 'config:field.storage.node.field_surveyed_by'
         - 'config:field.storage.node.field_year'
   listing:
     id: listing
@@ -2152,25 +1193,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_area'
         - 'config:field.storage.node.field_code'
-        - 'config:field.storage.node.field_compiled_by'
         - 'config:field.storage.node.field_condition'
-        - 'config:field.storage.node.field_coordinate_system'
-        - 'config:field.storage.node.field_edition'
         - 'config:field.storage.node.field_examined_by'
-        - 'config:field.storage.node.field_magnetic_declination'
-        - 'config:field.storage.node.field_meta_data'
-        - 'config:field.storage.node.field_notes'
         - 'config:field.storage.node.field_number'
         - 'config:field.storage.node.field_phases'
-        - 'config:field.storage.node.field_printed_by'
-        - 'config:field.storage.node.field_produced_by'
-        - 'config:field.storage.node.field_published_by'
-        - 'config:field.storage.node.field_ref_number'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_scale'
-        - 'config:field.storage.node.field_series'
         - 'config:field.storage.node.field_sheet_number'
-        - 'config:field.storage.node.field_surveyed_by'
         - 'config:field.storage.node.field_year'

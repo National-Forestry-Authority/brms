@@ -12,10 +12,11 @@ dependencies:
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
-    - field.field.node.aerial_photos.field_record_id
+    - field.field.node.aerial_photos.field_record_no
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
     - field.field.node.aerial_photos.field_type
+    - field.field.node.aerial_photos.meta_data_explanation
     - node.type.aerial_photos
   module:
     - node
@@ -42,7 +43,10 @@ processor_configuration:
   update_existing: 0
   update_non_existent: _keep
   skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
   authorize: true
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 0
@@ -109,19 +113,12 @@ custom_sources:
     type: csv
 mappings:
   -
-    target: field_record_id
-    map:
-      value: record_id
-    settings:
-      language: null
-  -
     target: title
     map:
       value: record_id
     settings:
       language: null
-    unique:
-      value: '1'
+    unique: {  }
   -
     target: field_date
     map:
@@ -137,6 +134,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: area
   -
     target: field_scale
     map:
@@ -172,6 +170,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: aerial_photo_type
   -
     target: field_copies
     map:
@@ -200,3 +199,18 @@ mappings:
       reference_by: nid
       feeds_item: guid
       autocreate: 0
+      autocreate_bundle: meta_data
+  -
+    target: field_record_no
+    map:
+      value: record_id
+    settings:
+      language: null
+    unique:
+      value: 1
+  -
+    target: meta_data_explanation
+    map:
+      value: meta_data
+    settings:
+      language: null

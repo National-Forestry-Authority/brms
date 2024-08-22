@@ -3,18 +3,12 @@ langcode: en
 status: true
 dependencies:
   module:
-    - autotitle
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
-  autotitle:
-    enabled: false
-    field: body
-    fallback_title: 'Untitled []'
-    headings: {  }
 name: 'Transparency Maps'
 type: transparency_maps
 description: 'Type of map datasets'

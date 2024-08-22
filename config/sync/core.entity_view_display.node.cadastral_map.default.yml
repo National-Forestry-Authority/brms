@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.cadastral_map.field_produced_by
     - field.field.node.cadastral_map.field_published_by
     - field.field.node.cadastral_map.field_record_id
+    - field.field.node.cadastral_map.field_record_no
     - field.field.node.cadastral_map.field_reference_no
     - field.field.node.cadastral_map.field_retraced_by
     - field.field.node.cadastral_map.field_scale
@@ -163,13 +164,11 @@ content:
     third_party_settings: {  }
     weight: 18
     region: content
-  field_record_id:
-    type: number_decimal
+  field_record_no:
+    type: number_integer
     label: above
     settings:
       thousand_separator: ''
-      decimal_separator: .
-      scale: 2
       prefix_suffix: true
     third_party_settings: {  }
     weight: 5
@@ -268,5 +267,6 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true

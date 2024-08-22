@@ -381,7 +381,7 @@ function brms_common_deploy_008(&$sandbox = NULL) {
 }
 
 /**
- * Update Forest Reserve Legal SI area field values
+ * Update Forest Reserve Legal SI area field values.
  */
 function brms_common_deploy_009(&$sandbox = NULL) {
   if (!isset($sandbox['progress'])) {
@@ -410,4 +410,36 @@ function brms_common_deploy_009(&$sandbox = NULL) {
   }
 
   $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+}
+
+/**
+ * Update new Record No field with data from obsolete Record ID field.
+ */
+function brms_common_deploy_010(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', ['cadastral_map', 'forest_reserve_boundary', 'district_map', 'aerial_photos'], 'IN')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('field_record_id') && $node->hasField('field_record_no')) {
+      $node->field_record_no->value = $node->field_record_id->value;
+      $node->save();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max  nodes.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }

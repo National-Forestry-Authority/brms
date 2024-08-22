@@ -1,0 +1,10 @@
+status: 1
+pattern: '[node:field_record_no]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.aerial_photos
+new_content_behavior: 0

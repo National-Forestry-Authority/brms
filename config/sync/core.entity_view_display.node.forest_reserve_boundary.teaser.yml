@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_plotted_by
     - field.field.node.forest_reserve_boundary.field_pocket_number
     - field.field.node.forest_reserve_boundary.field_record_id
+    - field.field.node.forest_reserve_boundary.field_record_no
     - field.field.node.forest_reserve_boundary.field_reserve_serial_number
     - field.field.node.forest_reserve_boundary.field_retraced_by
     - field.field.node.forest_reserve_boundary.field_scale
@@ -87,6 +88,7 @@ hidden:
   field_plotted_by: true
   field_pocket_number: true
   field_record_id: true
+  field_record_no: true
   field_reserve_serial_number: true
   field_retraced_by: true
   field_scale: true

@@ -12,13 +12,13 @@ dependencies:
     - field.storage.node.field_edition
     - field.storage.node.field_examined_by
     - field.storage.node.field_magnetic_declination
-    - field.storage.node.field_meta_data
     - field.storage.node.field_notes
     - field.storage.node.field_number
     - field.storage.node.field_phases
     - field.storage.node.field_printed_by
     - field.storage.node.field_produced_by
     - field.storage.node.field_published_by
+    - field.storage.node.field_record_no
     - field.storage.node.field_ref_number
     - field.storage.node.field_scale
     - field.storage.node.field_series
@@ -114,15 +114,13 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        field_record_no:
+          id: field_record_no
+          table: node__field_record_no
+          field: field_record_no
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: title
           plugin_id: field
           label: 'Record ID'
           exclude: false
@@ -144,8 +142,8 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -166,9 +164,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: number_integer
           settings:
-            link_to_entity: false
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1704,205 +1703,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_meta_data:
-          id: field_meta_data
-          table: node__field_meta_data
-          field: field_meta_data
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Meta Data'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nid_1:
-          id: nid_1
-          table: node_field_data
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-          label: Actions
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<span data-details="details-{{ nid_1 }}" class="details-link">More</span>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: 'sidebar details'
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div id=\"details-{{ nid }}\" class=\"sidebar-details\">\r\n<span class=\"close-details\">X</span>\r\n\r\n<div class=\"field field--type-string field--label-above\">\r\n<div class=\"field__label\">Series</div>\r\n    <div class=\"field__item\">{{ field_series }}</div>\r\n<div class=\"field__label\">Edition</div>\r\n    <div class=\"field__item\">{{ field_edition }}</div>\r\n<div class=\"field__label\">Magnetic Declination</div>\r\n    <div class=\"field__item\">{{ field_magnetic_declination }}</div>\r\n<div class=\"field__label\">Ref Number</div>\r\n    <div class=\"field__item\">{{ field_ref_number }}</div>\r\n<div class=\"field__label\">Coordinate System</div>\r\n    <div class=\"field__item\">{{ field_coordinate_system }}</div>\r\n<div class=\"field__label\">Compiled By</div>\r\n    <div class=\"field__item\">{{ field_compiled_by }}</div>\r\n<div class=\"field__label\">Printed By</div>\r\n    <div class=\"field__item\">{{ field_printed_by }}</div>\r\n<div class=\"field__label\">Produced By</div>\r\n    <div class=\"field__item\">{{ field_produced_by }}</div>\r\n<div class=\"field__label\">Published By</div>\r\n    <div class=\"field__item\">{{ field_published_by }}</div>\r\n<div class=\"field__label\">Surveyed By</div>\r\n    <div class=\"field__item\">{{ field_surveyed_by }}</div>\r\n\r\n    <div class=\"field__label\">NOTES</div>\r\n    <div class=\"field__item\">{{ field_notes }}</div>\r\n</div>\r\n<span class=\"separator\"></span>\r\n<div class=\"field field--type-string field--label-above\">\r\n    <div class=\"field__label\">Meta Data</div>\r\n    <div class=\"field__item\">{{ field_meta_data }}</div>\r\n    <div class=\"field__item\">{{ body }}</div>\r\n</div>\r\n<span class=\"separator\"></span>\r\n<div class=\"field field--type-string field--label-above\">\r\n    <div class=\"field__label\">Data Entrant</div>\r\n    <div class=\"field__item\">{{ uid }}</div>\r\n    <div class=\"field__label\">Entry Made On</div>\r\n    <div class=\"field__item\">{{ created }}</div>\r\n</div>\r\n</div>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -1920,7 +1725,6 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
-          pagination_heading_level: h4
       exposed_form:
         type: basic
         options:
@@ -2047,19 +1851,42 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            title: title
+            title_1: title_1
+            field_record_no: field_record_no
             field_area: field_area
             field_scale: field_scale
-            field_meta_data: field_meta_data
             field_notes: field_notes
-            nid_1: nid_1
             uid: uid
             created: created
             body: body
-            nid: nid
+            field_code: field_code
+            field_compiled_by: field_compiled_by
+            field_condition: field_condition
+            field_coordinate_system: field_coordinate_system
+            field_edition: field_edition
+            field_examined_by: field_examined_by
+            field_magnetic_declination: field_magnetic_declination
+            body_1: body_1
+            field_number: field_number
+            field_phases: field_phases
+            field_printed_by: field_printed_by
+            field_produced_by: field_produced_by
+            field_published_by: field_published_by
+            field_ref_number: field_ref_number
+            field_series: field_series
+            field_sheet_number: field_sheet_number
+            field_surveyed_by: field_surveyed_by
+            field_year: field_year
           default: '-1'
           info:
-            title:
+            title_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_record_no:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -2080,21 +1907,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_meta_data:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_notes:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2122,7 +1935,126 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            nid:
+            field_code:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_compiled_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_condition:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_coordinate_system:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_edition:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_examined_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_magnetic_declination:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            body_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_phases:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_printed_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_produced_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_published_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_ref_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_series:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_sheet_number:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_surveyed_by:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_year:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2130,7 +2062,7 @@ display:
               empty_column: false
               responsive: ''
           override: true
-          sticky: false
+          sticky: true
           summary: ''
           empty_table: false
           caption: ''
@@ -2155,7 +2087,17 @@ display:
           admin_label: 'field_meta_data: Content'
           plugin_id: standard
           required: false
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: result
+          empty: false
+          content: 'Displaying @start - @end of @total'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -2176,13 +2118,13 @@ display:
         - 'config:field.storage.node.field_edition'
         - 'config:field.storage.node.field_examined_by'
         - 'config:field.storage.node.field_magnetic_declination'
-        - 'config:field.storage.node.field_meta_data'
         - 'config:field.storage.node.field_notes'
         - 'config:field.storage.node.field_number'
         - 'config:field.storage.node.field_phases'
         - 'config:field.storage.node.field_printed_by'
         - 'config:field.storage.node.field_produced_by'
         - 'config:field.storage.node.field_published_by'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_ref_number'
         - 'config:field.storage.node.field_scale'
         - 'config:field.storage.node.field_series'
@@ -2313,7 +2255,15 @@ display:
               intern_surveyor: '0'
               cartographer: '0'
               cis: '0'
+              surveyor: '0'
             placeholder: ''
+            autocomplete_filter: 0
+            autocomplete_min_chars: '0'
+            autocomplete_items: '10'
+            autocomplete_field: ''
+            autocomplete_raw_suggestion: 1
+            autocomplete_raw_dropdown: 1
+            autocomplete_dependent: 0
           is_grouped: false
           group_info:
             label: ''
@@ -2328,7 +2278,6 @@ display:
             group_items: {  }
           fields:
             title_1: title_1
-            title: title
             uid: uid
             field_compiled_by: field_compiled_by
             field_examined_by: field_examined_by
@@ -2375,13 +2324,13 @@ display:
         - 'config:field.storage.node.field_edition'
         - 'config:field.storage.node.field_examined_by'
         - 'config:field.storage.node.field_magnetic_declination'
-        - 'config:field.storage.node.field_meta_data'
         - 'config:field.storage.node.field_notes'
         - 'config:field.storage.node.field_number'
         - 'config:field.storage.node.field_phases'
         - 'config:field.storage.node.field_printed_by'
         - 'config:field.storage.node.field_produced_by'
         - 'config:field.storage.node.field_published_by'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_ref_number'
         - 'config:field.storage.node.field_scale'
         - 'config:field.storage.node.field_series'

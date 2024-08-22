@@ -8,7 +8,7 @@ id: node.aerial_photos.title
 field_name: title
 entity_type: node
 bundle: aerial_photos
-label: 'Record ID'
+label: Title
 description: ''
 required: true
 translatable: true
