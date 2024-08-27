@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
-    - field.field.node.aerial_photos.field_record_id
     - field.field.node.aerial_photos.field_record_no
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
@@ -23,381 +22,59 @@ dependencies:
     - node.type.aerial_photos
   module:
     - datetime
+    - field_formatter_class
+    - field_group
     - layout_builder
-    - layout_discovery
     - user
 third_party_settings:
   layout_builder:
-    enabled: true
+    enabled: false
     allow_custom: false
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Hero
-          context_mapping: {  }
-          layout_builder_styles_style:
-            group: 0
-        components:
-          65ffc7e2-3117-436c-a291-489b193d1262:
-            uuid: 65ffc7e2-3117-436c-a291-489b193d1262
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_image'
-              label: Image
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_entity_view
-                label: hidden
-                settings:
-                  view_mode: default
-                third_party_settings:
-                  field_formatter_class:
-                    class: center
-            weight: 0
-            additional:
-              layout_builder_styles_style:
-                centered: 0
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: Fields
-          context_mapping: {  }
-          layout_builder_styles_style:
-            group: group
-            pill_wrapper: pill_wrapper
-        components:
-          8da6906b-eb74-4a00-b5a1-832c56aba037:
-            uuid: 8da6906b-eb74-4a00-b5a1-832c56aba037
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_date'
-              label: Date
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: html_date
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 2
-            additional: {  }
-          78dc7b6e-9019-4994-9a9e-475261ddf2ea:
-            uuid: 78dc7b6e-9019-4994-9a9e-475261ddf2ea
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_area'
-              label: 'District / Area'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 1
-            additional: {  }
-          91b4418e-cb91-4445-8d4e-bc6bbf50224c:
-            uuid: 91b4418e-cb91-4445-8d4e-bc6bbf50224c
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_record_no'
-              label: 'Record ID'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_integer
-                label: above
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 0
-            additional: {  }
-          c0db50d6-8575-43aa-8e3f-2b35ab556db7:
-            uuid: c0db50d6-8575-43aa-8e3f-2b35ab556db7
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_company'
-              label: Company
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 4
-            additional: {  }
-          7ba0470f-2365-4881-a7be-a71b65c352ae:
-            uuid: 7ba0470f-2365-4881-a7be-a71b65c352ae
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_scale'
-              label: Scale
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 3
-            additional: {  }
-          73eab1d9-c01e-4437-ba3c-8e7d15dd737e:
-            uuid: 73eab1d9-c01e-4437-ba3c-8e7d15dd737e
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_altitude'
-              label: Altitude
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_decimal
-                label: above
-                settings:
-                  thousand_separator: ''
-                  decimal_separator: .
-                  scale: 2
-                  prefix_suffix: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 5
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Photo field'
-          context_mapping: {  }
-          layout_builder_styles_style:
-            group: group
-        components:
-          6072dd02-26b0-4a90-b199-873491d4953a:
-            uuid: 6072dd02-26b0-4a90-b199-873491d4953a
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_photo_number'
-              label: 'Photo Number'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 2
-            additional: {  }
-          09ff579b-5b63-4c33-956a-9447f886f412:
-            uuid: 09ff579b-5b63-4c33-956a-9447f886f412
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_copies'
-              label: Copies
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_integer
-                label: above
-                settings:
-                  thousand_separator: ''
-                  prefix_suffix: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 6
-            additional: {  }
-          19c6f8a7-8608-44a4-88a7-e4027f32f7f1:
-            uuid: 19c6f8a7-8608-44a4-88a7-e4027f32f7f1
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_run_number'
-              label: 'Run Number'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: number_decimal
-                label: above
-                settings:
-                  thousand_separator: ''
-                  decimal_separator: .
-                  scale: 2
-                  prefix_suffix: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 4
-            additional: {  }
-          77c16bd6-7ff4-40c6-8fb7-3af90b8fa271:
-            uuid: 77c16bd6-7ff4-40c6-8fb7-3af90b8fa271
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_film_number'
-              label: 'Film Number'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 3
-            additional: {  }
-          35378de0-fc59-4ea2-8d70-cc437dc0ab35:
-            uuid: 35378de0-fc59-4ea2-8d70-cc437dc0ab35
-            region: content
-            configuration:
-              id: 'field_block:node:aerial_photos:field_type'
-              label: Type
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: pill
-            weight: 5
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_twocol_section
-        layout_settings:
-          label: ''
-          context_mapping: {  }
-          column_widths: 50-50
-          layout_builder_styles_style:
-            group: group
-        components:
-          451e1649-f19f-4552-bfd7-ab1d37860253:
-            uuid: 451e1649-f19f-4552-bfd7-ab1d37860253
-            region: first
-            configuration:
-              id: 'field_block:node:aerial_photos:field_notes'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: basic_string
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
-          3d0b24d4-31fa-4777-9896-23a27a2746c7:
-            uuid: 3d0b24d4-31fa-4777-9896-23a27a2746c7
-            region: second
-            configuration:
-              id: 'field_block:node:aerial_photos:meta_data_explanation'
-              label: 'Meta Data Explanation'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: basic_string
-                label: hidden
-                settings: {  }
-                third_party_settings:
-                  field_formatter_class:
-                    class: ''
-            weight: 2
-            additional: {  }
-          09623d05-a4b0-46b5-8568-5c4f58e3c090:
-            uuid: 09623d05-a4b0-46b5-8568-5c4f58e3c090
-            region: second
-            configuration:
-              id: 'field_block:node:aerial_photos:field_meta_data'
-              label: 'Meta Data'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: ''
-            weight: 0
-            additional: {  }
-          fc426b97-951c-4a68-b506-d502cbbdd60f:
-            uuid: fc426b97-951c-4a68-b506-d502cbbdd60f
-            region: first
-            configuration:
-              id: 'extra_field_block:node:aerial_photos:links'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            weight: 1
-            additional: {  }
-        third_party_settings: {  }
+  field_group:
+    group_aerial_photo:
+      children:
+        - field_record_no
+        - field_film_number
+        - field_run_number
+        - field_photo_number
+        - field_scale
+        - field_type
+        - field_copies
+      label: 'Aerial photo'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
+    group_details:
+      children:
+        - field_area
+        - field_altitude
+        - field_company
+        - field_date
+        - field_meta_data
+        - meta_data_explanation
+        - field_notes
+      label: Details
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: false
+        description: ''
+        required_fields: false
 id: node.aerial_photos.default
 targetEntityType: node
 bundle: aerial_photos
@@ -411,24 +88,30 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 10
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 6
     region: content
   field_area:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 5
     region: content
   field_company:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 7
     region: content
   field_copies:
     type: number_integer
@@ -436,25 +119,31 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 9
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   field_date:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 2
+      format_type: html_date
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 8
     region: content
   field_film_number:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 9
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -462,16 +151,20 @@ content:
     settings:
       view_mode: default
       link: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: center
     weight: 0
     region: content
   field_meta_data:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 13
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 9
     region: content
   field_notes:
     type: basic_string
@@ -485,8 +178,10 @@ content:
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 12
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 11
     region: content
   field_record_no:
     type: number_integer
@@ -494,8 +189,10 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 1
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 8
     region: content
   field_run_number:
     type: number_decimal
@@ -505,39 +202,44 @@ content:
       decimal_separator: .
       scale: 2
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 7
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 10
     region: content
   field_scale:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 12
     region: content
   field_type:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 8
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 13
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 10
     region: content
   meta_data_explanation:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 14
+    weight: 10
     region: content
 hidden:
   feeds_item: true
-  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true

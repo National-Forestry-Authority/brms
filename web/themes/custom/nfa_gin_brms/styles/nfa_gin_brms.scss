@@ -16,7 +16,6 @@
 }
 
 // Useful styles for layout builder.
-.group-section .layout__region--content,
 .pill-wrapper .details-wrapper {
   display: flex;
   flex-direction: column;
@@ -32,13 +31,6 @@
     }
   }
 
-}
-
-.group-section {
-  padding: calc(var(--gin-spacing-m) - 2px) calc(var(--gin-spacing-l) - 2px);
-  border: 1px solid var(--gin-border-color);
-  border-radius: var(--gin-border-m);
-  margin-bottom: var(--space-m);
 }
 
 .center {

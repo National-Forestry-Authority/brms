@@ -832,22 +832,19 @@ display:
         options: {  }
       empty: {  }
       sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+        field_record_no_value:
+          id: field_record_no_value
+          table: node__field_record_no
+          field: field_record_no_value
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          order: DESC
+          plugin_id: standard
+          order: ASC
           expose:
             label: ''
-            field_identifier: created
+            field_identifier: ''
           exposed: false
-          granularity: second
       arguments: {  }
       filters:
         status:
@@ -882,8 +879,8 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            view_node: view_node
             field_record_no: field_record_no
-            title: title
             field_date: field_date
             field_company: field_company
             field_area: field_area
@@ -896,14 +893,14 @@ display:
             field_altitude: field_altitude
           default: '-1'
           info:
-            field_record_no:
-              sortable: true
+            view_node:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            title:
+            field_record_no:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -925,7 +922,7 @@ display:
               empty_column: false
               responsive: ''
             field_area:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''

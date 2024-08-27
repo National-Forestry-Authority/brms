@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.district_map.field_printed_by
     - field.field.node.district_map.field_produced_by
     - field.field.node.district_map.field_published_by
-    - field.field.node.district_map.field_record_id
     - field.field.node.district_map.field_record_no
     - field.field.node.district_map.field_ref_number
     - field.field.node.district_map.field_scale
@@ -229,6 +228,5 @@ content:
     region: content
 hidden:
   feeds_item: true
-  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true
