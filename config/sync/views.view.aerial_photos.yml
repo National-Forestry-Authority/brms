@@ -10,6 +10,7 @@ dependencies:
     - field.storage.node.field_date
     - field.storage.node.field_film_number
     - field.storage.node.field_photo_number
+    - field.storage.node.field_record_no
     - field.storage.node.field_run_number
     - field.storage.node.field_scale
     - field.storage.node.field_type
@@ -35,18 +36,17 @@ display:
     display_options:
       title: 'Aerial Photos'
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          entity_field: title
-          plugin_id: field
-          label: 'Record ID'
-          exclude: false
+          plugin_id: entity_link
+          label: 'Link to Content'
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -65,8 +65,60 @@ display:
             target: ''
             nl2br: false
             max_length: 0
-            word_boundary: false
-            ellipsis: false
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: true
+          absolute: false
+        field_record_no:
+          id: field_record_no
+          table: node__field_record_no
+          field: field_record_no
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Record ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '{{ view_node }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
@@ -87,9 +139,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: number_integer
           settings:
-            link_to_entity: true
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -829,6 +882,7 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            field_record_no: field_record_no
             title: title
             field_date: field_date
             field_company: field_company
@@ -840,15 +894,15 @@ display:
             field_type: field_type
             field_copies: field_copies
             field_altitude: field_altitude
-            field_meta_data: field_meta_data
-            field_notes: field_notes
-            nid_1: nid_1
-            uid: uid
-            created: created
-            body: body
-            nid: nid
           default: '-1'
           info:
+            field_record_no:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -926,55 +980,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_meta_data:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_notes:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            created:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            body:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
           override: true
           sticky: true
           summary: ''
@@ -1030,6 +1035,7 @@ display:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_film_number'
         - 'config:field.storage.node.field_photo_number'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_run_number'
         - 'config:field.storage.node.field_scale'
         - 'config:field.storage.node.field_type'
@@ -1066,6 +1072,7 @@ display:
         - 'config:field.storage.node.field_date'
         - 'config:field.storage.node.field_film_number'
         - 'config:field.storage.node.field_photo_number'
+        - 'config:field.storage.node.field_record_no'
         - 'config:field.storage.node.field_run_number'
         - 'config:field.storage.node.field_scale'
         - 'config:field.storage.node.field_type'

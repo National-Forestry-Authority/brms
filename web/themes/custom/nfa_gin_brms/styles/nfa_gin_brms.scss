@@ -15,7 +15,10 @@
   }
 }
 
+// Useful styles for layout builder.
+.group-section .layout__region--content,
 .pill-wrapper .details-wrapper {
+  display: flex;
   flex-direction: column;
   .pill {
     margin-bottom: 5px;
@@ -24,8 +27,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     .pill {
+      margin-right: 5px;
       flex: 0 0 calc(20% - 15px);
     }
   }
 
+}
+
+.group-section {
+  padding: calc(var(--gin-spacing-m) - 2px) calc(var(--gin-spacing-l) - 2px);
+  border: 1px solid var(--gin-border-color);
+  border-radius: var(--gin-border-m);
+  margin-bottom: var(--space-m);
+}
+
+.center {
+  text-align: center;
 }
