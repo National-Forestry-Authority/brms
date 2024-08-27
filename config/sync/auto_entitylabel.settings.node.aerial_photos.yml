@@ -1,8 +1,8 @@
 status: 1
-pattern: '[node:field_record_no]'
+pattern: 'Record ID [node:field_record_no] - Aerial Photo'
 escape: false
 preserve_titles: false
-save: false
+save: true
 chunk: 50
 dependencies:
   config:

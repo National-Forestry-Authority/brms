@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.aerial_photos.field_copies
     - field.field.node.aerial_photos.field_date
     - field.field.node.aerial_photos.field_film_number
+    - field.field.node.aerial_photos.field_image
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
@@ -41,6 +42,7 @@ hidden:
   field_copies: true
   field_date: true
   field_film_number: true
+  field_image: true
   field_meta_data: true
   field_notes: true
   field_photo_number: true

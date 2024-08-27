@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.aerial_photos.field_copies
     - field.field.node.aerial_photos.field_date
     - field.field.node.aerial_photos.field_film_number
+    - field.field.node.aerial_photos.field_image
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
@@ -22,6 +23,7 @@ dependencies:
     - node.type.aerial_photos
   module:
     - datetime
+    - media_library
     - path
 id: node.aerial_photos.default
 targetEntityType: node
@@ -81,6 +83,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 26
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_meta_data:
     type: entity_reference_autocomplete

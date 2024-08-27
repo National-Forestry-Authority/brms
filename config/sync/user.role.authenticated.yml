@@ -20,6 +20,7 @@ dependencies:
     - environment_indicator
     - file
     - filter
+    - media
     - node
     - system
     - toolbar
@@ -83,6 +84,7 @@ permissions:
   - 'view forest_reserve revisions'
   - 'view forest_reserve_boundary revisions'
   - 'view historical_sheets revisions'
+  - 'view media'
   - 'view meta_data revisions'
   - 'view own unpublished content'
   - 'view satellite_image revisions'
