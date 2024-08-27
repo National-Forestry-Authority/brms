@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
-    - field.field.node.aerial_photos.field_record_id
     - field.field.node.aerial_photos.field_record_no
     - field.field.node.aerial_photos.field_run_number
     - field.field.node.aerial_photos.field_scale
@@ -200,4 +199,3 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
-  field_record_id: true
