@@ -1,0 +1,15 @@
+uuid: 76e457ac-2d82-4327-8e2a-676163a32ae4
+langcode: en
+status: true
+dependencies: {  }
+name: wide
+label: 'Wide (1758)'
+effects:
+  5f1fd80e-6694-4f35-9561-7a7bc73fd7a2:
+    uuid: 5f1fd80e-6694-4f35-9561-7a7bc73fd7a2
+    id: image_scale
+    weight: 1
+    data:
+      width: 1758
+      height: null
+      upscale: false

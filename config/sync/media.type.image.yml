@@ -1,0 +1,13 @@
+uuid: 85ea4a8f-b736-435a-8f9d-8f66e66182fc
+langcode: en
+status: true
+dependencies: {  }
+id: image
+label: Image
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: media_image
+field_map: {  }

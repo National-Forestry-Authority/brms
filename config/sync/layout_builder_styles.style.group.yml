@@ -1,0 +1,12 @@
+uuid: cfcbdb48-6fac-4032-a502-48881dc1465b
+langcode: en
+status: true
+dependencies: {  }
+id: group
+label: Group
+classes: group-section
+type: section
+group: default
+block_restrictions: {  }
+layout_restrictions: {  }
+weight: 0

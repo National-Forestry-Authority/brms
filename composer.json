@@ -54,6 +54,7 @@
         "drupal/gin_login": "^2",
         "drupal/inline_entity_form": "^3",
         "drupal/key": "^1.19",
+        "drupal/layout_builder_styles": "^2.0",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
         "drupal/migrate_plus": "^6",

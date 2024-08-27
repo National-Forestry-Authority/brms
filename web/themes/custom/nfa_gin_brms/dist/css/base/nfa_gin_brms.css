@@ -18,24 +18,48 @@
   min-width: 25%;
 }
 
+.group-section .layout__region--content,
 .pill-wrapper .details-wrapper {
+  display: flex;
   flex-direction: column;
 }
 
+.group-section .layout__region--content .pill,
 .pill-wrapper .details-wrapper .pill {
   margin-bottom: 5px;
 }
 
 @media (min-width: 48em) {
+  .group-section .layout__region--content,
   .pill-wrapper .details-wrapper {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
+  .group-section .layout__region--content .pill,
   .pill-wrapper .details-wrapper .pill {
     flex: 0 0 calc(20% - 15px);
   }
+
+  [dir="ltr"] .group-section .layout__region--content .pill,
+  [dir="ltr"] .pill-wrapper .details-wrapper .pill {
+    margin-right: 5px;
+  }
+
+  [dir="rtl"] .group-section .layout__region--content .pill,
+  [dir="rtl"] .pill-wrapper .details-wrapper .pill {
+    margin-left: 5px;
+  }
 }
 
+.group-section {
+  padding: calc(var(--gin-spacing-m) - 2px) calc(var(--gin-spacing-l) - 2px);
+  border: 1px solid var(--gin-border-color);
+  border-radius: var(--gin-border-m);
+  margin-bottom: var(--space-m);
+}
 
-/*# sourceMappingURL=nfa_gin_brms.css.map*/
+.center {
+  text-align: center;
+}
+
