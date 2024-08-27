@@ -8,6 +8,8 @@
       }
 
       const urls = drupalSettings.geolayer_map[instance.target].urls;
+      let isSingleLayer = urls.length == 1 ? true : false;
+      let source;
       for (let i = 0; i < urls.length; i++) {
         var url = new URL(urls[i], window.location.origin + drupalSettings.path.baseUrl)
         await fetch(url, {
@@ -24,11 +26,15 @@
                 group: feature.properties.layer_group == 'survey' ? 'Survey layers' : 'Feature layers',
                 styleFunction: layerStyle,
               });
+              if (isSingleLayer) {
+                source = layer.getSource();
+                instance.map.getView().fit(source.getExtent(), instance.map.getSize());
+              }
             });
           })
         });
       }
-      instance.zoomToVectors();
+      if (!isSingleLayer) instance.zoomToVectors();
     },
     weight: 100,
   };
