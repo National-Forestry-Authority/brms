@@ -19,7 +19,6 @@ dependencies:
     - field.field.node.cadastral_map.field_printed_by
     - field.field.node.cadastral_map.field_produced_by
     - field.field.node.cadastral_map.field_published_by
-    - field.field.node.cadastral_map.field_record_id
     - field.field.node.cadastral_map.field_record_no
     - field.field.node.cadastral_map.field_reference_no
     - field.field.node.cadastral_map.field_retraced_by
@@ -35,10 +34,86 @@ dependencies:
     - node.type.cadastral_map
   module:
     - datetime
+    - field_formatter_class
+    - field_group
     - file
     - geolayer_map
+    - layout_builder
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  field_group:
+    group_reference_numbers:
+      children:
+        - field_reference_no
+        - field_record_no
+        - field_sheet_number
+        - field_map_ref_1
+      label: 'Reference numbers'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+    group_map_data:
+      children:
+        - field_coordinate_system
+        - field_datum
+        - field_area_covered
+        - field_scale
+        - field_magnetic_declination
+        - field_condition
+        - field_edition
+        - field_series
+        - field_year
+        - field_code
+        - field_copies
+      label: 'Map data'
+      parent_name: ''
+      region: content
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
+    group_surveyors:
+      children:
+        - field_surveyed_by
+        - field_compiled_by
+        - field_traced_by
+        - field_retraced_by
+        - field_produced_by
+        - field_examined_by
+        - field_published_by
+        - field_printed_by
+      label: Surveyors
+      parent_name: ''
+      region: content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: false
 id: node.cadastral_map.default
 targetEntityType: node
 bundle: cadastral_map
@@ -49,14 +124,16 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 5
     region: content
   field_area_covered:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 8
     region: content
   field_code:
@@ -64,32 +141,40 @@ content:
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 17
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 16
     region: content
   field_compiled_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 21
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 11
     region: content
   field_condition:
     type: entity_reference_label
     label: above
     settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 12
     region: content
   field_coordinate_system:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 7
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 6
     region: content
   field_copies:
     type: number_integer
@@ -97,23 +182,29 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 22
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 17
     region: content
   field_datum:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 7
     region: content
   field_edition:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 13
     region: content
   field_examined_by:
@@ -121,15 +212,19 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 12
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
   field_magnetic_declination:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 11
     region: content
   field_map_ref_1:
@@ -137,32 +232,40 @@ content:
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 25
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 6
     region: content
   field_printed_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 19
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 17
     region: content
   field_produced_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 15
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 14
     region: content
   field_published_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 18
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 16
     region: content
   field_record_no:
     type: number_integer
@@ -170,15 +273,19 @@ content:
     settings:
       thousand_separator: ''
       prefix_suffix: true
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 4
     region: content
   field_reference_no:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 3
     region: content
   field_retraced_by:
@@ -186,15 +293,19 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 24
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 13
     region: content
   field_scale:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 9
     region: content
   field_scanned_copy:
@@ -203,14 +314,16 @@ content:
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 26
+    weight: 7
     region: content
   field_series:
     type: string
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 14
     region: content
   field_sheet_number:
@@ -218,37 +331,45 @@ content:
     label: above
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-    weight: 4
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 5
     region: content
   field_surveyed_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 20
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 10
     region: content
   field_traced_by:
     type: entity_reference_label
     label: above
     settings:
       link: true
-    third_party_settings: {  }
-    weight: 23
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 12
     region: content
   field_year:
     type: datetime_default
     label: above
     settings:
       timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 16
+      format_type: html_date
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 15
     region: content
   geolayers:
     type: geolayer_map_geolayers
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 0
@@ -256,17 +377,16 @@ content:
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 8
     region: content
   meta_data_explanation:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 27
+    weight: 6
     region: content
 hidden:
   feeds_item: true
-  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true

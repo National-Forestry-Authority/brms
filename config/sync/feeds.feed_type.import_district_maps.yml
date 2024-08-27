@@ -18,7 +18,7 @@ dependencies:
     - field.field.node.district_map.field_printed_by
     - field.field.node.district_map.field_produced_by
     - field.field.node.district_map.field_published_by
-    - field.field.node.district_map.field_record_id
+    - field.field.node.district_map.field_record_no
     - field.field.node.district_map.field_ref_number
     - field.field.node.district_map.field_scale
     - field.field.node.district_map.field_series
@@ -51,7 +51,10 @@ processor_configuration:
   update_existing: 0
   update_non_existent: _keep
   skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
   authorize: false
+  revision: false
   expire: -1
   owner_feed_author: false
   owner_id: 19
@@ -168,12 +171,6 @@ custom_sources:
     type: csv
 mappings:
   -
-    target: field_record_id
-    map:
-      value: record_id
-    settings:
-      language: null
-  -
     target: title
     map:
       value: name
@@ -223,6 +220,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: condition
   -
     target: field_magnetic_declination
     map:
@@ -238,6 +236,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_edition
     map:
@@ -260,6 +259,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_year
     map:
@@ -282,6 +282,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_printed_by
     map:
@@ -290,6 +291,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_surveyed_by
     map:
@@ -298,6 +300,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: field_sheet_number
     map:
@@ -313,6 +316,7 @@ mappings:
       language: ''
       reference_by: name
       autocreate: '1'
+      autocreate_bundle: surveyors
   -
     target: body
     map:
@@ -330,3 +334,12 @@ mappings:
       reference_by: nid
       feeds_item: guid
       autocreate: 0
+      autocreate_bundle: meta_data
+  -
+    target: field_record_no
+    map:
+      value: record_id
+    settings:
+      language: null
+    unique:
+      value: 1

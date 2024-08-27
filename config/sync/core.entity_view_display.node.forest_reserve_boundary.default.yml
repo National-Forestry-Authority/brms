@@ -30,7 +30,6 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_plain_file_number
     - field.field.node.forest_reserve_boundary.field_plotted_by
     - field.field.node.forest_reserve_boundary.field_pocket_number
-    - field.field.node.forest_reserve_boundary.field_record_id
     - field.field.node.forest_reserve_boundary.field_record_no
     - field.field.node.forest_reserve_boundary.field_reserve_serial_number
     - field.field.node.forest_reserve_boundary.field_retraced_by
@@ -388,6 +387,5 @@ content:
     region: content
 hidden:
   feeds_item: true
-  field_record_id: true
   natural_boundary_length: true
   total_boundary_length: true
