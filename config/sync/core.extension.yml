@@ -20,6 +20,7 @@ module:
   datetime: 0
   dblog: 0
   diff: 0
+  diff_plus: 0
   dynamic_page_cache: 0
   entity_browser: 0
   entity_browser_entity_form: 0
