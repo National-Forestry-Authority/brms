@@ -43,6 +43,7 @@
         "drupal/cshs": "^4",
         "drupal/custom_add_another": "^2",
         "drupal/diff": "^1",
+        "drupal/diff_plus": "^1.1",
         "drupal/entity_browser": "^2",
         "drupal/environment_indicator": "^4",
         "drupal/feeds": "^3.0@beta",

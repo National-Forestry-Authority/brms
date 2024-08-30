@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: ifWrHq7fG43lA_JGL5m9pDT5oCZ6AIiECgyAkkt3hwk
+enhance_diff_ui: true
+raw_html_indent_size: 2
+raw_html_wrap_line_length: 0
+raw_html_preserve_newlines: false
+raw_html_render_anonymously: true
+raw_html_strip_contextual_links: true
+raw_html_strip_js_view_dom_id: true
+raw_html_strip_comments: true
+raw_html_highlight_style: ''
+visual_html5_preserve_inline_styles: true
