@@ -11,7 +11,7 @@ general_settings:
       enabled: true
       weight: -50
     raw_html:
-      enabled: true
+      enabled: false
       weight: -49
     visual_inline_html5:
       enabled: true
