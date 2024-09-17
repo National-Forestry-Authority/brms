@@ -9,7 +9,7 @@ id: node.forest_reserve.gazetted_area_1998
 field_name: gazetted_area_1998
 entity_type: node
 bundle: forest_reserve
-label: 'Gazetted area 1998 (ha)'
+label: 'Gazetted area (SI 1998) (ha)'
 description: ''
 required: false
 translatable: false
