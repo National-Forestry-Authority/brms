@@ -443,3 +443,41 @@ function brms_common_deploy_010(&$sandbox = NULL) {
   \Drupal::messenger()->addMessage(t('Updated @progress of @max  nodes.',
     ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }
+
+/**
+ * Update new Scale field with data from obsolete Scale field.
+ */
+function brms_common_deploy_011(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'aerial_photos')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $mapping = [
+    '1:30000' => '1_30000',
+    '1:60000' => '1_60000',
+    '127750' => '127750',
+  ];
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('field_scale') && !$node->field_scale->isEmpty() && $node->hasField('field_map_scale')) {
+      $node->field_map_scale->value = $mapping[$node->field_scale->value];
+      $node->save();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max aerial photos.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}

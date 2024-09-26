@@ -1,0 +1,36 @@
+uuid: b46c4821-5507-4c45-aebe-9fa9e8a13550
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_map_scale
+field_name: field_map_scale
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1_20000'
+      label: '1:20000'
+    -
+      value: '1_25000'
+      label: '1:25000'
+    -
+      value: '1_30000'
+      label: '1:30000'
+    -
+      value: '1_60000'
+      label: '1:60000'
+    -
+      value: '127750'
+      label: '127750'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

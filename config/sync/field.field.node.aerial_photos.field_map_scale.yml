@@ -1,0 +1,21 @@
+uuid: 0fae5225-5811-4f83-87c1-8a5b0ddd7ed1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_scale
+    - node.type.aerial_photos
+  module:
+    - options
+id: node.aerial_photos.field_map_scale
+field_name: field_map_scale
+entity_type: node
+bundle: aerial_photos
+label: Scale
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
