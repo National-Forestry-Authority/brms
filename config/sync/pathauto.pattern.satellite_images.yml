@@ -1,22 +1,22 @@
-uuid: 9f4fb130-01e0-42ce-840f-bc411c737444
+uuid: 93d78932-22c8-4580-9729-f86f375b0c51
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: map_base_layer
-label: 'Map base layer'
+id: satellite_images
+label: 'Satellite Images'
 type: 'canonical_entities:node'
-pattern: 'base-layers/[node:title]'
+pattern: 'satellite-images/[node:title]'
 selection_criteria:
-  4adc8c4a-e767-4997-8d73-900e24d3b104:
+  ed171130-c4df-46eb-9deb-70b2376e93db:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 4adc8c4a-e767-4997-8d73-900e24d3b104
+    uuid: ed171130-c4df-46eb-9deb-70b2376e93db
     context_mapping:
       node: node
     bundles:
-      map_base_layer: map_base_layer
+      satellite_image: satellite_image
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -1,0 +1,21 @@
+uuid: 179610c3-efcd-4e4b-b771-c42cac57d873
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cad_map_scale
+    - node.type.cadastral_map
+  module:
+    - options
+id: node.cadastral_map.field_cad_map_scale
+field_name: field_cad_map_scale
+entity_type: node
+bundle: cadastral_map
+label: Scale
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

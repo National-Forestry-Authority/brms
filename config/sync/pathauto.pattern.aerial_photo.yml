@@ -1,22 +1,22 @@
-uuid: 9f4fb130-01e0-42ce-840f-bc411c737444
+uuid: baee7d4c-5c49-4c8a-a41d-d628de5b7fb8
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: map_base_layer
-label: 'Map base layer'
+id: aerial_photo
+label: 'Aerial photo'
 type: 'canonical_entities:node'
-pattern: 'base-layers/[node:title]'
+pattern: 'aerial-photos/[node:title]'
 selection_criteria:
-  4adc8c4a-e767-4997-8d73-900e24d3b104:
+  5ab5c7f6-7006-4547-bad3-8f4adeb802ae:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 4adc8c4a-e767-4997-8d73-900e24d3b104
+    uuid: 5ab5c7f6-7006-4547-bad3-8f4adeb802ae
     context_mapping:
       node: node
     bundles:
-      map_base_layer: map_base_layer
+      aerial_photos: aerial_photos
 selection_logic: and
 weight: -5
 relationships: {  }

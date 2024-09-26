@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.cadastral_map.body
     - field.field.node.cadastral_map.feeds_item
     - field.field.node.cadastral_map.field_area_covered
+    - field.field.node.cadastral_map.field_cad_map_scale
     - field.field.node.cadastral_map.field_code
     - field.field.node.cadastral_map.field_compiled_by
     - field.field.node.cadastral_map.field_condition
@@ -57,6 +58,7 @@ content:
 hidden:
   feeds_item: true
   field_area_covered: true
+  field_cad_map_scale: true
   field_code: true
   field_compiled_by: true
   field_condition: true

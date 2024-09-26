@@ -445,7 +445,7 @@ function brms_common_deploy_010(&$sandbox = NULL) {
 }
 
 /**
- * Update new Scale field with data from obsolete Scale field.
+ * Update new Scale field with data from old Scale field for aerial photos.
  */
 function brms_common_deploy_011(&$sandbox = NULL) {
   if (!isset($sandbox['progress'])) {
@@ -479,5 +479,81 @@ function brms_common_deploy_011(&$sandbox = NULL) {
   $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
 
   \Drupal::messenger()->addMessage(t('Updated @progress of @max aerial photos.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}
+
+/**
+ * Update new Scale field with data from old Scale field for cadastral maps.
+ */
+function brms_common_deploy_012(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'cadastral_map')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('field_scale') && !$node->field_scale->isEmpty() && $node->hasField('field_cad_map_scale')) {
+      // Ignore invalid scales.
+      if (in_array($node->field_scale->value, ['1.777777778', '0.909722222', '3.513888889'])) {
+        continue;
+      }
+      $old_scale = str_replace([',', ' ', ':'], ['', '', '_'], $node->field_scale->value);
+      if ($old_scale == '1_10001') {
+        $old_scale = '1_10000';
+      }
+      $node->field_cad_map_scale->value = $old_scale;
+      $node->save();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max cadastral maps.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}
+
+/**
+ * Enable Generate automatic URL alias option on existing nodes.
+ */
+function brms_common_deploy_013(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', [
+        'aerial_photos',
+        'cadastral_map',
+        'distract_map',
+        'forest_reserve_boundary',
+        'map_base_layer',
+      ], 'IN')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    $node->path->pathauto = 1;
+    $node->save();
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max nodes.',
     ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }

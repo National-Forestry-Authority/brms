@@ -1,22 +1,22 @@
-uuid: 9f4fb130-01e0-42ce-840f-bc411c737444
+uuid: cdf61c5c-8d6d-417e-958d-e4005679953a
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: map_base_layer
-label: 'Map base layer'
+id: district_maps
+label: 'District maps'
 type: 'canonical_entities:node'
-pattern: 'base-layers/[node:title]'
+pattern: 'district-maps/[node:title]'
 selection_criteria:
-  4adc8c4a-e767-4997-8d73-900e24d3b104:
+  5afd3bfe-8e07-4c5a-a297-6924d39e381f:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 4adc8c4a-e767-4997-8d73-900e24d3b104
+    uuid: 5afd3bfe-8e07-4c5a-a297-6924d39e381f
     context_mapping:
       node: node
     bundles:
-      map_base_layer: map_base_layer
+      district_map: district_map
 selection_logic: and
 weight: -5
 relationships: {  }
