@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.aerial_photos.field_date
     - field.field.node.aerial_photos.field_film_number
     - field.field.node.aerial_photos.field_image
+    - field.field.node.aerial_photos.field_map_scale
     - field.field.node.aerial_photos.field_meta_data
     - field.field.node.aerial_photos.field_notes
     - field.field.node.aerial_photos.field_photo_number
@@ -85,10 +86,16 @@ content:
     third_party_settings: {  }
   field_image:
     type: media_library_widget
-    weight: 26
+    weight: 21
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_map_scale:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_meta_data:
     type: entity_reference_autocomplete
@@ -128,14 +135,6 @@ content:
     weight: 13
     region: content
     settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_scale:
-    type: string_textfield
-    weight: 11
-    region: content
-    settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_type:
@@ -199,3 +198,4 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_scale: true

@@ -1,5 +1,5 @@
 status: 1
-pattern: 'Record ID [node:field_record_no] - Aerial Photo'
+pattern: '[node:field_area] Aerial Photo [node:field_photo_number]'
 escape: false
 preserve_titles: false
 save: true
