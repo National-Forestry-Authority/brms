@@ -1,0 +1,22 @@
+uuid: 5e53a288-0c68-44ac-b744-45982611eed4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: forest_inventory_maps
+label: 'Forest inventory maps'
+type: 'canonical_entities:node'
+pattern: 'forest-inventory-maps/[node:title]'
+selection_criteria:
+  684f49ac-55d6-4158-975b-2b913b1d10c9:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 684f49ac-55d6-4158-975b-2b913b1d10c9
+    context_mapping:
+      node: node
+    bundles:
+      forest_reserve_boundary: forest_reserve_boundary
+selection_logic: and
+weight: -5
+relationships: {  }
