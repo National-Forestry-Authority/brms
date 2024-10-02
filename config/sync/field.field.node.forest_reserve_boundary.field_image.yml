@@ -1,0 +1,29 @@
+uuid: 671fd797-4ff7-4802-ba66-f9224460bce0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - media.type.image
+    - node.type.forest_reserve_boundary
+id: node.forest_reserve_boundary.field_image
+field_name: field_image
+entity_type: node
+bundle: forest_reserve_boundary
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
