@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.forest_reserve_boundary.field_field_book_number
     - field.field.node.forest_reserve_boundary.field_folder_number
     - field.field.node.forest_reserve_boundary.field_gazetted_area
+    - field.field.node.forest_reserve_boundary.field_image
     - field.field.node.forest_reserve_boundary.field_magnetic_declination
     - field.field.node.forest_reserve_boundary.field_map_ref_1
     - field.field.node.forest_reserve_boundary.field_map_ref_2
@@ -78,6 +79,7 @@ hidden:
   field_field_book_number: true
   field_folder_number: true
   field_gazetted_area: true
+  field_image: true
   field_magnetic_declination: true
   field_map_ref_1: true
   field_map_ref_2: true

@@ -15,12 +15,18 @@ use Symfony\Component\Validator\Constraint as SymfonyConstraint;
 )]
 class UniqueFieldPerBundleConstraint extends SymfonyConstraint {
 
-  public $message = 'A @entity_type with @field_name %value already exists.';
+  /**
+   * The message that will be shown if the field is not unique.
+   *
+   * @var string
+   */
+  public $message = 'A record with @field_name %value already exists.';
 
   /**
    * Returns the name of the class that validates this constraint.
    *
    * @return string
+   *   The class name of the validator.
    */
   public function validatedBy() {
     return '\Drupal\brms_common\Plugin\Validation\Constraint\UniqueFieldValuePerBundleValidator';

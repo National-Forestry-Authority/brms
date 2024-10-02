@@ -881,36 +881,26 @@ display:
           default_row_class: true
           columns:
             title: title
+            field_record_no: field_record_no
             field_area: field_area
             field_scale: field_scale
-            field_notes: field_notes
-            uid: uid
-            created: created
-            body: body
             field_code: field_code
-            field_compiled_by: field_compiled_by
             field_condition: field_condition
-            field_coordinate_system: field_coordinate_system
-            field_edition: field_edition
             field_examined_by: field_examined_by
-            field_magnetic_declination: field_magnetic_declination
-            body_1: body_1
             field_number: field_number
             field_phases: field_phases
-            field_printed_by: field_printed_by
-            field_produced_by: field_produced_by
-            field_published_by: field_published_by
-            field_ref_number: field_ref_number
-            field_series: field_series
             field_sheet_number: field_sheet_number
-            field_surveyed_by: field_surveyed_by
             field_year: field_year
-            field_meta_data: field_meta_data
-            nid_1: nid_1
-            nid: nid
           default: '-1'
           info:
             title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_record_no:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -931,42 +921,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_notes:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            created:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            body:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_code:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_compiled_by:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -980,35 +935,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_coordinate_system:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_edition:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_examined_by:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_magnetic_declination:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            body_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1029,41 +956,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_printed_by:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_produced_by:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_published_by:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_ref_number:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_series:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_sheet_number:
               sortable: false
               default_sort_order: asc
@@ -1071,35 +963,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_surveyed_by:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_year:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_meta_data:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nid:
               sortable: false
               default_sort_order: asc
               align: ''

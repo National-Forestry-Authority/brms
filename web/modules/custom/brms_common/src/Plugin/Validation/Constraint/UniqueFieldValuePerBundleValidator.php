@@ -57,7 +57,7 @@ class UniqueFieldValuePerBundleValidator extends UniqueFieldValueValidator {
       foreach ($duplicate_values as $delta => $dupe) {
         $violation = $this->context
           ->buildViolation($constraint->message)
-          ->setParameter('@entity_type', $entity_label)
+          ->setParameter('@bundle', $entity->bundle())
           ->setParameter('@field_name', $field_label)
           ->setParameter('%value', $dupe);
         if ($is_multiple) {
@@ -73,7 +73,7 @@ class UniqueFieldValuePerBundleValidator extends UniqueFieldValueValidator {
       foreach ($duplicate_values as $delta => $dupe) {
         $this->context
           ->buildViolation($constraint->message)
-          ->setParameter('@entity_type', $entity_label)
+          ->setParameter('@bundle', $entity->bundle())
           ->setParameter('@field_name', $field_label)
           ->setParameter('%value', $dupe)
           ->atPath((string) $delta)
@@ -101,6 +101,30 @@ class UniqueFieldValuePerBundleValidator extends UniqueFieldValueValidator {
     return array_filter($intersect_map, function ($x) {
       return $x !== NULL;
     });
+  }
+
+  /**
+   * Get an array of duplicate field values.
+   *
+   * @param array $item_values
+   *   The item values.
+   *
+   * @return array
+   *   Item values only for deltas that duplicate an earlier delta.
+   */
+  private function extractDuplicates(array $item_values): array {
+    $value_frequency = array_count_values($item_values);
+
+    // Filter out item values which are not duplicates while preserving deltas.
+    $duplicate_values = array_intersect($item_values, array_keys(array_filter(
+      $value_frequency, function ($value) {
+        return $value > 1;
+      })
+    ));
+
+    // Exclude the first delta of each duplicate value.
+    $first_deltas = array_unique($duplicate_values);
+    return array_diff_key($duplicate_values, $first_deltas);
   }
 
 }

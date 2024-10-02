@@ -208,7 +208,12 @@ function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterfac
       $fields['nfa_sites_global_id']->addConstraint('UniqueField');
     }
   }
-  if ($entity_type->id() === 'node' && $bundle === 'aerial_photos') {
+  $bundles = [
+    'forest_reserve_boundary',
+    'aerial_photos',
+    'district_map',
+  ];
+  if ($entity_type->id() === 'node' && in_array('aerial_photos', $bundles)) {
     if (isset($fields['field_record_no'])) {
       $fields['field_record_no']->addConstraint('UniqueFieldPerBundle');
     }
