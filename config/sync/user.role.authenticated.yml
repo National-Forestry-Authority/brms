@@ -14,7 +14,6 @@ dependencies:
     - node.type.forest_reserve_boundary
     - node.type.historical_sheets
     - node.type.meta_data
-    - node.type.satellite_image
     - node.type.transparency_maps
   module:
     - environment_indicator
@@ -47,7 +46,6 @@ permissions:
   - 'create forest_reserve_boundary content'
   - 'create historical_sheets content'
   - 'create meta_data content'
-  - 'create satellite_image content'
   - 'create transparency_maps content'
   - 'delete own activity content'
   - 'delete own aerial_photos content'
@@ -60,7 +58,6 @@ permissions:
   - 'delete own forest_reserve_boundary content'
   - 'delete own historical_sheets content'
   - 'delete own meta_data content'
-  - 'delete own satellite_image content'
   - 'delete own transparency_maps content'
   - 'edit own activity content'
   - 'edit own aerial_photos content'
@@ -72,7 +69,6 @@ permissions:
   - 'edit own forest_reserve_boundary content'
   - 'edit own historical_sheets content'
   - 'edit own meta_data content'
-  - 'edit own satellite_image content'
   - 'edit own transparency_maps content'
   - 'use text format some_html'
   - 'view activity revisions'
@@ -87,5 +83,4 @@ permissions:
   - 'view media'
   - 'view meta_data revisions'
   - 'view own unpublished content'
-  - 'view satellite_image revisions'
   - 'view transparency_maps revisions'
