@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
+    - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - text
@@ -85,4 +86,5 @@ hidden:
   geolayers: true
   meta_data_explanation: true
   natural_boundary_length: true
+  record_id: true
   total_boundary_length: true

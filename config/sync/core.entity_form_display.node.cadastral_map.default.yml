@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
+    - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - datetime
@@ -63,11 +64,12 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
     group_reference_numbers:
       children:
+        - record_id
         - field_record_no
         - field_reference_no
         - field_map_ref_1
@@ -82,7 +84,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
     group_map_data:
@@ -109,7 +111,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
 id: node.cadastral_map.default
@@ -226,7 +228,7 @@ content:
     third_party_settings: {  }
   field_map_ref_1:
     type: string_textfield
-    weight: 12
+    weight: 35
     region: content
     settings:
       size: 60
@@ -264,14 +266,14 @@ content:
     third_party_settings: {  }
   field_record_no:
     type: number
-    weight: 10
+    weight: 33
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_reference_no:
     type: string_textfield
-    weight: 11
+    weight: 34
     region: content
     settings:
       size: 60
@@ -304,7 +306,7 @@ content:
     third_party_settings: {  }
   field_sheet_number:
     type: string_textfield
-    weight: 13
+    weight: 36
     region: content
     settings:
       size: 60
@@ -369,6 +371,13 @@ content:
     weight: 7
     region: content
     settings: {  }
+    third_party_settings: {  }
+  record_id:
+    type: number
+    weight: 32
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox

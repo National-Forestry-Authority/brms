@@ -9,8 +9,8 @@ id: node.cadastral_map.field_record_no
 field_name: field_record_no
 entity_type: node
 bundle: cadastral_map
-label: 'Record ID'
-description: ''
+label: 'Record Number'
+description: 'A non-unique record number'
 required: false
 translatable: false
 default_value: {  }
