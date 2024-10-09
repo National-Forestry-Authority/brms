@@ -10,7 +10,7 @@ field_name: field_record_no
 entity_type: node
 bundle: aerial_photos
 label: 'Record ID'
-description: ''
+description: 'A unique record ID'
 required: true
 translatable: false
 default_value: {  }

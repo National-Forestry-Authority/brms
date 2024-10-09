@@ -25,6 +25,7 @@ dependencies:
     - field.storage.node.field_sheet_number
     - field.storage.node.field_surveyed_by
     - field.storage.node.field_year
+    - field.storage.node.record_id
     - node.type.cadastral_map
     - node.type.district_map
     - system.menu.admin
@@ -117,6 +118,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        record_id:
+          id: record_id
+          table: node__record_id
+          field: record_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Record ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_record_no:
           id: field_record_no
           table: node__field_record_no
@@ -125,7 +190,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Record ID'
+          label: 'Record number'
           exclude: false
           alter:
             alter_text: false
@@ -1853,9 +1918,9 @@ display:
           default_row_class: true
           columns:
             title_1: title_1
+            record_id: record_id
             field_record_no: field_record_no
             field_area: field_area
-            field_scale: field_scale
             field_cad_map_scale: field_cad_map_scale
             field_notes: field_notes
             uid: uid
@@ -1888,6 +1953,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            record_id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_record_no:
               sortable: true
               default_sort_order: asc
@@ -1896,13 +1968,6 @@ display:
               empty_column: false
               responsive: ''
             field_area:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_scale:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -1945,7 +2010,7 @@ display:
               empty_column: false
               responsive: ''
             field_code:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1959,14 +2024,14 @@ display:
               empty_column: false
               responsive: ''
             field_condition:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_coordinate_system:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1987,7 +2052,7 @@ display:
               empty_column: false
               responsive: ''
             field_magnetic_declination:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2001,14 +2066,14 @@ display:
               empty_column: false
               responsive: ''
             field_number:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_phases:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2036,21 +2101,21 @@ display:
               empty_column: false
               responsive: ''
             field_ref_number:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_series:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_sheet_number:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2064,7 +2129,7 @@ display:
               empty_column: false
               responsive: ''
             field_year:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2140,6 +2205,7 @@ display:
         - 'config:field.storage.node.field_sheet_number'
         - 'config:field.storage.node.field_surveyed_by'
         - 'config:field.storage.node.field_year'
+        - 'config:field.storage.node.record_id'
   listing:
     id: listing
     display_title: Page
@@ -2503,3 +2569,4 @@ display:
         - 'config:field.storage.node.field_sheet_number'
         - 'config:field.storage.node.field_surveyed_by'
         - 'config:field.storage.node.field_year'
+        - 'config:field.storage.node.record_id'

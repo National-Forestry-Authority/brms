@@ -557,3 +557,35 @@ function brms_common_deploy_013(&$sandbox = NULL) {
   \Drupal::messenger()->addMessage(t('Updated @progress of @max nodes.',
     ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }
+
+/**
+ * Initialiase the Record Id field in cadastral maps.
+ */
+function brms_common_deploy_014(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'cadastral_map')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('record_id')) {
+      $node->record_id->value = $sandbox['progress'] + 1;
+      $node->save();
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max cadastral maps.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}

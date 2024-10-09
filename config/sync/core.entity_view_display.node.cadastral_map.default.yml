@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.cadastral_map.field_year
     - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
+    - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - datetime
@@ -50,8 +51,9 @@ third_party_settings:
   field_group:
     group_reference_numbers:
       children:
-        - field_reference_no
+        - record_id
         - field_record_no
+        - field_reference_no
         - field_sheet_number
         - field_map_ref_1
       label: 'Reference numbers'
@@ -248,7 +250,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 6
+    weight: 22
     region: content
   field_printed_by:
     type: entity_reference_label
@@ -289,7 +291,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 4
+    weight: 19
     region: content
   field_reference_no:
     type: string
@@ -299,7 +301,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 3
+    weight: 20
     region: content
   field_retraced_by:
     type: entity_reference_label
@@ -337,7 +339,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 5
+    weight: 21
     region: content
   field_surveyed_by:
     type: entity_reference_label
@@ -390,6 +392,17 @@ content:
       field_formatter_class:
         class: bounded
     weight: 5
+    region: content
+  record_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 18
     region: content
 hidden:
   feeds_item: true

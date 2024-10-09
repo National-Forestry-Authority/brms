@@ -12,7 +12,7 @@ entity_type: node
 bundle: aerial_photos
 label: 'District / Area'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
