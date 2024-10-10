@@ -82,7 +82,7 @@ third_party_settings:
         - field_year
         - field_code
         - field_copies
-      label: 'Map data'
+      label: Characteristics
       parent_name: ''
       region: content
       weight: 3
@@ -94,7 +94,6 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: false
     group_surveyors:
       children:
         - field_surveyed_by

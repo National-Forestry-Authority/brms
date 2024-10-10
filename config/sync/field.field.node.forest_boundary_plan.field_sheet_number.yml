@@ -1,0 +1,19 @@
+uuid: 4674d68a-821a-4aca-95d3-6744a75943dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sheet_number
+    - node.type.forest_boundary_plan
+id: node.forest_boundary_plan.field_sheet_number
+field_name: field_sheet_number
+entity_type: node
+bundle: forest_boundary_plan
+label: 'Sheet Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

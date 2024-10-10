@@ -1,0 +1,18 @@
+uuid: 7be49778-cce8-46ab-ad71-d57991e1d850
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Forest Boundary Plan'
+type: forest_boundary_plan
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

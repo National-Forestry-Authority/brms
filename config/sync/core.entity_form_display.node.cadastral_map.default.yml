@@ -101,7 +101,7 @@ third_party_settings:
         - field_code
         - field_scanned_copy
         - field_copies
-      label: 'Map data'
+      label: Characteristics
       region: content
       parent_name: ''
       weight: 3

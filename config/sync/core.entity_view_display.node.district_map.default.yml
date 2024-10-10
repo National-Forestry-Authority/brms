@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.district_map.field_district_map_scale
     - field.field.node.district_map.field_edition
     - field.field.node.district_map.field_examined_by
+    - field.field.node.district_map.field_image
     - field.field.node.district_map.field_magnetic_declination
     - field.field.node.district_map.field_meta_data
     - field.field.node.district_map.field_number
@@ -90,7 +91,7 @@ third_party_settings:
         - field_year
         - field_edition
         - field_series
-      label: 'Map data'
+      label: Characteristics
       parent_name: ''
       region: content
       weight: 2
@@ -102,7 +103,6 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: false
 id: node.district_map.default
 targetEntityType: node
 bundle: district_map
@@ -195,6 +195,17 @@ content:
       field_formatter_class:
         class: pill
     weight: 12
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: center
+    weight: 0
     region: content
   field_magnetic_declination:
     type: string

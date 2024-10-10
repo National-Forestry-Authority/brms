@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.district_map.field_district_map_scale
     - field.field.node.district_map.field_edition
     - field.field.node.district_map.field_examined_by
+    - field.field.node.district_map.field_image
     - field.field.node.district_map.field_magnetic_declination
     - field.field.node.district_map.field_meta_data
     - field.field.node.district_map.field_number
@@ -31,7 +32,10 @@ dependencies:
     - node.type.district_map
   module:
     - datetime
+    - field_formatter_class
     - field_group
+    - media_library
+    - media_library_edit
     - path
     - text
 third_party_settings:
@@ -88,7 +92,8 @@ third_party_settings:
         - field_year
         - field_edition
         - field_series
-      label: 'Map data'
+        - field_image
+      label: Characteristics
       region: content
       parent_name: ''
       weight: 3
@@ -108,7 +113,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -118,7 +123,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -192,6 +197,18 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 14
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
   field_magnetic_declination:
     type: string_textfield
     weight: 10
@@ -202,7 +219,7 @@ content:
     third_party_settings: {  }
   field_meta_data:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -305,7 +322,7 @@ content:
     third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
-    weight: 6
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -313,13 +330,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 8
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -334,7 +351,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS

@@ -48,8 +48,10 @@ dependencies:
     - node.type.forest_reserve_boundary
   module:
     - datetime
+    - field_formatter_class
     - field_group
     - media_library
+    - media_library_edit
     - path
     - text
 third_party_settings:
@@ -325,7 +327,12 @@ content:
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
   field_magnetic_declination:
     type: string_textfield
     weight: 6
