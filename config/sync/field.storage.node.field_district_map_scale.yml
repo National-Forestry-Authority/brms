@@ -1,0 +1,39 @@
+uuid: 5a57ae03-c283-401a-99ba-b67812047090
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_district_map_scale
+field_name: field_district_map_scale
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1_10000'
+      label: '1:10,000'
+    -
+      value: '1_25000'
+      label: '1:25,000'
+    -
+      value: '1_30000'
+      label: '1:30,000'
+    -
+      value: '1_50000'
+      label: '1:50,000'
+    -
+      value: '1_60000'
+      label: '1:60,000'
+    -
+      value: '1_250000'
+      label: '1:250,000'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

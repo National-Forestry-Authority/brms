@@ -1037,7 +1037,7 @@ display:
               empty_column: false
               responsive: ''
             field_date:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1065,14 +1065,14 @@ display:
               empty_column: false
               responsive: ''
             field_film_number:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_run_number:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1093,14 +1093,14 @@ display:
               empty_column: false
               responsive: ''
             field_copies:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_altitude:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''

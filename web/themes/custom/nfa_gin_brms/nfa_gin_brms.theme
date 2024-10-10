@@ -5,3 +5,24 @@
  * nfa_gin_brms.theme
  */
 
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function nfa_gin_brms_preprocess_page_title(&$variables) {
+  // Get the current route name.
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name === 'entity.node.edit_form' || $route_name === 'entity.node.canonical') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node instanceof Node) {
+      if ($node->bundle() == 'cadastral_map' && $node->hasField('record_id') && !$node->get('record_id')->isEmpty()) {
+        $variables['title'] = $node->getTitle() . ' ' . $node->get('record_id')->value;
+      }
+      if ($node->bundle() == 'district_map' && $node->hasField('field_record_no') && !$node->get('field_record_no')->isEmpty()) {
+        $variables['title'] = $node->getTitle() . ' ' . $node->get('field_record_no')->value;
+      }
+    }
+  }
+
+}

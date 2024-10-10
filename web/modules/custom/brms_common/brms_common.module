@@ -363,4 +363,3 @@ function brms_common_user_login(UserInterface $account) {
     }
   }
 }
-

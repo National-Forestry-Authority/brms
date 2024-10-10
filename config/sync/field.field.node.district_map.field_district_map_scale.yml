@@ -1,0 +1,21 @@
+uuid: 245b569f-7ef4-4443-95c5-75319be23f61
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_district_map_scale
+    - node.type.district_map
+  module:
+    - options
+id: node.district_map.field_district_map_scale
+field_name: field_district_map_scale
+entity_type: node
+bundle: district_map
+label: Scale
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
