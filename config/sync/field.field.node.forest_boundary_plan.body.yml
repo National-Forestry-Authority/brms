@@ -1,0 +1,24 @@
+uuid: be6e33c0-d509-48e0-9745-56e36021d035
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.forest_boundary_plan
+  module:
+    - text
+id: node.forest_boundary_plan.body
+field_name: body
+entity_type: node
+bundle: forest_boundary_plan
+label: Notes
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

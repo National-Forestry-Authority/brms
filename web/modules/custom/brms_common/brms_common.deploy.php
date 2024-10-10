@@ -534,7 +534,7 @@ function brms_common_deploy_013(&$sandbox = NULL) {
       ->condition('type', [
         'aerial_photos',
         'cadastral_map',
-        'distract_map',
+        'district_map',
         'forest_reserve_boundary',
         'map_base_layer',
       ], 'IN')

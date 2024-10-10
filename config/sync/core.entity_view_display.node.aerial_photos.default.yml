@@ -61,9 +61,9 @@ third_party_settings:
         - field_company
         - field_date
         - field_meta_data
-        - meta_data_explanation
         - field_notes
-      label: Details
+        - meta_data_explanation
+      label: Characteristics
       parent_name: ''
       region: content
       weight: 2
@@ -133,7 +133,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 9
+    weight: 8
     region: content
   field_film_number:
     type: string
@@ -173,7 +173,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 10
+    weight: 9
     region: content
   field_notes:
     type: basic_string
@@ -182,7 +182,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: bounded
-    weight: 12
+    weight: 10
     region: content
   field_photo_number:
     type: string

@@ -1,0 +1,115 @@
+uuid: 48fae5fc-3a52-465b-8ff1-ee8b378be568
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.forest_boundary_plan.body
+    - field.field.node.forest_boundary_plan.field_boundary_plan_no
+    - field.field.node.forest_boundary_plan.field_boundary_plan_scale
+    - field.field.node.forest_boundary_plan.field_image
+    - field.field.node.forest_boundary_plan.field_sheet_number
+    - field.field.node.forest_boundary_plan.field_year_gazetted
+    - node.type.forest_boundary_plan
+  module:
+    - field_formatter_class
+    - media_library
+    - media_library_edit
+    - path
+    - text
+    - yearonly
+id: node.forest_boundary_plan.default
+targetEntityType: node
+bundle: forest_boundary_plan
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 6
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_boundary_plan_no:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_boundary_plan_scale:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
+  field_sheet_number:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_year_gazetted:
+    type: yearonly_default
+    weight: 4
+    region: content
+    settings:
+      sort_order: asc
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

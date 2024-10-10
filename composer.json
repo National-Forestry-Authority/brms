@@ -57,6 +57,7 @@
         "drupal/key": "^1.19",
         "drupal/leaflet": "^2.2",
         "drupal/leaflet_more_maps": "^2.1",
+        "drupal/media_library_edit": "^3.0",
         "drupal/migrate_plus": "^6",
         "drupal/migrate_source_csv": "^3",
         "drupal/migrate_source_directory": "^2",
