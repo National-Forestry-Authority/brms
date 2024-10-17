@@ -1,0 +1,43 @@
+uuid: 75f75bd9-a7e9-45bf-86f8-aed20a5108cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.lightbox
+    - field.field.media.image.media_image
+    - image.style.large
+    - media.type.image
+  module:
+    - field_formatter_class
+    - glightbox
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: media.image.lightbox
+targetEntityType: media
+bundle: image
+mode: lightbox
+content:
+  media_image:
+    type: glightbox
+    label: visually_hidden
+    settings:
+      glightbox_node_style: large
+      glightbox_node_style_first: ''
+      glightbox_image_style: ''
+      glightbox_gallery: post
+      glightbox_gallery_custom: ''
+      glightbox_caption: auto
+      glightbox_caption_custom: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

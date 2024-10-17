@@ -54,3 +54,17 @@
   margin: 2rem auto;
 }
 
+.glightbox {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.glightbox img {
+  transform: scale(1);
+}
+
+.glightbox:hover img {
+  transition: transform ease-in .2s;
+  transform: scale(1.0125);
+}
+
