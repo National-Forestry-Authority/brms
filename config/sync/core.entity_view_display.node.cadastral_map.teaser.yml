@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_image
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -31,7 +32,6 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
-    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
     - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
@@ -68,6 +68,7 @@ hidden:
   field_datum: true
   field_edition: true
   field_examined_by: true
+  field_image: true
   field_magnetic_declination: true
   field_map_ref_1: true
   field_printed_by: true
@@ -83,7 +84,6 @@ hidden:
   field_surveyed_by: true
   field_traced_by: true
   field_year: true
-  geolayers: true
   meta_data_explanation: true
   natural_boundary_length: true
   record_id: true

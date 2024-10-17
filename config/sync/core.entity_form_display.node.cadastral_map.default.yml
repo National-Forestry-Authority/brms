@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_image
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -30,16 +31,16 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
-    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
     - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - datetime
-    - entity_browser_entity_form
+    - field_formatter_class
     - field_group
     - file
-    - inline_entity_form
+    - media_library
+    - media_library_edit
     - path
     - text
 third_party_settings:
@@ -101,6 +102,7 @@ third_party_settings:
         - field_code
         - field_scanned_copy
         - field_copies
+        - field_image
       label: Characteristics
       region: content
       parent_name: ''
@@ -137,7 +139,7 @@ content:
     third_party_settings: {  }
   field_area_covered:
     type: string_textfield
-    weight: 20
+    weight: 19
     region: content
     settings:
       size: 60
@@ -145,13 +147,13 @@ content:
     third_party_settings: {  }
   field_cad_map_scale:
     type: options_select
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_code:
     type: string_textfield
-    weight: 22
+    weight: 21
     region: content
     settings:
       size: 60
@@ -169,7 +171,7 @@ content:
     third_party_settings: {  }
   field_condition:
     type: entity_reference_autocomplete
-    weight: 19
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -179,7 +181,7 @@ content:
     third_party_settings: {  }
   field_coordinate_system:
     type: string_textfield
-    weight: 16
+    weight: 15
     region: content
     settings:
       size: 60
@@ -187,14 +189,14 @@ content:
     third_party_settings: {  }
   field_copies:
     type: number
-    weight: 24
+    weight: 23
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_datum:
     type: string_textfield
-    weight: 18
+    weight: 17
     region: content
     settings:
       size: 60
@@ -218,9 +220,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 24
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
   field_magnetic_declination:
     type: string_textfield
-    weight: 17
+    weight: 16
     region: content
     settings:
       size: 60
@@ -291,7 +305,7 @@ content:
     third_party_settings: {  }
   field_scanned_copy:
     type: file_generic
-    weight: 23
+    weight: 22
     region: content
     settings:
       progress_indicator: throbber
@@ -334,30 +348,10 @@ content:
     third_party_settings: {  }
   field_year:
     type: datetime_default
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
-  geolayers:
-    type: inline_entity_form_complex
-    weight: 6
-    region: content
-    settings:
-      form_mode: default
-      override_labels: true
-      label_singular: Geolayer
-      label_plural: Geolayers
-      allow_new: true
-      allow_existing: true
-      match_operator: CONTAINS
-      allow_duplicate: false
-      collapsible: true
-      collapsed: true
-      revision: false
-      removed_reference: optional
-    third_party_settings:
-      entity_browser_entity_form:
-        entity_browser_id: geolayers
   meta_data_explanation:
     type: string_textarea
     weight: 5

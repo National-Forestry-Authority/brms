@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_image
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -30,7 +31,6 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
-    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
     - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
@@ -39,7 +39,6 @@ dependencies:
     - field_formatter_class
     - field_group
     - file
-    - geolayer_map
     - layout_builder
     - options
     - text
@@ -231,6 +230,17 @@ content:
         class: pill
     weight: 15
     region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: center
+    weight: 0
+    region: content
   field_magnetic_declination:
     type: string
     label: above
@@ -370,13 +380,6 @@ content:
       field_formatter_class:
         class: pill
     weight: 15
-    region: content
-  geolayers:
-    type: geolayer_map_geolayers
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
   links:
     settings: {  }
