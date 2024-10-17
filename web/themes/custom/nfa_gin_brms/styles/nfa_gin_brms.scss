@@ -40,3 +40,17 @@
 .bounded {
   margin: 2rem auto;
 }
+
+.glightbox {
+  display: inline-block;
+  overflow: hidden;
+   img {
+     transform: scale(1);
+   }
+  &:hover {
+    img {
+      transition: transform ease-in 0.2s;
+      transform: scale(1.0125);
+    }
+  }
+}

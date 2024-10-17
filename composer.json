@@ -53,6 +53,7 @@
         "drupal/gin": "^3",
         "drupal/gin_lb": "^1.0.x-dev",
         "drupal/gin_login": "^2",
+        "drupal/glightbox": "^1.0",
         "drupal/inline_entity_form": "^3",
         "drupal/key": "^1.19",
         "drupal/leaflet": "^2.2",
