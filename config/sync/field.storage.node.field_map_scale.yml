@@ -23,9 +23,6 @@ settings:
     -
       value: '1_60000'
       label: '1:60000'
-    -
-      value: '127750'
-      label: '127750'
   allowed_values_function: ''
 module: options
 locked: false

@@ -8,7 +8,6 @@ dependencies:
     - field.storage.taxonomy_term.line_style
     - field.storage.taxonomy_term.line_width
     - node.type.map_base_layer
-    - system.menu.admin
   module:
     - color_field
     - geofield
@@ -1295,7 +1294,7 @@ display:
       display_extenders: {  }
       path: map-base-layers
       menu:
-        type: normal
+        type: none
         title: 'Map base layers'
         description: ''
         weight: 0

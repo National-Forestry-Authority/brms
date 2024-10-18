@@ -622,3 +622,34 @@ function brms_common_deploy_015(&$sandbox = NULL) {
   \Drupal::messenger()->addMessage(t('Updated @progress of @max district maps.',
     ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }
+
+/**
+ * Remove invalid scale value from aerial photos.
+ */
+function brms_common_deploy_016(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'aerial_photos')
+      ->condition('field_map_scale', '127750')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    $node->field_map_scale->value = '';
+    $node->save();
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max aerial photos.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}
