@@ -1,0 +1,22 @@
+uuid: bb5ed538-6edc-4407-b8e2-ed1115865723
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.field_books
+id: node.field_books.promote
+field_name: promote
+entity_type: node
+bundle: field_books
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

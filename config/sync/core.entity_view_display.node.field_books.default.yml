@@ -4,10 +4,20 @@ status: true
 dependencies:
   config:
     - field.field.node.field_books.body
+    - field.field.node.field_books.field_book_number
+    - field.field.node.field_books.field_book_subsection
+    - field.field.node.field_books.field_scanned_copy
     - node.type.field_books
   module:
+    - field_formatter_class
+    - layout_builder
+    - pdf
     - text
     - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 id: node.field_books.default
 targetEntityType: node
 bundle: field_books
@@ -18,12 +28,39 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 2
+    region: content
+  field_book_number:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_book_subsection:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_scanned_copy:
+    type: pdf_pages
+    label: hidden
+    settings:
+      scale: '1'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 1
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
   natural_boundary_length: true

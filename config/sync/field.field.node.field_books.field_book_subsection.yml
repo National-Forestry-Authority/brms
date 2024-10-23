@@ -1,0 +1,19 @@
+uuid: 59e5d974-6ad0-4b61-a889-5c65d84617a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_book_subsection
+    - node.type.field_books
+id: node.field_books.field_book_subsection
+field_name: field_book_subsection
+entity_type: node
+bundle: field_books
+label: 'Field book subsection'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

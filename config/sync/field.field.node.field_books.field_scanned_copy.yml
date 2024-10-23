@@ -1,0 +1,27 @@
+uuid: 5ce4ed14-9971-4b50-9e2d-7c5a28f92e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scanned_copy
+    - node.type.field_books
+  module:
+    - file
+id: node.field_books.field_scanned_copy
+field_name: field_scanned_copy
+entity_type: node
+bundle: field_books
+label: 'Scanned Copy'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file
