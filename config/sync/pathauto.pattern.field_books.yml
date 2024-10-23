@@ -1,0 +1,22 @@
+uuid: e1cc9e98-0396-46c5-9fe2-15d3df8d5475
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: field_books
+label: 'Field books'
+type: 'canonical_entities:node'
+pattern: 'field-books/[node:title]-[node:field_book_number]'
+selection_criteria:
+  48cb384e-8c62-427f-8797-2c1150e5337c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 48cb384e-8c62-427f-8797-2c1150e5337c
+    context_mapping:
+      node: node
+    bundles:
+      field_books: field_books
+selection_logic: and
+weight: -5
+relationships: {  }

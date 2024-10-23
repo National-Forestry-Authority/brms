@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.field_books.body
+    - field.field.node.field_books.field_book_number
+    - field.field.node.field_books.field_book_subsection
+    - field.field.node.field_books.field_scanned_copy
     - node.type.field_books
   module:
     - text
@@ -28,5 +31,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_book_number: true
+  field_book_subsection: true
+  field_scanned_copy: true
   natural_boundary_length: true
   total_boundary_length: true

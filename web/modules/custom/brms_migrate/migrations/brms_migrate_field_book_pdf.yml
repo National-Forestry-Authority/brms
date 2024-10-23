@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_field_book_pdf
+migration_tags:
+  - Content
+label: Field books pdfs
+source:
+  plugin: directory
+  track_changes: true
+  directory:
+    path: public://migrations/field_books
+  # All files with a .pdf extension.
+  file_mask: '/^.*\.pdf$/'
+  constants:
+    uri_file: 'private:/'
+process:
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - source_file_path
+        - source_file_filename
+  uri_file:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/uri_file
+        - source_file_filename
+    -
+      plugin: urlencode
+  filename: source_file_filename
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@uri_file'
+destination:
+  plugin: 'entity:file'
+migration_dependencies:
+  required: {  }
+  optional: {  }

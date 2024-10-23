@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - filter.format.some_html
     - node.type.field_books
   module:
     - text
@@ -11,7 +12,7 @@ id: node.field_books.body
 field_name: body
 entity_type: node
 bundle: field_books
-label: Body
+label: Description
 description: ''
 required: false
 translatable: true
@@ -20,4 +21,6 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: false
+  allowed_formats:
+    - some_html
 field_type: text_with_summary

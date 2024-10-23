@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies: {  }
+id: brms_migrate_field_book
+migration_tags:
+  - Content
+label: Field books
+source:
+  plugin: directory_fieldbook
+  track_changes: true
+  directory:
+    path: public://migrations/field_books
+  # All files with a .pdf extension.
+  file_mask: '/^.*\.pdf$/'
+  recurse_level: -1
+process:
+  type:
+    plugin: default_value
+    default_value: 'field_books'
+  title: title
+  field_book_number: field_book_number
+  field_book_subsection: field_book_subsection
+  field_scanned_copy:
+    plugin: migration_lookup
+    migration: brms_migrate_field_book_pdf
+    source: sourceID
+  revision_log:
+    plugin: default_value
+    default_value: 'Import field books'
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required:
+    - brms_migrate_field_book_pdf
