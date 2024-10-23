@@ -39,5 +39,10 @@ function nfa_gin_brms_preprocess_node__field_books(array &$variables) {
     $url = Url::fromUri($file_url, ['attributes' => ['target' => '_blank']]);
     $variables['pdf_link'] = Link::fromTextAndUrl(t('Download scanned copy'), $url)->toString();
   }
-  $variables['book_number'] = $node->get('field_book_number')->value . $node->get('field_book_subsection')->value;
+  if (!$node->get('field_book_number')->isEmpty()) {
+    $variables['book_number'] = $node->get('field_book_number')->value . $node->get('field_book_subsection')->value;
+  }
+  else {
+    $variables['book_number'] = t('Unknown');
+  }
 }
