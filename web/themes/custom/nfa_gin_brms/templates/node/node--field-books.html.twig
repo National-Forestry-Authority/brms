@@ -87,11 +87,7 @@
     <div class="bounded">
       {{ pdf_link }}
     </div>
-    <p><strong>{{ 'First page of scanned copy' | t }}</strong></p>
-    <a href="{{ pdf_url }}" target="_blank">
-      {{ content.field_scanned_copy }}
-    </a>
-    {{ content | without('field_book_number', 'field_book_subsection', 'field_scanned_copy') }}
+    {{ content | without('field_book_number', 'field_book_subsection') }}
   </div>
 
 </article>
