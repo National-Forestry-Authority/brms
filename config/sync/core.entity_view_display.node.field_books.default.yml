@@ -48,10 +48,12 @@ content:
     weight: 4
     region: content
   field_scanned_copy:
-    type: pdf_pages
+    type: pdf_thumbnail
     label: hidden
     settings:
       scale: '1'
+      width: ''
+      height: ''
     third_party_settings:
       field_formatter_class:
         class: ''

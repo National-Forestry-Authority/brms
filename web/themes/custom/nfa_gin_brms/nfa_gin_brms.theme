@@ -37,6 +37,7 @@ function nfa_gin_brms_preprocess_node__field_books(array &$variables) {
     $file = $node->get('field_scanned_copy')->entity;
     $file_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
     $url = Url::fromUri($file_url, ['attributes' => ['target' => '_blank']]);
+    $variables['pdf_url'] = $file_url;
     $variables['pdf_link'] = Link::fromTextAndUrl(t('Download scanned copy'), $url)->toString();
   }
   if (!$node->get('field_book_number')->isEmpty()) {
