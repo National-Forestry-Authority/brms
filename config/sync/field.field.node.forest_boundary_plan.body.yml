@@ -1,17 +1,17 @@
-uuid: f7c7bf69-2b41-46f9-a770-390d94af0a40
+uuid: be6e33c0-d509-48e0-9745-56e36021d035
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.satellite_image
+    - node.type.forest_boundary_plan
   module:
     - text
-id: node.satellite_image.body
+id: node.forest_boundary_plan.body
 field_name: body
 entity_type: node
-bundle: satellite_image
-label: Body
+bundle: forest_boundary_plan
+label: Notes
 description: ''
 required: false
 translatable: true
@@ -20,4 +20,5 @@ default_value_callback: ''
 settings:
   display_summary: true
   required_summary: false
+  allowed_formats: {  }
 field_type: text_with_summary

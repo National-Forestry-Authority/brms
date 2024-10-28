@@ -94,3 +94,15 @@ brms_common.map_base_layer.add_task:
     - view.map_base_layers.listing
   cache_tags:
     - node_list
+brms_common.forest_boundary_plan.add_task:
+  title: 'Add Forest Boundary Plan'
+  route_name: node.add
+  route_parameters:
+    node_type: forest_boundary_plan
+  options:
+    query:
+      destination: '/forest-boundary-plans'
+  appears_on:
+    - view.forest_boundary_plans.listing
+  cache_tags:
+    - node_list

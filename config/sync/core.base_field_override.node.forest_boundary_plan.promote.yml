@@ -1,13 +1,13 @@
-uuid: ced7017e-4382-4b5e-992c-6f65ee4cb2fc
+uuid: dbc3d3cd-ed1f-4561-a069-cd40d3bdeff8
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.satellite_image
-id: node.satellite_image.promote
+    - node.type.forest_boundary_plan
+id: node.forest_boundary_plan.promote
 field_name: promote
 entity_type: node
-bundle: satellite_image
+bundle: forest_boundary_plan
 label: 'Promoted to front page'
 description: ''
 required: false

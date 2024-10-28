@@ -11,8 +11,10 @@ dependencies:
     - field.field.node.district_map.field_compiled_by
     - field.field.node.district_map.field_condition
     - field.field.node.district_map.field_coordinate_system
+    - field.field.node.district_map.field_district_map_scale
     - field.field.node.district_map.field_edition
     - field.field.node.district_map.field_examined_by
+    - field.field.node.district_map.field_image
     - field.field.node.district_map.field_magnetic_declination
     - field.field.node.district_map.field_meta_data
     - field.field.node.district_map.field_number
@@ -49,8 +51,10 @@ hidden:
   field_compiled_by: true
   field_condition: true
   field_coordinate_system: true
+  field_district_map_scale: true
   field_edition: true
   field_examined_by: true
+  field_image: true
   field_magnetic_declination: true
   field_meta_data: true
   field_number: true

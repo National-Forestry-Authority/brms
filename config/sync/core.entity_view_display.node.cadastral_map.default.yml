@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.cadastral_map.body
     - field.field.node.cadastral_map.feeds_item
     - field.field.node.cadastral_map.field_area_covered
+    - field.field.node.cadastral_map.field_cad_map_scale
     - field.field.node.cadastral_map.field_code
     - field.field.node.cadastral_map.field_compiled_by
     - field.field.node.cadastral_map.field_condition
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_image
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -29,16 +31,16 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
-    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
+    - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - datetime
     - field_formatter_class
     - field_group
     - file
-    - geolayer_map
     - layout_builder
+    - options
     - text
     - user
 third_party_settings:
@@ -48,8 +50,9 @@ third_party_settings:
   field_group:
     group_reference_numbers:
       children:
-        - field_reference_no
+        - record_id
         - field_record_no
+        - field_reference_no
         - field_sheet_number
         - field_map_ref_1
       label: 'Reference numbers'
@@ -70,7 +73,7 @@ third_party_settings:
         - field_coordinate_system
         - field_datum
         - field_area_covered
-        - field_scale
+        - field_cad_map_scale
         - field_magnetic_declination
         - field_condition
         - field_edition
@@ -78,10 +81,10 @@ third_party_settings:
         - field_year
         - field_code
         - field_copies
-      label: 'Map data'
+      label: Characteristics
       parent_name: ''
       region: content
-      weight: 4
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -90,7 +93,6 @@ third_party_settings:
         label_as_html: false
         open: true
         description: ''
-        required_fields: false
     group_surveyors:
       children:
         - field_surveyed_by
@@ -121,10 +123,12 @@ mode: default
 content:
   body:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
-    third_party_settings: {  }
-    weight: 5
+    third_party_settings:
+      field_formatter_class:
+        class: bounded
+    weight: 4
     region: content
   field_area_covered:
     type: string
@@ -135,6 +139,15 @@ content:
       field_formatter_class:
         class: pill
     weight: 8
+    region: content
+  field_cad_map_scale:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 10
     region: content
   field_code:
     type: string
@@ -217,6 +230,17 @@ content:
         class: pill
     weight: 15
     region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: lightbox
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
   field_magnetic_declination:
     type: string
     label: above
@@ -235,7 +259,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 6
+    weight: 22
     region: content
   field_printed_by:
     type: entity_reference_label
@@ -276,7 +300,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 4
+    weight: 19
     region: content
   field_reference_no:
     type: string
@@ -286,7 +310,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 3
+    weight: 20
     region: content
   field_retraced_by:
     type: entity_reference_label
@@ -298,23 +322,13 @@ content:
         class: pill
     weight: 13
     region: content
-  field_scale:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings:
-      field_formatter_class:
-        class: pill
-    weight: 9
-    region: content
   field_scanned_copy:
     type: file_default
     label: above
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }
-    weight: 7
+    weight: 6
     region: content
   field_series:
     type: string
@@ -334,7 +348,7 @@ content:
     third_party_settings:
       field_formatter_class:
         class: pill
-    weight: 5
+    weight: 21
     region: content
   field_surveyed_by:
     type: entity_reference_label
@@ -361,32 +375,39 @@ content:
     label: above
     settings:
       timezone_override: ''
-      format_type: html_date
+      format_type: html_year
     third_party_settings:
       field_formatter_class:
         class: pill
     weight: 15
     region: content
-  geolayers:
-    type: geolayer_map_geolayers
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 7
     region: content
   meta_data_explanation:
     type: basic_string
     label: above
     settings: {  }
-    third_party_settings: {  }
-    weight: 6
+    third_party_settings:
+      field_formatter_class:
+        class: bounded
+    weight: 5
+    region: content
+  record_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 18
     region: content
 hidden:
   feeds_item: true
+  field_scale: true
   natural_boundary_length: true
   total_boundary_length: true

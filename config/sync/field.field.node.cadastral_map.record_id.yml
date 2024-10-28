@@ -1,0 +1,23 @@
+uuid: b5094e36-5e92-4666-82cb-c130d5b5b245
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.record_id
+    - node.type.cadastral_map
+id: node.cadastral_map.record_id
+field_name: record_id
+entity_type: node
+bundle: cadastral_map
+label: 'Record ID'
+description: 'A unique record ID'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

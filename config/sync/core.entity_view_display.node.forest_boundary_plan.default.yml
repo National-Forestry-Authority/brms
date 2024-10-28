@@ -1,0 +1,85 @@
+uuid: 2374f309-9f73-4b19-8404-04bfd5e2cc53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.forest_boundary_plan.body
+    - field.field.node.forest_boundary_plan.field_boundary_plan_no
+    - field.field.node.forest_boundary_plan.field_boundary_plan_scale
+    - field.field.node.forest_boundary_plan.field_image
+    - field.field.node.forest_boundary_plan.field_sheet_number
+    - field.field.node.forest_boundary_plan.field_year_gazetted
+    - node.type.forest_boundary_plan
+  module:
+    - field_formatter_class
+    - options
+    - text
+    - user
+    - yearonly
+id: node.forest_boundary_plan.default
+targetEntityType: node
+bundle: forest_boundary_plan
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_boundary_plan_no:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 2
+    region: content
+  field_boundary_plan_scale:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 3
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: lightbox
+      link: false
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+  field_sheet_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 0
+    region: content
+  field_year_gazetted:
+    type: yearonly_default
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

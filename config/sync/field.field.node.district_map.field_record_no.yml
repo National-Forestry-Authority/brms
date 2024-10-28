@@ -10,8 +10,8 @@ field_name: field_record_no
 entity_type: node
 bundle: district_map
 label: 'Record ID'
-description: ''
-required: false
+description: 'A unique record ID'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

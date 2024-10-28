@@ -1,0 +1,23 @@
+uuid: 3e840919-d504-4527-bca0-64e360a07f0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_boundary_plan_scale
+    - node.type.forest_boundary_plan
+  module:
+    - options
+id: node.forest_boundary_plan.field_boundary_plan_scale
+field_name: field_boundary_plan_scale
+entity_type: node
+bundle: forest_boundary_plan
+label: Scale
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1_10000'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

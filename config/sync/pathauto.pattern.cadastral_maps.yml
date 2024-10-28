@@ -1,0 +1,22 @@
+uuid: 67938dd0-cfac-4975-b9ea-eea3de15a251
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: cadastral_maps
+label: 'Cadastral maps'
+type: 'canonical_entities:node'
+pattern: 'cadastral-maps/[node:title]'
+selection_criteria:
+  74e93523-5dbd-4e19-9649-3203a11ce887:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 74e93523-5dbd-4e19-9649-3203a11ce887
+    context_mapping:
+      node: node
+    bundles:
+      cadastral_map: cadastral_map
+selection_logic: and
+weight: -5
+relationships: {  }

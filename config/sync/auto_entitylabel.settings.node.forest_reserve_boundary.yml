@@ -1,8 +1,8 @@
 status: 1
-pattern: '[node:field_record_no]'
+pattern: '[node:field_name] - [node:field_record_no]'
 escape: false
 preserve_titles: false
-save: false
+save: true
 chunk: 50
 dependencies:
   config:

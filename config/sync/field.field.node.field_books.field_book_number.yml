@@ -1,0 +1,23 @@
+uuid: 187770c4-620d-41be-a06d-7d8d82e96c2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_book_number
+    - node.type.field_books
+id: node.field_books.field_book_number
+field_name: field_book_number
+entity_type: node
+bundle: field_books
+label: 'Field book number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

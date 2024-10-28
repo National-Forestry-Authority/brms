@@ -7,12 +7,12 @@ dependencies:
 id: map_base_layer
 label: 'Map base layer'
 type: 'canonical_entities:node'
-pattern: 'base-layer/[node:title]'
+pattern: 'base-layers/[node:title]'
 selection_criteria:
-  8d14ec7e-c849-4eab-a6a7-e51b48f15272:
+  4adc8c4a-e767-4997-8d73-900e24d3b104:
     id: 'entity_bundle:node'
     negate: false
-    uuid: 8d14ec7e-c849-4eab-a6a7-e51b48f15272
+    uuid: 4adc8c4a-e767-4997-8d73-900e24d3b104
     context_mapping:
       node: node
     bundles:

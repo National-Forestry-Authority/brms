@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.cadastral_map.body
     - field.field.node.cadastral_map.feeds_item
     - field.field.node.cadastral_map.field_area_covered
+    - field.field.node.cadastral_map.field_cad_map_scale
     - field.field.node.cadastral_map.field_code
     - field.field.node.cadastral_map.field_compiled_by
     - field.field.node.cadastral_map.field_condition
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.cadastral_map.field_datum
     - field.field.node.cadastral_map.field_edition
     - field.field.node.cadastral_map.field_examined_by
+    - field.field.node.cadastral_map.field_image
     - field.field.node.cadastral_map.field_magnetic_declination
     - field.field.node.cadastral_map.field_map_ref_1
     - field.field.node.cadastral_map.field_printed_by
@@ -29,15 +31,16 @@ dependencies:
     - field.field.node.cadastral_map.field_surveyed_by
     - field.field.node.cadastral_map.field_traced_by
     - field.field.node.cadastral_map.field_year
-    - field.field.node.cadastral_map.geolayers
     - field.field.node.cadastral_map.meta_data_explanation
+    - field.field.node.cadastral_map.record_id
     - node.type.cadastral_map
   module:
     - datetime
-    - entity_browser_entity_form
+    - field_formatter_class
     - field_group
     - file
-    - inline_entity_form
+    - media_library
+    - media_library_edit
     - path
     - text
 third_party_settings:
@@ -62,11 +65,12 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
     group_reference_numbers:
       children:
+        - record_id
         - field_record_no
         - field_reference_no
         - field_map_ref_1
@@ -81,14 +85,14 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
     group_map_data:
       children:
         - field_series
         - field_edition
-        - field_scale
+        - field_cad_map_scale
         - field_coordinate_system
         - field_magnetic_declination
         - field_datum
@@ -97,7 +101,9 @@ third_party_settings:
         - field_year
         - field_code
         - field_scanned_copy
-      label: 'Map data'
+        - field_copies
+        - field_image
+      label: Characteristics
       region: content
       parent_name: ''
       weight: 3
@@ -107,7 +113,7 @@ third_party_settings:
         show_empty_fields: false
         id: ''
         label_as_html: false
-        open: false
+        open: true
         description: ''
         required_fields: true
 id: node.cadastral_map.default
@@ -138,6 +144,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_cad_map_scale:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_code:
     type: string_textfield
@@ -208,6 +220,18 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 24
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
   field_magnetic_declination:
     type: string_textfield
     weight: 16
@@ -218,7 +242,7 @@ content:
     third_party_settings: {  }
   field_map_ref_1:
     type: string_textfield
-    weight: 12
+    weight: 35
     region: content
     settings:
       size: 60
@@ -256,14 +280,14 @@ content:
     third_party_settings: {  }
   field_record_no:
     type: number
-    weight: 10
+    weight: 33
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_reference_no:
     type: string_textfield
-    weight: 11
+    weight: 34
     region: content
     settings:
       size: 60
@@ -276,14 +300,6 @@ content:
     settings:
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_scale:
-    type: string_textfield
-    weight: 14
-    region: content
-    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -304,7 +320,7 @@ content:
     third_party_settings: {  }
   field_sheet_number:
     type: string_textfield
-    weight: 13
+    weight: 36
     region: content
     settings:
       size: 60
@@ -336,26 +352,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  geolayers:
-    type: inline_entity_form_complex
-    weight: 6
-    region: content
-    settings:
-      form_mode: default
-      override_labels: true
-      label_singular: Geolayer
-      label_plural: Geolayers
-      allow_new: true
-      allow_existing: true
-      match_operator: CONTAINS
-      allow_duplicate: false
-      collapsible: true
-      collapsed: true
-      revision: false
-      removed_reference: optional
-    third_party_settings:
-      entity_browser_entity_form:
-        entity_browser_id: geolayers
   meta_data_explanation:
     type: string_textarea
     weight: 5
@@ -369,6 +365,13 @@ content:
     weight: 7
     region: content
     settings: {  }
+    third_party_settings: {  }
+  record_id:
+    type: number
+    weight: 32
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -397,5 +400,6 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_scale: true
   promote: true
   sticky: true

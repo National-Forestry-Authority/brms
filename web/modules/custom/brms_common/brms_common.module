@@ -15,28 +15,72 @@ use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_form_FORM_ID_alter() for case forest_reserve_edit_form.
  */
-function brms_common_form_node_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
+function brms_common_form_node_forest_reserve_edit_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
   // Make fields read-only for all except administrator role.
   if (!\Drupal::currentUser()->hasPermission('edit nfa readonly field')) {
+    $form['title']['#disabled'] = TRUE;
+    $form['forest_reserve_type']['#disabled'] = TRUE;
+    $form['gazetted_area']['#disabled'] = TRUE;
+    $form['gazetted_area_2']['#disabled'] = TRUE;
+  }
+  // NFA global id is always read-only.
+  $form['nfa_sites_global_id']['#disabled'] = TRUE;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function brms_common_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check if the node is being created or edited.
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->isNew()) {
     switch ($form_id) {
-      case 'node_forest_reserve_edit_form':
-        $form['title']['#disabled'] = TRUE;
-        $form['forest_reserve_type']['#disabled'] = TRUE;
-        $form['gazetted_area']['#disabled'] = TRUE;
-        $form['gazetted_area_2']['#disabled'] = TRUE;
+      case 'node_aerial_photos_form':
+        $bundle = 'aerial_photos';
+        $field_name = 'field_record_no';
+        break;
+
+      case 'node_cadastral_map_form':
+        $bundle = 'cadastral_map';
+        $field_name = 'record_id';
+        break;
+
+      case 'node_district_map_form':
+        $bundle = 'district_map';
+        $field_name = 'field_record_no';
+        break;
+
+      case 'node_forest_reserve_boundary_form':
+        $bundle = 'forest_reserve_boundary';
+        $field_name = 'field_record_no';
         break;
 
       default:
+        $bundle = $field_name = NULL;
         break;
     }
-  }
-  // NFA global id is always read-only.
-  if ($form_id == 'node_forest_reserve_edit_form') {
-    $form['nfa_sites_global_id']['#disabled'] = TRUE;
-  }
 
+    if ($bundle && $field_name) {
+      // Prefill the field_record_no field with the next number in sequence.
+      $entity_type_manager = \Drupal::service('entity_type.manager');
+      $query = $entity_type_manager->getStorage('node')->getQuery()
+        ->condition('type', $bundle)
+        ->sort($field_name, 'DESC')
+        ->accessCheck(FALSE)
+        ->range(0, 1);
+      $result = $query->execute();
+      $last_node = reset($result);
+      if ($last_node) {
+        $last_node = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($last_node);
+        $last_record_no = $last_node->$field_name->value;
+        $form[$field_name]['widget'][0]['value']['#default_value'] = $last_record_no + 1;
+      }
+    }
+  }
 }
 
 /**
@@ -208,9 +252,17 @@ function brms_common_entity_bundle_field_info_alter(&$fields, EntityTypeInterfac
       $fields['nfa_sites_global_id']->addConstraint('UniqueField');
     }
   }
-  if ($entity_type->id() === 'node' && $bundle === 'aerial_photos') {
-    if (isset($fields['field_record_no'])) {
+  $bundles = [
+    'forest_reserve_boundary',
+    'aerial_photos',
+    'district_map',
+  ];
+  if ($entity_type->id() === 'node') {
+    if (in_array($bundle, $bundles) && isset($fields['field_record_no'])) {
       $fields['field_record_no']->addConstraint('UniqueFieldPerBundle');
+    }
+    if ($bundle === 'cadastral_map' && isset($fields['record_id'])) {
+      $fields['record_id']->addConstraint('UniqueFieldPerBundle');
     }
   }
 }
@@ -311,4 +363,3 @@ function brms_common_user_login(UserInterface $account) {
     }
   }
 }
-

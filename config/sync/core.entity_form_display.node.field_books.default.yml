@@ -4,8 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.field_books.body
+    - field.field.node.field_books.field_book_number
+    - field.field.node.field_books.field_book_subsection
+    - field.field.node.field_books.field_scanned_copy
     - node.type.field_books
   module:
+    - file
+    - path
     - text
 id: node.field_books.default
 targetEntityType: node
@@ -14,7 +19,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -24,34 +29,48 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 15
+  field_book_number:
+    type: number
+    weight: 1
     region: content
     settings:
-      display_label: true
+      placeholder: ''
+    third_party_settings: {  }
+  field_book_subsection:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_scanned_copy:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 16
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -67,4 +86,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true

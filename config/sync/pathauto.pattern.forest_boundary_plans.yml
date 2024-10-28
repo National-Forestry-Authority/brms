@@ -1,0 +1,22 @@
+uuid: fb483b0c-5089-4073-885c-1a2f7fa44fe3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: forest_boundary_plans
+label: 'Forest boundary plans'
+type: 'canonical_entities:node'
+pattern: 'forest-boundary-plans/[node:title]'
+selection_criteria:
+  8ccfad3b-4cff-42c3-8f84-4053c4ad0bbb:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 8ccfad3b-4cff-42c3-8f84-4053c4ad0bbb
+    context_mapping:
+      node: node
+    bundles:
+      forest_boundary_plan: forest_boundary_plan
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -10,8 +10,10 @@ dependencies:
     - field.field.node.district_map.field_compiled_by
     - field.field.node.district_map.field_condition
     - field.field.node.district_map.field_coordinate_system
+    - field.field.node.district_map.field_district_map_scale
     - field.field.node.district_map.field_edition
     - field.field.node.district_map.field_examined_by
+    - field.field.node.district_map.field_image
     - field.field.node.district_map.field_magnetic_declination
     - field.field.node.district_map.field_meta_data
     - field.field.node.district_map.field_number
@@ -30,8 +32,80 @@ dependencies:
     - node.type.district_map
   module:
     - datetime
+    - field_formatter_class
+    - field_group
+    - media_library
+    - media_library_edit
     - path
     - text
+third_party_settings:
+  field_group:
+    group_surveyors:
+      children:
+        - field_surveyed_by
+        - field_examined_by
+        - field_compiled_by
+        - field_produced_by
+        - field_published_by
+        - field_printed_by
+      label: Surveyors
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_reference_numbers:
+      children:
+        - field_record_no
+        - field_ref_number
+        - field_number
+        - field_sheet_number
+        - field_code
+      label: 'Reference numbers'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
+    group_map_data:
+      children:
+        - field_area
+        - field_district_map_scale
+        - field_condition
+        - field_coordinate_system
+        - field_phases
+        - field_magnetic_declination
+        - field_year
+        - field_edition
+        - field_series
+        - field_image
+      label: Characteristics
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        open: true
+        description: ''
+        required_fields: true
 id: node.district_map.default
 targetEntityType: node
 bundle: district_map
@@ -39,7 +113,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 27
+    weight: 5
     region: content
     settings:
       rows: 9
@@ -49,13 +123,13 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 3
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_area:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -73,7 +147,7 @@ content:
     third_party_settings: {  }
   field_compiled_by:
     type: entity_reference_autocomplete
-    weight: 26
+    weight: 24
     region: content
     settings:
       match_operator: CONTAINS
@@ -83,7 +157,7 @@ content:
     third_party_settings: {  }
   field_condition:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -93,85 +167,27 @@ content:
     third_party_settings: {  }
   field_coordinate_system:
     type: string_textfield
-    weight: 10
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_edition:
-    type: string_textfield
-    weight: 17
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_examined_by:
-    type: entity_reference_autocomplete
-    weight: 16
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_magnetic_declination:
-    type: string_textfield
-    weight: 15
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_meta_data:
-    type: entity_reference_autocomplete
-    weight: 28
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_number:
-    type: string_textfield
-    weight: 21
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_phases:
-    type: string_textfield
     weight: 8
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_printed_by:
-    type: entity_reference_autocomplete
-    weight: 23
+  field_district_map_scale:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_edition:
+    type: string_textfield
+    weight: 12
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_produced_by:
-    type: entity_reference_autocomplete
-    weight: 19
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_published_by:
+  field_examined_by:
     type: entity_reference_autocomplete
     weight: 22
     region: content
@@ -181,24 +197,92 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 14
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      media_library_edit:
+        show_edit: '1'
+        edit_form_mode: default
+  field_magnetic_declination:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_meta_data:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_number:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phases:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_printed_by:
+    type: entity_reference_autocomplete
+    weight: 27
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_produced_by:
+    type: entity_reference_autocomplete
+    weight: 25
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_published_by:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_record_no:
     type: number
-    weight: 2
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_ref_number:
     type: string_textfield
-    weight: 12
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_scale:
-    type: string_textfield
-    weight: 13
+    weight: 6
     region: content
     settings:
       size: 60
@@ -206,7 +290,7 @@ content:
     third_party_settings: {  }
   field_series:
     type: string_textfield
-    weight: 18
+    weight: 13
     region: content
     settings:
       size: 60
@@ -214,7 +298,7 @@ content:
     third_party_settings: {  }
   field_sheet_number:
     type: string_textfield
-    weight: 25
+    weight: 8
     region: content
     settings:
       size: 60
@@ -222,7 +306,7 @@ content:
     third_party_settings: {  }
   field_surveyed_by:
     type: entity_reference_autocomplete
-    weight: 24
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -232,13 +316,13 @@ content:
     third_party_settings: {  }
   field_year:
     type: datetime_default
-    weight: 20
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   meta_data_explanation:
     type: string_textarea
-    weight: 29
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -246,27 +330,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 4
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 5
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -281,7 +351,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -291,3 +361,6 @@ content:
     third_party_settings: {  }
 hidden:
   feeds_item: true
+  field_scale: true
+  promote: true
+  sticky: true
