@@ -82,6 +82,13 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         // migration to retrieve the geolayer id that will be assigned to the
         // forest reserve.
         $row->setSourceProperty('migration_id', $nid . '-' . $parts[1]);
+
+        // Set the Legal SI area source property.
+        if (preg_match('/<SimpleData name="areaha">([^<]+)<\/SimpleData>/', $content, $matches)) {
+          $area = $matches[1];
+          $row->setSourceProperty('legal_si_area', $area);
+        }
+
         break;
 
       case 'brms_migrate_utm10000_geolayers':

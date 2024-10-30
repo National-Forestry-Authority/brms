@@ -15,6 +15,7 @@ source:
   recurse_level: -1
 process:
   nid: nid
+  legal_si_area: legal_si_area
   geolayer_id:
     plugin: migration_lookup
     migration: brms_migrate_forest_reserve_geolayers
