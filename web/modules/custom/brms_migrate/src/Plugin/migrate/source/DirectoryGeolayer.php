@@ -25,6 +25,13 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
   protected $geoPhpWrapper;
 
   /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration = NULL) {
@@ -35,6 +42,7 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
       $migration,
     );
     $instance->geoPhpWrapper = $container->get('geofield.geophp');
+    $instance->entityTypeManager = $container->get('entity_type.manager');
     return $instance;
   }
 
@@ -87,6 +95,14 @@ class DirectoryGeolayer extends Directory implements ContainerFactoryPluginInter
         if (preg_match('/<SimpleData name="areaha">([^<]+)<\/SimpleData>/', $content, $matches)) {
           $area = $matches[1];
           $row->setSourceProperty('legal_si_area', $area);
+        }
+        else {
+          // If the area is not found in the KML file, check if the node
+          // already has a value for legal SI area field, and use that.
+          $node = $this->entityTypeManager->getStorage('node')->load($nid);
+          if ($node && $node->hasField('legal_si_area') && !$node->get('legal_si_area')->isEmpty()) {
+            $row->setSourceProperty('legal_si_area', $node->get('legal_si_area')->value);
+          }
         }
 
         break;
