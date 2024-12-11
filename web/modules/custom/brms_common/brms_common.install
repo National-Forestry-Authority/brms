@@ -37,3 +37,44 @@ function brms_common_update_10001(&$sandbox = NULL) {
   \Drupal::messenger()->addMessage(t('Updated @progress of @max aerial photos.',
     ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
 }
+
+/**
+ * Clean up invalid geolayer references in Forest Reserve nodes.
+ */
+function brms_common_update_10002(&$sandbox = NULL) {
+  if (!isset($sandbox['progress'])) {
+    $entity_type_manager = \Drupal::service('entity_type.manager');
+    $storage = $entity_type_manager->getStorage('node');
+    $sandbox['ids'] = $storage
+      ->getQuery()
+      ->condition('type', 'forest_reserve')
+      ->accessCheck(FALSE)
+      ->execute();
+    $sandbox['max'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+    $sandbox['steps'] = 25;
+  }
+
+  $ids = array_slice($sandbox['ids'], $sandbox['progress'], $sandbox['steps']);
+  foreach (Node::loadMultiple($ids) as $node) {
+    if ($node->hasField('geolayers') && !$node->geolayers->isEmpty()) {
+      $geolayers = $node->get('geolayers')->getValue();
+      $valid_geolayers = [];
+      foreach ($geolayers as $geolayer) {
+        if (\Drupal::entityTypeManager()->getStorage('geolayer')->load($geolayer['target_id'])) {
+          $valid_geolayers[] = $geolayer;
+        }
+      }
+      if (count($valid_geolayers) !== count($geolayers)) {
+        $node->set('geolayers', $valid_geolayers);
+        $node->save();
+      }
+    }
+    $sandbox['progress']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['progress'] / $sandbox['max']);
+
+  \Drupal::messenger()->addMessage(t('Updated @progress of @max forest reserves.',
+    ['@progress' => $sandbox['progress'], '@max' => $sandbox['max']]));
+}

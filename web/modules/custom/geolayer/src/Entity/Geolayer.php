@@ -89,6 +89,37 @@ class Geolayer extends RevisionableContentEntityBase implements GeolayerInterfac
   /**
    * {@inheritdoc}
    */
+  public function delete() {
+    // Load all nodes that reference this geolayer entity.
+    $nids = \Drupal::entityQuery('node')
+      ->condition('geolayers', $this->id())
+      ->accessCheck(FALSE)
+      ->execute();
+
+    if (!empty($nids)) {
+      $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+      $nodes = $storage_handler->loadMultiple($nids);
+
+      foreach ($nodes as $node) {
+        // Remove the reference to the deleted geolayer entity.
+        $geolayers = $node->get('geolayers')->getValue();
+        foreach ($geolayers as $key => $geolayer) {
+          if ($geolayer['target_id'] == $this->id()) {
+            $node->get('geolayers')->removeItem($key);
+          }
+        }
+        // Save the node.
+        $node->save();
+      }
+    }
+
+    // Call the parent delete method.
+    parent::delete();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
 
     $fields = parent::baseFieldDefinitions($entity_type);

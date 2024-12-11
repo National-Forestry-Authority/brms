@@ -44,7 +44,9 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
           return;
         }
 
-        $layer_type = Term::load($geolayer->layer_type->target_id);
+        if (!empty($geolayer->layer_type->target_id)) {
+          $layer_type = Term::load($geolayer->layer_type->target_id);
+        }
         if ($layer_type && !$layer_type->hasField('forest_reserve_computed_field')) {
           return;
         }
