@@ -12,9 +12,6 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: total_area_computed
-      label: 'Total area'
-    -
       value: total_boundary_length_computed
       label: 'Total boundary length'
     -

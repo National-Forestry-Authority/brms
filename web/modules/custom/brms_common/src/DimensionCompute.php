@@ -82,11 +82,6 @@ class DimensionCompute extends FieldItemList implements FieldItemListInterface {
                 $this->list[0] = $this->createItem(0, $wkt->greatCircleLength() / 1000);
               }
             }
-            elseif ($dimension_to_calculate == 'area') {
-              // @todo area is not in hectares. Figure out how to generate metric
-              // units. See https://www.drupal.org/project/farm/issues/3425516
-              $this->list[0] = $this->createItem(0, $wkt->area());
-            }
             elseif ($dimension_to_calculate == 'points') {
               $this->list[0] = $this->createItem(0, $wkt->numPoints());
             }

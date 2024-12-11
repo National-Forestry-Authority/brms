@@ -90,19 +90,6 @@ function brms_common_entity_bundle_field_info(EntityTypeInterface $entity_type, 
   // Add computed fields to the forest reserve bundle.
   $fields = [];
   if ($entity_type->id() === 'node' && $bundle === 'forest_reserve') {
-    // @todo add a field for the total area of the forest reserve.
-    // See DimensionCompute.php#L84
-//    $fields['total_area_computed'] = BaseFieldDefinition::create('decimal')
-//      ->setName('total_area_computed')
-//      ->setLabel(t('Total area (ha)'))
-//      ->setComputed(TRUE)
-//      ->setDisplayConfigurable('view', TRUE)
-//      ->setSettings([
-//        'suffix' => ' ha',
-//        'metric' => 'area',
-//      ])
-//      ->setClass(DimensionCompute::class);
-
     $fields['total_boundary_length_computed'] = BaseFieldDefinition::create('decimal')
       ->setName('total_boundary_length_computed')
       ->setLabel(t('Total boundary length (km)'))
@@ -360,6 +347,20 @@ function brms_common_user_login(UserInterface $account) {
       $current_request->query->set(
         'destination', Url::fromRoute('<front>')->toString()
       );
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function brms_common_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Check if the entity is of type 'forest_reserve'.
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'forest_reserve') {
+    // Check if the entity is new and the nfa_sites_global_id field is empty.
+    if ($entity->isNew() && $entity->get('nfa_sites_global_id')->isEmpty()) {
+      // Set the nfa_sites_global_id field to the entity's UUID.
+      $entity->set('nfa_sites_global_id', $entity->uuid());
     }
   }
 }
