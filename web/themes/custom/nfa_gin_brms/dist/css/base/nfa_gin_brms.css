@@ -68,3 +68,7 @@
   transform: scale(1.0125);
 }
 
+[class*=block-views-blockcontent-counters-block-] {
+  white-space: nowrap;
+}
+

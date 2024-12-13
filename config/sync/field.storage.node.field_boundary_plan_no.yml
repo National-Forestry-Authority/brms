@@ -1,17 +1,16 @@
-uuid: 9841c8ef-296a-4de9-8aff-4bdc593e8ffb
+uuid: f6d15301-899b-43f2-83fd-b7e2ca48890d
 langcode: en
 status: true
 dependencies:
   module:
     - node
+    - taxonomy
 id: node.field_boundary_plan_no
 field_name: field_boundary_plan_no
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

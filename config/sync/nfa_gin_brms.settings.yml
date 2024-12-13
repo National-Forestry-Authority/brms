@@ -23,3 +23,4 @@ favicon:
   use_default: 1
 accent_color: '#006547'
 focus_color: ''
+sticky_action_buttons: 0

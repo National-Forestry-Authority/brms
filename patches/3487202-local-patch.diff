@@ -1,0 +1,22 @@
+diff --git a/css/environment_indicator.css b/css/environment_indicator.css
+index 40b0766..1b3cff5 100644
+--- a/css/environment_indicator.css
++++ b/css/environment_indicator.css
+@@ -89,12 +89,13 @@
+   margin-top: var(--enviroment-indicator-border-width);
+ }
+ 
+-[dir="ltr"] .gin--vertical-toolbar .toolbar-menu-administration > .toolbar-menu > .menu-item .toolbar-menu {
+-  margin-left: calc(var(--gin-toolbar-width-collapsed, var(--ginToolbarWidthCollapsed)) - 4px);
++
++.gin--vertical-toolbar .toolbar-menu-administration > .toolbar-menu > .menu-item .toolbar-menu {
++  margin-inline-start: calc(var(--gin-toolbar-width-collapsed, var(--ginToolbarWidthCollapsed)) - 4px);
+ }
+ 
+-[dir="rtl"] .gin--vertical-toolbar .toolbar-menu-administration > .toolbar-menu > .menu-item .toolbar-menu {
+-  margin-right: calc(var(--gin-toolbar-width-collapsed, var(--ginToolbarWidthCollapsed)) - 4px);
++.gin--vertical-toolbar[data-toolbar-menu="open"] .toolbar-menu-administration > .toolbar-menu > .menu-item .toolbar-menu {
++  margin-inline-start: calc(var(--gin-toolbar-width, var(--ginToolbarWidth)) - 4px);
+ }
+ 
+ @media (min-width: 61em) {

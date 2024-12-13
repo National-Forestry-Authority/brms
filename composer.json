@@ -157,7 +157,8 @@
         },
         "patches": {
           "drupal/environment_indicator": {
-            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff"
+            "3362940: Improve visibility when using Gin vertical and modern horizontal toolbars": "https://git.drupalcode.org/project/environment_indicator/-/merge_requests/22.diff",
+            "3487202: Gin vertical toolbar submenu's overlap": "patches/3487202-local-patch.diff"
           },
           "drupal/migrate_tools": {
             "3412074: Drush command to disable a migration": "https://www.drupal.org/files/issues/2024-01-03/3412074-migrate-disable-command.patch"

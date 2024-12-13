@@ -1,19 +1,29 @@
-uuid: 3820abca-c259-4160-8586-4d6272262bbf
+uuid: 518148f5-99ae-48a9-aa26-378d1b8b0277
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_boundary_plan_no
     - node.type.forest_boundary_plan
+    - taxonomy.vocabulary.boundary_plan_number
 id: node.forest_boundary_plan.field_boundary_plan_no
 field_name: field_boundary_plan_no
 entity_type: node
 bundle: forest_boundary_plan
 label: 'Boundary plan number'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      boundary_plan_number: boundary_plan_number
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
