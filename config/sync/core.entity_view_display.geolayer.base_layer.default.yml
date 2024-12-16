@@ -18,14 +18,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 1
     region: content
   geofield:
     type: geolayer_map_geofield
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   label:
     type: string

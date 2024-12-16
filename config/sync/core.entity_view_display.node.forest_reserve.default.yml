@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.forest_reserve.year_gazetted
     - node.type.forest_reserve
   module:
+    - cshs
     - entity_reference_revisions
     - field_formatter_class
     - field_group
@@ -262,10 +263,12 @@ content:
     weight: 0
     region: content
   district:
-    type: entity_reference_label
+    type: cshs_full_hierarchy
     label: above
     settings:
-      link: false
+      linked: false
+      reverse: false
+      separator: ' » '
     third_party_settings:
       field_formatter_class:
         class: pill
