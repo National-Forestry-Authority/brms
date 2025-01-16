@@ -5,6 +5,8 @@ services:
   db:
     image: ${DB_IMAGE?err}:${DB_IMAGE_TAG?err}
     restart: unless-stopped
+    command:
+      --transaction-isolation=READ-COMMITTED
     stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ADMIN_PASS?err}
