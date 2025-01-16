@@ -928,6 +928,7 @@ display:
             geofield: geofield__value
             geolocation: geofield__value
             wkt: geofield__value
+            id_field: ''
             name_field: label
             description_field: description__value
           jsonp_prefix: ''
