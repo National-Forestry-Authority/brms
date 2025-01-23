@@ -8,6 +8,7 @@
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 /**
  * Implements hook_preprocess_page_title().
@@ -24,6 +25,14 @@ function nfa_gin_brms_preprocess_page_title(&$variables) {
       if ($node->bundle() == 'district_map' && $node->hasField('field_record_no') && !$node->get('field_record_no')->isEmpty()) {
         $variables['title'] = $node->getTitle() . ' ' . $node->get('field_record_no')->value;
       }
+    }
+  }
+  if (\Drupal::routeMatch()->getParameter('taxonomy_term')) {
+    $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+    if ($term) {
+      $vocabulary_id = $term->bundle();
+      $vocabulary = Vocabulary::load($vocabulary_id);
+      $variables['term_vocabulary'] = $vocabulary->label();
     }
   }
 }

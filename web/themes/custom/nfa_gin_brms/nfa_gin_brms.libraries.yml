@@ -2,3 +2,22 @@ nfa_gin_brms:
   css:
     theme:
       dist/css/base/nfa_gin_brms.css: { minified: false }
+
+swiper:
+  version: 2.3.0
+  css:
+    theme:
+      dist/swiper/swiper-bundle.min.css: { minified: true }
+  js:
+    dist/swiper/swiper-bundle.min.js: { minified: true }
+
+
+media.carousel:
+  version: 1.0.0
+  js:
+    dist/js/media-carousel.js: {}
+  dependencies:
+    - nfa_gin_brms/swiper
+    - core/jquery
+    - core/drupal
+    - core/once
