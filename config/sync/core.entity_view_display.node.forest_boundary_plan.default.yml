@@ -33,7 +33,9 @@ content:
     label: above
     settings:
       link: true
-    third_party_settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: pill
     weight: 1
     region: content
   field_boundary_plan_scale:

@@ -181,7 +181,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -191,7 +191,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -201,7 +201,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -211,7 +211,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -221,7 +221,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -278,7 +278,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -297,7 +297,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -307,7 +307,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -317,7 +317,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -429,7 +429,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -465,7 +465,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill
@@ -501,7 +501,7 @@ content:
     type: entity_reference_label
     label: above
     settings:
-      link: false
+      link: true
     third_party_settings:
       field_formatter_class:
         class: pill

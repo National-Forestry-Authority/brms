@@ -27,10 +27,12 @@ content:
       glightbox_node_style: large
       glightbox_node_style_first: ''
       glightbox_image_style: ''
-      glightbox_gallery: post
+      glightbox_gallery: parent
       glightbox_gallery_custom: ''
       glightbox_caption: auto
       glightbox_caption_custom: ''
+      glightbox_caption_description: auto
+      glightbox_caption_description_custom: ''
     third_party_settings:
       field_formatter_class:
         class: ''
