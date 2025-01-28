@@ -4,13 +4,81 @@ status: true
 dependencies:
   config:
     - filter.format.some_html
+    - media.type.image
+    - node.type.aerial_photos
+    - node.type.cadastral_map
+    - node.type.district_map
+    - node.type.field_books
+    - node.type.forest_boundary_plan
+    - node.type.forest_reserve
+    - node.type.forest_reserve_boundary
+    - node.type.historical_sheets
+    - node.type.meta_data
+    - node.type.transparency_maps
   module:
     - file
     - filter
+    - media
+    - node
 id: data_clerk
 label: 'Data Clerk'
 weight: -8
 is_admin: null
 permissions:
+  - 'create aerial_photos content'
+  - 'create cadastral_map content'
+  - 'create district_map content'
+  - 'create field_books content'
+  - 'create forest_boundary_plan content'
+  - 'create forest_reserve content'
+  - 'create forest_reserve_boundary content'
+  - 'create historical_sheets content'
+  - 'create image media'
+  - 'create meta_data content'
+  - 'create transparency_maps content'
+  - 'delete own aerial_photos content'
+  - 'delete own cadastral_map content'
+  - 'delete own district_map content'
+  - 'delete own field_books content'
   - 'delete own files'
+  - 'delete own forest_boundary_plan content'
+  - 'delete own forest_reserve content'
+  - 'delete own forest_reserve_boundary content'
+  - 'delete own historical_sheets content'
+  - 'delete own image media'
+  - 'delete own meta_data content'
+  - 'delete own transparency_maps content'
+  - 'edit any aerial_photos content'
+  - 'edit any cadastral_map content'
+  - 'edit any district_map content'
+  - 'edit any field_books content'
+  - 'edit any forest_boundary_plan content'
+  - 'edit any forest_reserve content'
+  - 'edit any forest_reserve_boundary content'
+  - 'edit any historical_sheets content'
+  - 'edit any image media'
+  - 'edit any meta_data content'
+  - 'edit any transparency_maps content'
+  - 'edit own aerial_photos content'
+  - 'edit own cadastral_map content'
+  - 'edit own district_map content'
+  - 'edit own field_books content'
+  - 'edit own forest_boundary_plan content'
+  - 'edit own forest_reserve content'
+  - 'edit own forest_reserve_boundary content'
+  - 'edit own historical_sheets content'
+  - 'edit own image media'
+  - 'edit own meta_data content'
+  - 'edit own transparency_maps content'
   - 'use text format some_html'
+  - 'view aerial_photos revisions'
+  - 'view any image media revisions'
+  - 'view cadastral_map revisions'
+  - 'view district_map revisions'
+  - 'view field_books revisions'
+  - 'view forest_boundary_plan revisions'
+  - 'view forest_reserve revisions'
+  - 'view forest_reserve_boundary revisions'
+  - 'view historical_sheets revisions'
+  - 'view meta_data revisions'
+  - 'view transparency_maps revisions'
